@@ -6,7 +6,50 @@
         xmlns:local="clr-namespace:Dungeons_n_Dragons_Manager"
         mc:Ignorable="d"
         Title="Dungeons and Dragons Manager" Height="450" Width="800">
+
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Column="0"
+                  Grid.Row="0">
+            <MenuItem Header="About"/>
+        </Menu>
+
+        <Border Grid.Row="1" Padding="10">
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TabControl Grid.Column="0"
+                        Grid.Row="0">
+
+                    <TabItem Header="Dice Roll">
+                    </TabItem>
+
+                    <TabItem Header="Characters">
+                    </TabItem>
+
+                    <TabItem Header="Encounters">
+                    </TabItem>
+
+                </TabControl>
+
+            </Grid>
+        </Border>
+
     </Grid>
+
 </Window>
