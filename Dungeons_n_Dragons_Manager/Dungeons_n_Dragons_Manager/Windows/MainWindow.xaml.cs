@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dungeons_n_Dragons_Manager.Viewmodels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Dungeons_n_Dragons_Manager
+namespace Dungeons_n_Dragons_Manager.Windows
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -22,6 +23,7 @@ namespace Dungeons_n_Dragons_Manager
     {
         public MainWindow()
         {
+            this.DataContext = new MainWindowViewmodel(); //Initialize viewmodel.
             InitializeComponent();
         }
     }
