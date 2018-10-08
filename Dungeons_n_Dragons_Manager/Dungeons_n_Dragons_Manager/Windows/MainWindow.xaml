@@ -22,7 +22,7 @@
             <MenuItem Header="About"/>
         </Menu>
 
-        <Border Grid.Row="1" Padding="10">
+        <Border Grid.Row="1" Padding="5">
             
             <Grid>
                 <Grid.RowDefinitions>
