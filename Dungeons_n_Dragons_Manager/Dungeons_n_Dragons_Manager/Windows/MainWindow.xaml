@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dungeons_n_Dragons_Manager"
         mc:Ignorable="d"
-        Title="Dungeons and Dragons Manager" Height="450" Width="800">
+        Title="Dungeons and Dragons Manager" Height="450" Width="800"
+        Icon="../Assets/Icon.ico">
 
     <Grid>
         <Grid.ColumnDefinitions>
