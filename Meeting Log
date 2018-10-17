@@ -1,0 +1,12 @@
+10/17/18
+In class, all members present except Austin
+Talked about features required for prototype:
+  Dice Roller (bunty): user can choose type of dice to roll, amount of dice, and see the results
+  Character Manager (?): user can add and characters
+  Encounters (?): function to generate random monster encounters by searching monster manual
+ 
+Documentation:
+  Class diagram - Seth
+  State diagram - Bunty
+  Use Case Diagram - Mckenna
+  Gantt chart - Blake
