@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dungeons_n_Dragons_Manager.Properties
-{
-
-
+namespace Dungeons_n_Dragons_Manager.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -19,52 +19,58 @@ namespace Dungeons_n_Dragons_Manager.Properties
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Dungeons_n_Dragons_Manager.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name;ChallengeRating;ChallengeXP;ACType;AC;STR;STRMod;DEX;DEXMod;CON;CONMod;INT;INTMod;WIS;WISMod;CHA;CHAMod;HPDice;HP
+        ///Adult Red Dragon;17;18000;natural armor;19;27;8;10;0;25;7;16;3;13;1;21;5;19d12 + 133;256
+        ///Stone Golem;10;5900;natural armor;17;22;6;9;-1;20;5;3;-4;11;0;1;-5;17d10 + 85;178
+        ///Fire Giant;9;5000;plate;18;25;7;9;-1;23;6;10;0;14;2;13;1;13d12 + 78;162
+        ///Hydra;8;3900;natural armor;15;20;5;12;1;20;5;2;-4;10;0;7;-2;15d12 + 75;172
+        ///Frost Giant;8;3900;patchwork armor;15;23;6;9;-1;21;5;9;-1;10;0;12;1;12 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Monsters {
+            get {
+                return ResourceManager.GetString("Monsters", resourceCulture);
             }
         }
     }
