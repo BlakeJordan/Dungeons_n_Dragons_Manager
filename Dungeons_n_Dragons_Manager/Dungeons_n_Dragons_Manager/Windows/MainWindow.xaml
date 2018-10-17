@@ -43,7 +43,35 @@
                     <TabItem Header="Characters">
                     </TabItem>
 
-                    <TabItem Header="Encounters">
+                    <TabItem Header="Encounters" DataContext="{Binding EncountersTabViewmodel}">
+                        <Border Padding="5">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Border Grid.Column="0" Grid.Row="0"
+                                        Padding="2.5">
+                                    <Button Content="Random Encounter"
+                                            Command="{Binding ChooseRandomEncounter}"/>
+                                </Border>
+
+                                <Border Grid.Column="0" Grid.Row="1"
+                                        Padding="2.5">
+                                    <ComboBox ItemsSource="{Binding CollectionOfMonsters}"
+                                              SelectedItem="{Binding SelectedMonster}"
+                                              DisplayMemberPath="Name"/>
+                                </Border>
+
+                            </Grid>
+                        </Border>
                     </TabItem>
 
                 </TabControl>

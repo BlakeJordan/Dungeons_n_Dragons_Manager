@@ -83,6 +83,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\Monster.cs" />
+    <Compile Include="Tools\CommandHandler.cs" />
+    <Compile Include="Viewmodels\EncountersTabViewmodel.cs" />
     <Compile Include="Viewmodels\MainWindowViewmodel.cs" />
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
