@@ -1,0 +1,5 @@
+Prototype Requirements:
+Add Characters - should be able to set Stats, Spells/Abilities, equipment, proficiencies, hp, xp, level, class, and race for all players
+Dice Rolling - should be able to roll a reasonal number of dice a reasonal number of times and see results
+Monster Manual - should be able to find all monsters and all stats of monsters
+Encounters - should be able to generate random monsters
