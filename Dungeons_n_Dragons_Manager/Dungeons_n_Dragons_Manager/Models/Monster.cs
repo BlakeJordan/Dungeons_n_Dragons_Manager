@@ -17,7 +17,7 @@ namespace Dungeons_n_Dragons_Manager.Models
 
             if (string.IsNullOrEmpty(values[3]))
             {
-                ArmorClassType = "None";
+                ArmorClassType = "none";
             }
             else
             {

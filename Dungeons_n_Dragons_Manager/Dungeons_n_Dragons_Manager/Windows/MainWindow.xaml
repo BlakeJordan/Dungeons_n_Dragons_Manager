@@ -72,12 +72,118 @@
                                     <Border Padding="5">
                                         <Grid>
                                             <Grid.ColumnDefinitions>
-                                                
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
 
                                             <Grid.RowDefinitions>
-                                                
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
                                             </Grid.RowDefinitions>
+
+                                            <StackPanel Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center">
+                                                <TextBlock Text="Challenge"
+                                                               FontSize="14"
+                                                               FontWeight="DemiBold"
+                                                               HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding SelectedMonster.ChallengeRating, StringFormat='Rating: {0}'}"
+                                                               HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding SelectedMonster.ChallengeXP, StringFormat='XP: {0}'}"
+                                                               HorizontalAlignment="Center"/>
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">
+                                                <TextBlock Text="Armor"
+                                                               FontSize="14"
+                                                               FontWeight="DemiBold"
+                                                               HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding SelectedMonster.ArmorClassType, StringFormat='Type: {0}'}"
+                                                               HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding SelectedMonster.ArmorClass, StringFormat='Class: {0}'}"
+                                                               HorizontalAlignment="Center"/>
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center">
+                                                <TextBlock Text="Hit Points"
+                                                               FontSize="14"
+                                                               FontWeight="DemiBold"
+                                                               HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding SelectedMonster.HitPoints, StringFormat='Amount: {0}'}"
+                                                               HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding SelectedMonster.HitPointsDice, StringFormat='Dice: {0}'}"
+                                                               HorizontalAlignment="Center"/>
+                                            </StackPanel>
+
+                                            <Separator Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1"/>
+
+
+                                            <StackPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center">
+                                                <TextBlock Text="Strength"
+                                                               FontSize="14"
+                                                               FontWeight="DemiBold"
+                                                               HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding SelectedMonster.Strength, StringFormat='Rating: {0}'}"/>
+                                                <TextBlock Text="{Binding SelectedMonster.StrengthMod, StringFormat='Modifier: {0}'}"/>
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center">
+                                                <TextBlock Text="Dexterity"
+                                                               FontSize="14"
+                                                               FontWeight="DemiBold"
+                                                               HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding SelectedMonster.Dexterity, StringFormat='Rating: {0}'}"
+                                                               HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding SelectedMonster.DexterityMod, StringFormat='Modifier: {0}'}"
+                                                               HorizontalAlignment="Center"/>
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center">
+                                                <TextBlock Text="Constitution"
+                                                               FontSize="14"
+                                                               FontWeight="DemiBold"
+                                                               HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding SelectedMonster.Constitution, StringFormat='Rating: {0}'}"
+                                                               HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding SelectedMonster.ConstitutionMod, StringFormat='Modifier: {0}'}"
+                                                               HorizontalAlignment="Center"/>
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center">
+                                                <TextBlock Text="Intelligence"
+                                                           FontSize="14"
+                                                           FontWeight="DemiBold"
+                                                           HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding SelectedMonster.Intelligence, StringFormat='Rating: {0}'}"
+                                                               HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding SelectedMonster.IntelligenceMod, StringFormat='Modifier: {0}'}"
+                                                               HorizontalAlignment="Center"/>
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center">
+                                                <TextBlock Text="Wisdom"
+                                                               FontSize="14"
+                                                               FontWeight="DemiBold"
+                                                               HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding SelectedMonster.Wisdom, StringFormat='Rating: {0}'}"
+                                                               HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding SelectedMonster.WisdomMod, StringFormat='Modifier: {0}'}"
+                                                               HorizontalAlignment="Center"/>
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center">
+                                                <TextBlock Text="Charisma"
+                                                           FontSize="14"
+                                                           FontWeight="DemiBold"
+                                                           HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding SelectedMonster.Charisma, StringFormat='Rating: {0}'}"
+                                                               HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding SelectedMonster.CharismaMod, StringFormat='Modifier: {0}'}"
+                                                               HorizontalAlignment="Center"/>
+                                            </StackPanel>
+
                                         </Grid>
                                     </Border>
                                 </GroupBox>

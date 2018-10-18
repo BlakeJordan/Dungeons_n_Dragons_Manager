@@ -17,7 +17,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             {
                 return m_encountersTabViewmodel;
             }
-            set { }
         }
 
         #endregion
