@@ -5,13 +5,14 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
 {
-    class EncountersTabViewmodel : INotifyPropertyChanged
+    /// <summary>
+    /// Viewmodel for the Encounters Tab in the Main Window.
+    /// </summary>
+    internal class EncountersTabViewmodel : INotifyPropertyChanged
     {
         //Constructor
         public EncountersTabViewmodel()
@@ -20,14 +21,17 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             parseMonstersResource();
         }
 
-        public ObservableCollection<Monster> CollectionOfMonsters{ get; set; }
+        #region Members
+
+        public ObservableCollection<Monster> CollectionOfMonsters { get; set; }
 
         private Monster m_selectedMonster;
+
         public Monster SelectedMonster
         {
             get
             {
-                if(m_selectedMonster == null)
+                if (m_selectedMonster == null)
                 {
                     m_selectedMonster = CollectionOfMonsters[0];
                 }
@@ -35,7 +39,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
             set
             {
-                if(value != m_selectedMonster)
+                if (value != m_selectedMonster)
                 {
                     m_selectedMonster = value;
                     OnPropertyRaised(nameof(SelectedMonster));
@@ -43,7 +47,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-
+        #endregion Members
 
         #region Commands
 
@@ -51,7 +55,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get { return true; } //Add check to see if characters are created later.
         }
+
         private ICommand m_chooseRandomEncounter;
+
         public ICommand ChooseRandomEncounter
         {
             get
@@ -60,7 +66,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-        #endregion
+        #endregion Commands
 
         #region Functions
 
@@ -81,11 +87,12 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             SelectedMonster = CollectionOfMonsters[randomNumberGenerator.Next(0, CollectionOfMonsters.Count - 1)]; //Chooses random index
         }
 
-        #endregion
+        #endregion Functions
 
         #region Interfaces
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void OnPropertyRaised(string propertyname)
         {
             if (PropertyChanged != null)

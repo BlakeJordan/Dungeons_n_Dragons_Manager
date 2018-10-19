@@ -1,37 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dungeons_n_Dragons_Manager.Viewmodels
+﻿namespace Dungeons_n_Dragons_Manager.Viewmodels
 {
     /// <summary>
-    /// Main 
+    /// Main
     /// </summary>
-    class MainWindowViewmodel
+    internal class MainWindowViewmodel
     {
         #region Sub Viewmodels
 
-        private EncountersTabViewmodel m_encountersTabViewmodel = new EncountersTabViewmodel();
-        public EncountersTabViewmodel EncountersTabViewmodel
-        {
-            get
-            {
-                return m_encountersTabViewmodel;
-            }
-        }
+        private DiceRollTabViewmodel m_diceRollTabViewmodel = new DiceRollTabViewmodel();
 
-        private DiceRollTabViewmodel m_diceRollTabViewModel = new DiceRollTabViewmodel();
         public DiceRollTabViewmodel DiceRollTabViewmodel
         {
-            get
-            {
-                return m_diceRollTabViewModel;
-            }
+            get { return m_diceRollTabViewmodel; }
         }
 
+        private CharactersTabViewmodel m_charactersTabViewmodel = new CharactersTabViewmodel();
 
-        #endregion
+        public CharactersTabViewmodel CharactersTabViewmodel
+        {
+            get { return m_charactersTabViewmodel; }
+        }
+
+        private EncountersTabViewmodel m_encountersTabViewmodel = new EncountersTabViewmodel();
+
+        public EncountersTabViewmodel EncountersTabViewmodel
+        {
+            get { return m_encountersTabViewmodel; }
+        }
+
+        #endregion Sub Viewmodels
     }
 }

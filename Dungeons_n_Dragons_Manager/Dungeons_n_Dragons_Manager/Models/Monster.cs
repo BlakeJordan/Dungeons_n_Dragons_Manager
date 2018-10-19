@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dungeons_n_Dragons_Manager.Models
 {
-    class Monster
+    public class Monster
     {
         public Monster(string[] values)
         {
@@ -78,6 +74,6 @@ namespace Dungeons_n_Dragons_Manager.Models
         public int Charisma { get; set; }
         public int CharismaMod { get; set; }
 
-        #endregion
+        #endregion Properties
     }
 }
