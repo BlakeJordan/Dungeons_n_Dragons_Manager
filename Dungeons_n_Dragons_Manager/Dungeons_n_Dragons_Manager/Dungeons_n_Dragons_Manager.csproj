@@ -57,6 +57,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -87,6 +89,10 @@
     <Compile Include="Models\Monster.cs" />
     <Compile Include="Tools\CommandHandler.cs" />
     <Compile Include="Viewmodels\CharactersViewmodel.cs" />
+    <Compile Include="Models\DiceBag.cs" />
+    <Compile Include="Models\Monster.cs" />
+    <Compile Include="Tools\CommandHandler.cs" />
+    <Compile Include="Viewmodels\DiceRollTabViewmodel.cs" />
     <Compile Include="Viewmodels\EncountersTabViewmodel.cs" />
     <Compile Include="Viewmodels\MainWindowViewmodel.cs" />
     <Compile Include="Windows\MainWindow.xaml.cs">
