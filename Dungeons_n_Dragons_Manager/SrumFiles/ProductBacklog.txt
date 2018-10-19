@@ -1,0 +1,15 @@
+Prototype Requirements:
+Add Characters - Stats, Spells/Abilities, equipment, proficiencies, status effects, hp, xp, leveling, class, race
+Dice Rolling - should be able to roll any die any number of times
+Monster Manual - should be able to find all monsters and all stats of monsters
+
+Final Product Requirements:
+Encounters - DM can input character levels, setting, & time of day to generate a random monster encounter
+Combat - Keeps track of hp, character abilities, & statuses during combat
+Save Campaign 
+
+Optional Features:
+Character leveling - updates stats & abilities on level up
+Custom Monsters - input new monsters with custom stats
+Map - Keep track of setting with editable map markers over an uploaded jpg
+
