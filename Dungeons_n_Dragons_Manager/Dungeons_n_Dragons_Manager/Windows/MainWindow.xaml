@@ -37,7 +37,57 @@
                 <TabControl Grid.Column="0"
                         Grid.Row="0">
 
-                    <TabItem Header="Dice Roll">
+                    <TabItem Header="Dice Roll" DataContext="{Binding DiceRollTabViewmodel}">
+                        <Border Padding="5">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Border Grid.Column="0" Grid.Row="0"
+                                        Padding="2.5">
+                                    <StackPanel>
+                                        <DataGridColumnHeader Content="Choose which dice to roll:" />
+                                        <CheckBox x:Name="D4" Content="D4" Margin="24,2,0,0" />
+                                        <CheckBox x:Name="D6" Content="D6" Margin="24,2,0,0" />
+                                        <CheckBox x:Name="D8" Content="D8" Margin="24,2,0,0"/>
+                                        <CheckBox x:Name="D10" Content="D10" Margin="24,2,0,0" />
+                                        <CheckBox x:Name="D12" Content="D12" Margin="24,2,0,0"/>
+                                        <CheckBox x:Name="D20" Content="D20" Margin="24,2,0,0"/>
+                                        <CheckBox x:Name="D100" Content="D100" Margin="24,2,0,0"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Grid.Column="0" Grid.Row="1" Padding="2.5">
+                                    <Button Content="Roll" Command="{Binding Click}"  Height="24" Margin="67.6,5.6,38.4,166.4" Width="50"/>
+                                </Border>
+
+                                <Border Grid.Column="1" Grid.Row="0" Padding="3.5">
+                                    <StackPanel>
+                                        <DataGridColumnHeader Content="How many dice do you want to roll?" />
+                                        <TextBox x:Name="D4Input"  Height="15" Width="40" Margin="0,2,0,0" Text="{Binding Path=D4Input, UpdateSourceTrigger=PropertyChanged}" />
+                                        <TextBox x:Name="D6Input"  Height="15" Width="40" Margin="0,2,0,0" Text="{Binding Path=D6Input, UpdateSourceTrigger=PropertyChanged}" />
+                                        <TextBox x:Name="D8Input"  Height="15" Width="40" Margin="0,2,0,0" Text="{Binding Path=D8Input, UpdateSourceTrigger=PropertyChanged}" />
+                                        <TextBox x:Name="D10Input"  Height="15" Width="40" Margin="0,2,0,0" Text="{Binding Path=D10Input, UpdateSourceTrigger=PropertyChanged}" />
+                                        <TextBox x:Name="D12Input"  Height="15" Width="40" Margin="0,2,0,0" Text="{Binding Path=D12Input, UpdateSourceTrigger=PropertyChanged}" />
+                                        <TextBox x:Name="D20Input" Height="15" Width="40" Margin="0,2,0,0" Text="{Binding Path=D20Input, UpdateSourceTrigger=PropertyChanged}" />
+                                        <TextBox x:Name="D100Input"  Height="15" Width="40" Margin="0,2,0,0" Text="{Binding Path=D100Input, UpdateSourceTrigger=PropertyChanged}" />
+                                       </StackPanel>
+                                </Border>
+
+                                <Border Grid.Column="1" Grid.Row="1" Padding="2.5">
+                                    <TextBlock x:Name="Result" Text="{Binding rolls}"/>
+                                </Border>
+
+
+                            </Grid>
+                        </Border>
                     </TabItem>
 
                     <TabItem Header="Characters">

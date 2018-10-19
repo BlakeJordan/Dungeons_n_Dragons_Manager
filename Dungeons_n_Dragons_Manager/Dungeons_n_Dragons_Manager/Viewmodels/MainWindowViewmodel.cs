@@ -20,6 +20,16 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             set { }
         }
 
+        private DiceRollTabViewmodel m_diceRollTabViewModel = new DiceRollTabViewmodel();
+        public DiceRollTabViewmodel DiceRollTabViewmodel
+        {
+            get
+            {
+                return m_diceRollTabViewModel;
+            }
+        }
+
+
         #endregion
     }
 }
