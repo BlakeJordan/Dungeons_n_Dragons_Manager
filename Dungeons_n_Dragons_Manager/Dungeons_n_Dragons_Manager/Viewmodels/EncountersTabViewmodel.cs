@@ -15,7 +15,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
     internal class EncountersTabViewmodel : INotifyPropertyChanged
     {
         /// <summary>
-        /// Constructor which calls parseMonsterResource.
+        /// This constructor calls parseMonsterResource.
         /// @Pre: None.
         /// @Post: CollectionOfMonsters is filled.
         /// </summary>
