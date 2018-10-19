@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dungeons_n_Dragons_Manager.Models
 {
-    class DiceBag : INotifyPropertyChanged
+    internal class DiceBag : INotifyPropertyChanged
     {
         private Random rng;
+
         public DiceBag()
         {
             rng = new Random();
@@ -20,19 +18,18 @@ namespace Dungeons_n_Dragons_Manager.Models
         private List<string> Roll(int dice, int times)
         {
             List<string> rolls = new List<string>();
-            for(int i = 0; i < times; i++)
+            for (int i = 0; i < times; i++)
             {
                 rolls.Add((1 + rng.Next(dice)).ToString());
             }
             return rolls;
-            
         }
 
         public List<List<string>> RollMultiple(int[] times)
         {
             List<List<string>> rollList = new List<List<string>>();
-            if(times[0] != 0) { rollList.Add(Roll((int)4, times[0])); }
-            if(times[1] != 0) { rollList.Add(Roll((int)6, times[1])); }
+            if (times[0] != 0) { rollList.Add(Roll((int)4, times[0])); }
+            if (times[1] != 0) { rollList.Add(Roll((int)6, times[1])); }
             if (times[2] != 0) { rollList.Add(Roll((int)8, times[2])); }
             if (times[3] != 0) { rollList.Add(Roll((int)10, times[3])); }
             if (times[4] != 0) { rollList.Add(Roll((int)12, times[4])); }
@@ -44,6 +41,7 @@ namespace Dungeons_n_Dragons_Manager.Models
         #region Interfaces
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void OnPropertyRaised(string propertyname)
         {
             if (PropertyChanged != null)
@@ -51,6 +49,7 @@ namespace Dungeons_n_Dragons_Manager.Models
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
             }
         }
+
         #endregion Interfaces
     }
 }

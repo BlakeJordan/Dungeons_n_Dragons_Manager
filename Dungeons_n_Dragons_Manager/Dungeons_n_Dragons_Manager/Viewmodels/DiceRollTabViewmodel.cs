@@ -1,25 +1,22 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
 using DungeonsDungeons_n_Dragons_Manager.Tools;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
 {
-    class DiceRollTabViewmodel : INotifyPropertyChanged
+    internal class DiceRollTabViewmodel : INotifyPropertyChanged
     {
         private DiceBag bag { get; set; }
+
         public DiceRollTabViewmodel()
         {
             bag = new DiceBag();
         }
 
         private int m_D4Input;
+
         public int D4Input
         {
             get
@@ -28,7 +25,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
             set
             {
-                if(value != m_D4Input)
+                if (value != m_D4Input)
                 {
                     m_D4Input = value;
                     OnPropertyRaised(nameof(D4Input));
@@ -37,6 +34,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         private int m_D6Input;
+
         public int D6Input
         {
             get
@@ -54,6 +52,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         private int m_D8Input;
+
         public int D8Input
         {
             get
@@ -71,6 +70,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         private int m_D10Input;
+
         public int D10Input
         {
             get
@@ -88,6 +88,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         private int m_D12Input;
+
         public int D12Input
         {
             get
@@ -105,6 +106,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         private int m_D20Input;
+
         public int D20Input
         {
             get
@@ -122,6 +124,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         private int m_D100Input;
+
         public int D100Input
         {
             get
@@ -141,11 +144,12 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private int[] rollTimes { get; set; }
 
         private string m_Rolls;
+
         public string rolls
         {
             get
             {
-                if(m_Rolls == null)
+                if (m_Rolls == null)
                 {
                     m_Rolls = "Your rolls will appear here.";
                 }
@@ -161,16 +165,15 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-
         private void roll_button_click()
         {
             rollTimes = new int[] { D4Input, D6Input, D8Input, D10Input, D12Input, D20Input, D100Input };
-            string rollstemp = "rolls: \n"; 
+            string rollstemp = "rolls: \n";
             List<List<string>> temp = bag.RollMultiple(rollTimes);
-            foreach(List<string> roll in temp)
+            foreach (List<string> roll in temp)
             {
                 rollstemp += "\n";
-                foreach(string num in roll)
+                foreach (string num in roll)
                 {
                     rollstemp += num + " ";
                 }
@@ -178,14 +181,15 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             rolls = rollstemp;
         }
 
-
         #region Commands
 
         private bool m_canClick
         {
             get { return true; }
         }
+
         private ICommand m_Click;
+
         public ICommand Click
         {
             get
@@ -194,11 +198,12 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-        #endregion
+        #endregion Commands
 
         #region Interfaces
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void OnPropertyRaised(string propertyname)
         {
             if (PropertyChanged != null)
@@ -206,6 +211,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
             }
         }
+
         #endregion Interfaces
     }
 }

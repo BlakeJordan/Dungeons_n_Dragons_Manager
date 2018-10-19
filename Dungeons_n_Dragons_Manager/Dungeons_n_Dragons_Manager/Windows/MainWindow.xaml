@@ -39,23 +39,19 @@
 
                 <TabControl Grid.Row="0" Grid.Column="0">
 
-                    <TabItem DataContext="{Binding CharactersViewModel}" Header="Characters">
-                        <Controls:CharactersTabControl/>
+                    <TabItem DataContext="{Binding CharactersTabViewmodel}" Header="Characters">
+                        <Controls:CharactersTabControl />
                     </TabItem>
 
                     <TabItem DataContext="{Binding DiceRollTabViewmodel}" Header="Dice Roll">
-                        <Controls:DiceRollTabControl/>
+                        <Controls:DiceRollTabControl />
                     </TabItem>
 
                     <TabItem DataContext="{Binding EncountersTabViewmodel}" Header="Encounters">
-                        <Controls:EncountersTabControl/>
+                        <Controls:EncountersTabControl />
                     </TabItem>
-
                 </TabControl>
-
             </Grid>
         </Border>
-
     </Grid>
-
 </Window>
