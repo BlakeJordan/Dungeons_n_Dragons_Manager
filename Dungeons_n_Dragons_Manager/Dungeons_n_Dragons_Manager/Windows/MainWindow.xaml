@@ -117,7 +117,8 @@
                                                                HorizontalAlignment="Center"/>
                                             </StackPanel>
 
-                                            <Separator Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1"/>
+                                            <Separator Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1"
+                                                       Margin="0,0,0,15"/>
 
 
                                             <StackPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center">

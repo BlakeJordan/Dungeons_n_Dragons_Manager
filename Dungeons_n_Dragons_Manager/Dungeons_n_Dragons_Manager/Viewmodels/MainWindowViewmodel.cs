@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
 {
+    /// <summary>
+    /// Main 
+    /// </summary>
     class MainWindowViewmodel
     {
         #region Sub Viewmodels
