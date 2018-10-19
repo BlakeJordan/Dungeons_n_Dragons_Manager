@@ -85,6 +85,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\Character.cs" />
+    <Compile Include="Models\Monster.cs" />
+    <Compile Include="Tools\CommandHandler.cs" />
+    <Compile Include="Viewmodels\CharactersViewmodel.cs" />
     <Compile Include="Models\DiceBag.cs" />
     <Compile Include="Models\Monster.cs" />
     <Compile Include="Tools\CommandHandler.cs" />
