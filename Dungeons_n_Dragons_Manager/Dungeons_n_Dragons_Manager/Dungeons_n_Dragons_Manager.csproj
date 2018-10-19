@@ -90,8 +90,6 @@
     <Compile Include="Tools\CommandHandler.cs" />
     <Compile Include="Viewmodels\CharactersViewmodel.cs" />
     <Compile Include="Models\DiceBag.cs" />
-    <Compile Include="Models\Monster.cs" />
-    <Compile Include="Tools\CommandHandler.cs" />
     <Compile Include="Viewmodels\DiceRollTabViewmodel.cs" />
     <Compile Include="Viewmodels\EncountersTabViewmodel.cs" />
     <Compile Include="Viewmodels\MainWindowViewmodel.cs" />
