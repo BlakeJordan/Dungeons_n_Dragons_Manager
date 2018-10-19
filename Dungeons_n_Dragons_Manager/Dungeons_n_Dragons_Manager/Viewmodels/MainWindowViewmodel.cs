@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
 {
+    /// <summary>
+    /// Main 
+    /// </summary>
     class MainWindowViewmodel
     {
         #region Sub Viewmodels
@@ -17,7 +20,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             {
                 return m_encountersTabViewmodel;
             }
-            set { }
         }
 
         private DiceRollTabViewmodel m_diceRollTabViewModel = new DiceRollTabViewmodel();

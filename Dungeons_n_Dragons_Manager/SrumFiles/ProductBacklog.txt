@@ -6,6 +6,7 @@ Monster Manual - should be able to find all monsters and all stats of monsters
 Final Product Requirements:
 Encounters - DM can input character levels, setting, & time of day to generate a random monster encounter
 Combat - Keeps track of hp, character abilities, & statuses during combat
+Save Campaign 
 
 Optional Features:
 Character leveling - updates stats & abilities on level up
