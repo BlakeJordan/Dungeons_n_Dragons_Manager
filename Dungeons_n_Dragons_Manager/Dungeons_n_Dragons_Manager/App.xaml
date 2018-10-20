@@ -4,6 +4,5 @@
              xmlns:local="clr-namespace:Dungeons_n_Dragons_Manager"
              StartupUri="Windows/MainWindow.xaml">
     <Application.Resources>
-         
     </Application.Resources>
 </Application>
