@@ -7,21 +7,36 @@ using System.Windows.Input;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
 {
+    /// <summary>
+    /// Viewmodel for the characters tab
+    /// </summary>
     internal class CharactersTabViewmodel
     {
-        //Constructor
+        /// <summary>
+        /// Constructor for the characters tab viewmodel
+        /// @Pre: None
+        /// @Post: Creates a new Collection of Characters
+        /// </summary>
         public CharactersTabViewmodel()
         {
             Characters = new ObservableCollection<Character>();
-            // parseMonstersResource();
         }
 
         #region Members
 
+        /// <summary>
+        /// The collection of all existing characters
+        /// </summary>
         public static ObservableCollection<Character> Characters { get; set; }
 
+        /// <summary>
+        /// The currently selected character from the characters dropdown menu
+        /// </summary>
         public static Character m_SelectedCharacter;
-       
+
+        /// <summary>
+        /// Accessor for selecting characters
+        /// </summary>
         public Character SelectedCharacter
         {
             get
@@ -46,13 +61,24 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         #region Commands
 
+        /// <summary>
+        /// Optionally checks if a character can be created or not
+        /// </summary>
         private bool m_canCreateCharacter
         {
             get { return true; } //Potentially add check to see if maximum number of characters has been reached later.
         }
 
+        /// <summary>
+        /// Command for creating new characters
+        /// </summary>
         private ICommand m_createCharacter;
 
+        /// <summary>
+        /// Creates a charatcer, but only if allowed
+        /// @Pre: m_canCreateCharacter returns true
+        /// @Post: A character is created
+        /// </summary>
         public ICommand CreateCharacter
         {
             get
@@ -82,6 +108,12 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         #region Interfaces
 
+        /// <summary>
+        /// Private function which updates the UI's binding value to the current value.
+        /// @Pre: Private backing value has been changed.
+        /// @Post: UI now reflects current value.
+        /// </summary>
+        /// <param name="propertyname">Name of property to update to UI.</param>
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyRaised(string propertyname)
