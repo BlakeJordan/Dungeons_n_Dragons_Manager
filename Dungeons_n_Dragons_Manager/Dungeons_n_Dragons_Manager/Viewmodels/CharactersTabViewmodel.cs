@@ -101,7 +101,10 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             Character newCharacter = new Character(); //Create blank character.
             CreateCharacterWindow createCharacterWindow = new CreateCharacterWindow(ref newCharacter); //Pass character to window by reference to be modified.
             createCharacterWindow.ShowDialog(); //Open window instance until closed.
-            Characters.Add(newCharacter); //Add modified character to collection.
+            if(createCharacterWindow.SaveCharacter)
+            {
+                Characters.Add(newCharacter); //Add modified character to collection.
+            }
         }
 
         #endregion Functions
