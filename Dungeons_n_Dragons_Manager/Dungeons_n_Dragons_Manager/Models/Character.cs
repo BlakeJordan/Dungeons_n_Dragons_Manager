@@ -8,6 +8,11 @@ namespace Dungeons_n_Dragons_Manager.Models
         {
         }
 
+        private void SaveCharacter()
+        {
+
+        }
+
         public string Name { get; set; }
         public string ArmorType { get; set; }
         public int Level { get; set; }

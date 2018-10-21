@@ -18,10 +18,10 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         #region Members
 
-        public ObservableCollection<Character> Characters { get; set; }
+        public static ObservableCollection<Character> Characters { get; set; }
 
-        private Character m_SelectedCharacter;
-
+        public static Character m_SelectedCharacter;
+       
         public Character SelectedCharacter
         {
             get
@@ -70,7 +70,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// @pre: "Create Character" button has been clicked.
         /// @post: A new character has been created.
         /// </summary>
-        private void createNewCharacter()
+        public void createNewCharacter()
         {
             Character newCharacter = new Character(); //Create blank character.
             CreateCharacterWindow createCharacterWindow = new CreateCharacterWindow(ref newCharacter); //Pass character to window by reference to be modified.
