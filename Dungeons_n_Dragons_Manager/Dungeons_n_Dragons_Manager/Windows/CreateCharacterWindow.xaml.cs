@@ -19,5 +19,7 @@ namespace Dungeons_n_Dragons_Manager.Windows
             this.DataContext = new CreateCharacterWindowViewmodel(ref character); //Initialize viewmodel.
             InitializeComponent();
         }
+
+        public bool saveCharacter { get; set; }
     }
 }
