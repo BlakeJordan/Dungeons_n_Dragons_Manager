@@ -201,9 +201,16 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         #endregion Commands
 
         #region Interfaces
-
+        /// <summary>
+        /// Public instance of PropertyChanged event.
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
-
+        /// <summary>
+        /// Private function which updates the UI's binding value to the current value.
+        /// @Pre: Private backing value has been changed.
+        /// @Post: UI now reflects current value.
+        /// </summary>
+        /// <param name="propertyname">Name of property to update to UI.</param>
         private void OnPropertyRaised(string propertyname)
         {
             if (PropertyChanged != null)
