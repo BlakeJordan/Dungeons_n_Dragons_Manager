@@ -1,6 +1,6 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
-using Dungeons_n_Dragons_Manager.Windows;
 using Dungeons_n_Dragons_Manager.Tools;
+using Dungeons_n_Dragons_Manager.Windows;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
@@ -14,9 +14,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
     {
         /// <summary>
         /// This constructor initializes a collection of characters
-        /// 
+        ///
         /// Pre: None.
-        /// 
+        ///
         /// Post: CollectionOfCharacter is intialized.
         /// </summary>
         public CharactersTabViewmodel()
@@ -25,6 +25,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         #region Members
+
         /// <summary>
         /// ObservableCollection of Characters which is bound to the combobox.
         /// </summary>
@@ -61,6 +62,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         #endregion Members
 
         #region Commands
+
         /// <summary>
         /// Boolean which determines if CreateCharacter can be executed.
         /// </summary>
@@ -91,9 +93,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         /// <summary>
         /// Creates a new character and passes it by reference to an instance of CreateCharacterWindow to be edited.
-        /// 
+        ///
         /// Pre: "Create Character" button has been clicked.
-        /// 
+        ///
         /// Post: A new character has been created.
         /// </summary>
         public void createNewCharacter()
@@ -101,7 +103,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             Character newCharacter = new Character(); //Create blank character.
             CreateCharacterWindow createCharacterWindow = new CreateCharacterWindow(ref newCharacter); //Pass character to window by reference to be modified.
             createCharacterWindow.ShowDialog(); //Open window instance until closed.
-            if(createCharacterWindow.SaveCharacter)
+            if (createCharacterWindow.SaveCharacter)
             {
                 Characters.Add(newCharacter); //Add modified character to collection.
             }
@@ -118,9 +120,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         /// <summary>
         /// Private function which updates the UI's binding value to the current value.
-        /// 
+        ///
         /// Pre: Private backing value has been changed.
-        /// 
+        ///
         /// Post: UI now reflects current value.
         /// </summary>
         /// <param name="propertyname">Name of property to update to UI.</param>

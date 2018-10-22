@@ -11,6 +11,7 @@
         /// Viewmodel for the Dice Roll Tab.
         /// </summary>
         private DiceRollTabViewmodel m_diceRollTabViewmodel = new DiceRollTabViewmodel();
+
         /// <summary>
         /// Public accessor for m_diceRollTabViewmodel.
         /// </summary>

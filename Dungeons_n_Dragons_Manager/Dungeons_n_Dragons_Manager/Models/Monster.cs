@@ -61,6 +61,7 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// Represents the challenge rating.
         /// </summary>
         public int ChallengeRating { get; set; }
+
         /// <summary>
         /// Represents the challenge XP.
         /// </summary>
@@ -70,6 +71,7 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// Represents the the armor class type.
         /// </summary>
         public string ArmorClassType { get; set; }
+
         /// <summary>
         /// Represents the armor class.
         /// </summary>
@@ -79,6 +81,7 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// Represents the hit points.
         /// </summary>
         public int HitPoints { get; set; }
+
         /// <summary>
         /// Represents the hit points dice.
         /// </summary>
@@ -88,6 +91,7 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// Represents the strength rating.
         /// </summary>
         public int Strength { get; set; }
+
         /// <summary>
         /// Represents the strength modifier.
         /// </summary>
@@ -97,15 +101,17 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// Represents the dexterity rating.
         /// </summary>
         public int Dexterity { get; set; }
+
         /// <summary>
         /// Represents the dexterity modifier.
         /// </summary>
         public int DexterityMod { get; set; }
-        
+
         /// <summary>
         /// Represents the constitution rating.
         /// </summary>
         public int Constitution { get; set; }
+
         /// <summary>
         /// Represents the constitution modifier.
         /// </summary>
@@ -115,6 +121,7 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// Represents the intelligence rating.
         /// </summary>
         public int Intelligence { get; set; }
+
         /// <summary>
         /// Represents the intelligence modifier.
         /// </summary>
@@ -124,6 +131,7 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// Represents the widsom rating.
         /// </summary>
         public int Wisdom { get; set; }
+
         /// <summary>
         /// Represents the widsom modifier.
         /// </summary>
@@ -133,6 +141,7 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// Represents the charisma rating.
         /// </summary>
         public int Charisma { get; set; }
+
         /// <summary>
         /// Represents the charisma modifier.
         /// </summary>

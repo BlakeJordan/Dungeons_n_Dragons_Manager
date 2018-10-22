@@ -64,7 +64,7 @@
                     Width="140"
                     Margin="2.5,0,0,0"
                     ItemsSource="{Binding Races}"
-                    SelectedItem="{Binding newCharacter.Race}"/>
+                    SelectedItem="{Binding newCharacter.Race}" />
             </StackPanel>
 
             <StackPanel
@@ -80,7 +80,7 @@
                     Width="140"
                     Margin="2.5,0,0,0"
                     ItemsSource="{Binding Classes}"
-                    SelectedItem="{Binding newCharacter.Class}"/>
+                    SelectedItem="{Binding newCharacter.Class}" />
             </StackPanel>
 
             <StackPanel
@@ -96,7 +96,7 @@
                     Width="140"
                     Margin="2.5,0,0,0"
                     ItemsSource="{Binding ArmorTypes}"
-                    SelectedItem="{Binding newCharacter.ArmorType}"/>
+                    SelectedItem="{Binding newCharacter.ArmorType}" />
             </StackPanel>
 
             <StackPanel
@@ -204,4 +204,3 @@
         </Grid>
     </Border>
 </Window>
-
