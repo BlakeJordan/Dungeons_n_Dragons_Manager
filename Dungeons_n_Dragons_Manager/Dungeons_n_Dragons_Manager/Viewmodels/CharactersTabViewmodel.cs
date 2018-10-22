@@ -7,21 +7,35 @@ using System.Windows.Input;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
 {
+    /// <summary>
+    /// Viewmodel for the Characters Tab in the Main Window.
+    /// </summary>
     internal class CharactersTabViewmodel
     {
-        //Constructor
+        /// <summary>
+        /// This constructor calls parseMonsterResource.
+        /// @Pre: None.
+        /// @Post: CollectionOfCharacter is intialized.
+        /// </summary>
         public CharactersTabViewmodel()
         {
             Characters = new ObservableCollection<Character>();
-            // parseMonstersResource();
         }
 
         #region Members
-
+        /// <summary>
+        /// ObservableCollection of Characters which is bound to the combobox.
+        /// </summary>
         public static ObservableCollection<Character> Characters { get; set; }
 
+        /// <summary>
+        /// Private backing to store the currently selected character in the combobox.
+        /// </summary>
         public static Character m_SelectedCharacter;
-       
+
+        /// <summary>
+        /// Public facing accessor to m_selectedCharacter.
+        /// </summary>
         public Character SelectedCharacter
         {
             get
@@ -45,14 +59,22 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         #endregion Members
 
         #region Commands
-
+        /// <summary>
+        /// Boolean which determines if CreateCharacter can be executed.
+        /// </summary>
         private bool m_canCreateCharacter
         {
             get { return true; } //Potentially add check to see if maximum number of characters has been reached later.
         }
 
+        /// <summary>
+        /// Command binded to the "create character" button which calls createCharacter if m_canCreateCharacter is true.
+        /// </summary>
         private ICommand m_createCharacter;
 
+        /// <summary>
+        /// Public facing accessor to m_createCharacter.
+        /// </summary>
         public ICommand CreateCharacter
         {
             get
@@ -85,8 +107,17 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         #region Interfaces
 
+        /// <summary>
+        /// Public instance of PropertyChanged event.
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Private function which updates the UI's binding value to the current value.
+        /// @Pre: Private backing value has been changed.
+        /// @Post: UI now reflects current value.
+        /// </summary>
+        /// <param name="propertyname">Name of property to update to UI.</param>
         private void OnPropertyRaised(string propertyname)
         {
             if (PropertyChanged != null)
