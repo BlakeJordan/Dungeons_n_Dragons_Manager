@@ -2,7 +2,9 @@
 using Dungeons_n_Dragons_Manager.Windows;
 using DungeonsDungeons_n_Dragons_Manager.Tools;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
@@ -20,77 +22,49 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// /// <param name="character">A reference to the new character</param>
         public CreateCharacterWindowViewmodel(ref Character character)
         {
-            m_newCharacter = character;
+            newCharacter = character;
+            populateDropdowns();
         }
 
         /// <summary>
         /// The new character being created
         /// </summary>
-        private Character m_newCharacter { get; set; }
-
+        public Character newCharacter { get; set; }
         /// <summary>
-        /// The current character selected
+        /// The character's options for race
         /// </summary>
-        private Character m_selectedCharacter;
-
+        public List<string> Races { get; set; }
         /// <summary>
-        /// A collection of all existing characters 
+        /// The character's options for class
         /// </summary>
-        public ObservableCollection<Character> Characters { get; set; }
-
+        public List<string> Classes { get; set; }
         /// <summary>
-        /// Handles the saving of the new created character
-        /// @Pre: The Create Character button has been clicked
-        /// @Post: Adds the new character to 
+        /// The character's options for armor
         /// </summary>
-        public void OnSaveCharacter()
+        public List<string> ArmorTypes { get; set; }
+        /// <summary>
+        /// Populates the dropdown menus for the races and classes options
+        /// @Pre: None
+        /// @Post: The dropdown menus contain selectable race and class names
+        /// </summary>
+        private void populateDropdowns()
         {
-            Console.WriteLine("AYYYY");
+            Races = Properties.Resources.Races.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            Classes = Properties.Resources.Classes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
         }
-
-        public Character SelectedCharacter
-        {
-            get
-            {
-                if (m_selectedCharacter == null)
-                {
-                    m_selectedCharacter = Characters[0];
-                }
-                return m_selectedCharacter;
-            }
-            set
-            {
-                if (value != m_selectedCharacter)
-                {
-                    m_selectedCharacter = value;
-                    OnPropertyRaised(nameof(SelectedCharacter));
-                }
-            }
-        }
-
-        #region Commands
-
-        private bool m_canClick
-        {
-            get { return true; }
-        }
-
-        private ICommand m_Click;
-
-        public ICommand Click
-        {
-            get
-            {
-                return m_Click ?? (m_Click = new CommandHandler(() => OnSaveCharacter(), m_canClick));
-            }
-        }
-
-        #endregion Commands
 
         #region Interfaces
-
+        /// <summary>
+        /// Public instance of PropertyChanged event.
+        /// </summary>
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        /// <summary>
+        /// Private function which updates the UI's binding value to the current value.
+        /// @Pre: Private backing value has been changed.
+        /// @Post: UI now reflects current value.
+        /// </summary>
+        /// <param name="propertyname">Name of property to update to UI.</param>
         private void OnPropertyRaised(string propertyname)
         {
             if (PropertyChanged != null)
