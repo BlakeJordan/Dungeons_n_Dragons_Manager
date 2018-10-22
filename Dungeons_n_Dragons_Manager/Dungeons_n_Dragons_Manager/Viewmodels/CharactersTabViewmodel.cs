@@ -13,7 +13,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
     internal class CharactersTabViewmodel
     {
         /// <summary>
-        /// This constructor calls parseMonsterResource.
+        /// This constructor initializes a collection of characters
         /// @Pre: None.
         /// @Post: CollectionOfCharacter is intialized.
         /// </summary>
