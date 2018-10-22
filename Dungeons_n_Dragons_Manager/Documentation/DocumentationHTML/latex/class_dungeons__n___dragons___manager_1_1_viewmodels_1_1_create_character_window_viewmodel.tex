@@ -1,0 +1,157 @@
+\hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel}{}\section{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Create\+Character\+Window\+Viewmodel Class Reference}
+\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel}\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Create\+Character\+Window\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Create\+Character\+Window\+Viewmodel}}
+
+
+The viewmodel for creating characters  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_ae964b05d5a56ee6d4782e6a70ae3b139}{Create\+Character\+Window\+Viewmodel}} (ref \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_character}{Character}} character)
+\begin{DoxyCompactList}\small\item\em Constructor for the create character viewmodel \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_character}{Character}} \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_a8492bbb3139e9cc1f83db8fa2ded4c13}{new\+Character}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The new character being created \end{DoxyCompactList}\item 
+List$<$ string $>$ \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_aa4ef53843ff765faf1fdf9a31228600e}{Races}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The character\textquotesingle{}s options for race \end{DoxyCompactList}\item 
+List$<$ string $>$ \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_abd1cb6298d82f24e4e4c6641b72980a6}{Classes}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The character\textquotesingle{}s options for class \end{DoxyCompactList}\item 
+List$<$ string $>$ \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_afeb10ad6ce57815ab7da89cee033b56c}{Armor\+Types}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The character\textquotesingle{}s options for armor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+System.\+Component\+Model.\+Property\+Changed\+Event\+Handler \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_a74e5264ae72105d6df9f055c6d307cff}{Property\+Changed}}
+\begin{DoxyCompactList}\small\item\em Public instance of Property\+Changed event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_a2e208684ba75cd43f211c9c5966064d1}{populate\+Dropdowns}} ()
+\begin{DoxyCompactList}\small\item\em Populates the dropdown menus for the races and classes options \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_a53f8799bcfdd43bf342dcb14d77b2f82}{On\+Property\+Raised}} (string propertyname)
+\begin{DoxyCompactList}\small\item\em Private function which updates the UI\textquotesingle{}s binding value to the current value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The viewmodel for creating characters 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_ae964b05d5a56ee6d4782e6a70ae3b139}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_ae964b05d5a56ee6d4782e6a70ae3b139}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel}!Create\+Character\+Window\+Viewmodel@{Create\+Character\+Window\+Viewmodel}}
+\index{Create\+Character\+Window\+Viewmodel@{Create\+Character\+Window\+Viewmodel}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel}}
+\subsubsection{\texorpdfstring{Create\+Character\+Window\+Viewmodel()}{CreateCharacterWindowViewmodel()}}
+{\footnotesize\ttfamily Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Create\+Character\+Window\+Viewmodel.\+Create\+Character\+Window\+Viewmodel (\begin{DoxyParamCaption}\item[{ref \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_character}{Character}}}]{character }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for the create character viewmodel 
+
+Pre\+: Create Character window has been opened
+
+Post\+: A new character is created with a reference to an existing, blank character 
+
+/// 
+\begin{DoxyParams}{Parameters}
+{\em character} & A reference to the new character\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_a53f8799bcfdd43bf342dcb14d77b2f82}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_a53f8799bcfdd43bf342dcb14d77b2f82}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel}!On\+Property\+Raised@{On\+Property\+Raised}}
+\index{On\+Property\+Raised@{On\+Property\+Raised}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel}}
+\subsubsection{\texorpdfstring{On\+Property\+Raised()}{OnPropertyRaised()}}
+{\footnotesize\ttfamily void Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Create\+Character\+Window\+Viewmodel.\+On\+Property\+Raised (\begin{DoxyParamCaption}\item[{string}]{propertyname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Private function which updates the UI\textquotesingle{}s binding value to the current value. 
+
+Pre\+: Private backing value has been changed.
+
+Post\+: UI now reflects current value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em propertyname} & Name of property to update to UI.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_a2e208684ba75cd43f211c9c5966064d1}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_a2e208684ba75cd43f211c9c5966064d1}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel}!populate\+Dropdowns@{populate\+Dropdowns}}
+\index{populate\+Dropdowns@{populate\+Dropdowns}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel}}
+\subsubsection{\texorpdfstring{populate\+Dropdowns()}{populateDropdowns()}}
+{\footnotesize\ttfamily void Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Create\+Character\+Window\+Viewmodel.\+populate\+Dropdowns (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Populates the dropdown menus for the races and classes options 
+
+Pre\+: None
+
+Post\+: The dropdown menus contain selectable race and class names 
+
+\subsection{Property Documentation}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_afeb10ad6ce57815ab7da89cee033b56c}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_afeb10ad6ce57815ab7da89cee033b56c}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel}!Armor\+Types@{Armor\+Types}}
+\index{Armor\+Types@{Armor\+Types}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel}}
+\subsubsection{\texorpdfstring{Armor\+Types}{ArmorTypes}}
+{\footnotesize\ttfamily List$<$string$>$ Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Create\+Character\+Window\+Viewmodel.\+Armor\+Types\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+The character\textquotesingle{}s options for armor 
+
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_abd1cb6298d82f24e4e4c6641b72980a6}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_abd1cb6298d82f24e4e4c6641b72980a6}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel}!Classes@{Classes}}
+\index{Classes@{Classes}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel}}
+\subsubsection{\texorpdfstring{Classes}{Classes}}
+{\footnotesize\ttfamily List$<$string$>$ Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Create\+Character\+Window\+Viewmodel.\+Classes\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+The character\textquotesingle{}s options for class 
+
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_a8492bbb3139e9cc1f83db8fa2ded4c13}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_a8492bbb3139e9cc1f83db8fa2ded4c13}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel}!new\+Character@{new\+Character}}
+\index{new\+Character@{new\+Character}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel}}
+\subsubsection{\texorpdfstring{new\+Character}{newCharacter}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_character}{Character}} Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Create\+Character\+Window\+Viewmodel.\+new\+Character\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+The new character being created 
+
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_aa4ef53843ff765faf1fdf9a31228600e}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_aa4ef53843ff765faf1fdf9a31228600e}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel}!Races@{Races}}
+\index{Races@{Races}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel}}
+\subsubsection{\texorpdfstring{Races}{Races}}
+{\footnotesize\ttfamily List$<$string$>$ Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Create\+Character\+Window\+Viewmodel.\+Races\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+The character\textquotesingle{}s options for race 
+
+
+
+\subsection{Event Documentation}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_a74e5264ae72105d6df9f055c6d307cff}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_create_character_window_viewmodel_a74e5264ae72105d6df9f055c6d307cff}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel}!Property\+Changed@{Property\+Changed}}
+\index{Property\+Changed@{Property\+Changed}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Create\+Character\+Window\+Viewmodel}}
+\subsubsection{\texorpdfstring{Property\+Changed}{PropertyChanged}}
+{\footnotesize\ttfamily System.\+Component\+Model.\+Property\+Changed\+Event\+Handler Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Create\+Character\+Window\+Viewmodel.\+Property\+Changed}
+
+
+
+Public instance of Property\+Changed event. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Seth Peterson/\+Desktop/\+School/\+E\+E\+C\+S448/\+Project3/\+Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager/\+Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager/\+Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager/\+Viewmodels/Create\+Character\+Window\+Viewmodel.\+cs\end{DoxyCompactItemize}

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace DungeonsDungeons_n_Dragons_Manager.Tools
+namespace Dungeons_n_Dragons_Manager.Tools
 {
     /// <summary>
     /// Class that handles the command routing.
@@ -28,6 +28,7 @@ namespace DungeonsDungeons_n_Dragons_Manager.Tools
         /// Represents the boolean to determine if the action can be executed.
         /// </summary>
         private bool m_canExecute;
+
         /// <summary>
         /// Public accessor for m_canExecute.
         /// </summary>
@@ -42,6 +43,7 @@ namespace DungeonsDungeons_n_Dragons_Manager.Tools
         /// Represents the action to be executed.
         /// </summary>
         private Action m_action;
+
         /// <summary>
         /// Public accessor for m_action.
         /// </summary>

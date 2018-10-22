@@ -1,11 +1,206 @@
-﻿<Window x:Class="Dungeons_n_Dragons_Manager.Windows.CreateCharacterWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:Controls="clr-namespace:Dungeons_n_Dragons_Manager.Controls"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Dungeons_n_Dragons_Manager.Windows"
-        mc:Ignorable="d"
-        Title="CreateCharacterWindow" Height="450" Width="800">
-    <Controls:CreateCharactersControl />
+﻿<Window
+    x:Class="Dungeons_n_Dragons_Manager.Windows.CreateCharacterWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="CreateCharacterWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Border Margin="0,0,0,-184.4" Padding="5">
+        <Grid Margin="0.2,0.2,0.2,175.8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+
+            <StackPanel
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Character Name" />
+                <TextBox Text="{Binding newCharacter.Name}" />
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="0"
+                Grid.Column="1"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Level" />
+                <TextBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
+                    Text="{Binding newCharacter.Level}" />
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="0"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Race" />
+                <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
+                    ItemsSource="{Binding Races}"
+                    SelectedItem="{Binding newCharacter.Race}" />
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="1"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Class" />
+                <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
+                    ItemsSource="{Binding Classes}"
+                    SelectedItem="{Binding newCharacter.Class}" />
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="2"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Armor Type" />
+                <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
+                    ItemsSource="{Binding ArmorTypes}"
+                    SelectedItem="{Binding newCharacter.ArmorType}" />
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="2"
+                Grid.Column="0"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Strength" />
+                <TextBox
+                    x:Name="Strength"
+                    Width="140"
+                    Margin="0,2,0,0"
+                    Text="{Binding Path=newCharacter.Strength, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="2"
+                Grid.Column="1"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Dexterity" />
+                <TextBox
+                    x:Name="Dexterity"
+                    Width="140"
+                    Margin="0,2,0,0"
+                    Text="{Binding Path=newCharacter.Dexterity, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="2"
+                Grid.Column="2"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Constitution" />
+                <TextBox
+                    x:Name="Constitution"
+                    Width="140"
+                    Margin="0,2,0,0"
+                    Text="{Binding Path=newCharacter.Constitution, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="3"
+                Grid.Column="0"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Intelligence" />
+                <TextBox
+                    x:Name="Intelligence"
+                    Width="140"
+                    Margin="0,2,0,0"
+                    Text="{Binding Path=newCharacter.Intelligence, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="3"
+                Grid.Column="1"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Wisdom" />
+                <TextBox
+                    x:Name="Wisdom"
+                    Width="140"
+                    Margin="0,2,0,0"
+                    Text="{Binding Path=newCharacter.Wisdom, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="3"
+                Grid.Column="2"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Charisma" />
+                <TextBox
+                    x:Name="Charisma"
+                    Width="140"
+                    Margin="0,2,0,0"
+                    Text="{Binding Path=newCharacter.Charisma, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+
+            <Button
+                Grid.Row="4"
+                Grid.Column="1"
+                Margin="60.8,76.4,61.2,-90"
+                Click="Button_Click"
+                Content="Save Character" />
+        </Grid>
+    </Border>
 </Window>

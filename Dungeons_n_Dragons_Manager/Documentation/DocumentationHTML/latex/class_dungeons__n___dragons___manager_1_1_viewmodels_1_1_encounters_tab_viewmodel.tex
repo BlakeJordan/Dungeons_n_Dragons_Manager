@@ -1,0 +1,200 @@
+\hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel}{}\section{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Encounters\+Tab\+Viewmodel Class Reference}
+\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel}\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Encounters\+Tab\+Viewmodel}}
+
+
+Viewmodel for the Encounters Tab in the Main Window.  
+
+
+Inheritance diagram for Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Encounters\+Tab\+Viewmodel\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a5aa53c0cac6c20d86a8acaba92ee56a7}{Encounters\+Tab\+Viewmodel}} ()
+\begin{DoxyCompactList}\small\item\em This constructor calls parse\+Monster\+Resource. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Observable\+Collection$<$ \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_monster}{Monster}} $>$ \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a694352ce5d43c05cf3dacc6987678062}{Collection\+Of\+Monsters}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Observable\+Collection of Monsters which is bound to the combobox. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_monster}{Monster}} \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_aff7d46c9f413602760226a2af43b1b26}{Selected\+Monster}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Public facing accessor to m\+\_\+selected\+Monster. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a88b0ac195a9d1381901bb2e0aaf9254e}{m\+\_\+can\+Choose\+Random\+Encounter}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Boolean which determines if Choose\+Random\+Encounter can be executed. \end{DoxyCompactList}\item 
+I\+Command \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a0e6a84c280a948068f81d22483ff605d}{Choose\+Random\+Encounter}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Public facing accessor to m\+\_\+choose\+Random\+Encounter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+Property\+Changed\+Event\+Handler \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_ae504409bb84e7a61e1aa653f08f01ca4}{Property\+Changed}}
+\begin{DoxyCompactList}\small\item\em Public instance of Property\+Changed event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_ac7ac82b681a22001bb3c73282726f7eb}{parse\+Monsters\+Resource}} ()
+\begin{DoxyCompactList}\small\item\em Private function that parses through the string that represents the monster data in the app resources. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a31ea129f6b42be81bbe4d002b24f0c9d}{choose\+Random\+Encounter}} ()
+\begin{DoxyCompactList}\small\item\em Private function that sets Selected\+Monster to a random monster in Collection\+Of\+Monsters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_acc4dd33d616b343c011019bcb26ddcec}{On\+Property\+Raised}} (string propertyname)
+\begin{DoxyCompactList}\small\item\em Private function which updates the UI\textquotesingle{}s binding value to the current value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_monster}{Monster}} \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a642d4b9fc418b13a9767376b6c5bae5a}{m\+\_\+selected\+Monster}}
+\begin{DoxyCompactList}\small\item\em Private backing to store the currently selected monster in the combobox. \end{DoxyCompactList}\item 
+I\+Command \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a67d74993af6d6c95004186a149c0b32c}{m\+\_\+choose\+Random\+Encounter}}
+\begin{DoxyCompactList}\small\item\em Command binded to the \char`\"{}\+Random Encounter\char`\"{} button which calls choose\+Random\+Encounter if m\+\_\+can\+Choose\+Random\+Encounter is true. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Viewmodel for the Encounters Tab in the Main Window. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a5aa53c0cac6c20d86a8acaba92ee56a7}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a5aa53c0cac6c20d86a8acaba92ee56a7}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}!Encounters\+Tab\+Viewmodel@{Encounters\+Tab\+Viewmodel}}
+\index{Encounters\+Tab\+Viewmodel@{Encounters\+Tab\+Viewmodel}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{Encounters\+Tab\+Viewmodel()}{EncountersTabViewmodel()}}
+{\footnotesize\ttfamily Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Encounters\+Tab\+Viewmodel.\+Encounters\+Tab\+Viewmodel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This constructor calls parse\+Monster\+Resource. 
+
+Pre\+: None.
+
+Post\+: Collection\+Of\+Monsters is filled. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a31ea129f6b42be81bbe4d002b24f0c9d}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a31ea129f6b42be81bbe4d002b24f0c9d}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}!choose\+Random\+Encounter@{choose\+Random\+Encounter}}
+\index{choose\+Random\+Encounter@{choose\+Random\+Encounter}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{choose\+Random\+Encounter()}{chooseRandomEncounter()}}
+{\footnotesize\ttfamily void Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Encounters\+Tab\+Viewmodel.\+choose\+Random\+Encounter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Private function that sets Selected\+Monster to a random monster in Collection\+Of\+Monsters. 
+
+Pre\+: \char`\"{}\+Random Encounter\char`\"{} button has been clicked.
+
+Post\+: Selected\+Monster has been set to a random monster. \mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_acc4dd33d616b343c011019bcb26ddcec}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_acc4dd33d616b343c011019bcb26ddcec}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}!On\+Property\+Raised@{On\+Property\+Raised}}
+\index{On\+Property\+Raised@{On\+Property\+Raised}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{On\+Property\+Raised()}{OnPropertyRaised()}}
+{\footnotesize\ttfamily void Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Encounters\+Tab\+Viewmodel.\+On\+Property\+Raised (\begin{DoxyParamCaption}\item[{string}]{propertyname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Private function which updates the UI\textquotesingle{}s binding value to the current value. 
+
+Pre\+: Private backing value has been changed.
+
+Post\+: UI now reflects current value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em propertyname} & Name of property to update to UI.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_ac7ac82b681a22001bb3c73282726f7eb}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_ac7ac82b681a22001bb3c73282726f7eb}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}!parse\+Monsters\+Resource@{parse\+Monsters\+Resource}}
+\index{parse\+Monsters\+Resource@{parse\+Monsters\+Resource}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{parse\+Monsters\+Resource()}{parseMonstersResource()}}
+{\footnotesize\ttfamily void Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Encounters\+Tab\+Viewmodel.\+parse\+Monsters\+Resource (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Private function that parses through the string that represents the monster data in the app resources. 
+
+Pre\+: None.
+
+Post\+: Collection\+Of\+Monsters has been filled. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a67d74993af6d6c95004186a149c0b32c}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a67d74993af6d6c95004186a149c0b32c}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}!m\+\_\+choose\+Random\+Encounter@{m\+\_\+choose\+Random\+Encounter}}
+\index{m\+\_\+choose\+Random\+Encounter@{m\+\_\+choose\+Random\+Encounter}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{m\+\_\+choose\+Random\+Encounter}{m\_chooseRandomEncounter}}
+{\footnotesize\ttfamily I\+Command Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Encounters\+Tab\+Viewmodel.\+m\+\_\+choose\+Random\+Encounter\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Command binded to the \char`\"{}\+Random Encounter\char`\"{} button which calls choose\+Random\+Encounter if m\+\_\+can\+Choose\+Random\+Encounter is true. 
+
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a642d4b9fc418b13a9767376b6c5bae5a}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a642d4b9fc418b13a9767376b6c5bae5a}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}!m\+\_\+selected\+Monster@{m\+\_\+selected\+Monster}}
+\index{m\+\_\+selected\+Monster@{m\+\_\+selected\+Monster}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{m\+\_\+selected\+Monster}{m\_selectedMonster}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_monster}{Monster}} Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Encounters\+Tab\+Viewmodel.\+m\+\_\+selected\+Monster\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Private backing to store the currently selected monster in the combobox. 
+
+
+
+\subsection{Property Documentation}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a0e6a84c280a948068f81d22483ff605d}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a0e6a84c280a948068f81d22483ff605d}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}!Choose\+Random\+Encounter@{Choose\+Random\+Encounter}}
+\index{Choose\+Random\+Encounter@{Choose\+Random\+Encounter}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{Choose\+Random\+Encounter}{ChooseRandomEncounter}}
+{\footnotesize\ttfamily I\+Command Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Encounters\+Tab\+Viewmodel.\+Choose\+Random\+Encounter\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Public facing accessor to m\+\_\+choose\+Random\+Encounter. 
+
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a694352ce5d43c05cf3dacc6987678062}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a694352ce5d43c05cf3dacc6987678062}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}!Collection\+Of\+Monsters@{Collection\+Of\+Monsters}}
+\index{Collection\+Of\+Monsters@{Collection\+Of\+Monsters}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{Collection\+Of\+Monsters}{CollectionOfMonsters}}
+{\footnotesize\ttfamily Observable\+Collection$<$\mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_monster}{Monster}}$>$ Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Encounters\+Tab\+Viewmodel.\+Collection\+Of\+Monsters\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Observable\+Collection of Monsters which is bound to the combobox. 
+
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a88b0ac195a9d1381901bb2e0aaf9254e}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_a88b0ac195a9d1381901bb2e0aaf9254e}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}!m\+\_\+can\+Choose\+Random\+Encounter@{m\+\_\+can\+Choose\+Random\+Encounter}}
+\index{m\+\_\+can\+Choose\+Random\+Encounter@{m\+\_\+can\+Choose\+Random\+Encounter}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{m\+\_\+can\+Choose\+Random\+Encounter}{m\_canChooseRandomEncounter}}
+{\footnotesize\ttfamily bool Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Encounters\+Tab\+Viewmodel.\+m\+\_\+can\+Choose\+Random\+Encounter\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
+
+
+
+Boolean which determines if Choose\+Random\+Encounter can be executed. 
+
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_aff7d46c9f413602760226a2af43b1b26}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_aff7d46c9f413602760226a2af43b1b26}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}!Selected\+Monster@{Selected\+Monster}}
+\index{Selected\+Monster@{Selected\+Monster}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{Selected\+Monster}{SelectedMonster}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_monster}{Monster}} Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Encounters\+Tab\+Viewmodel.\+Selected\+Monster\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Public facing accessor to m\+\_\+selected\+Monster. 
+
+
+
+\subsection{Event Documentation}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_ae504409bb84e7a61e1aa653f08f01ca4}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_encounters_tab_viewmodel_ae504409bb84e7a61e1aa653f08f01ca4}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}!Property\+Changed@{Property\+Changed}}
+\index{Property\+Changed@{Property\+Changed}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Encounters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{Property\+Changed}{PropertyChanged}}
+{\footnotesize\ttfamily Property\+Changed\+Event\+Handler Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Encounters\+Tab\+Viewmodel.\+Property\+Changed}
+
+
+
+Public instance of Property\+Changed event. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Seth Peterson/\+Desktop/\+School/\+E\+E\+C\+S448/\+Project3/\+Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager/\+Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager/\+Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager/\+Viewmodels/Encounters\+Tab\+Viewmodel.\+cs\end{DoxyCompactItemize}

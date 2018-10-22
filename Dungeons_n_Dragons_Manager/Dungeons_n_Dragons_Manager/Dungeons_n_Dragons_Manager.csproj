@@ -89,10 +89,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\CreateCharactersControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Windows\CreateCharacterWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -113,9 +109,6 @@
     </Compile>
     <Compile Include="Controls\EncountersTabControl.xaml.cs">
       <DependentUpon>EncountersTabControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\CreateCharactersControl.xaml.cs">
-      <DependentUpon>CreateCharactersControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Monster.cs" />

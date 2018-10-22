@@ -1,0 +1,183 @@
+\hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel}{}\section{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Characters\+Tab\+Viewmodel Class Reference}
+\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel}\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Characters\+Tab\+Viewmodel}}
+
+
+Viewmodel for the Characters Tab in the Main Window.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_ab001c7ea5b66f3632f03c1edc6391e68}{Characters\+Tab\+Viewmodel}} ()
+\begin{DoxyCompactList}\small\item\em This constructor initializes a collection of characters \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a7aeddecf7e41392af7de68198b092b43}{create\+New\+Character}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new character and passes it by reference to an instance of Create\+Character\+Window to be edited. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_character}{Character}} \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a76b61200033a07228b4317ce675dcd3e}{m\+\_\+\+Selected\+Character}}
+\begin{DoxyCompactList}\small\item\em Private backing to store the currently selected character in the combobox. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static Observable\+Collection$<$ \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_character}{Character}} $>$ \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a0338689d77ddb4ecb65be14b8dd22293}{Characters}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Observable\+Collection of Characters which is bound to the combobox. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_character}{Character}} \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a86d14e10197a73a19117e9623e555232}{Selected\+Character}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Public facing accessor to m\+\_\+selected\+Character. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_ae8fd6fa7f56d81e7fb070a958d0cad26}{m\+\_\+can\+Create\+Character}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Boolean which determines if Create\+Character can be executed. \end{DoxyCompactList}\item 
+I\+Command \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a768c908827859bd2cab0651a40e8f729}{Create\+Character}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Public facing accessor to m\+\_\+create\+Character. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+Property\+Changed\+Event\+Handler \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a6675b3bc821619ffe7f4ad20be8df240}{Property\+Changed}}
+\begin{DoxyCompactList}\small\item\em Public instance of Property\+Changed event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_aebf6ce070fbb447adb5dbc456051d706}{On\+Property\+Raised}} (string propertyname)
+\begin{DoxyCompactList}\small\item\em Private function which updates the UI\textquotesingle{}s binding value to the current value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+I\+Command \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a5b3939393a4945c956ff11e765cc30ff}{m\+\_\+create\+Character}}
+\begin{DoxyCompactList}\small\item\em Command binded to the \char`\"{}create character\char`\"{} button which calls create\+Character if m\+\_\+can\+Create\+Character is true. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Viewmodel for the Characters Tab in the Main Window. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_ab001c7ea5b66f3632f03c1edc6391e68}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_ab001c7ea5b66f3632f03c1edc6391e68}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel}!Characters\+Tab\+Viewmodel@{Characters\+Tab\+Viewmodel}}
+\index{Characters\+Tab\+Viewmodel@{Characters\+Tab\+Viewmodel}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{Characters\+Tab\+Viewmodel()}{CharactersTabViewmodel()}}
+{\footnotesize\ttfamily Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Characters\+Tab\+Viewmodel.\+Characters\+Tab\+Viewmodel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This constructor initializes a collection of characters 
+
+Pre\+: None.
+
+Post\+: Collection\+Of\+Character is intialized. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a7aeddecf7e41392af7de68198b092b43}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a7aeddecf7e41392af7de68198b092b43}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel}!create\+New\+Character@{create\+New\+Character}}
+\index{create\+New\+Character@{create\+New\+Character}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{create\+New\+Character()}{createNewCharacter()}}
+{\footnotesize\ttfamily void Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Characters\+Tab\+Viewmodel.\+create\+New\+Character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new character and passes it by reference to an instance of Create\+Character\+Window to be edited. 
+
+Pre\+: \char`\"{}\+Create Character\char`\"{} button has been clicked.
+
+Post\+: A new character has been created. \mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_aebf6ce070fbb447adb5dbc456051d706}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_aebf6ce070fbb447adb5dbc456051d706}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel}!On\+Property\+Raised@{On\+Property\+Raised}}
+\index{On\+Property\+Raised@{On\+Property\+Raised}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{On\+Property\+Raised()}{OnPropertyRaised()}}
+{\footnotesize\ttfamily void Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Characters\+Tab\+Viewmodel.\+On\+Property\+Raised (\begin{DoxyParamCaption}\item[{string}]{propertyname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Private function which updates the UI\textquotesingle{}s binding value to the current value. 
+
+Pre\+: Private backing value has been changed.
+
+Post\+: UI now reflects current value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em propertyname} & Name of property to update to UI.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a5b3939393a4945c956ff11e765cc30ff}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a5b3939393a4945c956ff11e765cc30ff}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel}!m\+\_\+create\+Character@{m\+\_\+create\+Character}}
+\index{m\+\_\+create\+Character@{m\+\_\+create\+Character}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{m\+\_\+create\+Character}{m\_createCharacter}}
+{\footnotesize\ttfamily I\+Command Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Characters\+Tab\+Viewmodel.\+m\+\_\+create\+Character\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Command binded to the \char`\"{}create character\char`\"{} button which calls create\+Character if m\+\_\+can\+Create\+Character is true. 
+
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a76b61200033a07228b4317ce675dcd3e}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a76b61200033a07228b4317ce675dcd3e}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel}!m\+\_\+\+Selected\+Character@{m\+\_\+\+Selected\+Character}}
+\index{m\+\_\+\+Selected\+Character@{m\+\_\+\+Selected\+Character}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{m\+\_\+\+Selected\+Character}{m\_SelectedCharacter}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_character}{Character}} Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Characters\+Tab\+Viewmodel.\+m\+\_\+\+Selected\+Character\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Private backing to store the currently selected character in the combobox. 
+
+
+
+\subsection{Property Documentation}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a0338689d77ddb4ecb65be14b8dd22293}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a0338689d77ddb4ecb65be14b8dd22293}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel}!Characters@{Characters}}
+\index{Characters@{Characters}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{Characters}{Characters}}
+{\footnotesize\ttfamily Observable\+Collection$<$\mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_character}{Character}}$>$ Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Characters\+Tab\+Viewmodel.\+Characters\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Observable\+Collection of Characters which is bound to the combobox. 
+
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a768c908827859bd2cab0651a40e8f729}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a768c908827859bd2cab0651a40e8f729}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel}!Create\+Character@{Create\+Character}}
+\index{Create\+Character@{Create\+Character}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{Create\+Character}{CreateCharacter}}
+{\footnotesize\ttfamily I\+Command Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Characters\+Tab\+Viewmodel.\+Create\+Character\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Public facing accessor to m\+\_\+create\+Character. 
+
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_ae8fd6fa7f56d81e7fb070a958d0cad26}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_ae8fd6fa7f56d81e7fb070a958d0cad26}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel}!m\+\_\+can\+Create\+Character@{m\+\_\+can\+Create\+Character}}
+\index{m\+\_\+can\+Create\+Character@{m\+\_\+can\+Create\+Character}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{m\+\_\+can\+Create\+Character}{m\_canCreateCharacter}}
+{\footnotesize\ttfamily bool Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Characters\+Tab\+Viewmodel.\+m\+\_\+can\+Create\+Character\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
+
+
+
+Boolean which determines if Create\+Character can be executed. 
+
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a86d14e10197a73a19117e9623e555232}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a86d14e10197a73a19117e9623e555232}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel}!Selected\+Character@{Selected\+Character}}
+\index{Selected\+Character@{Selected\+Character}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{Selected\+Character}{SelectedCharacter}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_character}{Character}} Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Characters\+Tab\+Viewmodel.\+Selected\+Character\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Public facing accessor to m\+\_\+selected\+Character. 
+
+
+
+\subsection{Event Documentation}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a6675b3bc821619ffe7f4ad20be8df240}\label{class_dungeons__n___dragons___manager_1_1_viewmodels_1_1_characters_tab_viewmodel_a6675b3bc821619ffe7f4ad20be8df240}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel}!Property\+Changed@{Property\+Changed}}
+\index{Property\+Changed@{Property\+Changed}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Viewmodels\+::\+Characters\+Tab\+Viewmodel}}
+\subsubsection{\texorpdfstring{Property\+Changed}{PropertyChanged}}
+{\footnotesize\ttfamily Property\+Changed\+Event\+Handler Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Viewmodels.\+Characters\+Tab\+Viewmodel.\+Property\+Changed}
+
+
+
+Public instance of Property\+Changed event. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Seth Peterson/\+Desktop/\+School/\+E\+E\+C\+S448/\+Project3/\+Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager/\+Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager/\+Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager/\+Viewmodels/Characters\+Tab\+Viewmodel.\+cs\end{DoxyCompactItemize}

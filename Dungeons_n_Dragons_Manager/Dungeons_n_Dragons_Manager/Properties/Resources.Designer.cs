@@ -61,6 +61,45 @@ namespace Dungeons_n_Dragons_Manager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Padded
+        ///Leather
+        ///Studded Leather
+        ///Hide
+        ///Chain Shirt
+        ///Scale Mail
+        ///Breastplate
+        ///Half Plate
+        ///Ring Mail
+        ///Splint
+        ///Plate.
+        /// </summary>
+        internal static string ArmorTypes {
+            get {
+                return ResourceManager.GetString("ArmorTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Barbarian
+        ///Bard
+        ///Cleric
+        ///Druid
+        ///Fighter
+        ///Monk
+        ///Paladin
+        ///Ranger
+        ///Rogue
+        ///Sorcerer
+        ///Warlock
+        ///Wizard.
+        /// </summary>
+        internal static string Classes {
+            get {
+                return ResourceManager.GetString("Classes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name;ChallengeRating;ChallengeXP;ACType;AC;STR;STRMod;DEX;DEXMod;CON;CONMod;INT;INTMod;WIS;WISMod;CHA;CHAMod;HPDice;HP
         ///Adult Red Dragon;17;18000;natural armor;19;27;8;10;0;25;7;16;3;13;1;21;5;19d12 + 133;256
         ///Stone Golem;10;5900;natural armor;17;22;6;9;-1;20;5;3;-4;11;0;1;-5;17d10 + 85;178
@@ -71,6 +110,47 @@ namespace Dungeons_n_Dragons_Manager.Properties {
         internal static string Monsters {
             get {
                 return ResourceManager.GetString("Monsters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aarakocra
+        ///Aasimar
+        ///Bugbear
+        ///Changeling
+        ///Dragonborn
+        ///Dwarf
+        ///Elf
+        ///Firbolg
+        ///Genasi
+        ///Gnome
+        ///Goblin
+        ///Goliath
+        ///Halfling
+        ///Half-Elf
+        ///Half-Orc
+        ///Hobgoblin
+        ///Human
+        ///Kender
+        ///Kenku
+        ///Kobold
+        ///Kor
+        ///Lizardfolk
+        ///Merfolk
+        ///Minotaur
+        ///Orc
+        ///Shifter
+        ///Tabaxi
+        ///Tiefling
+        ///Tortle
+        ///Triton
+        ///Vampire
+        ///Warforged
+        ///Yuan-Ti Pureblood.
+        /// </summary>
+        internal static string Races {
+            get {
+                return ResourceManager.GetString("Races", resourceCulture);
             }
         }
     }

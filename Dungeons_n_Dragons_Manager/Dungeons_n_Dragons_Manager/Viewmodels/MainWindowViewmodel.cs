@@ -3,7 +3,7 @@
     /// <summary>
     /// Viewmodel for the main window.
     /// </summary>
-    internal class MainWindowViewmodel
+    public class MainWindowViewmodel
     {
         #region Sub Viewmodels
 
@@ -11,6 +11,7 @@
         /// Viewmodel for the Dice Roll Tab.
         /// </summary>
         private DiceRollTabViewmodel m_diceRollTabViewmodel = new DiceRollTabViewmodel();
+
         /// <summary>
         /// Public accessor for m_diceRollTabViewmodel.
         /// </summary>
@@ -23,6 +24,7 @@
         /// Viewmodel for the Characters Tab.
         /// </summary>
         private CharactersTabViewmodel m_charactersTabViewmodel = new CharactersTabViewmodel();
+
         /// <summary>
         /// Public accessor for m_charactersTabViewmodel.
         /// </summary>
@@ -35,6 +37,7 @@
         /// Viewmodel for the EncountersTab.
         /// </summary>
         private EncountersTabViewmodel m_encountersTabViewmodel = new EncountersTabViewmodel();
+
         /// <summary>
         /// Public accessor for m_encountersTabViewmodel.
         /// </summary>

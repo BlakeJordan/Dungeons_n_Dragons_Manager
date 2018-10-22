@@ -117,6 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArmorTypes" xml:space="preserve">
+    <value>Padded
+Leather
+Studded Leather
+Hide
+Chain Shirt
+Scale Mail
+Breastplate
+Half Plate
+Ring Mail
+Splint
+Plate</value>
+    <comment>Armor Types List</comment>
+  </data>
+  <data name="Classes" xml:space="preserve">
+    <value>Barbarian
+Bard
+Cleric
+Druid
+Fighter
+Monk
+Paladin
+Ranger
+Rogue
+Sorcerer
+Warlock
+Wizard</value>
+    <comment>Classes List</comment>
+  </data>
   <data name="Monsters" xml:space="preserve">
     <value>Name;ChallengeRating;ChallengeXP;ACType;AC;STR;STRMod;DEX;DEXMod;CON;CONMod;INT;INTMod;WIS;WISMod;CHA;CHAMod;HPDice;HP
 Adult Red Dragon;17;18000;natural armor;19;27;8;10;0;25;7;16;3;13;1;21;5;19d12 + 133;256
@@ -279,5 +308,41 @@ Sea Horse;0;0;;11;1;-5;12;1;8;-1;1;-5;10;0;2;-4;1d4 - 1;1
 Scorpion;0;10;natural armor;11;2;-4;11;0;8;-1;1;-5;8;-1;2;-4;1d4 - 1;1
 Rat;0;10;;10;2;-4;11;0;9;-1;2;-4;10;0;4;-3;1d4 - 1;1</value>
     <comment>Monsters String</comment>
+  </data>
+  <data name="Races" xml:space="preserve">
+    <value>Aarakocra
+Aasimar
+Bugbear
+Changeling
+Dragonborn
+Dwarf
+Elf
+Firbolg
+Genasi
+Gnome
+Goblin
+Goliath
+Halfling
+Half-Elf
+Half-Orc
+Hobgoblin
+Human
+Kender
+Kenku
+Kobold
+Kor
+Lizardfolk
+Merfolk
+Minotaur
+Orc
+Shifter
+Tabaxi
+Tiefling
+Tortle
+Triton
+Vampire
+Warforged
+Yuan-Ti Pureblood</value>
+    <comment>Races List</comment>
   </data>
 </root>

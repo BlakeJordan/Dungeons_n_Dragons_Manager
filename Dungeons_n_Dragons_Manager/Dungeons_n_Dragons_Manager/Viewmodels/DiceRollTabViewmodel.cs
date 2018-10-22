@@ -1,22 +1,41 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
-using DungeonsDungeons_n_Dragons_Manager.Tools;
+using Dungeons_n_Dragons_Manager.Tools;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Input;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
 {
-    internal class DiceRollTabViewmodel : INotifyPropertyChanged
+    /// <summary>
+    /// viewmodel for the roll dice tab
+    /// </summary>
+    public class DiceRollTabViewmodel : INotifyPropertyChanged
     {
+        /// <summary>
+        /// instantiation of private facing bag object which gives access to DiceBag functions
+        /// </summary>
         private DiceBag bag { get; set; }
 
+        /// <summary>
+        /// constructor for the roll tabs viewmodel
+        ///
+        /// Pre: DiceBag object has been instantiated
+        ///
+        /// Post: bag object is set to a new DiceBag
+        /// </summary>
         public DiceRollTabViewmodel()
         {
             bag = new DiceBag();
         }
 
+        /// <summary>
+        /// private facing int which will hold the number of times the D4 should be rolled
+        /// </summary>
         private int m_D4Input;
 
+        /// <summary>
+        /// public facing accessor for m_D4Input
+        /// </summary>
         public int D4Input
         {
             get
@@ -33,8 +52,14 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        /// <summary>
+        /// private facing int which will hold the number of times the D6 should be rolled
+        /// </summary>
         private int m_D6Input;
 
+        /// <summary>
+        /// public facing accessor for m_D6Input
+        /// </summary>
         public int D6Input
         {
             get
@@ -51,8 +76,14 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        /// <summary>
+        /// private facing int which will hold the number of times the D8 should be rolled
+        /// </summary>
         private int m_D8Input;
 
+        /// <summary>
+        /// public facing accessor for m_D8Input
+        /// </summary>
         public int D8Input
         {
             get
@@ -69,8 +100,14 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        /// <summary>
+        /// private facing int which will hold the number of times the D10 should be rolled
+        /// </summary>
         private int m_D10Input;
 
+        /// <summary>
+        /// public facing accessor for m_D10Input
+        /// </summary>
         public int D10Input
         {
             get
@@ -87,8 +124,14 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        /// <summary>
+        /// private facing int which will hold the number of times the D12 should be rolled
+        /// </summary>
         private int m_D12Input;
 
+        /// <summary>
+        /// public facing accessor for m_D12Input
+        /// </summary>
         public int D12Input
         {
             get
@@ -105,8 +148,14 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        /// <summary>
+        /// private facing int which will hold the number of times the D20 should be rolled
+        /// </summary>
         private int m_D20Input;
 
+        /// <summary>
+        /// public facing accessor for m_D20Input
+        /// </summary>
         public int D20Input
         {
             get
@@ -123,8 +172,14 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        /// <summary>
+        /// private facing int which will hold the number of times the D100 should be rolled
+        /// </summary>
         private int m_D100Input;
 
+        /// <summary>
+        /// public facing accessor for m_D100Input
+        /// </summary>
         public int D100Input
         {
             get
@@ -141,10 +196,19 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        /// <summary>
+        /// private facing array which will be populated by the values of the roll quantity text boxes
+        /// </summary>
         private int[] rollTimes { get; set; }
 
+        /// <summary>
+        /// private facing string which will hold all of the rolls in one long string
+        /// </summary>
         private string m_Rolls;
 
+        /// <summary>
+        /// public accessor for m_Rolls
+        /// </summary>
         public string rolls
         {
             get
@@ -165,6 +229,13 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        /// <summary>
+        /// parses through the resulting list of lits of strings from the RollMultiple fucntion and populates roll with the values
+        ///
+        /// Pre: RollMultiple has been called and all of thr roll quantity textboxes have values
+        ///
+        /// Post: rolls string is populated by all of the rolls for the die
+        /// </summary>
         private void roll_button_click()
         {
             rollTimes = new int[] { D4Input, D6Input, D8Input, D10Input, D12Input, D20Input, D100Input };
@@ -183,13 +254,22 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         #region Commands
 
+        /// <summary>
+        /// boolean which determines if the dice can be rolled. Conditions should be added in the future.
+        /// </summary>
         private bool m_canClick
         {
             get { return true; }
         }
 
+        /// <summary>
+        /// commnd binded to Roll button which calls roll_button_click if canClick is true
+        /// </summary>
         private ICommand m_Click;
 
+        /// <summary>
+        /// public facing accessor for m_Click
+        /// </summary>
         public ICommand Click
         {
             get
@@ -202,8 +282,19 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         #region Interfaces
 
+        /// <summary>
+        /// Public instance of PropertyChanged event.
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Private function which updates the UI's binding value to the current value.
+        ///
+        /// Pre: Private backing value has been changed.
+        ///
+        /// Post: UI now reflects current value.
+        /// </summary>
+        /// <param name="propertyname">Name of property to update to UI.</param>
         private void OnPropertyRaised(string propertyname)
         {
             if (PropertyChanged != null)
