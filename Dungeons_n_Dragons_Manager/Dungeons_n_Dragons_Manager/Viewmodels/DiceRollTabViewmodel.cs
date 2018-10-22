@@ -6,17 +6,31 @@ using System.Windows.Input;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
 {
+    /// <summary>
+    /// viewmodel for the roll dice tab
+    /// </summary>
     internal class DiceRollTabViewmodel : INotifyPropertyChanged
     {
+        /// <summary>
+        /// instantiation of private facing bag object which gives access to DiceBag functions
+        /// </summary>
         private DiceBag bag { get; set; }
-
+        /// <summary>
+        /// constructor for the roll tabs viewmodel
+        /// @Pre: DiceBag object has been instantiated
+        /// @Post: bag object is set to a new DiceBag
+        /// </summary>
         public DiceRollTabViewmodel()
         {
             bag = new DiceBag();
         }
-
+        /// <summary>
+        /// private facing int which will hold the number of times the D4 should be rolled
+        /// </summary>
         private int m_D4Input;
-
+        /// <summary>
+        /// public facing accessor for m_D4Input
+        /// </summary>
         public int D4Input
         {
             get
@@ -32,7 +46,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 }
             }
         }
-
+        /// <summary>
+        /// private facing int which will hold the number of times the D6 should be rolled
+        /// </summary>
         private int m_D6Input;
 
         public int D6Input
@@ -50,7 +66,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 }
             }
         }
-
+        /// <summary>
+        /// private facing int which will hold the number of times the D8 should be rolled
+        /// </summary>
         private int m_D8Input;
 
         public int D8Input
@@ -68,7 +86,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 }
             }
         }
-
+        /// <summary>
+        /// private facing int which will hold the number of times the D10 should be rolled
+        /// </summary>
         private int m_D10Input;
 
         public int D10Input
