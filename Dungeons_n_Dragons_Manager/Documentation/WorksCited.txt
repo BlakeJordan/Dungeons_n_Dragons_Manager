@@ -1,2 +1,3 @@
 Icon - https://mbtskoudsalg.com/explore/d&d-monster-png/     10/12/2018
 Class Diagram Application - https://www.lucidchart.com/?noHomepageRedirect=true 10/17/2018
+Monsters CSV - http://miroz.com.hr/random/monsters.html
