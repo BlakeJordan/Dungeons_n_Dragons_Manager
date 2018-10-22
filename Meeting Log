@@ -1,18 +1,28 @@
 10/17/18
-In class, all members present except Austin
+In class, all members present except Austin (feeling sick after travels home)
 Talked about features required for prototype:
   Dice Roller (bunty): user can choose type of dice to roll, amount of dice, and see the results
   Character Manager (?): user can add and characters
   Encounters (?): function to generate random monster encounters by searching monster manual
- 
+
 Documentation:
-  Class diagram - Seth
+  Class diagram - Austin
   State diagram - Bunty
   Use Case Diagram - Mckenna
   Gantt chart - Blake
-  
+
+
 10/17/18
-At Bunty & Blake's house, all members present except AUSTIN AGAIN
+At Bunty & Blake's house, all members present except Austin again
 Planned out project: finished sprint and product backlogs as well as gantt chart
 Started playing with XAML and C# to familiarize ourselves
 Started dice roller component
+
+10/18/18
+At Bunty & Blake's house, all members present
+Finishing up prototype: working on adding character, class diagram almost finished.
+Dice roller component is complete.
+
+10/21/18
+At Bunty & Blake's house, all members present except Mckenna(at work)
+Finishing up character and documentation
