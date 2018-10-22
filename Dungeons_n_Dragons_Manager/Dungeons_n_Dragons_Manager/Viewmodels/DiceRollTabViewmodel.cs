@@ -94,7 +94,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// private facing int which will hold the number of times the D10 should be rolled
         /// </summary>
         private int m_D10Input;
-
+        /// <summary>
+        /// public facing accessor for m_D10Input
+        /// </summary>
         public int D10Input
         {
             get
@@ -114,7 +116,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// private facing int which will hold the number of times the D12 should be rolled
         /// </summary>
         private int m_D12Input;
-
+        /// <summary>
+        /// public facing accessor for m_D12Input
+        /// </summary>
         public int D12Input
         {
             get
@@ -134,7 +138,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// private facing int which will hold the number of times the D20 should be rolled
         /// </summary>
         private int m_D20Input;
-
+        /// <summary>
+        /// public facing accessor for m_D20Input
+        /// </summary>
         public int D20Input
         {
             get
@@ -154,7 +160,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// private facing int which will hold the number of times the D100 should be rolled
         /// </summary>
         private int m_D100Input;
-
+        /// <summary>
+        /// public facing accessor for m_D100Input
+        /// </summary>
         public int D100Input
         {
             get
@@ -170,11 +178,17 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 }
             }
         }
-
+        /// <summary>
+        /// private facing array which will be populated by the values of the roll quantity text boxes
+        /// </summary>
         private int[] rollTimes { get; set; }
-
+        /// <summary>
+        /// private facing string which will hold all of the rolls in one long string
+        /// </summary>
         private string m_Rolls;
-
+        /// <summary>
+        /// public accessor for m_Rolls
+        /// </summary>
         public string rolls
         {
             get
@@ -194,7 +208,11 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 }
             }
         }
-
+        /// <summary>
+        /// parses through the resulting list of lits of strings from the RollMultiple fucntion and populates roll with the values
+        /// @Pre: RollMultiple has been called and all of thr roll quantity textboxes have values
+        /// @Post: rolls string is populated by all of the rolls for the die
+        /// </summary>
         private void roll_button_click()
         {
             rollTimes = new int[] { D4Input, D6Input, D8Input, D10Input, D12Input, D20Input, D100Input };
@@ -212,14 +230,20 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         #region Commands
-
+        /// <summary>
+        /// boolean which determines if the dice can be rolled. Conditions should be added in the future.
+        /// </summary>
         private bool m_canClick
         {
             get { return true; }
         }
-
+        /// <summary>
+        /// commnd binded to Roll button which calls roll_button_click if canClick is true
+        /// </summary>
         private ICommand m_Click;
-
+        /// <summary>
+        /// public facing accessor for m_Click
+        /// </summary>
         public ICommand Click
         {
             get
