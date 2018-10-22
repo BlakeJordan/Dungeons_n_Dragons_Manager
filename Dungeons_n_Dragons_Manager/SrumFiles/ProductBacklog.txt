@@ -1,15 +1,39 @@
 Prototype Requirements:
-Add Characters - Stats, Spells/Abilities, equipment, proficiencies, status effects, hp, xp, leveling, class, race
-Dice Rolling - should be able to roll any die any number of times
-Monster Manual - should be able to find all monsters and all stats of monsters
 
+Add Characters - Entry fields for Character Name, race, class, armor, and stats. Resulting character and character details should be visible on the characters tab ~ 2 days
+
+Characters tab - Should be able to see all the details entered from the add characters window for each character added to the manager ~ 2 days
+
+Dice Rolling - On the dice tab, you should be able to roll any die any number of times and see your results ~ 1 day
+
+Monster Manual - Should be able to find all monsters and all stats of monsters internally so that they can be parsed for encounters ~ 2 days
+
+Encounters - On the encounters tab, we should be able to click a button to generate an encounter with a random monster, as well as display the name and stats of the monster ~ 3 days
+
+=================================================================================================================================
 Final Product Requirements:
-Encounters - DM can input character levels, setting, & time of day to generate a random monster encounter
-Combat - Keeps track of hp, character abilities, & statuses during combat
-Save Campaign 
 
+Finish Encounters - DM can input character levels, setting, & time of day to generate a randomized monster encounter suitable for the characters' current sitation
+
+Save Campaign - Should be able to close the manager and come back at any time without losing details about the campaign
+
+Finish Characters - Entry fields for proficiencies, abilities, modifiers, inventory, and weapons (Maybe a text field for notes?)
+
+Edit Characters - Should be able to edit any character detail for any character
+
+Cosmetics - Add color themes and pictures to the manager
+
+Finish Dice Roll - Should have buttons for common rolls such as hit rolls, damage rolls, and checks
+
+=================================================================================================================================
 Optional Features:
-Character leveling - updates stats & abilities on level up
-Custom Monsters - input new monsters with custom stats
-Map - Keep track of setting with editable map markers over an uploaded jpg
 
+Combat - Keeps track of hp, character abilities, & statuses during combat
+
+Character leveling - Keeps track of characters' XP and prompts DM for updates on stats and abilities when a character is eligable for a level up
+
+Custom Monsters - input new monsters with custom stats
+
+Map - Keep track of campaign environment with an uploaded jpg map that can have editable markers placed and moved on top of it
+
+Dice roll - Select a character or a monster for rolling, select what type of roll they perform (hit, damage, etc), and auto-determine results

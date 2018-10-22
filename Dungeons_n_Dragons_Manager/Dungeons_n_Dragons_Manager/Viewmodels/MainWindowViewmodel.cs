@@ -23,6 +23,7 @@
         /// Viewmodel for the Characters Tab.
         /// </summary>
         private CharactersTabViewmodel m_charactersTabViewmodel = new CharactersTabViewmodel();
+
         /// <summary>
         /// Public accessor for m_charactersTabViewmodel.
         /// </summary>
@@ -35,6 +36,7 @@
         /// Viewmodel for the EncountersTab.
         /// </summary>
         private EncountersTabViewmodel m_encountersTabViewmodel = new EncountersTabViewmodel();
+
         /// <summary>
         /// Public accessor for m_encountersTabViewmodel.
         /// </summary>
