@@ -1,5 +1,10 @@
 Prototype Requirements:
-Add Characters - should be able to set Stats, Spells/Abilities, equipment, proficiencies, hp, xp, level, class, and race for all players
-Dice Rolling - should be able to roll a reasonal number of dice a reasonal number of times and see results
-Monster Manual - should be able to find all monsters and all stats of monsters
-Encounters - should be able to generate random monsters
+Add Characters - Entry fields for Character Name, race, class, armor, and stats. Resulting character and character details should be visible on the characters tab ~ 2 days
+
+Characters Tab - Should be able to see all the details entered from the add characters window for each character added to the manager ~ 2 days
+
+Dice Rolling - On the dice tab, you should be able to roll any die any number of times and see your results ~ 1 day
+
+Monster Manual - Should be able to find all monsters and all stats of monsters internally so that they can be parsed for encounters ~ 2 days
+
+Encounters - On the encounters tab, we should be able to click a button to generate an encounter with a random monster, as well as display the name and stats of the monster ~ 3 days
