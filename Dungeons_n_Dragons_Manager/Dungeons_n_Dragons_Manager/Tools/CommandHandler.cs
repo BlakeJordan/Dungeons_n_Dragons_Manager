@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace DungeonsDungeons_n_Dragons_Manager.Tools
+namespace Dungeons_n_Dragons_Manager.Tools
 {
     /// <summary>
     /// Class that handles the command routing.

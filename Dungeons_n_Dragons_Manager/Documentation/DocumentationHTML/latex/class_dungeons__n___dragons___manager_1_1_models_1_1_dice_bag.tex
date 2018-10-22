@@ -1,0 +1,183 @@
+\hypertarget{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag}{}\section{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Models.\+Dice\+Bag Class Reference}
+\label{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag}\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Models.\+Dice\+Bag@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Models.\+Dice\+Bag}}
+
+
+\mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag}{Dice\+Bag}} class containing rolling functions dice enum.  
+
+
+Inheritance diagram for Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Models.\+Dice\+Bag\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a6217970288bbbf366900fb850594603a}{Dice}} \+: uint \{ \newline
+{\bfseries D4} = 4, 
+{\bfseries D6} = 6, 
+{\bfseries D8} = 8, 
+{\bfseries D10} = 10, 
+\newline
+{\bfseries D12} = 12, 
+{\bfseries D20} = 20, 
+{\bfseries D100} = 100
+ \}
+\begin{DoxyCompactList}\small\item\em private facing enum holding each type of dice set to their numerical max \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a0015aea34ce40a3865465a096d28b6e0}{Dice\+Bag}} ()
+\begin{DoxyCompactList}\small\item\em contructor for the \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag}{Dice\+Bag}} class \end{DoxyCompactList}\item 
+List$<$ List$<$ string $>$ $>$ \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a1429fe1d9eb02bf0ad2604094da1edf6}{Roll\+Multiple}} (int\mbox{[}$\,$\mbox{]} times)
+\begin{DoxyCompactList}\small\item\em uses the Roll function to roll all the dice if the number of times is not zero \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+Property\+Changed\+Event\+Handler \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a3af8426fceed5fb4a66909af5d7242af}{Property\+Changed}}
+\begin{DoxyCompactList}\small\item\em Public instance of Property\+Changed event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ string $>$ \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a53f74f01ef6abae6b927331d7be8fd1e}{Roll}} (int dice, int times)
+\begin{DoxyCompactList}\small\item\em rolls a single dice the number of times specified by the user \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a6001ba93e4684b78d307c183e6e2ce81}{On\+Property\+Raised}} (string propertyname)
+\begin{DoxyCompactList}\small\item\em Private function which updates the UI\textquotesingle{}s binding value to the current value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Random \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a5932c409a8287ea61641f20048b6c2d1}{rng}}
+\begin{DoxyCompactList}\small\item\em private variable which will hold a random number for each roll \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag}{Dice\+Bag}} class containing rolling functions dice enum. 
+
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a6217970288bbbf366900fb850594603a}\label{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a6217970288bbbf366900fb850594603a}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag}!Dice@{Dice}}
+\index{Dice@{Dice}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag}}
+\subsubsection{\texorpdfstring{Dice}{Dice}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a6217970288bbbf366900fb850594603a}{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Models.\+Dice\+Bag.\+Dice}} \+: uint\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+private facing enum holding each type of dice set to their numerical max 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a0015aea34ce40a3865465a096d28b6e0}\label{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a0015aea34ce40a3865465a096d28b6e0}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag}!Dice\+Bag@{Dice\+Bag}}
+\index{Dice\+Bag@{Dice\+Bag}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag}}
+\subsubsection{\texorpdfstring{Dice\+Bag()}{DiceBag()}}
+{\footnotesize\ttfamily Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Models.\+Dice\+Bag.\+Dice\+Bag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+contructor for the \mbox{\hyperlink{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag}{Dice\+Bag}} class 
+
+Pre\+: random number variable has been instantiated
+
+Post\+: rng is set to a new Random 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a6001ba93e4684b78d307c183e6e2ce81}\label{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a6001ba93e4684b78d307c183e6e2ce81}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag}!On\+Property\+Raised@{On\+Property\+Raised}}
+\index{On\+Property\+Raised@{On\+Property\+Raised}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag}}
+\subsubsection{\texorpdfstring{On\+Property\+Raised()}{OnPropertyRaised()}}
+{\footnotesize\ttfamily void Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Models.\+Dice\+Bag.\+On\+Property\+Raised (\begin{DoxyParamCaption}\item[{string}]{propertyname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Private function which updates the UI\textquotesingle{}s binding value to the current value. 
+
+Pre\+: Private backing value has been changed.
+
+Post\+: UI now reflects current value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em propertyname} & Name of property to update to UI.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a53f74f01ef6abae6b927331d7be8fd1e}\label{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a53f74f01ef6abae6b927331d7be8fd1e}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag}!Roll@{Roll}}
+\index{Roll@{Roll}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag}}
+\subsubsection{\texorpdfstring{Roll()}{Roll()}}
+{\footnotesize\ttfamily List$<$string$>$ Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Models.\+Dice\+Bag.\+Roll (\begin{DoxyParamCaption}\item[{int}]{dice,  }\item[{int}]{times }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+rolls a single dice the number of times specified by the user 
+
+Pre\+: Roll has been clicked and a number exists in the textbox next to the specified dice
+
+Post\+: returns a list of strings containing the rolls for the specified dice 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dice} & \\
+\hline
+{\em times} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a1429fe1d9eb02bf0ad2604094da1edf6}\label{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a1429fe1d9eb02bf0ad2604094da1edf6}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag}!Roll\+Multiple@{Roll\+Multiple}}
+\index{Roll\+Multiple@{Roll\+Multiple}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag}}
+\subsubsection{\texorpdfstring{Roll\+Multiple()}{RollMultiple()}}
+{\footnotesize\ttfamily List$<$List$<$string$>$ $>$ Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Models.\+Dice\+Bag.\+Roll\+Multiple (\begin{DoxyParamCaption}\item[{int \mbox{[}$\,$\mbox{]}}]{times }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+uses the Roll function to roll all the dice if the number of times is not zero 
+
+Pre\+: Roll has been clicked, none of the text boxes are empty, and an array of ints has been passed in
+
+Post\+: returns a list of lists of strings to the viewmodel containing all the rolls 
+
+
+\begin{DoxyParams}{Parameters}
+{\em times} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a5932c409a8287ea61641f20048b6c2d1}\label{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a5932c409a8287ea61641f20048b6c2d1}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag}!rng@{rng}}
+\index{rng@{rng}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag}}
+\subsubsection{\texorpdfstring{rng}{rng}}
+{\footnotesize\ttfamily Random Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Models.\+Dice\+Bag.\+rng\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+private variable which will hold a random number for each roll 
+
+
+
+\subsection{Event Documentation}
+\mbox{\Hypertarget{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a3af8426fceed5fb4a66909af5d7242af}\label{class_dungeons__n___dragons___manager_1_1_models_1_1_dice_bag_a3af8426fceed5fb4a66909af5d7242af}} 
+\index{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag}!Property\+Changed@{Property\+Changed}}
+\index{Property\+Changed@{Property\+Changed}!Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag@{Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager\+::\+Models\+::\+Dice\+Bag}}
+\subsubsection{\texorpdfstring{Property\+Changed}{PropertyChanged}}
+{\footnotesize\ttfamily Property\+Changed\+Event\+Handler Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager.\+Models.\+Dice\+Bag.\+Property\+Changed}
+
+
+
+Public instance of Property\+Changed event. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Seth Peterson/\+Desktop/\+School/\+E\+E\+C\+S448/\+Project3/\+Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager/\+Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager/\+Dungeons\+\_\+n\+\_\+\+Dragons\+\_\+\+Manager/\+Models/Dice\+Bag.\+cs\end{DoxyCompactItemize}

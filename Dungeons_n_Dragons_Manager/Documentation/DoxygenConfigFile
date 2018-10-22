@@ -442,7 +442,7 @@ EXTRACT_ALL            = NO
 # be included in the documentation.
 # The default value is: NO.
 
-EXTRACT_PRIVATE        = NO
+EXTRACT_PRIVATE        = YES
 
 # If the EXTRACT_PACKAGE tag is set to YES, all members with package or internal
 # scope will be included in the documentation.
@@ -791,7 +791,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = ..\..\Dungeons_n_Dragons_Manager\Dungeons_n_Dragons_Manager
+INPUT                  = ..\..\Dungeons_n_Dragons_Manager\Dungeons_n_Dragons_Manager\Controls ..\..\Dungeons_n_Dragons_Manager\Dungeons_n_Dragons_Manager\Models ..\..\Dungeons_n_Dragons_Manager\Dungeons_n_Dragons_Manager\Viewmodels ..\..\Dungeons_n_Dragons_Manager\Dungeons_n_Dragons_Manager\Windows ..\..\Dungeons_n_Dragons_Manager\Dungeons_n_Dragons_Manager\Tools
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses

@@ -1,6 +1,6 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
 using Dungeons_n_Dragons_Manager.Windows;
-using DungeonsDungeons_n_Dragons_Manager.Tools;
+using Dungeons_n_Dragons_Manager.Tools;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
@@ -10,12 +10,14 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
     /// <summary>
     /// Viewmodel for the Characters Tab in the Main Window.
     /// </summary>
-    internal class CharactersTabViewmodel
+    public class CharactersTabViewmodel
     {
         /// <summary>
         /// This constructor initializes a collection of characters
-        /// @Pre: None.
-        /// @Post: CollectionOfCharacter is intialized.
+        /// 
+        /// Pre: None.
+        /// 
+        /// Post: CollectionOfCharacter is intialized.
         /// </summary>
         public CharactersTabViewmodel()
         {
@@ -89,8 +91,10 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         /// <summary>
         /// Creates a new character and passes it by reference to an instance of CreateCharacterWindow to be edited.
-        /// @pre: "Create Character" button has been clicked.
-        /// @post: A new character has been created.
+        /// 
+        /// Pre: "Create Character" button has been clicked.
+        /// 
+        /// Post: A new character has been created.
         /// </summary>
         public void createNewCharacter()
         {
@@ -114,8 +118,10 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         /// <summary>
         /// Private function which updates the UI's binding value to the current value.
-        /// @Pre: Private backing value has been changed.
-        /// @Post: UI now reflects current value.
+        /// 
+        /// Pre: Private backing value has been changed.
+        /// 
+        /// Post: UI now reflects current value.
         /// </summary>
         /// <param name="propertyname">Name of property to update to UI.</param>
         private void OnPropertyRaised(string propertyname)

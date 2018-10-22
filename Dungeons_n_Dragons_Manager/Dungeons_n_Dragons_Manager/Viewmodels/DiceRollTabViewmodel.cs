@@ -1,5 +1,5 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
-using DungeonsDungeons_n_Dragons_Manager.Tools;
+using Dungeons_n_Dragons_Manager.Tools;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Input;
@@ -9,7 +9,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
     /// <summary>
     /// viewmodel for the roll dice tab
     /// </summary>
-    internal class DiceRollTabViewmodel : INotifyPropertyChanged
+    public class DiceRollTabViewmodel : INotifyPropertyChanged
     {
         /// <summary>
         /// instantiation of private facing bag object which gives access to DiceBag functions
@@ -17,8 +17,10 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private DiceBag bag { get; set; }
         /// <summary>
         /// constructor for the roll tabs viewmodel
-        /// @Pre: DiceBag object has been instantiated
-        /// @Post: bag object is set to a new DiceBag
+        /// 
+        /// Pre: DiceBag object has been instantiated
+        /// 
+        /// Post: bag object is set to a new DiceBag
         /// </summary>
         public DiceRollTabViewmodel()
         {
@@ -210,8 +212,10 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
         /// <summary>
         /// parses through the resulting list of lits of strings from the RollMultiple fucntion and populates roll with the values
-        /// @Pre: RollMultiple has been called and all of thr roll quantity textboxes have values
-        /// @Post: rolls string is populated by all of the rolls for the die
+        /// 
+        /// Pre: RollMultiple has been called and all of thr roll quantity textboxes have values
+        /// 
+        /// Post: rolls string is populated by all of the rolls for the die
         /// </summary>
         private void roll_button_click()
         {
@@ -261,8 +265,10 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// Private function which updates the UI's binding value to the current value.
-        /// @Pre: Private backing value has been changed.
-        /// @Post: UI now reflects current value.
+        /// 
+        /// Pre: Private backing value has been changed.
+        /// 
+        /// Post: UI now reflects current value.
         /// </summary>
         /// <param name="propertyname">Name of property to update to UI.</param>
         private void OnPropertyRaised(string propertyname)

@@ -3,7 +3,7 @@
     /// <summary>
     /// Viewmodel for the main window.
     /// </summary>
-    internal class MainWindowViewmodel
+    public class MainWindowViewmodel
     {
         #region Sub Viewmodels
 

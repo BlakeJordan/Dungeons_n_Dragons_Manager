@@ -1,5 +1,5 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
-using DungeonsDungeons_n_Dragons_Manager.Tools;
+using Dungeons_n_Dragons_Manager.Tools;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,12 +12,14 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
     /// <summary>
     /// Viewmodel for the Encounters Tab in the Main Window.
     /// </summary>
-    internal class EncountersTabViewmodel : INotifyPropertyChanged
+    public class EncountersTabViewmodel : INotifyPropertyChanged
     {
         /// <summary>
         /// This constructor calls parseMonsterResource.
-        /// @Pre: None.
-        /// @Post: CollectionOfMonsters is filled.
+        /// 
+        /// Pre: None.
+        /// 
+        /// Post: CollectionOfMonsters is filled.
         /// </summary>
         public EncountersTabViewmodel()
         {
@@ -92,8 +94,10 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         /// <summary>
         /// Private function that parses through the string that represents the monster data in the app resources.
-        /// @Pre: None.
-        /// @Post: CollectionOfMonsters has been filled.
+        /// 
+        /// Pre: None.
+        /// 
+        /// Post: CollectionOfMonsters has been filled.
         /// </summary>
         private void parseMonstersResource()
         {
@@ -108,8 +112,10 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         /// <summary>
         /// Private function that sets SelectedMonster to a random monster in CollectionOfMonsters.
-        /// @Pre: "Random Encounter" button has been clicked.
-        /// @Post: SelectedMonster has been set to a random monster.
+        /// 
+        /// Pre: "Random Encounter" button has been clicked.
+        /// 
+        /// Post: SelectedMonster has been set to a random monster.
         /// </summary>
         private void chooseRandomEncounter()
         {
@@ -128,8 +134,10 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         /// <summary>
         /// Private function which updates the UI's binding value to the current value.
-        /// @Pre: Private backing value has been changed.
-        /// @Post: UI now reflects current value.
+        /// 
+        /// Pre: Private backing value has been changed.
+        /// 
+        /// Post: UI now reflects current value.
         /// </summary>
         /// <param name="propertyname">Name of property to update to UI.</param>
         private void OnPropertyRaised(string propertyname)

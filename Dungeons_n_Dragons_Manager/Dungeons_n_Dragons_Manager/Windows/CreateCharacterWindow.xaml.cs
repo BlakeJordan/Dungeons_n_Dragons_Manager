@@ -12,8 +12,10 @@ namespace Dungeons_n_Dragons_Manager.Windows
     {
         /// <summary>
         /// Constructor
-        /// @Pre: None
-        /// @Post: Data context is set with m_newCharacter as character passed by reference.
+        /// 
+        /// Pre: None
+        /// 
+        /// Post: Data context is set with m_newCharacter as character passed by reference.
         /// </summary>
         public CreateCharacterWindow(ref Character character)
         {
@@ -26,15 +28,12 @@ namespace Dungeons_n_Dragons_Manager.Windows
         /// </summary>
         public bool SaveCharacter { get; set; }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         /// <summary>
         /// Handles the clicking of the save button
-        /// @Pre: Save button is clicked
-        /// @Post: The Save Character boolean is set to true and the window is closed
+        /// 
+        /// Pre: Save button is clicked
+        /// 
+        /// Post: The Save Character boolean is set to true and the window is closed
         /// </summary>
         private void Button_Click(object sender, RoutedEventArgs e)
         {

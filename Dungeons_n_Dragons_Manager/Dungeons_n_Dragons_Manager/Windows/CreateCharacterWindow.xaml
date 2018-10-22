@@ -64,8 +64,7 @@
                     Width="140"
                     Margin="2.5,0,0,0"
                     ItemsSource="{Binding Races}"
-                    SelectedItem="{Binding newCharacter.Race}"
-                    SelectionChanged="ComboBox_SelectionChanged" />
+                    SelectedItem="{Binding newCharacter.Race}"/>
             </StackPanel>
 
             <StackPanel
@@ -81,8 +80,7 @@
                     Width="140"
                     Margin="2.5,0,0,0"
                     ItemsSource="{Binding Classes}"
-                    SelectedItem="{Binding newCharacter.Class}"
-                    SelectionChanged="ComboBox_SelectionChanged" />
+                    SelectedItem="{Binding newCharacter.Class}"/>
             </StackPanel>
 
             <StackPanel
@@ -98,8 +96,7 @@
                     Width="140"
                     Margin="2.5,0,0,0"
                     ItemsSource="{Binding ArmorTypes}"
-                    SelectedItem="{Binding newCharacter.ArmorType}"
-                    SelectionChanged="ComboBox_SelectionChanged" />
+                    SelectedItem="{Binding newCharacter.ArmorType}"/>
             </StackPanel>
 
             <StackPanel
