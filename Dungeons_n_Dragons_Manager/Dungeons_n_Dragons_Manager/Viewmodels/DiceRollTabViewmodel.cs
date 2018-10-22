@@ -50,7 +50,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// private facing int which will hold the number of times the D6 should be rolled
         /// </summary>
         private int m_D6Input;
-
+        /// <summary>
+        /// public facing accessor for m_D6Input
+        /// </summary>
         public int D6Input
         {
             get
@@ -70,7 +72,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// private facing int which will hold the number of times the D8 should be rolled
         /// </summary>
         private int m_D8Input;
-
+        /// <summary>
+        /// public facing accessor for m_D8Input
+        /// </summary>
         public int D8Input
         {
             get
@@ -106,7 +110,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 }
             }
         }
-
+        /// <summary>
+        /// private facing int which will hold the number of times the D12 should be rolled
+        /// </summary>
         private int m_D12Input;
 
         public int D12Input
@@ -124,7 +130,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 }
             }
         }
-
+        /// <summary>
+        /// private facing int which will hold the number of times the D20 should be rolled
+        /// </summary>
         private int m_D20Input;
 
         public int D20Input
@@ -142,7 +150,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 }
             }
         }
-
+        /// <summary>
+        /// private facing int which will hold the number of times the D100 should be rolled
+        /// </summary>
         private int m_D100Input;
 
         public int D100Input

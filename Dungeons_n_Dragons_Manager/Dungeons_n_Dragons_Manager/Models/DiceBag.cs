@@ -45,7 +45,7 @@ namespace Dungeons_n_Dragons_Manager.Models
         }
         /// <summary>
         /// uses the Roll function to roll all the dice if the number of times is not zero
-        /// @Pre: Roll has been clicked and all of the text boxes are empty
+        /// @Pre: Roll has been clicked, none of the text boxes are empty, and an array of ints has been passed in
         /// @Post: returns a list of lists of strings to the viewmodel containing all the rolls
         /// </summary>
         /// <param name="times"></param>
