@@ -20,6 +20,6 @@ namespace Dungeons_n_Dragons_Manager.Windows
             InitializeComponent();
         }
 
-        public bool saveCharacter { get; set; }
+        public bool SaveCharacter { get; set; }
     }
 }
