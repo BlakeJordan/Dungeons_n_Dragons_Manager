@@ -2,8 +2,14 @@
 
 namespace Dungeons_n_Dragons_Manager.Models
 {
+    /// <summary>
+    /// A model to hold character data.
+    /// </summary>
     public class Character
     {
+        /// <summary>
+        /// Constructor.
+        /// </summary>
         public Character()
         {
         }

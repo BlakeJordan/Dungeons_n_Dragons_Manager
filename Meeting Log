@@ -1,5 +1,5 @@
 10/17/18
-In class, all members present except Austin (feeling sick after travels home)
+IN CLASS: all members present except Austin (feeling sick after travels back from home)
 Talked about features required for prototype:
   Dice Roller (bunty): user can choose type of dice to roll, amount of dice, and see the results
   Character Manager (?): user can add and characters
@@ -27,4 +27,4 @@ Dice roller component is complete.
 At Bunty & Blake's house, all members present except Mckenna(at work)
 Finishing up character and documentation.
 Notes for additions: Add a wait to create your own monster and have a drop down menu with
-all created monsters so that the dungeon master can keep track of monsters in the game. 
+all created monsters so that the dungeon master can keep track of monsters in the game.
