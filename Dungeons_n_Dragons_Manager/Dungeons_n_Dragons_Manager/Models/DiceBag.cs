@@ -43,7 +43,13 @@ namespace Dungeons_n_Dragons_Manager.Models
             }
             return rolls;
         }
-
+        /// <summary>
+        /// uses the Roll function to roll all the dice if the number of times is not zero
+        /// @Pre: Roll has been clicked and all of the text boxes are empty
+        /// @Post: returns a list of lists of strings to the viewmodel containing all the rolls
+        /// </summary>
+        /// <param name="times"></param>
+        /// <returns></returns>
         public List<List<string>> RollMultiple(int[] times)
         {
             List<List<string>> rollList = new List<List<string>>();
