@@ -27,19 +27,22 @@
             <StackPanel
                 Grid.Row="0"
                 Grid.Column="0"
-                HorizontalAlignment="Center">
+                HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="190,0,185.2,0.4" Width="148">
                 <TextBlock
                     HorizontalAlignment="Center"
                     FontSize="14"
+                    Width="140"
                     FontWeight="DemiBold"
                     Text="Character Name" />
-                <TextBox Text="{Binding newCharacter.Name}" />
+                <TextBox 
+                    Text="{Binding newCharacter.Name}"
+                    Width="140"/>
             </StackPanel>
 
             <StackPanel
                 Grid.Row="0"
                 Grid.Column="1"
-                HorizontalAlignment="Center">
+                HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="189.4,0,184,0.4" Width="149">
                 <TextBlock
                     HorizontalAlignment="Center"
                     FontSize="14"
@@ -195,12 +198,163 @@
                     Text="{Binding Path=newCharacter.Charisma, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
 
+            <StackPanel
+                Grid.Row="4"
+                Grid.Column="0"
+                Width="252"
+                Margin="0,10.4,9.6,-157"
+                HorizontalAlignment="Center">
+                <TextBlock
+                        HorizontalAlignment="Center"
+                        FontSize="14"
+                        FontWeight="DemiBold"
+                        Text="Proficiencies" />
+                <Grid Margin="0.2,0.2,0.2,175.8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <CheckBox
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        x:Name="Athletics"
+                        Margin="24,2,0,0"
+                        Content="Athletics" />
+                    <CheckBox
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        x:Name="Acrobatics"
+                        Margin="24,2,0,0"
+                        Content="Acrobatics" />
+                    <CheckBox
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        x:Name="SleightOfHand"
+                        Margin="24,2,0,0"
+                        Content="Sleight of Hand" />
+                    <CheckBox
+                        Grid.Column="0"
+                        Grid.Row="3"
+                        x:Name="Stealth"
+                        Margin="24,2,0,0"
+                        Content="Stealth" />
+                    <CheckBox
+                        Grid.Column="0"
+                        Grid.Row="4"
+                        x:Name="Arcana"
+                        Margin="24,2,0,0"
+                        Content="Arcana" />
+                    <CheckBox
+                        Grid.Column="0"
+                        Grid.Row="5"
+                        x:Name="History"
+                        Margin="24,2,0,0"
+                        Content="History" />
+                    <CheckBox
+                        Grid.Column="0"
+                        Grid.Row="6"
+                        x:Name="Investigation"
+                        Margin="24,2,0,0"
+                        Content="Investigation" />
+                    <CheckBox
+                        Grid.Column="0"
+                        Grid.Row="7"
+                        x:Name="Nature"
+                        Margin="24,2,0,0"
+                        Content="Nature" />
+                    <CheckBox
+                        Grid.Column="0"
+                        Grid.Row="8"
+                        x:Name="Religion"
+                        Margin="24,2,0,0"
+                        Content="Religion" />
+                    <CheckBox
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        x:Name="AnimalHandling"
+                        Margin="24,2,0,0"
+                        Content="Animal Handling" />
+                    <CheckBox
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        x:Name="Insight"
+                        Margin="24,2,0,0"
+                        Content="Insight" />
+                    <CheckBox
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        x:Name="Medicine"
+                        Margin="24,2,0,0"
+                        Content="Medicine" />
+                    <CheckBox
+                        Grid.Column="1"
+                        Grid.Row="3"
+                        x:Name="Perception"
+                        Margin="24,2,0,0"
+                        Content="Perception" />
+                    <CheckBox
+                        Grid.Column="1"
+                        Grid.Row="4"
+                        x:Name="Survival"
+                        Margin="24,2,0,0"
+                        Content="Survival" />
+                    <CheckBox
+                        Grid.Column="1"
+                        Grid.Row="5"
+                        x:Name="Deception"
+                        Margin="24,2,0,0"
+                        Content="Deception" />
+                    <CheckBox
+                        Grid.Column="1"
+                        Grid.Row="6"
+                        x:Name="Intimidation"
+                        Margin="24,2,0,0"
+                        Content="Intimidation" />
+                    <CheckBox
+                        Grid.Column="1"
+                        Grid.Row="7"
+                        x:Name="Performance"
+                        Margin="24,2,0,0"
+                        Content="Performance" />
+                    <CheckBox
+                        Grid.Column="1"
+                        Grid.Row="8"
+                        x:Name="Persuasion"
+                        Margin="24,2,0,0"
+                        Content="Persuasion" />
+                </Grid>
+            </StackPanel>
+
             <Button
                 Grid.Row="4"
                 Grid.Column="1"
                 Margin="60.8,76.4,61.2,-90"
                 Click="Button_Click"
                 Content="Save Character" />
+
+            <StackPanel
+                Grid.Row="4"
+                Grid.Column="1"
+                HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="260.4,0.4,0,-157" Width="262">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Character Notes" />
+                <TextBox Text="{Binding newCharacter.Name}" Height="180" Margin="10,0,10.4,0" />
+            </StackPanel>
         </Grid>
     </Border>
 </Window>
