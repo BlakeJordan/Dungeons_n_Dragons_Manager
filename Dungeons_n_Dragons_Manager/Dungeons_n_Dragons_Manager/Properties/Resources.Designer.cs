@@ -100,6 +100,15 @@ namespace Dungeons_n_Dragons_Manager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Arctic;Coastal;Desert;Forest;Grassland;Hill;Mountain;Swamp;Underdark;Underwater;Urban.
+        /// </summary>
+        internal static string Enviroments {
+            get {
+                return ResourceManager.GetString("Enviroments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name;ChallengeRating;ChallengeXP;ACType;AC;STR;STRMod;DEX;DEXMod;CON;CONMod;INT;INTMod;WIS;WISMod;CHA;CHAMod;HPDice;HP
         ///Adult Red Dragon;17;18000;natural armor;19;27;8;10;0;25;7;16;3;13;1;21;5;19d12 + 133;256
         ///Stone Golem;10;5900;natural armor;17;22;6;9;-1;20;5;3;-4;11;0;1;-5;17d10 + 85;178

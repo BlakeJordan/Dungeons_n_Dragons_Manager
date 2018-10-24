@@ -146,6 +146,10 @@ Warlock
 Wizard</value>
     <comment>Classes List</comment>
   </data>
+  <data name="Enviroments" xml:space="preserve">
+    <value>Arctic;Coastal;Desert;Forest;Grassland;Hill;Mountain;Swamp;Underdark;Underwater;Urban</value>
+    <comment>Enviroments String</comment>
+  </data>
   <data name="Monsters" xml:space="preserve">
     <value>Name;ChallengeRating;ChallengeXP;ACType;AC;STR;STRMod;DEX;DEXMod;CON;CONMod;INT;INTMod;WIS;WISMod;CHA;CHAMod;HPDice;HP
 Adult Red Dragon;17;18000;natural armor;19;27;8;10;0;25;7;16;3;13;1;21;5;19d12 + 133;256
