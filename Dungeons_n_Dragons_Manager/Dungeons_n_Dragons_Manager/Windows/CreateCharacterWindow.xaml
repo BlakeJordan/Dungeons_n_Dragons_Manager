@@ -201,9 +201,9 @@
             <StackPanel
                 Grid.Row="4"
                 Grid.Column="0"
-                Width="252"
-                Margin="0,10.4,9.6,-157"
-                HorizontalAlignment="Center">
+                Width="271"
+                Margin="-9,0.4,261.2,-147"
+                HorizontalAlignment="Center" Grid.ColumnSpan="2">
                 <TextBlock
                         HorizontalAlignment="Center"
                         FontSize="14"

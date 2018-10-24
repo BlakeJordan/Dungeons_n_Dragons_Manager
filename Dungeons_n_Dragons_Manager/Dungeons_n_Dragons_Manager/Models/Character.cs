@@ -120,6 +120,16 @@ namespace Dungeons_n_Dragons_Manager.Models
         public int IntelligenceMod { get; set; }
 
         /// <summary>
+        /// Represents the specific notes for a character
+        /// </summary>
+        public string Notes { get; set; }
+
+        /// <summary>
+        /// Represents the character's proficiencies
+        /// </summary>
+        public List<string> Proficiencies { get; set; }
+
+        /// <summary>
         /// Represents the character's weapons
         /// </summary>
         public List<string> Weapons { get; set; }
