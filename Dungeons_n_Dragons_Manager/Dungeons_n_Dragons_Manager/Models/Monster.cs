@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Dungeons_n_Dragons_Manager.Models
 {
@@ -48,9 +50,33 @@ namespace Dungeons_n_Dragons_Manager.Models
 
             HitPointsDice = values[17];
             HitPoints = Int32.Parse(values[18]);
+
+            Enviroments = new List<string>();
+            if(values[19] == "All") //All enviroments except Underwater
+            {
+                Enviroments.Add("Arctic");
+                Enviroments.Add("Coastal");
+                Enviroments.Add("Desert");
+                Enviroments.Add("Forest");
+                Enviroments.Add("Grassland");
+                Enviroments.Add("Hill");
+                Enviroments.Add("Mountain");
+                Enviroments.Add("Swamp");
+                Enviroments.Add("Underdark");
+                Enviroments.Add("Urban");
+            }
+            else
+            {
+                Enviroments = values[19].Split(',').OfType<string>().ToList(); //Parse string of enviroments
+            }
         }
 
         #region Properties
+
+        /// <summary>
+        /// Represents the enviroments of the monster.
+        /// </summary>
+        public List<string> Enviroments { get; set; }
 
         /// <summary>
         /// Represents the name of the monster.
