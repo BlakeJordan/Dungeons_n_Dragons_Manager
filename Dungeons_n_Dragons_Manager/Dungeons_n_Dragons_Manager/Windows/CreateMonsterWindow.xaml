@@ -22,6 +22,8 @@
                 <RowDefinition Height="50" />
                 <RowDefinition Height="50" />
                 <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
             </Grid.RowDefinitions>
 
             <StackPanel
@@ -295,7 +297,7 @@
           </StackPanel>
 
             <Button
-                Grid.Row="5"
+                Grid.Row="4"
                 Grid.Column="2"
                 Margin="60.8,76.4,61.2,-90"
                 Click="Button_Click"
