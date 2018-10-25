@@ -22,8 +22,8 @@
 
               <Button
                                         Margin="2.5,0,1,0"
-                                        Command="{Binding CreateEncounter}"
-                                        Content=" Create Encounter " />
+                                        Command="{Binding CreateMonster}"
+                                        Content=" Create Monster " />
               
                 <Button
                                         Margin="0,0,2.5,0"
@@ -36,6 +36,8 @@
                                         DisplayMemberPath="Name"
                                         ItemsSource="{Binding CollectionOfMonsters}"
                                         SelectedItem="{Binding SelectedMonster}" />
+
+              
             </StackPanel>
 
             <GroupBox Grid.Row="1" Header="Monster Stats">

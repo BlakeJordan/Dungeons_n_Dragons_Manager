@@ -1,5 +1,6 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
 using Dungeons_n_Dragons_Manager.Tools;
+using Dungeons_n_Dragons_Manager.Windows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -90,6 +91,30 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        /// <summary>
+        /// Boolean which determines if CreateMonster can be executed.
+        /// </summary>
+        private bool m_canCreateMonster
+        {
+            get { return true; } //Add check to see if characters are created later.
+        }
+
+        /// <summary>
+        /// Command binded to the "create monster" button which calls createMonster if m_canCreateMonster is true.
+        /// </summary>
+        private ICommand m_createMonster;
+
+        /// <summary>
+        /// Public facing accessor to m_createMonster.
+        /// </summary>
+        public ICommand CreateMonster
+        {
+            get
+            {
+                return m_createMonster ?? (m_createMonster = new CommandHandler(() => createNewMonster(), m_canCreateMonster));
+            }
+        }
+
         #endregion Commands
 
         #region Functions
@@ -123,6 +148,24 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             Random randomNumberGenerator = new Random();
             SelectedMonster = CollectionOfMonsters[randomNumberGenerator.Next(0, CollectionOfMonsters.Count - 1)]; //Chooses random index
+        }
+
+        /// <summary>
+        /// Creates a new character and passes it by reference to an instance of CreateCharacterWindow to be edited.
+        ///
+        /// Pre: "Create Character" button has been clicked.
+        ///
+        /// Post: A new character has been created.
+        /// </summary>
+        public void createNewMonster()
+        {
+            Monster newMonster = new Monster(); //Create blank character.
+            CreateMonsterWindow createMonsterWindow = new CreateMonsterWindow(ref newMonster); //Pass character to window by reference to be modified.
+            createMonsterWindow.ShowDialog(); //Open window instance until closed.
+            if (createMonsterWindow.SaveMonster)
+            {
+                CollectionOfMonsters.Add(newMonster); //Add modified character to collection.
+            }
         }
 
         #endregion Functions
