@@ -33,6 +33,15 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public List<string> ArmorTypes { get; set; }
 
+        /// The character's options for race
+        /// </summary>
+        public List<string> Races { get; set; }
+
+        /// <summary>
+        /// The character's options for class
+        /// </summary>
+        public List<string> Classes { get; set; }
+
         /// <summary>
         /// Populates the dropdown menus for the races and classes options
         ///
@@ -42,6 +51,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         private void populateDropdowns()
         {
+            Races = Properties.Resources.Races.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            Classes = Properties.Resources.Classes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
         }
 

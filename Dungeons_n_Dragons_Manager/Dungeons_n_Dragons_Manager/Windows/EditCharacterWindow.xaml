@@ -35,7 +35,7 @@
                     FontWeight="DemiBold"
                     Text="Character Name" />
                 <TextBox
-                    Text="{Binding newCharacter.Name}"
+                    Text="{Binding EditedCharacter.Name}"
                     Width="140" />
             </StackPanel>
 
@@ -51,7 +51,7 @@
                 <TextBox
                     Width="140"
                     Margin="2.5,0,0,0"
-                    Text="{Binding newCharacter.Level}" />
+                    Text="{Binding EditedCharacter.Level}" />
             </StackPanel>
 
             <StackPanel
@@ -67,7 +67,7 @@
                     Width="140"
                     Margin="2.5,0,0,0"
                     ItemsSource="{Binding Races}"
-                    SelectedItem="{Binding newCharacter.Race}" />
+                    SelectedItem="{Binding EditedCharacter.Race}" />
             </StackPanel>
 
             <StackPanel
@@ -83,7 +83,7 @@
                     Width="140"
                     Margin="2.5,0,0,0"
                     ItemsSource="{Binding Classes}"
-                    SelectedItem="{Binding newCharacter.Class}" />
+                    SelectedItem="{Binding EditedCharacter.Class}" />
             </StackPanel>
 
             <StackPanel
@@ -99,7 +99,7 @@
                     Width="140"
                     Margin="2.5,0,0,0"
                     ItemsSource="{Binding ArmorTypes}"
-                    SelectedItem="{Binding newCharacter.ArmorType}" />
+                    SelectedItem="{Binding EditedCharacter.ArmorType}" />
             </StackPanel>
 
             <StackPanel
@@ -115,7 +115,7 @@
                     x:Name="Strength"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Strength, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding Path=EditedCharacter.Strength, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
 
             <StackPanel
@@ -131,7 +131,7 @@
                     x:Name="Dexterity"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Dexterity, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding Path=EditedCharacter.Dexterity, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
 
             <StackPanel
@@ -147,7 +147,7 @@
                     x:Name="Constitution"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Constitution, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding Path=EditedCharacter.Constitution, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
 
             <StackPanel
@@ -163,7 +163,7 @@
                     x:Name="Intelligence"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Intelligence, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding Path=EditedCharacter.Intelligence, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
 
             <StackPanel
@@ -179,7 +179,7 @@
                     x:Name="Wisdom"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Wisdom, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding Path=EditedCharacter.Wisdom, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
 
             <StackPanel
@@ -195,7 +195,7 @@
                     x:Name="Charisma"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Charisma, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding Path=EditedCharacter.Charisma, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
 
             <StackPanel
@@ -353,7 +353,7 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Character Notes" />
-                <TextBox Text="{Binding newCharacter.Name}" Height="180" Margin="10,0,10.4,0" />
+                <TextBox Text="{Binding EditedCharacter.Name}" Height="180" Margin="10,0,10.4,0" />
             </StackPanel>
         </Grid>
     </Border>

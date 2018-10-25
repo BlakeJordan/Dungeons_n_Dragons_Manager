@@ -133,15 +133,18 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        /// <summary>
+        /// Creates a new character and passes it by reference to an instance of CreateCharacterWindow to be edited.
+        ///
+        /// Pre: "Create Character" button has been clicked.
+        ///
+        /// Post: A new character has been created.
+        /// </summary>
         public void CharacterRevision()
         {
             Character EditedCharacter = m_SelectedCharacter; //Create blank character.
             EditCharacterWindow editCharacterWindow = new EditCharacterWindow(ref EditedCharacter); //Pass character to window by reference to be modified.
             editCharacterWindow.ShowDialog(); //Open window instance until closed.
-            if (editCharacterWindow.SaveCharacter)
-            {
-                Characters.Add(EditedCharacter); //Add modified character to collection.
-            }
         }
 
         #endregion Functions
