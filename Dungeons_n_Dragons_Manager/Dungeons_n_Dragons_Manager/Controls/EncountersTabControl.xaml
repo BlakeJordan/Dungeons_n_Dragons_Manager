@@ -183,7 +183,7 @@
                             <TextBlock HorizontalAlignment="Center" Text="Environments"/>
                             <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                      HorizontalAlignment="Center"
-                                     ItemsSource="{Binding SelectedMonster.Enviroments}">
+                                     ItemsSource="{Binding SelectedMonster.Environments}">
                                 <ListBox.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <WrapPanel IsItemsHost="True" />

@@ -51,23 +51,23 @@ namespace Dungeons_n_Dragons_Manager.Models
             HitPointsDice = values[17];
             HitPoints = Int32.Parse(values[18]);
 
-            Enviroments = new List<string>();
-            if(values[19] == "All") //All enviroments except Underwater
+            Environments = new List<string>();
+            if(values[19] == "All") //All environments except Underwater
             {
-                Enviroments.Add("Arctic");
-                Enviroments.Add("Coastal");
-                Enviroments.Add("Desert");
-                Enviroments.Add("Forest");
-                Enviroments.Add("Grassland");
-                Enviroments.Add("Hill");
-                Enviroments.Add("Mountain");
-                Enviroments.Add("Swamp");
-                Enviroments.Add("Underdark");
-                Enviroments.Add("Urban");
+                Environments.Add("Arctic");
+                Environments.Add("Coastal");
+                Environments.Add("Desert");
+                Environments.Add("Forest");
+                Environments.Add("Grassland");
+                Environments.Add("Hill");
+                Environments.Add("Mountain");
+                Environments.Add("Swamp");
+                Environments.Add("Underdark");
+                Environments.Add("Urban");
             }
             else
             {
-                Enviroments = values[19].Split(',').OfType<string>().ToList(); //Parse string of enviroments
+                Environments = values[19].Split(',').OfType<string>().ToList(); //Parse string of enviroments
             }
         }
 
@@ -76,7 +76,7 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// <summary>
         /// Represents the enviroments of the monster.
         /// </summary>
-        public List<string> Enviroments { get; set; }
+        public List<string> Environments { get; set; }
 
         /// <summary>
         /// Represents the name of the monster.
