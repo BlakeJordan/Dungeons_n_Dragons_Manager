@@ -102,9 +102,9 @@ namespace Dungeons_n_Dragons_Manager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Arctic;Coastal;Desert;Forest;Grassland;Hill;Mountain;Swamp;Underdark;Underwater;Urban.
         /// </summary>
-        internal static string Enviroments {
+        internal static string Environments {
             get {
-                return ResourceManager.GetString("Enviroments", resourceCulture);
+                return ResourceManager.GetString("Environments", resourceCulture);
             }
         }
         
