@@ -146,7 +146,7 @@ Warlock
 Wizard</value>
     <comment>Classes List</comment>
   </data>
-  <data name="Enviroments" xml:space="preserve">
+  <data name="Environments" xml:space="preserve">
     <value>Arctic;Coastal;Desert;Forest;Grassland;Hill;Mountain;Swamp;Underdark;Underwater;Urban</value>
     <comment>Enviroments String</comment>
   </data>

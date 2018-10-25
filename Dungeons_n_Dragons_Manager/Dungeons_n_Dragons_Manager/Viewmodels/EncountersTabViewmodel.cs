@@ -24,14 +24,16 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         public EncountersTabViewmodel()
         {
             parseMonstersResource();
+            Environments = Properties.Resources.Environments.Split(';').ToList();
+            SelectedEnvironment = Environments[0];
         }
 
         #region Members
 
         /// <summary>
-        /// ObservableCollection of Monsters which is bound to the combobox.
+        /// ObservableCollection of Monsters which is bound to a combobox.
         /// </summary>
-        public ObservableCollection<Monster> CollectionOfMonsters { get; set; }
+        public ObservableCollection<Monster> Monsters { get; set; }
 
         /// <summary>
         /// Private backing to store the currently selected monster in the combobox.
@@ -47,7 +49,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             {
                 if (m_selectedMonster == null)
                 {
-                    m_selectedMonster = CollectionOfMonsters[0];
+                    m_selectedMonster = Monsters[0];
                 }
                 return m_selectedMonster;
             }
@@ -60,6 +62,17 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 }
             }
         }
+
+        /// <summary>
+        /// List of environments that are bound to a combobox.
+        /// </summary>
+        public List<string> Environments { get; set; }
+
+        /// <summary>
+        /// Stores the currently selected environment.
+        /// </summary>
+        public string SelectedEnvironment { get; set; }
+
 
         #endregion Members
 
@@ -110,11 +123,11 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 string[] values = entry.Split(';');
                 listOfMonsters.Add(new Monster(values));
             }
-            CollectionOfMonsters = new ObservableCollection<Monster>( listOfMonsters.OrderBy(o => o.Name).ToList() ); //Sort list by name and create observable collection
+            Monsters = new ObservableCollection<Monster>( listOfMonsters.OrderBy(o => o.Name).ToList() ); //Sort list by name and create observable collection
         }
 
         /// <summary>
-        /// Private function that sets SelectedMonster to a random monster in CollectionOfMonsters.
+        /// Private function that sets SelectedMonster to a random monster in CollectionOfMonsters based on chosen environment.
         ///
         /// Pre: "Random Encounter" button has been clicked.
         ///
@@ -123,7 +136,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private void chooseRandomEncounter()
         {
             Random randomNumberGenerator = new Random();
-            SelectedMonster = CollectionOfMonsters[randomNumberGenerator.Next(0, CollectionOfMonsters.Count - 1)]; //Chooses random index
+            List<Monster> filteredMonsters = Monsters.Where(o => o.Environments.Contains(SelectedEnvironment) == true).ToList();
+            SelectedMonster = filteredMonsters[randomNumberGenerator.Next(0, filteredMonsters.Count - 1)]; //Chooses random index
         }
 
         #endregion Functions
