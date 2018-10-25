@@ -100,12 +100,21 @@ namespace Dungeons_n_Dragons_Manager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name;ChallengeRating;ChallengeXP;ACType;AC;STR;STRMod;DEX;DEXMod;CON;CONMod;INT;INTMod;WIS;WISMod;CHA;CHAMod;HPDice;HP
-        ///Adult Red Dragon;17;18000;natural armor;19;27;8;10;0;25;7;16;3;13;1;21;5;19d12 + 133;256
-        ///Stone Golem;10;5900;natural armor;17;22;6;9;-1;20;5;3;-4;11;0;1;-5;17d10 + 85;178
-        ///Fire Giant;9;5000;plate;18;25;7;9;-1;23;6;10;0;14;2;13;1;13d12 + 78;162
-        ///Hydra;8;3900;natural armor;15;20;5;12;1;20;5;2;-4;10;0;7;-2;15d12 + 75;172
-        ///Frost Giant;8;3900;patchwork armor;15;23;6;9;-1;21;5;9;-1;10;0;12;1;12 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Arctic;Coastal;Desert;Forest;Grassland;Hill;Mountain;Swamp;Underdark;Underwater;Urban.
+        /// </summary>
+        internal static string Enviroments {
+            get {
+                return ResourceManager.GetString("Enviroments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name;ChallengeRating;ChallengeXP;ACType;AC;STR;STRMod;DEX;DEXMod;CON;CONMod;INT;INTMod;WIS;WISMod;CHA;CHAMod;HPDice;HP;Enviroments
+        ///Adult Red Dragon;17;18000;natural armor;19;27;8;10;0;25;7;16;3;13;1;21;5;19d12 + 133;256;Hill,Mountain
+        ///Stone Golem;10;5900;natural armor;17;22;6;9;-1;20;5;3;-4;11;0;1;-5;17d10 + 85;178;All
+        ///Fire Giant;9;5000;plate;18;25;7;9;-1;23;6;10;0;14;2;13;1;13d12 + 78;162;Mountain,Underdark
+        ///Hydra;8;3900;natural armor;15;20;5;12;1;20;5;2;-4;10;0;7;-2;15d12 + 75;172;Swamp
+        ///Frost Giant;8;3 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Monsters {
             get {

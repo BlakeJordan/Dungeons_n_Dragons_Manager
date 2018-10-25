@@ -23,7 +23,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public EncountersTabViewmodel()
         {
-            CollectionOfMonsters = new ObservableCollection<Monster>();
             parseMonstersResource();
         }
 
@@ -103,13 +102,15 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         private void parseMonstersResource()
         {
+            List<Monster> listOfMonsters = new List<Monster>(); //Temp list to store monsters
             List<string> monsterDataEntries = Properties.Resources.Monsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             monsterDataEntries.RemoveAt(0); //Remove data header
             foreach (string entry in monsterDataEntries)
             {
                 string[] values = entry.Split(';');
-                CollectionOfMonsters.Add(new Monster(values));
+                listOfMonsters.Add(new Monster(values));
             }
+            CollectionOfMonsters = new ObservableCollection<Monster>( listOfMonsters.OrderBy(o => o.Name).ToList() ); //Sort list by name and create observable collection
         }
 
         /// <summary>
