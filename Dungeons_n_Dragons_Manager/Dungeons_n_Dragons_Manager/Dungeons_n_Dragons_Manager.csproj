@@ -93,6 +93,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\EditCharacterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -117,10 +121,14 @@
     <Compile Include="Models\DiceBag.cs" />
     <Compile Include="Viewmodels\CreateCharacterWindowViewmodel.cs" />
     <Compile Include="Viewmodels\DiceRollTabViewmodel.cs" />
+    <Compile Include="Viewmodels\EditCharacterWindowViewModel.cs" />
     <Compile Include="Viewmodels\EncountersTabViewmodel.cs" />
     <Compile Include="Viewmodels\MainWindowViewmodel.cs" />
     <Compile Include="Windows\CreateCharacterWindow.xaml.cs">
       <DependentUpon>CreateCharacterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditCharacterWindow.xaml.cs">
+      <DependentUpon>EditCharacterWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

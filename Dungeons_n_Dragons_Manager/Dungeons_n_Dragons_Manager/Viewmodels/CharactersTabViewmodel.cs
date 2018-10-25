@@ -87,6 +87,30 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        // <summary>
+        /// Boolean which determines if CreateCharacter can be executed.
+        /// </summary>
+        private bool m_canEditCharacter
+        {
+            get { return true; } //Potentially add check to see if maximum number of characters has been reached later.
+        }
+
+        /// <summary>
+        /// Command binded to the "create character" button which calls createCharacter if m_canCreateCharacter is true.
+        /// </summary>
+        private ICommand m_editCharacter;
+
+        /// <summary>
+        /// Public facing accessor to m_createCharacter.
+        /// </summary>
+        public ICommand EditCharacter
+        {
+            get
+            {
+                return m_editCharacter ?? (m_editCharacter = new CommandHandler(() => CharacterRevision(), m_canEditCharacter));
+            }
+        }
+
         #endregion Commands
 
         #region Functions
@@ -106,6 +130,17 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             if (createCharacterWindow.SaveCharacter)
             {
                 Characters.Add(newCharacter); //Add modified character to collection.
+            }
+        }
+
+        public void CharacterRevision()
+        {
+            Character EditedCharacter = m_SelectedCharacter; //Create blank character.
+            EditCharacterWindow editCharacterWindow = new EditCharacterWindow(ref EditedCharacter); //Pass character to window by reference to be modified.
+            editCharacterWindow.ShowDialog(); //Open window instance until closed.
+            if (editCharacterWindow.SaveCharacter)
+            {
+                Characters.Add(EditedCharacter); //Add modified character to collection.
             }
         }
 
