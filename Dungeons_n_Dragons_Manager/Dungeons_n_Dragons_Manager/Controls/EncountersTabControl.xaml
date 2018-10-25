@@ -19,6 +19,12 @@
                                     Grid.Row="0"
                                     HorizontalAlignment="Center"
                                     Orientation="Horizontal">
+
+              <Button
+                                        Margin="2.5,0,1,0"
+                                        Command="{Binding CreateEncounter}"
+                                        Content=" Create Encounter " />
+              
                 <Button
                                         Margin="0,0,2.5,0"
                                         Command="{Binding ChooseRandomEncounter}"
