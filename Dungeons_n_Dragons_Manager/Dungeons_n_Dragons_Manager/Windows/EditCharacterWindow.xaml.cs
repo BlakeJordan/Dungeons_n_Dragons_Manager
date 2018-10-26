@@ -8,6 +8,13 @@ namespace Dungeons_n_Dragons_Manager.Windows
     /// </summary>
     public partial class EditCharacterWindow : Window
     {
+        /// <summary>
+        /// Constructor
+        ///
+        /// Pre: None
+        ///
+        /// Post: Data context is set with m_selectedCharacter as character passed by reference.
+        /// </summary>
         public EditCharacterWindow(ref Character character)
         {
             this.DataContext = new EditCharacterWindowViewModel(ref character); //Initialize viewmodel.
