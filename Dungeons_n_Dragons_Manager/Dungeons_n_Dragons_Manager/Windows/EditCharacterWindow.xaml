@@ -115,7 +115,7 @@
                     x:Name="Strength"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=EditedCharacter.Strength, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding Path=EditedCharacter.Strength}" />
             </StackPanel>
 
             <StackPanel
@@ -131,7 +131,7 @@
                     x:Name="Dexterity"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=EditedCharacter.Dexterity, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding Path=EditedCharacter.Dexterity}" />
             </StackPanel>
 
             <StackPanel
@@ -147,7 +147,7 @@
                     x:Name="Constitution"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=EditedCharacter.Constitution, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding Path=EditedCharacter.Constitution}" />
             </StackPanel>
 
             <StackPanel
@@ -163,7 +163,7 @@
                     x:Name="Intelligence"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=EditedCharacter.Intelligence, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding Path=EditedCharacter.Intelligence}" />
             </StackPanel>
 
             <StackPanel
@@ -179,7 +179,7 @@
                     x:Name="Wisdom"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=EditedCharacter.Wisdom, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding Path=EditedCharacter.Wisdom}" />
             </StackPanel>
 
             <StackPanel
@@ -195,7 +195,7 @@
                     x:Name="Charisma"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=EditedCharacter.Charisma, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding Path=EditedCharacter.Charisma}" />
             </StackPanel>
 
             <StackPanel

@@ -27,22 +27,26 @@
             <StackPanel
                 Grid.Row="0"
                 Grid.Column="0"
-                HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="190,0,185.2,0.4" Width="148">
+                Grid.ColumnSpan="2"
+                Width="148"
+                Margin="190,0,185.2,0.4"
+                HorizontalAlignment="Center">
                 <TextBlock
+                    Width="140"
                     HorizontalAlignment="Center"
                     FontSize="14"
-                    Width="140"
                     FontWeight="DemiBold"
                     Text="Character Name" />
-                <TextBox
-                    Text="{Binding newCharacter.Name}"
-                    Width="140" />
+                <TextBox Width="140" Text="{Binding newCharacter.Name}" />
             </StackPanel>
 
             <StackPanel
                 Grid.Row="0"
                 Grid.Column="1"
-                HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="189.4,0,184,0.4" Width="149">
+                Grid.ColumnSpan="2"
+                Width="149"
+                Margin="189.4,0,184,0.4"
+                HorizontalAlignment="Center">
                 <TextBlock
                     HorizontalAlignment="Center"
                     FontSize="14"
@@ -115,7 +119,7 @@
                     x:Name="Strength"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Strength, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding Path=newCharacter.Strength}" />
             </StackPanel>
 
             <StackPanel
@@ -131,7 +135,7 @@
                     x:Name="Dexterity"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Dexterity, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding Path=newCharacter.Dexterity}" />
             </StackPanel>
 
             <StackPanel
@@ -147,7 +151,7 @@
                     x:Name="Constitution"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Constitution, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding Path=newCharacter.Constitution}" />
             </StackPanel>
 
             <StackPanel
@@ -163,7 +167,7 @@
                     x:Name="Intelligence"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Intelligence, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding Path=newCharacter.Intelligence}" />
             </StackPanel>
 
             <StackPanel
@@ -179,7 +183,7 @@
                     x:Name="Wisdom"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Wisdom, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding Path=newCharacter.Wisdom}" />
             </StackPanel>
 
             <StackPanel
@@ -195,20 +199,21 @@
                     x:Name="Charisma"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Charisma, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding Path=newCharacter.Charisma}" />
             </StackPanel>
 
             <StackPanel
                 Grid.Row="4"
                 Grid.Column="0"
+                Grid.ColumnSpan="2"
                 Width="271"
                 Margin="-9,0.4,261.2,-147"
-                HorizontalAlignment="Center" Grid.ColumnSpan="2">
+                HorizontalAlignment="Center">
                 <TextBlock
-                        HorizontalAlignment="Center"
-                        FontSize="14"
-                        FontWeight="DemiBold"
-                        Text="Proficiencies" />
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Proficiencies" />
                 <Grid Margin="0.2,0.2,0.2,175.8">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -227,111 +232,111 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <CheckBox
-                        Grid.Column="0"
-                        Grid.Row="0"
                         x:Name="Athletics"
+                        Grid.Row="0"
+                        Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Athletics" />
                     <CheckBox
-                        Grid.Column="0"
-                        Grid.Row="1"
                         x:Name="Acrobatics"
+                        Grid.Row="1"
+                        Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Acrobatics" />
                     <CheckBox
-                        Grid.Column="0"
-                        Grid.Row="2"
                         x:Name="SleightOfHand"
+                        Grid.Row="2"
+                        Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Sleight of Hand" />
                     <CheckBox
-                        Grid.Column="0"
-                        Grid.Row="3"
                         x:Name="Stealth"
+                        Grid.Row="3"
+                        Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Stealth" />
                     <CheckBox
-                        Grid.Column="0"
-                        Grid.Row="4"
                         x:Name="Arcana"
+                        Grid.Row="4"
+                        Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Arcana" />
                     <CheckBox
-                        Grid.Column="0"
-                        Grid.Row="5"
                         x:Name="History"
+                        Grid.Row="5"
+                        Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="History" />
                     <CheckBox
-                        Grid.Column="0"
-                        Grid.Row="6"
                         x:Name="Investigation"
+                        Grid.Row="6"
+                        Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Investigation" />
                     <CheckBox
-                        Grid.Column="0"
-                        Grid.Row="7"
                         x:Name="Nature"
+                        Grid.Row="7"
+                        Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Nature" />
                     <CheckBox
-                        Grid.Column="0"
-                        Grid.Row="8"
                         x:Name="Religion"
+                        Grid.Row="8"
+                        Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Religion" />
                     <CheckBox
-                        Grid.Column="1"
-                        Grid.Row="0"
                         x:Name="AnimalHandling"
+                        Grid.Row="0"
+                        Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Animal Handling" />
                     <CheckBox
-                        Grid.Column="1"
-                        Grid.Row="1"
                         x:Name="Insight"
+                        Grid.Row="1"
+                        Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Insight" />
                     <CheckBox
-                        Grid.Column="1"
-                        Grid.Row="2"
                         x:Name="Medicine"
+                        Grid.Row="2"
+                        Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Medicine" />
                     <CheckBox
-                        Grid.Column="1"
-                        Grid.Row="3"
                         x:Name="Perception"
+                        Grid.Row="3"
+                        Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Perception" />
                     <CheckBox
-                        Grid.Column="1"
-                        Grid.Row="4"
                         x:Name="Survival"
+                        Grid.Row="4"
+                        Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Survival" />
                     <CheckBox
-                        Grid.Column="1"
-                        Grid.Row="5"
                         x:Name="Deception"
+                        Grid.Row="5"
+                        Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Deception" />
                     <CheckBox
-                        Grid.Column="1"
-                        Grid.Row="6"
                         x:Name="Intimidation"
+                        Grid.Row="6"
+                        Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Intimidation" />
                     <CheckBox
-                        Grid.Column="1"
-                        Grid.Row="7"
                         x:Name="Performance"
+                        Grid.Row="7"
+                        Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Performance" />
                     <CheckBox
-                        Grid.Column="1"
-                        Grid.Row="8"
                         x:Name="Persuasion"
+                        Grid.Row="8"
+                        Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Persuasion" />
                 </Grid>
@@ -347,13 +352,19 @@
             <StackPanel
                 Grid.Row="4"
                 Grid.Column="1"
-                HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="260.4,0.4,0,-157" Width="262">
+                Grid.ColumnSpan="2"
+                Width="262"
+                Margin="260.4,0.4,0,-157"
+                HorizontalAlignment="Center">
                 <TextBlock
                     HorizontalAlignment="Center"
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Character Notes" />
-                <TextBox Text="{Binding newCharacter.Name}" Height="180" Margin="10,0,10.4,0" />
+                <TextBox
+                    Height="180"
+                    Margin="10,0,10.4,0"
+                    Text="{Binding newCharacter.Name}" />
             </StackPanel>
         </Grid>
     </Border>

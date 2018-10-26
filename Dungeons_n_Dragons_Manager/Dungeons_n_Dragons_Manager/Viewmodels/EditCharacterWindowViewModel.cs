@@ -7,16 +7,19 @@ using System.Threading.Tasks;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
 {
+    /// <summary>
+    /// Viewmodel for the edit character window
+    /// </summary>
     public class EditCharacterWindowViewModel
     {
         /// <summary>
-        /// Constructor for the create character viewmodel
+        /// Constructor for the edit character viewmodel
         ///
-        /// Pre: Create Character window has been opened
+        /// Pre: Edit Character window has been opened while a character is selected
         ///
-        /// Post: A new character is created with a reference to an existing, blank character
+        /// Post: A copy of the character is created and edited with a reference to the existing character
         /// </summary>
-        /// /// <param name="character">A reference to the new character</param>
+        /// /// <param name="character">A reference to the character being edited</param>
         public EditCharacterWindowViewModel(ref Character character)
         {
             EditedCharacter = character;
@@ -24,7 +27,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         /// <summary>
-        /// The new character being created
+        /// The new character being edited
         /// </summary>
         public Character EditedCharacter { get; set; }
 
@@ -33,6 +36,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public List<string> ArmorTypes { get; set; }
 
+        /// <summary>
         /// The character's options for race
         /// </summary>
         public List<string> Races { get; set; }

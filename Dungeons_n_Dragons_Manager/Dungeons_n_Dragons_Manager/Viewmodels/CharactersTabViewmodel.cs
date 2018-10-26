@@ -87,21 +87,23 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-        // <summary>
-        /// Boolean which determines if CreateCharacter can be executed.
+        /// <summary>
+        /// Boolean which determines if EditCharacter can be executed.
         /// </summary>
         private bool m_canEditCharacter
         {
-            get { return true; } //Potentially add check to see if maximum number of characters has been reached later.
+            get {
+                return true;
+            } 
         }
 
         /// <summary>
-        /// Command binded to the "create character" button which calls createCharacter if m_canCreateCharacter is true.
+        /// Command binded to the "edit character" button which calls editCharacter if m_canEditCharacter is true.
         /// </summary>
         private ICommand m_editCharacter;
 
         /// <summary>
-        /// Public facing accessor to m_createCharacter.
+        /// Public facing accessor to m_editCharacter.
         /// </summary>
         public ICommand EditCharacter
         {
@@ -134,15 +136,15 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         /// <summary>
-        /// Creates a new character and passes it by reference to an instance of CreateCharacterWindow to be edited.
+        /// Copies an existing character and passes it by reference to an instance of EditCharacterWindow to be edited.
         ///
-        /// Pre: "Create Character" button has been clicked.
+        /// Pre: "Edit Character" button has been clicked and m_canEditCharacter is true
         ///
-        /// Post: A new character has been created.
+        /// Post: The edit character window is opened and the user can start editing
         /// </summary>
         public void CharacterRevision()
         {
-            Character EditedCharacter = m_SelectedCharacter; //Create blank character.
+            Character EditedCharacter = m_SelectedCharacter; //Copy existing character.
             EditCharacterWindow editCharacterWindow = new EditCharacterWindow(ref EditedCharacter); //Pass character to window by reference to be modified.
             editCharacterWindow.ShowDialog(); //Open window instance until closed.
         }
