@@ -153,5 +153,21 @@ namespace Dungeons_n_Dragons_Manager.Properties {
                 return ResourceManager.GetString("Races", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name;Cost;Damage;Weight;Properties;Type;
+        ///Club;1 sp;	1d4 bludgeoning;2 lb;Light;Simple,Melee;
+        ///Dagger;2 gp;1d4 piercing;1 lb;Finesse light, thrown (range 20/60);Simple,Melee;
+        ///Greatclub;2 sp;1d8 bludgeoning;10 lb;Two-handed;Simple,Melee;
+        ///Handaxe;	5 gp;1d6 slashing;2 lb;Light, thrown (range 20/60);Simple,Melee;
+        ///Javelin;5 sp;1d6 piercing;2 lb;	Thrown (range 30/120);Simple,Melee;
+        ///Light hammer;2 gp;1d4 bludgeoning;2 lb;Light, thrown (range 20/60);Simple,Melee;
+        ///Mace;5 gp;1d6 bludgeoning;	4 lb;-;Simple,Melee; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Weapons {
+            get {
+                return ResourceManager.GetString("Weapons", resourceCulture);
+            }
+        }
     }
 }

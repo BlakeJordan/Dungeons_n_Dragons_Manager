@@ -1,6 +1,7 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
 using Dungeons_n_Dragons_Manager.Tools;
 using Dungeons_n_Dragons_Manager.Windows;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
@@ -93,7 +94,14 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private bool m_canEditCharacter
         {
             get {
-                return true;
+                if (SelectedCharacter != null) // if character is not selected, cannot click edit button
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             } 
         }
 
@@ -144,7 +152,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public void CharacterRevision()
         {
-            Character EditedCharacter = m_SelectedCharacter; //Copy existing character.
+            Character EditedCharacter = SelectedCharacter; //Copy existing character.
             EditCharacterWindow editCharacterWindow = new EditCharacterWindow(ref EditedCharacter); //Pass character to window by reference to be modified.
             editCharacterWindow.ShowDialog(); //Open window instance until closed.
         }
