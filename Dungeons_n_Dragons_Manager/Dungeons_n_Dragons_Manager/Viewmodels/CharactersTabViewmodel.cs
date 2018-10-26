@@ -1,7 +1,6 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
 using Dungeons_n_Dragons_Manager.Tools;
 using Dungeons_n_Dragons_Manager.Windows;
-using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
@@ -93,7 +92,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         private bool m_canEditCharacter
         {
-            get {
+            get
+            {
                 if (SelectedCharacter != null) // if character is not selected, cannot click edit button
                 {
                     return true;
@@ -102,7 +102,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 {
                     return false;
                 }
-            } 
+            }
         }
 
         /// <summary>

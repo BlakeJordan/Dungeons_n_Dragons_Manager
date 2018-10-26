@@ -1,19 +1,6 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
 using Dungeons_n_Dragons_Manager.Viewmodels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
 namespace Dungeons_n_Dragons_Manager.Windows
 {
     /// <summary>
@@ -26,6 +13,7 @@ namespace Dungeons_n_Dragons_Manager.Windows
             this.DataContext = new EditCharacterWindowViewModel(ref character); //Initialize viewmodel.
             InitializeComponent();
         }
+
         /// <summary>
         /// A boolean indicating whether the save button has been clicked or not
         /// </summary>
