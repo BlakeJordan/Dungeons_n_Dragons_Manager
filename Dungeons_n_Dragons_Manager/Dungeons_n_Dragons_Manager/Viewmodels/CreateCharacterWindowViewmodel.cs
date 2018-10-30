@@ -1,14 +1,18 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
+using Dungeons_n_Dragons_Manager.Tools;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Windows.Input;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
 {
     /// <summary>
     /// The viewmodel for creating characters
     /// </summary>
-    public class CreateCharacterWindowViewmodel
+    public class CreateCharacterWindowViewmodel : INotifyPropertyChanged
     {
         /// <summary>
         /// Constructor for the create character viewmodel
@@ -45,6 +49,68 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         public List<string> ArmorTypes { get; set; }
 
         /// <summary>
+        /// The character's options for proficiencies
+        /// </summary>
+        public ObservableCollection<string> Proficiencies { get; set; }
+
+        /// <summary>
+        /// Used to store the proficiency names that the character chooses
+        /// </summary>
+        private string m_proficiency;
+
+        /// <summary>
+        /// Public facing accessor to m_proficiency
+        /// </summary>
+        public string Proficiency
+        {
+            get { return m_proficiency; }
+            set
+            {
+                m_proficiency = value;
+                OnPropertyRaised(nameof(m_proficiency));
+                ProficiencyCheck(m_proficiency);
+            }
+        }
+
+        #region Commands
+        /// <summary>
+        /// command binded to proficiency checkboxes which calls AddProficiency if CanAddProficiency is true
+        /// </summary>
+        public ICommand m_ProficiencyCheck { get; set; }
+
+        /// <summary>
+        /// Checks if a proficiency can be added, then adds the proficiency to the character's proficiency list
+        /// </summary>
+        public void ProficiencyCheck(object proficiencyName)
+        {
+            if (CanAddProficiency(proficiencyName))
+            {
+                AddProficiency(proficiencyName);
+            }
+        }
+
+        private bool CanAddProficiency(object parameter)
+        {
+            return true;
+        }
+
+        private void AddProficiency(object parameter)
+        {
+            var values = (object[])parameter;
+            string name = (string)values[0];
+            bool check = (bool)values[1];
+            if (check)
+            {
+                Proficiencies.Add(name);
+            }
+            else
+            {
+                Proficiencies.Remove(name);
+            }
+        }
+        #endregion Commands
+
+        /// <summary>
         /// Populates the dropdown menus for the races and classes options
         ///
         /// Pre: None
@@ -75,10 +141,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// <param name="propertyname">Name of property to update to UI.</param>
         private void OnPropertyRaised(string propertyname)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyname));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
         }
 
         #endregion Interfaces

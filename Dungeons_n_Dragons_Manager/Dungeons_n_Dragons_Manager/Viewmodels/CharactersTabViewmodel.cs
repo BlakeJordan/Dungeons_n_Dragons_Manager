@@ -90,19 +90,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// <summary>
         /// Boolean which determines if EditCharacter can be executed.
         /// </summary>
-        private bool m_canEditCharacter
+        public bool CanEditCharacter
         {
-            get
-            {
-                if (SelectedCharacter != null) // if character is not selected, cannot click edit button
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
+            get { return true; }
         }
 
         /// <summary>
@@ -117,7 +107,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get
             {
-                return m_editCharacter ?? (m_editCharacter = new CommandHandler(() => CharacterRevision(), m_canEditCharacter));
+                return m_editCharacter ?? (m_editCharacter = new CommandHandler(() => CharacterRevision(), CanEditCharacter));
             }
         }
 

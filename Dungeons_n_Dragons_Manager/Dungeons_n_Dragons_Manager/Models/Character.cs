@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Dungeons_n_Dragons_Manager.Models
 {
@@ -127,7 +128,7 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// <summary>
         /// Represents the character's proficiencies
         /// </summary>
-        public List<string> Proficiencies { get; set; }
+        public ObservableCollection<string> Proficiencies { get; set; }
 
         /// <summary>
         /// Represents the character's weapons
