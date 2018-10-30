@@ -126,9 +126,94 @@ namespace Dungeons_n_Dragons_Manager.Models
         public string Notes { get; set; }
 
         /// <summary>
-        /// Represents the character's proficiencies
+        /// Represents the character's athletics proficiency
         /// </summary>
-        public ObservableCollection<string> Proficiencies { get; set; }
+        public int Athletics { get; set; }
+
+        /// <summary>
+        /// Represents the character's Acrobatics proficiency
+        /// </summary>
+        public int Acrobatics { get; set; }
+
+        /// <summary>
+        /// Represents the character's SleightOfHand proficiency
+        /// </summary>
+        public int SleightOfHand { get; set; }
+
+        /// <summary>
+        /// Represents the character's Stealth proficiency
+        /// </summary>
+        public int Stealth { get; set; }
+
+        /// <summary>
+        /// Represents the character's AnimalHandling proficiency
+        /// </summary>
+        public int AnimalHandling { get; set; }
+
+        /// <summary>
+        /// Represents the character's Insight proficiency
+        /// </summary>
+        public int Insight { get; set; }
+
+        /// <summary>
+        /// Represents the character's Medicine proficiency
+        /// </summary>
+        public int Medicine { get; set; }
+
+        /// <summary>
+        /// Represents the character's Perception proficiency
+        /// </summary>
+        public int Perception { get; set; }
+
+        /// <summary>
+        /// Represents the character's Survival proficiency
+        /// </summary>
+        public int Survival { get; set; }
+
+        /// <summary>
+        /// Represents the character's Arcana proficiency
+        /// </summary>
+        public int Arcana { get; set; }
+
+        /// <summary>
+        /// Represents the character's History proficiency
+        /// </summary>
+        public int History { get; set; }
+
+        /// <summary>
+        /// Represents the character's Investigation proficiency
+        /// </summary>
+        public int Investigation { get; set; }
+
+        /// <summary>
+        /// Represents the character's Nature proficiency
+        /// </summary>
+        public int Nature { get; set; }
+
+        /// <summary>
+        /// Represents the character's Religion proficiency
+        /// </summary>
+        public int Religion { get; set; }
+
+        /// <summary>
+        /// Represents the character's Deception proficiency
+        /// </summary>
+        public int Deception { get; set; }
+
+        /// <summary>
+        /// Represents the character's Intimidation proficiency
+        /// </summary>
+        public int Intimidation { get; set; }
+
+        /// <summary>
+        /// Represents the character's Performance proficiency
+        /// </summary>
+        public int Performance { get; set; }
+
+        /// <summary>
+        /// Represents the character's Persuasion proficiency
+        /// </summary>
+        public int Persuasion { get; set; }
 
         /// <summary>
         /// Represents the character's weapons
