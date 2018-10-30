@@ -364,7 +364,7 @@
                 <TextBox
                     Height="180"
                     Margin="10,0,10.4,0"
-                    Text="{Binding newCharacter.Name}" />
+                    Text="{Binding newCharacter.Notes}" />
             </StackPanel>
         </Grid>
     </Border>
