@@ -24,6 +24,7 @@
                 <RowDefinition Height="50" />
                 <RowDefinition Height="50" />
                 <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
             </Grid.RowDefinitions>
 
             <StackPanel
@@ -296,8 +297,22 @@
               Width="140"/>
           </StackPanel>
 
+          <StackPanel
+               Grid.Row="5"
+               Grid.Column="2"
+               HorizontalAlignment="Center">
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="14"
+                FontWeight="DemiBold"
+                Text="Environments" />
+            <TextBox
+              Text="{Binding newMonster.Environments}"
+              Width="140"/>
+          </StackPanel>
+
             <Button
-                Grid.Row="4"
+                Grid.Row="5"
                 Grid.Column="2"
                 Margin="60.8,76.4,61.2,-90"
                 Click="Button_Click"

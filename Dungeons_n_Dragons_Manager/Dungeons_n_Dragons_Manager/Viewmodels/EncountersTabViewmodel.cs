@@ -179,7 +179,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             createMonsterWindow.ShowDialog(); //Open window instance until closed.
             if (createMonsterWindow.SaveMonster)
             {
-                CollectionOfMonsters.Add(newMonster); //Add modified character to collection.
+                Monsters.Add(newMonster); //Add modified character to collection.
             }
         }
 
