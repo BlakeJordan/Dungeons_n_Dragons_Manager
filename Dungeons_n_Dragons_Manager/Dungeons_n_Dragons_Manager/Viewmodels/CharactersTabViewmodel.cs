@@ -87,6 +87,30 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        /// <summary>
+        /// Boolean which determines if EditCharacter can be executed.
+        /// </summary>
+        public bool CanEditCharacter
+        {
+            get { return true; }
+        }
+
+        /// <summary>
+        /// Command binded to the "edit character" button which calls editCharacter if m_canEditCharacter is true.
+        /// </summary>
+        private ICommand m_editCharacter;
+
+        /// <summary>
+        /// Public facing accessor to m_editCharacter.
+        /// </summary>
+        public ICommand EditCharacter
+        {
+            get
+            {
+                return m_editCharacter ?? (m_editCharacter = new CommandHandler(() => CharacterRevision(), CanEditCharacter));
+            }
+        }
+
         #endregion Commands
 
         #region Functions
@@ -107,6 +131,20 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             {
                 Characters.Add(newCharacter); //Add modified character to collection.
             }
+        }
+
+        /// <summary>
+        /// Copies an existing character and passes it by reference to an instance of EditCharacterWindow to be edited.
+        ///
+        /// Pre: "Edit Character" button has been clicked and m_canEditCharacter is true
+        ///
+        /// Post: The edit character window is opened and the user can start editing
+        /// </summary>
+        public void CharacterRevision()
+        {
+            Character EditedCharacter = SelectedCharacter; //Copy existing character.
+            EditCharacterWindow editCharacterWindow = new EditCharacterWindow(ref EditedCharacter); //Pass character to window by reference to be modified.
+            editCharacterWindow.ShowDialog(); //Open window instance until closed.
         }
 
         #endregion Functions

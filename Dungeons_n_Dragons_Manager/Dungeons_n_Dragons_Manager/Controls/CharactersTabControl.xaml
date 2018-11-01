@@ -28,7 +28,7 @@
 
                 <Button
                     Margin="0,0,2.5,0"
-                    Command=""
+                    Command="{Binding EditCharacter}"
                     Content=" Edit Character " />
 
                 <ComboBox
@@ -50,7 +50,7 @@
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="auto" />
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
@@ -107,9 +107,9 @@
                                 HorizontalAlignment="Center"
                                 FontSize="14"
                                 FontWeight="DemiBold"
-                                Text="Strength" />
-                            <TextBlock Text="{Binding SelectedCharacter.Strength, StringFormat='Rating: {0}'}" />
-                            <TextBlock Text="{Binding SelectedCharacter.StrengthMod, StringFormat='Modifier: {0}'}" />
+                                Text="{Binding SelectedCharacter.Strength, StringFormat='Strength: {0}'}"/>
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Athletics, StringFormat='Athletics: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.StrengthMod, StringFormat='Modifier: {0}'}" />
                         </StackPanel>
 
                         <StackPanel
@@ -120,9 +120,11 @@
                                 HorizontalAlignment="Center"
                                 FontSize="14"
                                 FontWeight="DemiBold"
-                                Text="Dexterity" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Dexterity, StringFormat='Rating: {0}'}" />
+                                Text="{Binding SelectedCharacter.Dexterity, StringFormat='Dexterity: {0}'}"/>
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.DexterityMod, StringFormat='Modifier: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Acrobatics, StringFormat='Acrobatics: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.SleightOfHand, StringFormat='SleightOfHand: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Stealth, StringFormat='Stealth: {0}'}" />
                         </StackPanel>
 
                         <StackPanel
@@ -133,8 +135,7 @@
                                 HorizontalAlignment="Center"
                                 FontSize="14"
                                 FontWeight="DemiBold"
-                                Text="Constitution" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Constitution, StringFormat='Rating: {0}'}" />
+                                Text="{Binding SelectedCharacter.Constitution, StringFormat='Constitution: {0}'}"/>
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.ConstitutionMod, StringFormat='Modifier: {0}'}" />
                         </StackPanel>
 
@@ -146,9 +147,13 @@
                                 HorizontalAlignment="Center"
                                 FontSize="14"
                                 FontWeight="DemiBold"
-                                Text="Intelligence" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Intelligence, StringFormat='Rating: {0}'}" />
+                                Text="{Binding SelectedCharacter.Intelligence, StringFormat='Intelligence: {0}'}"/>
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.IntelligenceMod, StringFormat='Modifier: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Arcana, StringFormat='Arcana: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.History, StringFormat='History: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Investigation, StringFormat='Investigation: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Nature, StringFormat='Nature: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Religion, StringFormat='Religion: {0}'}" />
                         </StackPanel>
                         <StackPanel
                             Grid.Row="3"
@@ -158,9 +163,13 @@
                                 HorizontalAlignment="Center"
                                 FontSize="14"
                                 FontWeight="DemiBold"
-                                Text="Wisdom" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Wisdom, StringFormat='Rating: {0}'}" />
+                                Text="{Binding SelectedCharacter.Wisdom, StringFormat='Wisdom: {0}'}"/>
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.WisdomMod, StringFormat='Modifier: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.AnimalHandling, StringFormat='AnimalHandling: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Insight, StringFormat='Insight: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Medicine, StringFormat='Medicine: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Perception, StringFormat='Perception: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Survival, StringFormat='Survival: {0}'}" />
                         </StackPanel>
 
                         <StackPanel
@@ -171,9 +180,12 @@
                                 HorizontalAlignment="Center"
                                 FontSize="14"
                                 FontWeight="DemiBold"
-                                Text="Charisma" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Charisma, StringFormat='Rating: {0}'}" />
+                                Text="{Binding SelectedCharacter.Charisma, StringFormat='Charisma: {0}'}"/>
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.CharismaMod, StringFormat='Modifier: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Deception, StringFormat='Deception: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Intimidation, StringFormat='Intimidation: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Performance, StringFormat='Performance: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Persuasion, StringFormat='Persuasion: {0}'}" />
                         </StackPanel>
                     </Grid>
                 </Border>

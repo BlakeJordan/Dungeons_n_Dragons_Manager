@@ -1,10 +1,10 @@
 ﻿<Window
-    x:Class="Dungeons_n_Dragons_Manager.Windows.CreateCharacterWindow"
+    x:Class="Dungeons_n_Dragons_Manager.Windows.EditCharacterWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="CreateCharacterWindow"
+    Title="EditCharacterWindow"
     Width="800"
     Height="450"
     mc:Ignorable="d">
@@ -27,26 +27,22 @@
             <StackPanel
                 Grid.Row="0"
                 Grid.Column="0"
-                Grid.ColumnSpan="2"
-                Width="148"
-                Margin="190,0,185.2,0.4"
-                HorizontalAlignment="Center">
+                HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="190,0,185.2,0.4" Width="148">
                 <TextBlock
-                    Width="140"
                     HorizontalAlignment="Center"
                     FontSize="14"
+                    Width="140"
                     FontWeight="DemiBold"
                     Text="Character Name" />
-                <TextBox Width="140" Text="{Binding newCharacter.Name}" />
+                <TextBox
+                    Text="{Binding EditedCharacter.Name}"
+                    Width="140" />
             </StackPanel>
 
             <StackPanel
                 Grid.Row="0"
                 Grid.Column="1"
-                Grid.ColumnSpan="2"
-                Width="149"
-                Margin="189.4,0,184,0.4"
-                HorizontalAlignment="Center">
+                HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="189.4,0,184,0.4" Width="149">
                 <TextBlock
                     HorizontalAlignment="Center"
                     FontSize="14"
@@ -55,7 +51,7 @@
                 <TextBox
                     Width="140"
                     Margin="2.5,0,0,0"
-                    Text="{Binding newCharacter.Level}" />
+                    Text="{Binding EditedCharacter.Level}" />
             </StackPanel>
 
             <StackPanel
@@ -71,7 +67,7 @@
                     Width="140"
                     Margin="2.5,0,0,0"
                     ItemsSource="{Binding Races}"
-                    SelectedItem="{Binding newCharacter.Race}" />
+                    SelectedItem="{Binding EditedCharacter.Race}" />
             </StackPanel>
 
             <StackPanel
@@ -87,7 +83,7 @@
                     Width="140"
                     Margin="2.5,0,0,0"
                     ItemsSource="{Binding Classes}"
-                    SelectedItem="{Binding newCharacter.Class}" />
+                    SelectedItem="{Binding EditedCharacter.Class}" />
             </StackPanel>
 
             <StackPanel
@@ -103,7 +99,7 @@
                     Width="140"
                     Margin="2.5,0,0,0"
                     ItemsSource="{Binding ArmorTypes}"
-                    SelectedItem="{Binding newCharacter.ArmorType}" />
+                    SelectedItem="{Binding EditedCharacter.ArmorType}" />
             </StackPanel>
 
             <StackPanel
@@ -119,7 +115,7 @@
                     x:Name="Strength"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Strength}" />
+                    Text="{Binding Path=EditedCharacter.Strength}" />
             </StackPanel>
 
             <StackPanel
@@ -135,7 +131,7 @@
                     x:Name="Dexterity"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Dexterity}" />
+                    Text="{Binding Path=EditedCharacter.Dexterity}" />
             </StackPanel>
 
             <StackPanel
@@ -151,7 +147,7 @@
                     x:Name="Constitution"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Constitution}" />
+                    Text="{Binding Path=EditedCharacter.Constitution}" />
             </StackPanel>
 
             <StackPanel
@@ -167,7 +163,7 @@
                     x:Name="Intelligence"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Intelligence}" />
+                    Text="{Binding Path=EditedCharacter.Intelligence}" />
             </StackPanel>
 
             <StackPanel
@@ -183,7 +179,7 @@
                     x:Name="Wisdom"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Wisdom}" />
+                    Text="{Binding Path=EditedCharacter.Wisdom}" />
             </StackPanel>
 
             <StackPanel
@@ -199,21 +195,20 @@
                     x:Name="Charisma"
                     Width="140"
                     Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Charisma}" />
+                    Text="{Binding Path=EditedCharacter.Charisma}" />
             </StackPanel>
 
             <StackPanel
                 Grid.Row="4"
                 Grid.Column="0"
-                Grid.ColumnSpan="2"
                 Width="271"
                 Margin="-9,0.4,261.2,-147"
-                HorizontalAlignment="Center">
+                HorizontalAlignment="Center" Grid.ColumnSpan="2">
                 <TextBlock
-                    HorizontalAlignment="Center"
-                    FontSize="14"
-                    FontWeight="DemiBold"
-                    Text="Proficiencies" />
+                        HorizontalAlignment="Center"
+                        FontSize="14"
+                        FontWeight="DemiBold"
+                        Text="Proficiencies" />
                 <Grid Margin="0.2,0.2,0.2,175.8">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -232,111 +227,111 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <CheckBox
-                        x:Name="Athletics"
-                        Grid.Row="0"
                         Grid.Column="0"
+                        Grid.Row="0"
+                        x:Name="Athletics"
                         Margin="24,2,0,0"
                         Content="Athletics" />
                     <CheckBox
-                        x:Name="Acrobatics"
-                        Grid.Row="1"
                         Grid.Column="0"
+                        Grid.Row="1"
+                        x:Name="Acrobatics"
                         Margin="24,2,0,0"
                         Content="Acrobatics" />
                     <CheckBox
-                        x:Name="SleightOfHand"
-                        Grid.Row="2"
                         Grid.Column="0"
+                        Grid.Row="2"
+                        x:Name="SleightOfHand"
                         Margin="24,2,0,0"
                         Content="Sleight of Hand" />
                     <CheckBox
-                        x:Name="Stealth"
-                        Grid.Row="3"
                         Grid.Column="0"
+                        Grid.Row="3"
+                        x:Name="Stealth"
                         Margin="24,2,0,0"
                         Content="Stealth" />
                     <CheckBox
-                        x:Name="Arcana"
-                        Grid.Row="4"
                         Grid.Column="0"
+                        Grid.Row="4"
+                        x:Name="Arcana"
                         Margin="24,2,0,0"
                         Content="Arcana" />
                     <CheckBox
-                        x:Name="History"
-                        Grid.Row="5"
                         Grid.Column="0"
+                        Grid.Row="5"
+                        x:Name="History"
                         Margin="24,2,0,0"
                         Content="History" />
                     <CheckBox
-                        x:Name="Investigation"
-                        Grid.Row="6"
                         Grid.Column="0"
+                        Grid.Row="6"
+                        x:Name="Investigation"
                         Margin="24,2,0,0"
                         Content="Investigation" />
                     <CheckBox
-                        x:Name="Nature"
-                        Grid.Row="7"
                         Grid.Column="0"
+                        Grid.Row="7"
+                        x:Name="Nature"
                         Margin="24,2,0,0"
                         Content="Nature" />
                     <CheckBox
-                        x:Name="Religion"
-                        Grid.Row="8"
                         Grid.Column="0"
+                        Grid.Row="8"
+                        x:Name="Religion"
                         Margin="24,2,0,0"
                         Content="Religion" />
                     <CheckBox
-                        x:Name="AnimalHandling"
-                        Grid.Row="0"
                         Grid.Column="1"
+                        Grid.Row="0"
+                        x:Name="AnimalHandling"
                         Margin="24,2,0,0"
                         Content="Animal Handling" />
                     <CheckBox
-                        x:Name="Insight"
-                        Grid.Row="1"
                         Grid.Column="1"
+                        Grid.Row="1"
+                        x:Name="Insight"
                         Margin="24,2,0,0"
                         Content="Insight" />
                     <CheckBox
-                        x:Name="Medicine"
-                        Grid.Row="2"
                         Grid.Column="1"
+                        Grid.Row="2"
+                        x:Name="Medicine"
                         Margin="24,2,0,0"
                         Content="Medicine" />
                     <CheckBox
-                        x:Name="Perception"
-                        Grid.Row="3"
                         Grid.Column="1"
+                        Grid.Row="3"
+                        x:Name="Perception"
                         Margin="24,2,0,0"
                         Content="Perception" />
                     <CheckBox
-                        x:Name="Survival"
-                        Grid.Row="4"
                         Grid.Column="1"
+                        Grid.Row="4"
+                        x:Name="Survival"
                         Margin="24,2,0,0"
                         Content="Survival" />
                     <CheckBox
-                        x:Name="Deception"
-                        Grid.Row="5"
                         Grid.Column="1"
+                        Grid.Row="5"
+                        x:Name="Deception"
                         Margin="24,2,0,0"
                         Content="Deception" />
                     <CheckBox
-                        x:Name="Intimidation"
-                        Grid.Row="6"
                         Grid.Column="1"
+                        Grid.Row="6"
+                        x:Name="Intimidation"
                         Margin="24,2,0,0"
                         Content="Intimidation" />
                     <CheckBox
-                        x:Name="Performance"
-                        Grid.Row="7"
                         Grid.Column="1"
+                        Grid.Row="7"
+                        x:Name="Performance"
                         Margin="24,2,0,0"
                         Content="Performance" />
                     <CheckBox
-                        x:Name="Persuasion"
-                        Grid.Row="8"
                         Grid.Column="1"
+                        Grid.Row="8"
+                        x:Name="Persuasion"
                         Margin="24,2,0,0"
                         Content="Persuasion" />
                 </Grid>
@@ -352,19 +347,13 @@
             <StackPanel
                 Grid.Row="4"
                 Grid.Column="1"
-                Grid.ColumnSpan="2"
-                Width="262"
-                Margin="260.4,0.4,0,-157"
-                HorizontalAlignment="Center">
+                HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="260.4,0.4,0,-157" Width="262">
                 <TextBlock
                     HorizontalAlignment="Center"
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Character Notes" />
-                <TextBox
-                    Height="180"
-                    Margin="10,0,10.4,0"
-                    Text="{Binding newCharacter.Name}" />
+                <TextBox Text="{Binding EditedCharacter.Name}" Height="180" Margin="10,0,10.4,0" />
             </StackPanel>
         </Grid>
     </Border>
