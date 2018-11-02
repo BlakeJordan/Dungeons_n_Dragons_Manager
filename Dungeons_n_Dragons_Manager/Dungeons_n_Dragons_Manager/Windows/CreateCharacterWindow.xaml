@@ -236,7 +236,9 @@
                         Grid.Row="0"
                         Grid.Column="0"
                         Margin="24,2,0,0"
-                        Content="Athletics" />
+                        Content="Athletics"
+                        IsChecked="{Binding IsProficiencyChecked}"
+                        Command="{Binding ProficiencyCheck}"/>
                     <CheckBox
                         x:Name="Acrobatics"
                         Grid.Row="1"

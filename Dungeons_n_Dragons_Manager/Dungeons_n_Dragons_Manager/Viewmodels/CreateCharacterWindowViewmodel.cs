@@ -48,67 +48,39 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public List<string> ArmorTypes { get; set; }
 
-        /// <summary>
-        /// The character's options for proficiencies
-        /// </summary>
-        public ObservableCollection<string> Proficiencies { get; set; }
 
         /// <summary>
-        /// Used to store the proficiency names that the character chooses
+        /// Command binded to proficiency checkboxes which calls proficiencyCheck
         /// </summary>
-        private string m_proficiency;
+        private ICommand m_ProficiencyCheck;
+
+        public bool IsProficiencyChecked { get; set; }
 
         /// <summary>
-        /// Public facing accessor to m_proficiency
+        /// Public facing accessor for m_ProficiencyCheck
         /// </summary>
-        public string Proficiency
+        public ICommand ProficiencyCheck
         {
-            get { return m_proficiency; }
-            set
+            get
             {
-                m_proficiency = value;
-                OnPropertyRaised(nameof(m_proficiency));
-                ProficiencyCheck(m_proficiency);
+                return m_ProficiencyCheck ?? (m_ProficiencyCheck = new CommandHandler(() => SetProficiency(IsProficiencyChecked), true));
             }
         }
-
-        #region Commands
-        /// <summary>
-        /// command binded to proficiency checkboxes which calls AddProficiency if CanAddProficiency is true
-        /// </summary>
-        public ICommand m_ProficiencyCheck { get; set; }
 
         /// <summary>
         /// Checks if a proficiency can be added, then adds the proficiency to the character's proficiency list
         /// </summary>
-        public void ProficiencyCheck(object proficiencyName)
+        public void SetProficiency(bool canSetProficiency)
         {
-            if (CanAddProficiency(proficiencyName))
+            if (IsProficiencyChecked == true)
             {
-                AddProficiency(proficiencyName);
-            }
-        }
-
-        private bool CanAddProficiency(object parameter)
-        {
-            return true;
-        }
-
-        private void AddProficiency(object parameter)
-        {
-            var values = (object[])parameter;
-            string name = (string)values[0];
-            bool check = (bool)values[1];
-            if (check)
-            {
-                Proficiencies.Add(name);
+                Console.WriteLine("ayyy");
             }
             else
             {
-                Proficiencies.Remove(name);
+                Console.WriteLine("awww");
             }
         }
-        #endregion Commands
 
         /// <summary>
         /// Populates the dropdown menus for the races and classes options
