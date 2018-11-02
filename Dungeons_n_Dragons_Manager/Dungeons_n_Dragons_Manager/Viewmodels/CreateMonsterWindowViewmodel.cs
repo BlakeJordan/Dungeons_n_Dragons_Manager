@@ -21,6 +21,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         public CreateMonsterWindowViewmodel(ref Monster monster)
         {
             newMonster = monster;
+            newMonster.IsCustom = true;
             populateDropdowns();
         }
 
