@@ -45,3 +45,18 @@ Blake - Finish character creation, edit characters, save characters locally, fin
 In class - All members present
 Caught up with each other on concurrent tasks & asked questions about WPF implementations
 Discussed resolving conflicts & planned a meeting for tuesday, 10/30
+
+10/31/18
+In class - All members present
+Talked about what is left to accomplish 
+Scheduled meeting for tomorrow (11/1)
+
+11/1/18
+At Blake & Bunty's - All members present except bunty
+Assigned duties to all members:
+Austin - Create Monsters window, making monsters work with environment, and custom monster dropdown
+Seth - Saving custom monsters, images for monsters, polish, window size, location continutity, help window
+Blake - Finish displaying stats on characters screen, save characters/campaigns, polish, add validators
+McKenna - Dropdowns for character skills, choose cool fonts, audio tab (if possible)
+Bunty - Change diceroll to buttons, more stuff TBD
+
