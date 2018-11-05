@@ -48,6 +48,10 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public List<string> ArmorTypes { get; set; }
 
+        /// <summary>
+        /// The character's options for each skill's level
+        /// </summary>
+        public List<string> Skills { get; set; }
 
         /// <summary>
         /// Command binded to proficiency checkboxes which calls proficiencyCheck
@@ -94,6 +98,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             Races = Properties.Resources.Races.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             Classes = Properties.Resources.Classes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            Skills = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }.ToList();
         }
 
         #region Interfaces
