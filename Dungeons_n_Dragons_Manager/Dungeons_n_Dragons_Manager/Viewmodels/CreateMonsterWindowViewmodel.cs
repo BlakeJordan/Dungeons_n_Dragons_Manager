@@ -1,7 +1,11 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
+using Dungeons_n_Dragons_Manager.Tools;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Windows.Input;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
 {
@@ -38,6 +42,39 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// The character's options for each skill's level
         /// </summary>
         public List<string> SkillValues { get; set; }
+        /// <summary>
+        /// Command binded to proficiency checkboxes which calls proficiencyCheck
+        /// </summary>
+        private ICommand m_EnvironmentCheck;
+
+        public bool IsEnvironmentChecked { get; set; }
+
+        /// <summary>
+        /// Public facing accessor for m_ProficiencyCheck
+        /// </summary>
+        public ICommand EnvironmentCheck
+        {
+            get
+            {
+                return m_EnvironmentCheck ?? (m_EnvironmentCheck = new CommandHandler(() => SetEnvironment(IsEnvironmentChecked), true));
+            }
+        }
+
+        /// <summary>
+        /// Checks if a environment can be added, then adds the environment to the monster's environment list
+        /// </summary>
+        public void SetEnvironment(bool canSetEnvironemnt)
+        {
+            if (IsEnvironmentChecked == true)
+            {
+                
+            }
+            else
+            {
+           
+            }
+        }
+
 
         /// <summary>
         /// Populates the dropdown menus for the armor type options
