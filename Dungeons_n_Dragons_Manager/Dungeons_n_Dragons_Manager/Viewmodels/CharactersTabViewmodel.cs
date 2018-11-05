@@ -17,7 +17,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         ///
         /// Pre: None.
         ///
-        /// Post: CollectionOfCharacter is intialized.
+        /// Post: An observable collection of Characters is intialized.
         /// </summary>
         public CharactersTabViewmodel()
         {
@@ -27,14 +27,14 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         #region Members
 
         /// <summary>
-        /// ObservableCollection of Characters which is bound to the combobox.
+        /// An observable collection of Characters which is bound to the combobox.
         /// </summary>
         public static ObservableCollection<Character> Characters { get; set; }
 
         /// <summary>
         /// Private backing to store the currently selected character in the combobox.
         /// </summary>
-        public static Character m_SelectedCharacter;
+        private static Character m_SelectedCharacter;
 
         /// <summary>
         /// Public facing accessor to m_selectedCharacter.
