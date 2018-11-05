@@ -216,6 +216,11 @@ namespace Dungeons_n_Dragons_Manager.Models
         public int Persuasion { get; set; }
 
         /// <summary>
+        /// Represents the character's class-specific specialization
+        /// </summary>
+        public string Specialization { get; set; }
+
+        /// <summary>
         /// Represents the character's weapons
         /// </summary>
         public List<string> Weapons { get; set; }

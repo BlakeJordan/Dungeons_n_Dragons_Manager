@@ -50,6 +50,7 @@
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
                             <RowDefinition Height="auto" />
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
@@ -78,7 +79,7 @@
                                 FontWeight="DemiBold"
                                 Text="Armor" />
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.ArmorType, StringFormat='Type: {0}'}" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.AC, StringFormat='Class: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.AC, StringFormat='AC: {0}'}" />
                         </StackPanel>
 
                         <StackPanel
@@ -94,13 +95,55 @@
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.MaxHP, StringFormat='Dice: {0}'}" />
                         </StackPanel>
 
-                        <Separator
+                        <StackPanel
                             Grid.Row="1"
+                            Grid.Column="0"
+                            HorizontalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="14"
+                                FontWeight="DemiBold"
+                                Text="Class" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Class, StringFormat='Class: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Specialization, StringFormat='Specialization: {0}'}" />
+                        </StackPanel>
+
+                        <StackPanel
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            HorizontalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="14"
+                                FontWeight="DemiBold"
+                                Text="Race" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Race, StringFormat='Race: {0}'}" />
+                        </StackPanel>
+
+                        <StackPanel
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Grid.ColumnSpan="2"
+                            Width="200"
+                            HorizontalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="14"
+                                FontWeight="DemiBold"
+                                Text="Character Notes" />
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                Height="auto"
+                                Text="{Binding SelectedCharacter.Notes}" />
+                        </StackPanel>
+
+                        <Separator
+                            Grid.Row="2"
                             Grid.Column="0"
                             Grid.ColumnSpan="3" />
 
                         <StackPanel
-                            Grid.Row="2"
+                            Grid.Row="3"
                             Grid.Column="0"
                             HorizontalAlignment="Center">
                             <TextBlock
@@ -113,7 +156,7 @@
                         </StackPanel>
 
                         <StackPanel
-                            Grid.Row="2"
+                            Grid.Row="3"
                             Grid.Column="1"
                             HorizontalAlignment="Center">
                             <TextBlock
@@ -128,7 +171,7 @@
                         </StackPanel>
 
                         <StackPanel
-                            Grid.Row="2"
+                            Grid.Row="3"
                             Grid.Column="2"
                             HorizontalAlignment="Center">
                             <TextBlock
@@ -140,7 +183,7 @@
                         </StackPanel>
 
                         <StackPanel
-                            Grid.Row="3"
+                            Grid.Row="4"
                             Grid.Column="0"
                             HorizontalAlignment="Center">
                             <TextBlock
@@ -156,7 +199,7 @@
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Religion, StringFormat='Religion: {0}'}" />
                         </StackPanel>
                         <StackPanel
-                            Grid.Row="3"
+                            Grid.Row="4"
                             Grid.Column="1"
                             HorizontalAlignment="Center">
                             <TextBlock
@@ -173,7 +216,7 @@
                         </StackPanel>
 
                         <StackPanel
-                            Grid.Row="3"
+                            Grid.Row="4"
                             Grid.Column="2"
                             HorizontalAlignment="Center">
                             <TextBlock
