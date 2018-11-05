@@ -137,9 +137,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Strength" />
-                <TextBox
-                Text="{Binding newMonster.Strength}"
-                Width="140"/>
+              <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
+                    ItemsSource="{Binding SkillValues}"
+                    SelectedItem="{Binding newMonster.Strength}" />
             </StackPanel>
 
             <StackPanel
@@ -151,9 +153,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Strength Modifier" />
-                <TextBox
-                Text="{Binding newMonster.StrengthMod}"
-                Width="140"/>
+              <ComboBox
+                  Width="140"
+                  Margin="2.5,0,0,0"
+                  ItemsSource="{Binding SkillValues}"
+                  SelectedItem="{Binding newMonster.StrengthMod}" />
             </StackPanel>
 
             <StackPanel
@@ -165,9 +169,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Dexterity" />
-                <TextBox
-                Text="{Binding newMonster.Dexterity}"
-                Width="140"/>
+              <ComboBox
+                  Width="140"
+                  Margin="2.5,0,0,0"
+                  ItemsSource="{Binding SkillValues}"
+                  SelectedItem="{Binding newMonster.Dexterity}" />
             </StackPanel>
 
             <StackPanel
@@ -179,9 +185,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Dexterity Modifier" />
-                <TextBox
-                Text="{Binding newMonster.DexterityMod}"
-                Width="140"/>
+              <ComboBox
+                  Width="140"
+                  Margin="2.5,0,0,0"
+                  ItemsSource="{Binding SkillValues}"
+                  SelectedItem="{Binding newMonster.DexterityMod}" />
             </StackPanel>
 
             <StackPanel
@@ -193,9 +201,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Constitution" />
-                <TextBox
-                Text="{Binding newMonster.Constitution}"
-                Width="140"/>
+              <ComboBox
+                  Width="140"
+                  Margin="2.5,0,0,0"
+                  ItemsSource="{Binding SkillValues}"
+                  SelectedItem="{Binding newMonster.Constitution}" />
             </StackPanel>
 
             <StackPanel
@@ -207,9 +217,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Constitution Modifier" />
-                <TextBox
-                 Text="{Binding newMonster.ConstitutionMod}"
-                 Width="140"/>
+              <ComboBox
+                  Width="140"
+                  Margin="2.5,0,0,0"
+                  ItemsSource="{Binding SkillValues}"
+                  SelectedItem="{Binding newMonster.ConstitutionMod}" />
             </StackPanel>
 
 
@@ -222,9 +234,11 @@
                   FontSize="14"
                   FontWeight="DemiBold"
                   Text="Intelligence" />
-              <TextBox
-                Text="{Binding newMonster.Intelligence}"
-                Width="140"/>
+              <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
+                    ItemsSource="{Binding SkillValues}"
+                    SelectedItem="{Binding newMonster.Intelligence}" />
           </StackPanel>
           
           <StackPanel
@@ -236,9 +250,11 @@
                 FontSize="14"
                 FontWeight="DemiBold"
                 Text="Intelligence Modifier" />
-            <TextBox
-              Text="{Binding newMonster.IntelligenceMod}"
-              Width="140"/>
+            <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
+                    ItemsSource="{Binding SkillValues}"
+                    SelectedItem="{Binding newMonster.IntelligenceMod}" />
           </StackPanel>
           
           <StackPanel
@@ -250,9 +266,11 @@
                 FontSize="14"
                 FontWeight="DemiBold"
                 Text="Wisdom" />
-            <TextBox
-              Text="{Binding newMonster.Wisdom}"
-              Width="140"/>
+            <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
+                    ItemsSource="{Binding SkillValues}"
+                    SelectedItem="{Binding newMonster.Wisdom}" />
           </StackPanel>
 
           <StackPanel
@@ -264,9 +282,11 @@
                 FontSize="14"
                 FontWeight="DemiBold"
                 Text="Wisdom Modifier" />
-            <TextBox
-              Text="{Binding newMonster.WisdomMod}"
-              Width="140"/>
+            <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
+                    ItemsSource="{Binding SkillValues}"
+                    SelectedItem="{Binding newMonster.WisdomMod}" />
           </StackPanel>
 
           <StackPanel
@@ -278,9 +298,11 @@
                 FontSize="14"
                 FontWeight="DemiBold"
                 Text="Charisma" />
-            <TextBox
-              Text="{Binding newMonster.Charisma}"
-              Width="140"/>
+            <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
+                    ItemsSource="{Binding SkillValues}"
+                    SelectedItem="{Binding newMonster.Charisma}" />
           </StackPanel>
 
           <StackPanel
@@ -292,9 +314,11 @@
                 FontSize="14"
                 FontWeight="DemiBold"
                 Text="Charisma Modifier" />
-            <TextBox
-              Text="{Binding newMonster.CharismaMod}"
-              Width="140"/>
+            <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
+                    ItemsSource="{Binding SkillValues}"
+                    SelectedItem="{Binding newMonster.CharismaMod}" />
           </StackPanel>
 
           <StackPanel
