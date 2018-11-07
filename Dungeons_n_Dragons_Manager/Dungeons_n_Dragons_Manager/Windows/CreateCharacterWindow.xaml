@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
     Title="CreateCharacterWindow"
     Width="800"
     Height="450"
@@ -115,11 +116,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Strength" />
-                <TextBox
-                    x:Name="Strength"
-                    Width="140"
-                    Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Strength}" />
+                <ComboBox 
+                    Width="140" 
+                    Margin="2.5,0,0,0" 
+                    ItemsSource="{Binding Skills}"
+                    SelectedItem="{Binding newCharacter.Strength}" />
             </StackPanel>
 
             <StackPanel
@@ -131,11 +132,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Dexterity" />
-                <TextBox
-                    x:Name="Dexterity"
-                    Width="140"
-                    Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Dexterity}" />
+                <ComboBox 
+                    Width="140" 
+                    Margin="2.5,0,0,0" 
+                    ItemsSource="{Binding Skills}"
+                    SelectedItem="{Binding newCharacter.Dexterity}" />
             </StackPanel>
 
             <StackPanel
@@ -147,11 +148,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Constitution" />
-                <TextBox
-                    x:Name="Constitution"
-                    Width="140"
-                    Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Constitution}" />
+                <ComboBox 
+                    Width="140" 
+                    Margin="2.5,0,0,0" 
+                    ItemsSource="{Binding Skills}"
+                    SelectedItem="{Binding newCharacter.Constitution}" />
             </StackPanel>
 
             <StackPanel
@@ -163,11 +164,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Intelligence" />
-                <TextBox
-                    x:Name="Intelligence"
-                    Width="140"
-                    Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Intelligence}" />
+                <ComboBox 
+                    Width="140" 
+                    Margin="2.5,0,0,0" 
+                    ItemsSource="{Binding Skills}"
+                    SelectedItem="{Binding newCharacter.Intelligence}" />
             </StackPanel>
 
             <StackPanel
@@ -179,11 +180,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Wisdom" />
-                <TextBox
-                    x:Name="Wisdom"
-                    Width="140"
-                    Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Wisdom}" />
+                <ComboBox 
+                    Width="140" 
+                    Margin="2.5,0,0,0" 
+                    ItemsSource="{Binding Skills}"
+                    SelectedItem="{Binding newCharacter.Wisdom}" />
             </StackPanel>
 
             <StackPanel
@@ -195,11 +196,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Charisma" />
-                <TextBox
-                    x:Name="Charisma"
-                    Width="140"
-                    Margin="0,2,0,0"
-                    Text="{Binding Path=newCharacter.Charisma}" />
+                <ComboBox 
+                    Width="140" 
+                    Margin="2.5,0,0,0" 
+                    ItemsSource="{Binding Skills}"
+                    SelectedItem="{Binding newCharacter.Charisma}" />
             </StackPanel>
 
             <StackPanel

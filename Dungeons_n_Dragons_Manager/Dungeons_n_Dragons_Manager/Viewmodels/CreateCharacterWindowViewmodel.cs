@@ -49,6 +49,44 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         public List<string> ArmorTypes { get; set; }
 
         /// <summary>
+        /// The character's options for each skill's level
+        /// </summary>
+        public List<string> Skills { get; set; }
+
+        /// <summary>
+        /// Command binded to proficiency checkboxes which calls proficiencyCheck
+        /// </summary>
+        private ICommand m_ProficiencyCheck;
+
+        public bool IsProficiencyChecked { get; set; }
+
+        /// <summary>
+        /// Public facing accessor for m_ProficiencyCheck
+        /// </summary>
+        public ICommand ProficiencyCheck
+        {
+            get
+            {
+                return m_ProficiencyCheck ?? (m_ProficiencyCheck = new CommandHandler(() => SetProficiency(IsProficiencyChecked), true));
+            }
+        }
+
+        /// <summary>
+        /// Checks if a proficiency can be added, then adds the proficiency to the character's proficiency list
+        /// </summary>
+        public void SetProficiency(bool canSetProficiency)
+        {
+            if (IsProficiencyChecked == true)
+            {
+                Console.WriteLine("ayyy");
+            }
+            else
+            {
+                Console.WriteLine("awww");
+            }
+        }
+
+        /// <summary>
         /// Populates the dropdown menus for the races and classes options
         ///
         /// Pre: None
@@ -60,6 +98,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             Races = Properties.Resources.Races.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             Classes = Properties.Resources.Classes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            Skills = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }.ToList();
         }
 
         #region Interfaces

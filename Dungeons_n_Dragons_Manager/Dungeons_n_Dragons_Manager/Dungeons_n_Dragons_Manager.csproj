@@ -89,6 +89,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\CreateMonsterWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Windows\CreateCharacterWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -119,11 +123,15 @@
     <Compile Include="Tools\CommandHandler.cs" />
     <Compile Include="Viewmodels\CharactersTabViewmodel.cs" />
     <Compile Include="Models\DiceBag.cs" />
+    <Compile Include="Viewmodels\CreateMonsterWindowViewmodel.cs" />
     <Compile Include="Viewmodels\CreateCharacterWindowViewmodel.cs" />
     <Compile Include="Viewmodels\DiceRollTabViewmodel.cs" />
     <Compile Include="Viewmodels\EditCharacterWindowViewModel.cs" />
     <Compile Include="Viewmodels\EncountersTabViewmodel.cs" />
     <Compile Include="Viewmodels\MainWindowViewmodel.cs" />
+    <Compile Include="Windows\CreateMonsterWindow.xaml.cs">
+      <DependentUpon>CreateMonsterWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\CreateCharacterWindow.xaml.cs">
       <DependentUpon>CreateCharacterWindow.xaml</DependentUpon>
     </Compile>

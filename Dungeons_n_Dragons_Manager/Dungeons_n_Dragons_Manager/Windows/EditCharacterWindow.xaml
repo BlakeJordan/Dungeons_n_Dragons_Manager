@@ -115,11 +115,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Strength" />
-                <TextBox
-                    x:Name="Strength"
-                    Width="140"
-                    Margin="0,2,0,0"
-                    Text="{Binding Path=EditedCharacter.Strength}" />
+                <ComboBox 
+                    Width="140" 
+                    Margin="2.5,0,0,0" 
+                    ItemsSource="{Binding Skills}"
+                    SelectedItem="{Binding EditedCharacter.Strength}" />
             </StackPanel>
 
             <StackPanel
@@ -131,11 +131,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Dexterity" />
-                <TextBox
-                    x:Name="Dexterity"
-                    Width="140"
-                    Margin="0,2,0,0"
-                    Text="{Binding Path=EditedCharacter.Dexterity}" />
+                <ComboBox 
+                    Width="140" 
+                    Margin="2.5,0,0,0" 
+                    ItemsSource="{Binding Skills}"
+                    SelectedItem="{Binding EditedCharacter.Dexterity}" />
             </StackPanel>
 
             <StackPanel
@@ -147,11 +147,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Constitution" />
-                <TextBox
-                    x:Name="Constitution"
-                    Width="140"
-                    Margin="0,2,0,0"
-                    Text="{Binding Path=EditedCharacter.Constitution}" />
+                <ComboBox 
+                    Width="140" 
+                    Margin="2.5,0,0,0" 
+                    ItemsSource="{Binding Skills}"
+                    SelectedItem="{Binding EditedCharacter.Constitution}" />
             </StackPanel>
 
             <StackPanel
@@ -163,11 +163,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Intelligence" />
-                <TextBox
-                    x:Name="Intelligence"
-                    Width="140"
-                    Margin="0,2,0,0"
-                    Text="{Binding Path=EditedCharacter.Intelligence}" />
+                <ComboBox 
+                    Width="140" 
+                    Margin="2.5,0,0,0" 
+                    ItemsSource="{Binding Skills}"
+                    SelectedItem="{Binding EditedCharacter.Intelligence}" />
             </StackPanel>
 
             <StackPanel
@@ -179,11 +179,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Wisdom" />
-                <TextBox
-                    x:Name="Wisdom"
-                    Width="140"
-                    Margin="0,2,0,0"
-                    Text="{Binding Path=EditedCharacter.Wisdom}" />
+                <ComboBox 
+                    Width="140" 
+                    Margin="2.5,0,0,0" 
+                    ItemsSource="{Binding Skills}"
+                    SelectedItem="{Binding EditedCharacter.Wisdom}" />
             </StackPanel>
 
             <StackPanel
@@ -195,11 +195,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Charisma" />
-                <TextBox
-                    x:Name="Charisma"
-                    Width="140"
-                    Margin="0,2,0,0"
-                    Text="{Binding Path=EditedCharacter.Charisma}" />
+                <ComboBox 
+                    Width="140" 
+                    Margin="2.5,0,0,0" 
+                    ItemsSource="{Binding Skills}"
+                    SelectedItem="{Binding EditedCharacter.Charisma}" />
             </StackPanel>
 
             <StackPanel
