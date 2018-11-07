@@ -1,0 +1,323 @@
+﻿<Window
+    x:Class="Dungeons_n_Dragons_Manager.Windows.CreateMonsterWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="CreateMonsterWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Border Margin="0,0,0,-184.4" Padding="5">
+        <Grid Margin="0.2,0.2,0.2,175.8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+
+            <StackPanel
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="190,0,185.2,0.4" Width="148">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    Width="140"
+                    FontWeight="DemiBold"
+                    Text="Monster Name" />
+                <TextBox 
+                    Text="{Binding newMonster.Name}"
+                    Width="140"/>
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="0"
+                Grid.Column="1"
+                HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="189.4,0,184,0.4" Width="149">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Armor Class Type" />
+              <ComboBox
+                  Width="140"
+                  Margin="2.5,0,0,0"
+                  ItemsSource="{Binding ArmorTypes}"
+                  SelectedItem="{Binding newMonster.ArmorClassType}" />
+            </StackPanel>
+
+            <StackPanel
+                  Grid.Row="0"
+                  Grid.Column="2"
+                  HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="189.4,0,184,0.4" Width="149">
+              <TextBlock
+                 HorizontalAlignment="Center"
+                 FontSize="14"
+                 FontWeight="DemiBold"
+                 Text="Armor Class" />
+              <TextBox
+                 Text="{Binding newMonster.ArmorClass}"
+                 Width="140"/>
+           </StackPanel>
+
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="0"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Challenge Rating" />
+                <TextBox
+                    Text="{Binding newMonster.ChallengeRating}"
+                    Width="140"/>
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="2"
+                Grid.Column="0"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Challenge XP" />
+                <TextBox
+                  Text="{Binding newMonster.ChallengeXP}"
+                  Width="140"/>
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="1"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Hit Points" />
+                <TextBox
+                Text="{Binding newMonster.HitPoints}"
+                Width="140"/>
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="2"
+                Grid.Column="1"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Hit Points Dice" />
+               <TextBox
+                Text="{Binding newMonster.HitPointsDice}"
+                Width="140"/>
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="2"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Strength" />
+                <TextBox
+                Text="{Binding newMonster.Strength}"
+                Width="140"/>
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="2"
+                Grid.Column="2"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Strength Modifier" />
+                <TextBox
+                Text="{Binding newMonster.StrengthMod}"
+                Width="140"/>
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="3"
+                Grid.Column="0"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Dexterity" />
+                <TextBox
+                Text="{Binding newMonster.Dexterity}"
+                Width="140"/>
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="4"
+                Grid.Column="0"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Dexterity Modifier" />
+                <TextBox
+                Text="{Binding newMonster.DexterityMod}"
+                Width="140"/>
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="3"
+                Grid.Column="1"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Constitution" />
+                <TextBox
+                Text="{Binding newMonster.Constitution}"
+                Width="140"/>
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="4"
+                Grid.Column="1"
+                HorizontalAlignment="Center">
+              <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Constitution Modifier" />
+                <TextBox
+                 Text="{Binding newMonster.ConstitutionMod}"
+                 Width="140"/>
+            </StackPanel>
+
+
+            <StackPanel
+                Grid.Row="3"
+                Grid.Column="2"
+                HorizontalAlignment="Center">
+              <TextBlock
+                  HorizontalAlignment="Center"
+                  FontSize="14"
+                  FontWeight="DemiBold"
+                  Text="Intelligence" />
+              <TextBox
+                Text="{Binding newMonster.Intelligence}"
+                Width="140"/>
+          </StackPanel>
+          
+          <StackPanel
+                Grid.Row="4"
+                Grid.Column="2"
+                HorizontalAlignment="Center">
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="14"
+                FontWeight="DemiBold"
+                Text="Intelligence Modifier" />
+            <TextBox
+              Text="{Binding newMonster.IntelligenceMod}"
+              Width="140"/>
+          </StackPanel>
+          
+          <StackPanel
+                Grid.Row="5"
+                Grid.Column="0"
+                HorizontalAlignment="Center">
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="14"
+                FontWeight="DemiBold"
+                Text="Wisdom" />
+            <TextBox
+              Text="{Binding newMonster.Wisdom}"
+              Width="140"/>
+          </StackPanel>
+
+          <StackPanel
+                Grid.Row="6"
+                Grid.Column="0"
+                HorizontalAlignment="Center">
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="14"
+                FontWeight="DemiBold"
+                Text="Wisdom Modifier" />
+            <TextBox
+              Text="{Binding newMonster.WisdomMod}"
+              Width="140"/>
+          </StackPanel>
+
+          <StackPanel
+                Grid.Row="5"
+                Grid.Column="1"
+                HorizontalAlignment="Center">
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="14"
+                FontWeight="DemiBold"
+                Text="Charisma" />
+            <TextBox
+              Text="{Binding newMonster.Charisma}"
+              Width="140"/>
+          </StackPanel>
+
+          <StackPanel
+                Grid.Row="6"
+                Grid.Column="1"
+                HorizontalAlignment="Center">
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="14"
+                FontWeight="DemiBold"
+                Text="Charisma Modifier" />
+            <TextBox
+              Text="{Binding newMonster.CharismaMod}"
+              Width="140"/>
+          </StackPanel>
+
+          <StackPanel
+               Grid.Row="5"
+               Grid.Column="2"
+               HorizontalAlignment="Center">
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="14"
+                FontWeight="DemiBold"
+                Text="Environments" />
+            <TextBox
+              Text="{Binding newMonster.Environments}"
+              Width="140"/>
+          </StackPanel>
+
+            <Button
+                Grid.Row="5"
+                Grid.Column="2"
+                Margin="60.8,76.4,61.2,-90"
+                Click="Button_Click"
+                Content="Save Monster" />
+
+        </Grid>
+    </Border>
+</Window>

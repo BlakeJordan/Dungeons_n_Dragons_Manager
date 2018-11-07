@@ -1,5 +1,6 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
 using Dungeons_n_Dragons_Manager.Tools;
+using Dungeons_n_Dragons_Manager.Windows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,6 +24,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public EncountersTabViewmodel()
         {
+            //Properties.Settings.Default.Reset();                                              //Uncomment to delete current settings!
+
             parseMonstersResource();
             Environments = Properties.Resources.Environments.Split(';').ToList();
             SelectedEnvironment = Environments[0];
@@ -30,10 +33,30 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         #region Members
 
+        private ObservableCollection<Monster> m_monsters;
+
         /// <summary>
         /// ObservableCollection of Monsters which is bound to a combobox.
         /// </summary>
-        public ObservableCollection<Monster> Monsters { get; set; }
+        public ObservableCollection<Monster> Monsters
+        {
+            get
+            {
+                if (m_monsters == null)
+                {
+                    m_monsters = new ObservableCollection<Monster>();
+                }
+                return m_monsters;
+            }
+            set
+            {
+                if (m_monsters != value)
+                {
+                    m_monsters = value;
+                    OnPropertyRaised(nameof(Monsters));
+                }
+            }
+        }
 
         /// <summary>
         /// Private backing to store the currently selected monster in the combobox.
@@ -102,6 +125,30 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        /// <summary>
+        /// Boolean which determines if CreateMonster can be executed.
+        /// </summary>
+        private bool m_canCreateMonster
+        {
+            get { return true; } //Add check to see if characters are created later.
+        }
+
+        /// <summary>
+        /// Command binded to the "create monster" button which calls createMonster if m_canCreateMonster is true.
+        /// </summary>
+        private ICommand m_createMonster;
+
+        /// <summary>
+        /// Public facing accessor to m_createMonster.
+        /// </summary>
+        public ICommand CreateMonster
+        {
+            get
+            {
+                return m_createMonster ?? (m_createMonster = new CommandHandler(() => createNewMonster(), m_canCreateMonster));
+            }
+        }
+
         #endregion Commands
 
         #region Functions
@@ -116,12 +163,21 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private void parseMonstersResource()
         {
             List<Monster> listOfMonsters = new List<Monster>(); //Temp list to store monsters
-            List<string> monsterDataEntries = Properties.Resources.Monsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            monsterDataEntries.RemoveAt(0); //Remove data header
-            foreach (string entry in monsterDataEntries)
+            List<string> defaultMonsters = Properties.Resources.Monsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            List<string> customMonsters = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            defaultMonsters.RemoveAt(0); //Remove data header
+            foreach (string entry in defaultMonsters)
             {
                 string[] values = entry.Split(';');
                 listOfMonsters.Add(new Monster(values));
+            }
+            if (customMonsters.Count != 0)
+            {
+                foreach (string entry in customMonsters)
+                {
+                    string[] values = entry.Split(';');
+                    listOfMonsters.Add(new Monster(values));
+                }
             }
             Monsters = new ObservableCollection<Monster>( listOfMonsters.OrderBy(o => o.Name).ToList() ); //Sort list by name and create observable collection
         }
@@ -138,6 +194,28 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             Random randomNumberGenerator = new Random();
             List<Monster> filteredMonsters = Monsters.Where(o => o.Environments.Contains(SelectedEnvironment) == true).ToList();
             SelectedMonster = filteredMonsters[randomNumberGenerator.Next(0, filteredMonsters.Count - 1)]; //Chooses random index
+        }
+
+        /// <summary>
+        /// Creates a new character and passes it by reference to an instance of CreateCharacterWindow to be edited.
+        ///
+        /// Pre: "Create Character" button has been clicked.
+        ///
+        /// Post: A new character has been created.
+        /// </summary>
+        public void createNewMonster()
+        {
+            Monster newMonster = new Monster(); //Create blank character.
+            CreateMonsterWindow createMonsterWindow = new CreateMonsterWindow(ref newMonster); //Pass character to window by reference to be modified.
+            createMonsterWindow.ShowDialog(); //Open window instance until closed.
+            if (createMonsterWindow.SaveMonster)
+            {
+                string temp = newMonster.ToString();
+
+                Properties.Settings.Default.CustomMonsters += newMonster.ToString() + System.Environment.NewLine;
+                Properties.Settings.Default.Save();
+                parseMonstersResource();
+            }
         }
 
         #endregion Functions
