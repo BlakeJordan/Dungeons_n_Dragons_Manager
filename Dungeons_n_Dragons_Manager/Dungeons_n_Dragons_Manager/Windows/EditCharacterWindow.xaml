@@ -27,22 +27,26 @@
             <StackPanel
                 Grid.Row="0"
                 Grid.Column="0"
-                HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="190,0,185.2,0.4" Width="148">
+                Grid.ColumnSpan="2"
+                Width="148"
+                Margin="190,0,185.2,0.4"
+                HorizontalAlignment="Center">
                 <TextBlock
+                    Width="140"
                     HorizontalAlignment="Center"
                     FontSize="14"
-                    Width="140"
                     FontWeight="DemiBold"
                     Text="Character Name" />
-                <TextBox
-                    Text="{Binding EditedCharacter.Name}"
-                    Width="140" />
+                <TextBox Width="140" Text="{Binding EditedCharacter.Name}" />
             </StackPanel>
 
             <StackPanel
                 Grid.Row="0"
                 Grid.Column="1"
-                HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="189.4,0,184,0.4" Width="149">
+                Grid.ColumnSpan="2"
+                Width="149"
+                Margin="189.4,0,184,0.4"
+                HorizontalAlignment="Center">
                 <TextBlock
                     HorizontalAlignment="Center"
                     FontSize="14"
@@ -201,14 +205,15 @@
             <StackPanel
                 Grid.Row="4"
                 Grid.Column="0"
+                Grid.ColumnSpan="2"
                 Width="271"
                 Margin="-9,0.4,261.2,-147"
-                HorizontalAlignment="Center" Grid.ColumnSpan="2">
+                HorizontalAlignment="Center">
                 <TextBlock
-                        HorizontalAlignment="Center"
-                        FontSize="14"
-                        FontWeight="DemiBold"
-                        Text="Proficiencies" />
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Proficiencies" />
                 <Grid Margin="0.2,0.2,0.2,175.8">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -227,113 +232,131 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <CheckBox
-                        Grid.Column="0"
-                        Grid.Row="0"
                         x:Name="Athletics"
-                        Margin="24,2,0,0"
-                        Content="Athletics" />
-                    <CheckBox
-                        Grid.Column="0"
-                        Grid.Row="1"
-                        x:Name="Acrobatics"
-                        Margin="24,2,0,0"
-                        Content="Acrobatics" />
-                    <CheckBox
-                        Grid.Column="0"
-                        Grid.Row="2"
-                        x:Name="SleightOfHand"
-                        Margin="24,2,0,0"
-                        Content="Sleight of Hand" />
-                    <CheckBox
-                        Grid.Column="0"
-                        Grid.Row="3"
-                        x:Name="Stealth"
-                        Margin="24,2,0,0"
-                        Content="Stealth" />
-                    <CheckBox
-                        Grid.Column="0"
-                        Grid.Row="4"
-                        x:Name="Arcana"
-                        Margin="24,2,0,0"
-                        Content="Arcana" />
-                    <CheckBox
-                        Grid.Column="0"
-                        Grid.Row="5"
-                        x:Name="History"
-                        Margin="24,2,0,0"
-                        Content="History" />
-                    <CheckBox
-                        Grid.Column="0"
-                        Grid.Row="6"
-                        x:Name="Investigation"
-                        Margin="24,2,0,0"
-                        Content="Investigation" />
-                    <CheckBox
-                        Grid.Column="0"
-                        Grid.Row="7"
-                        x:Name="Nature"
-                        Margin="24,2,0,0"
-                        Content="Nature" />
-                    <CheckBox
-                        Grid.Column="0"
-                        Grid.Row="8"
-                        x:Name="Religion"
-                        Margin="24,2,0,0"
-                        Content="Religion" />
-                    <CheckBox
-                        Grid.Column="1"
                         Grid.Row="0"
-                        x:Name="AnimalHandling"
+                        Grid.Column="0"
                         Margin="24,2,0,0"
-                        Content="Animal Handling" />
+                        Content="Athletics"
+                        IsChecked="{Binding Path=EditedCharacter.Athletics}" />
                     <CheckBox
-                        Grid.Column="1"
+                        x:Name="Acrobatics"
                         Grid.Row="1"
-                        x:Name="Insight"
+                        Grid.Column="0"
                         Margin="24,2,0,0"
-                        Content="Insight" />
+                        Content="Acrobatics"
+                        IsChecked="{Binding Path=EditedCharacter.Acrobatics}" />
                     <CheckBox
-                        Grid.Column="1"
+                        x:Name="SleightOfHand"
                         Grid.Row="2"
-                        x:Name="Medicine"
+                        Grid.Column="0"
                         Margin="24,2,0,0"
-                        Content="Medicine" />
+                        Content="Sleight of Hand"
+                        IsChecked="{Binding Path=EditedCharacter.SleightOfHand}" />
                     <CheckBox
-                        Grid.Column="1"
+                        x:Name="Stealth"
                         Grid.Row="3"
-                        x:Name="Perception"
+                        Grid.Column="0"
                         Margin="24,2,0,0"
-                        Content="Perception" />
+                        Content="Stealth"
+                        IsChecked="{Binding Path=EditedCharacter.Stealth}" />
                     <CheckBox
-                        Grid.Column="1"
+                        x:Name="Arcana"
                         Grid.Row="4"
-                        x:Name="Survival"
+                        Grid.Column="0"
                         Margin="24,2,0,0"
-                        Content="Survival" />
+                        Content="Arcana"
+                        IsChecked="{Binding Path=EditedCharacter.Arcana}" />
                     <CheckBox
-                        Grid.Column="1"
+                        x:Name="History"
                         Grid.Row="5"
-                        x:Name="Deception"
+                        Grid.Column="0"
                         Margin="24,2,0,0"
-                        Content="Deception" />
+                        Content="History"
+                        IsChecked="{Binding Path=EditedCharacter.History}" />
                     <CheckBox
-                        Grid.Column="1"
+                        x:Name="Investigation"
                         Grid.Row="6"
-                        x:Name="Intimidation"
+                        Grid.Column="0"
                         Margin="24,2,0,0"
-                        Content="Intimidation" />
+                        Content="Investigation"
+                        IsChecked="{Binding Path=EditedCharacter.Investigation}" />
                     <CheckBox
-                        Grid.Column="1"
+                        x:Name="Nature"
                         Grid.Row="7"
-                        x:Name="Performance"
+                        Grid.Column="0"
                         Margin="24,2,0,0"
-                        Content="Performance" />
+                        Content="Nature"
+                        IsChecked="{Binding Path=EditedCharacter.Nature}" />
                     <CheckBox
-                        Grid.Column="1"
+                        x:Name="Religion"
                         Grid.Row="8"
-                        x:Name="Persuasion"
+                        Grid.Column="0"
                         Margin="24,2,0,0"
-                        Content="Persuasion" />
+                        Content="Religion"
+                        IsChecked="{Binding Path=EditedCharacter.Religion}" />
+                    <CheckBox
+                        x:Name="AnimalHandling"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="24,2,0,0"
+                        Content="Animal Handling"
+                        IsChecked="{Binding Path=EditedCharacter.AnimalHandling}" />
+                    <CheckBox
+                        x:Name="Insight"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="24,2,0,0"
+                        Content="Insight"
+                        IsChecked="{Binding Path=EditedCharacter.Insight}" />
+                    <CheckBox
+                        x:Name="Medicine"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="24,2,0,0"
+                        Content="Medicine"
+                        IsChecked="{Binding Path=EditedCharacter.Medicine}" />
+                    <CheckBox
+                        x:Name="Perception"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Margin="24,2,0,0"
+                        Content="Perception"
+                        IsChecked="{Binding Path=EditedCharacter.Perception}" />
+                    <CheckBox
+                        x:Name="Survival"
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Margin="24,2,0,0"
+                        Content="Survival"
+                        IsChecked="{Binding Path=EditedCharacter.Survival}" />
+                    <CheckBox
+                        x:Name="Deception"
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Margin="24,2,0,0"
+                        Content="Deception"
+                        IsChecked="{Binding Path=EditedCharacter.Deception}" />
+                    <CheckBox
+                        x:Name="Intimidation"
+                        Grid.Row="6"
+                        Grid.Column="1"
+                        Margin="24,2,0,0"
+                        Content="Intimidation"
+                        IsChecked="{Binding Path=EditedCharacter.Intimidation}" />
+                    <CheckBox
+                        x:Name="Performance"
+                        Grid.Row="7"
+                        Grid.Column="1"
+                        Margin="24,2,0,0"
+                        Content="Performance"
+                        IsChecked="{Binding Path=EditedCharacter.Performance}" />
+                    <CheckBox
+                        x:Name="Persuasion"
+                        Grid.Row="8"
+                        Grid.Column="1"
+                        Margin="24,2,0,0"
+                        Content="Persuasion"
+                        IsChecked="{Binding Path=EditedCharacter.Persuasion}" />
                 </Grid>
             </StackPanel>
 
@@ -347,13 +370,19 @@
             <StackPanel
                 Grid.Row="4"
                 Grid.Column="1"
-                HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="260.4,0.4,0,-157" Width="262">
+                Grid.ColumnSpan="2"
+                Width="262"
+                Margin="260.4,0.4,0,-157"
+                HorizontalAlignment="Center">
                 <TextBlock
                     HorizontalAlignment="Center"
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Character Notes" />
-                <TextBox Text="{Binding EditedCharacter.Name}" Height="180" Margin="10,0,10.4,0" />
+                <TextBox
+                    Height="180"
+                    Margin="10,0,10.4,0"
+                    Text="{Binding EditedCharacter.Notes}" />
             </StackPanel>
         </Grid>
     </Border>
