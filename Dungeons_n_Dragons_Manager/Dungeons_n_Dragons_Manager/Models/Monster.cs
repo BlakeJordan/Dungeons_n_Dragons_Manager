@@ -10,6 +10,14 @@ namespace Dungeons_n_Dragons_Manager.Models
     public class Monster
     {
         /// <summary>
+        /// Blank Constructor for create Monster.
+        /// </summary>
+        
+        public Monster()
+        {
+        }
+
+        /// <summary>
         /// Constructor which takes in an array of strings representing the values of attributes.
         /// </summary>
         /// <param name="values">Array of strings representing the values to be assigned.</param>
