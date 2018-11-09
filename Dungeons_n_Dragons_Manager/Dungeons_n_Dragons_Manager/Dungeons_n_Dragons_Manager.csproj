@@ -78,6 +78,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Tools\BrowserBehavior.cs" />
+    <Compile Include="Windows\EditMonstersWindow.xaml.cs">
+      <DependentUpon>EditMonstersWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\UserManualWindow.xaml.cs">
       <DependentUpon>UserManualWindow.xaml</DependentUpon>
     </Compile>
@@ -92,6 +95,10 @@
     <Page Include="Controls\EncountersTabControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditMonstersWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\CreateMonsterWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

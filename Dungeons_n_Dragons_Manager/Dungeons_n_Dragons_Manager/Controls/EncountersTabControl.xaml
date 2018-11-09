@@ -55,6 +55,7 @@
                 Grid.Row="1"
                 Grid.Column="1"
                 Margin="2.5,0,1,0"
+                Command="{Binding EditMonsters}"
                 Content=" Edit Custom Monsters"/>
             </Grid>
           </StackPanel>

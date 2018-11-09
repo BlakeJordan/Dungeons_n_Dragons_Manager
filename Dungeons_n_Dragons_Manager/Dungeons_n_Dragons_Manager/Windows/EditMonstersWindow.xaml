@@ -1,0 +1,32 @@
+﻿<Window
+    x:Class="Dungeons_n_Dragons_Manager.Windows.EditMonstersWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="EditMonstersWindow"
+    Width="400"
+    Height="225"
+    mc:Ignorable="d">
+    <Border Margin="0,0,0,-184.4" Padding="6">
+        <Grid Margin="0.2,0.2,0.2,175.8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <StackPanel
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalAlignment="Left">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Select a custom monster:" />
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

@@ -149,7 +149,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-        /*
+        
         /// <summary>
         /// Boolean which determines if EditMonsters can be executed.
         /// </summary>
@@ -172,7 +172,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             {
                 return m_editMonsters ?? (m_editMonsters = new CommandHandler(() => editMonsters(), m_canEditMonsters));
             }
-        }*/
+        }
 
         #endregion Commands
 
@@ -250,9 +250,11 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         ///
         /// Post: The edits made to any monsters are updated.
         /// </summary>
-        /*public void editMonsters()
+        public void editMonsters()
         {
-        }*/
+            EditMonstersWindow editMonstersWindow = new EditMonstersWindow();
+            editMonstersWindow.ShowDialog();
+        }
 
         #endregion Functions
 
