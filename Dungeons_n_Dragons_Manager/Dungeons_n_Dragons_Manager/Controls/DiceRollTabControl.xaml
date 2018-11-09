@@ -112,7 +112,7 @@
                 <Button Height="75" Width="75" Command="{Binding ClickD100}">
                     <Button.Template>
                         <ControlTemplate>
-                            <Image Source="..\Assets\d10.png"></Image>
+                            <Image Source="..\Assets\d100edit.png"></Image>
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
