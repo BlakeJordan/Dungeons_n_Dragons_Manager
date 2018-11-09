@@ -78,6 +78,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Tools\BrowserBehavior.cs" />
+    <Compile Include="Windows\AboutBoxWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\AboutBoxWindow.Designer.cs">
+      <DependentUpon>AboutBoxWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\UserManualWindow.xaml.cs">
       <DependentUpon>UserManualWindow.xaml</DependentUpon>
     </Compile>
@@ -90,6 +96,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\EncountersTabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MusicPlayerTabControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -122,6 +132,9 @@
     <Compile Include="Controls\EncountersTabControl.xaml.cs">
       <DependentUpon>EncountersTabControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\MusicPlayerTabControl.xaml.cs">
+      <DependentUpon>MusicPlayerTabControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Monster.cs" />
     <Compile Include="Tools\CommandHandler.cs" />
@@ -133,6 +146,7 @@
     <Compile Include="Viewmodels\EditCharacterWindowViewModel.cs" />
     <Compile Include="Viewmodels\EncountersTabViewmodel.cs" />
     <Compile Include="Viewmodels\MainWindowViewmodel.cs" />
+    <Compile Include="Viewmodels\MusicPlayerTabViewmodel.cs" />
     <Compile Include="Windows\CreateMonsterWindow.xaml.cs">
       <DependentUpon>CreateMonsterWindow.xaml</DependentUpon>
     </Compile>
@@ -168,6 +182,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\AboutBoxWindow.resx">
+      <DependentUpon>AboutBoxWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

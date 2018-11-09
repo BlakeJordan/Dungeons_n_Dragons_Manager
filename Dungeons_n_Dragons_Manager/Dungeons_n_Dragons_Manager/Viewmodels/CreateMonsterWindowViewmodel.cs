@@ -40,6 +40,16 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         public List<string> ArmorTypes { get; set; }
 
         /// <summary>
+        /// The character's options for each skill's level
+        /// </summary>
+        public List<string> SkillValues { get; set; }
+
+        /// <summary>
+        /// The character's options for each Modifier
+        /// </summary>
+        public List<string> ModifierValues { get; set; }
+
+        /// <summary>
         /// Boolean for if the artic environment is checked.
         /// </summary>
         public bool IsArctic { get; set; }
@@ -95,44 +105,75 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         public bool IsUrban { get; set; }
 
         /// <summary>
-        /// The character's options for each skill's level
+        /// Command binded to the "Save Monster" button which calls UpdateEnvironment
         /// </summary>
-        public List<string> SkillValues { get; set; }
-        /// <summary>
-        /// The character's options for each Modifier
-        /// </summary>
-        public List<string> ModifierValues { get; set; }
-        /// <summary>
-        /// Command binded to proficiency checkboxes which calls proficiencyCheck
-        /// </summary>
-        private ICommand m_EnvironmentCheck;
-
-        public bool IsEnvironmentChecked { get; set; }
+        private ICommand m_UpdateEnvironments;
 
         /// <summary>
-        /// Public facing accessor for m_ProficiencyCheck
+        /// Public facing accessor to m_chooseRandomEncounter.
         /// </summary>
-        public ICommand EnvironmentCheck
+        public ICommand UpdateEnvironments
         {
             get
             {
-                return m_EnvironmentCheck ?? (m_EnvironmentCheck = new CommandHandler(() => SetEnvironment(IsEnvironmentChecked), true));
+                return m_UpdateEnvironments ?? (m_UpdateEnvironments = new CommandHandler(() => updateEnvironments(), true));
             }
         }
-
         /// <summary>
-        /// Checks if a environment can be added, then adds the environment to the monster's environment list
+        /// Populates the list of environments for the new monster
+        ///
+        /// Pre: monster has been created
+        ///
+        /// Post: The monster's list has all environments selected.
         /// </summary>
-        public void SetEnvironment(bool canSetEnvironemnt)
+        public void updateEnvironments()
         {
-            if (IsEnvironmentChecked == true)
+            newMonster.Environments = new List<string>();
+            if(IsArctic)
             {
-
+                newMonster.Environments.Add("Arctic");
             }
-            else
+            if(IsCoastal)
             {
-
+                newMonster.Environments.Add("Coastal");
             }
+            if(IsDesert)
+            {
+                newMonster.Environments.Add("Desert");
+            }
+            if(IsForest)
+            {
+                newMonster.Environments.Add("Forest");
+            }
+            if(IsGrassland)
+            {
+                newMonster.Environments.Add("Grassland");
+            }
+            if(IsHill)
+            {
+                newMonster.Environments.Add("Hill");
+            }
+            if(IsMountain)
+            {
+                newMonster.Environments.Add("Mountain");
+            }
+            if(IsSwamp)
+            {
+                newMonster.Environments.Add("Swamp");
+            }
+            if(IsUnderdark)
+            {
+                newMonster.Environments.Add("Underdark");
+            }
+            if(IsUnderwater)
+            {
+                newMonster.Environments.Add("Underwater");
+            }
+            if(IsUrban)
+            {
+                newMonster.Environments.Add("Urban");
+            }
+
         }
 
         /// <summary>
