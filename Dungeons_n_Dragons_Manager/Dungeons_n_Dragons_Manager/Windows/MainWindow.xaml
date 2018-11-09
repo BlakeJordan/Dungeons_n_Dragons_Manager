@@ -24,6 +24,7 @@
 
         <Menu Grid.Row="0" Grid.Column="0">
             <MenuItem Header="About" />
+            <MenuItem Header="Help" Command="{Binding OpenUserManual}" />
         </Menu>
 
         <Border Grid.Row="1" Padding="5">

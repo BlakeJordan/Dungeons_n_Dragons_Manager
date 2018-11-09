@@ -1,7 +1,11 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
+using Dungeons_n_Dragons_Manager.Tools;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Windows.Input;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
 {
@@ -91,6 +95,47 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         public bool IsUrban { get; set; }
 
         /// <summary>
+        /// The character's options for each skill's level
+        /// </summary>
+        public List<string> SkillValues { get; set; }
+        /// <summary>
+        /// The character's options for each Modifier
+        /// </summary>
+        public List<string> ModifierValues { get; set; }
+        /// <summary>
+        /// Command binded to proficiency checkboxes which calls proficiencyCheck
+        /// </summary>
+        private ICommand m_EnvironmentCheck;
+
+        public bool IsEnvironmentChecked { get; set; }
+
+        /// <summary>
+        /// Public facing accessor for m_ProficiencyCheck
+        /// </summary>
+        public ICommand EnvironmentCheck
+        {
+            get
+            {
+                return m_EnvironmentCheck ?? (m_EnvironmentCheck = new CommandHandler(() => SetEnvironment(IsEnvironmentChecked), true));
+            }
+        }
+
+        /// <summary>
+        /// Checks if a environment can be added, then adds the environment to the monster's environment list
+        /// </summary>
+        public void SetEnvironment(bool canSetEnvironemnt)
+        {
+            if (IsEnvironmentChecked == true)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
+        /// <summary>
         /// Populates the dropdown menus for the armor type options
         ///
         /// Pre: None
@@ -100,6 +145,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private void populateDropdowns()
         {
             ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            SkillValues = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }.ToList();
+            ModifierValues = new string[] { "-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }.ToList();
+
         }
 
         #region Interfaces

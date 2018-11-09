@@ -1,4 +1,8 @@
-﻿namespace Dungeons_n_Dragons_Manager.Viewmodels
+﻿using Dungeons_n_Dragons_Manager.Tools;
+using Dungeons_n_Dragons_Manager.Windows;
+using System.Windows.Input;
+
+namespace Dungeons_n_Dragons_Manager.Viewmodels
 {
     /// <summary>
     /// Viewmodel for the main window.
@@ -62,5 +66,35 @@
        
 
         #endregion Sub Viewmodels
+
+        #region Commands
+
+        /// <summary>
+        /// Command binded to the "Help" button.
+        /// </summary>
+        private ICommand m_openUserManual;
+
+        /// <summary>
+        /// Public facing accessor to m_openUserManual.
+        /// </summary>
+        public ICommand OpenUserManual
+        {
+            get
+            {
+                return m_openUserManual ?? (m_openUserManual = new CommandHandler(() => openUserManual(), true));
+            }
+        }
+
+        #endregion
+
+        #region Functions
+
+        private void openUserManual()
+        {
+            UserManualWindow userManualWindow = new UserManualWindow();
+            userManualWindow.Show();
+        }
+
+        #endregion
     }
 }
