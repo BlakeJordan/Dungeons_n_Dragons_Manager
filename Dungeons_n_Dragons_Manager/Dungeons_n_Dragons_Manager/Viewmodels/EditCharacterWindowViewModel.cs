@@ -1,37 +1,37 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
-using Dungeons_n_Dragons_Manager.Tools;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Windows.Input;
-
 namespace Dungeons_n_Dragons_Manager.Viewmodels
 {
     /// <summary>
-    /// The viewmodel for creating characters
+    /// Viewmodel for the edit character window
     /// </summary>
-    public class CreateCharacterWindowViewmodel : INotifyPropertyChanged
+    public class EditCharacterWindowViewModel
     {
         /// <summary>
-        /// Constructor for the create character viewmodel
+        /// Constructor for the edit character viewmodel
         ///
-        /// Pre: Create Character window has been opened
+        /// Pre: Edit Character window has been opened while a character is selected
         ///
-        /// Post: A new character is created with a reference to an existing, blank character
+        /// Post: A copy of the character is created and edited with a reference to the existing character
         /// </summary>
-        /// /// <param name="character">A reference to the new character</param>
-        public CreateCharacterWindowViewmodel(ref Character character)
+        /// /// <param name="character">A reference to the character being edited</param>
+        public EditCharacterWindowViewModel(ref Character character)
         {
-            newCharacter = character;
+            EditedCharacter = character;
             populateDropdowns();
         }
 
         /// <summary>
-        /// The new character being created
+        /// The new character being edited
         /// </summary>
-        public Character newCharacter { get; set; }
+        public Character EditedCharacter { get; set; }
+
+        /// <summary>
+        /// The character's options for armor
+        /// </summary>
+        public List<string> ArmorTypes { get; set; }
 
         /// <summary>
         /// The character's options for race
@@ -44,47 +44,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         public List<string> Classes { get; set; }
 
         /// <summary>
-        /// The character's options for armor
-        /// </summary>
-        public List<string> ArmorTypes { get; set; }
-
-        /// <summary>
         /// The character's options for each skill's level
         /// </summary>
         public List<string> Skills { get; set; }
-
-        /// <summary>
-        /// Command binded to proficiency checkboxes which calls proficiencyCheck
-        /// </summary>
-        private ICommand m_ProficiencyCheck;
-
-        public bool IsProficiencyChecked { get; set; }
-
-        /// <summary>
-        /// Public facing accessor for m_ProficiencyCheck
-        /// </summary>
-        public ICommand ProficiencyCheck
-        {
-            get
-            {
-                return m_ProficiencyCheck ?? (m_ProficiencyCheck = new CommandHandler(() => SetProficiency(IsProficiencyChecked), true));
-            }
-        }
-
-        /// <summary>
-        /// Checks if a proficiency can be added, then adds the proficiency to the character's proficiency list
-        /// </summary>
-        public void SetProficiency(bool canSetProficiency)
-        {
-            if (IsProficiencyChecked == true)
-            {
-                Console.WriteLine("ayyy");
-            }
-            else
-            {
-                Console.WriteLine("awww");
-            }
-        }
 
         /// <summary>
         /// Populates the dropdown menus for the races and classes options
@@ -118,7 +80,10 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// <param name="propertyname">Name of property to update to UI.</param>
         private void OnPropertyRaised(string propertyname)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyname));
+            }
         }
 
         #endregion Interfaces

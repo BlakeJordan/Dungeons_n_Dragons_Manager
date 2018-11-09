@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace Dungeons_n_Dragons_Manager.Models
 {
@@ -7,6 +10,14 @@ namespace Dungeons_n_Dragons_Manager.Models
     /// </summary>
     public class Monster
     {
+        /// <summary>
+        /// Blank Constructor for create Monster.
+        /// </summary>
+        
+        public Monster()
+        {
+        }
+
         /// <summary>
         /// Constructor which takes in an array of strings representing the values of attributes.
         /// </summary>
@@ -48,9 +59,47 @@ namespace Dungeons_n_Dragons_Manager.Models
 
             HitPointsDice = values[17];
             HitPoints = Int32.Parse(values[18]);
+
+            Environments = new List<string>();
+            if (values[19] == "All") //All environments except Underwater
+            {
+                Environments.Add("Arctic");
+                Environments.Add("Coastal");
+                Environments.Add("Desert");
+                Environments.Add("Forest");
+                Environments.Add("Grassland");
+                Environments.Add("Hill");
+                Environments.Add("Mountain");
+                Environments.Add("Swamp");
+                Environments.Add("Underdark");
+                Environments.Add("Urban");
+            }
+            else
+            {
+                Environments = values[19].Split(',').OfType<string>().ToList(); //Parse string of enviroments
+            }
+
+            if (values[20] == "True")
+            {
+                IsCustom = true;
+            }
+            else
+            {
+                IsCustom = false;
+            }
         }
 
         #region Properties
+
+        /// <summary>
+        /// Represents if the monster is user create.
+        /// </summary>
+        public bool IsCustom { get; set; }
+
+        /// <summary>
+        /// Represents the enviroments of the monster.
+        /// </summary>
+        public List<string> Environments { get; set; }
 
         /// <summary>
         /// Represents the name of the monster.
@@ -148,5 +197,50 @@ namespace Dungeons_n_Dragons_Manager.Models
         public int CharismaMod { get; set; }
 
         #endregion Properties
+
+        #region Functions
+
+        /// <summary>
+        /// Overrides the ToString function.
+        /// </summary>
+        /// <returns></returns>
+        override public string ToString()
+        {
+            string sc = ";";
+            string c = ",";
+            string stringRep = Name + sc + ChallengeRating.ToString()
+                        + sc + ChallengeXP.ToString()
+                        + sc + ArmorClassType
+                        + sc + ArmorClass.ToString()
+                        + sc + Strength.ToString()
+                        + sc + StrengthMod.ToString()
+                        + sc + Dexterity.ToString()
+                        + sc + DexterityMod.ToString()
+                        + sc + Constitution.ToString()
+                        + sc + ConstitutionMod.ToString()
+                        + sc + Intelligence.ToString()
+                        + sc + IntelligenceMod.ToString()
+                        + sc + Wisdom.ToString()
+                        + sc + WisdomMod.ToString()
+                        + sc + Charisma.ToString()
+                        + sc + CharismaMod.ToString()
+                        + sc + HitPointsDice
+                        + sc + HitPoints.ToString()
+                        + sc;
+            if(Environments != null)
+            {
+                for (int i = 0; i < Environments.Count - 2; i++)
+                {
+                    stringRep += Environments[i] + c;
+                }
+                stringRep += Environments[Environments.Count - 1];
+            }
+
+            stringRep += sc + IsCustom.ToString();
+
+            return stringRep;
+        }
+
+        #endregion Functions
     }
 }
