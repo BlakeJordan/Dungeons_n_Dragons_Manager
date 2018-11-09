@@ -99,6 +99,10 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public List<string> SkillValues { get; set; }
         /// <summary>
+        /// The character's options for each Modifier
+        /// </summary>
+        public List<string> ModifierValues { get; set; }
+        /// <summary>
         /// Command binded to proficiency checkboxes which calls proficiencyCheck
         /// </summary>
         private ICommand m_EnvironmentCheck;
@@ -141,7 +145,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private void populateDropdowns()
         {
             ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            SkillValues = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }.ToList();
+            SkillValues = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }.ToList();
+            ModifierValues = new string[] { "-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }.ToList();
+
         }
 
         #region Interfaces

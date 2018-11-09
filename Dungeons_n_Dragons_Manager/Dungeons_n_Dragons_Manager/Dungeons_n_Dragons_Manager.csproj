@@ -205,6 +205,23 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\d4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\dice-six-faces-six.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\dice-eight-faces-eight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\d10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\d12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\dice-twenty-faces-twenty.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
