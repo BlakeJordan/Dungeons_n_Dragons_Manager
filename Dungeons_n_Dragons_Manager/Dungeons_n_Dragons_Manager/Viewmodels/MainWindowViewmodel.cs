@@ -70,14 +70,37 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        private ICommand m_openAboutBox;
+
+        /// <summary>
+        /// Public facing accessor to m_openUserManual.
+        /// </summary>
+        public ICommand OpenAboutBox
+        {
+            get
+            {
+                return m_openAboutBox ?? (m_openAboutBox = new CommandHandler(() => openAboutBox(), true));
+            }
+        }
+
+
         #endregion
 
         #region Functions
 
+        /// <summary>
+        /// Creates a UserManualWindow.S
+        /// </summary>
         private void openUserManual()
         {
             UserManualWindow userManualWindow = new UserManualWindow();
             userManualWindow.Show();
+        }
+
+        private void openAboutBox()
+        {
+            AboutBoxWindow aboutBoxWindow = new AboutBoxWindow();
+            aboutBoxWindow.Show();
         }
 
         #endregion
