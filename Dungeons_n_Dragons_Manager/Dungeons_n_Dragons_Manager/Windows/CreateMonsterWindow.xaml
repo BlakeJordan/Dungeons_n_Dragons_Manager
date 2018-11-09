@@ -353,68 +353,77 @@
                   Grid.Column="0"
                   Margin="24,2,0,0"
                   Content="Artic"
-                  IsChecked="{Binding IsEnvironmentChecked}"
-                  Command="{Binding EnvironmentCheck}"/>
+                  IsChecked="{Binding IsArctic}"/>
               <CheckBox
                   x:Name="Coastal"
                   Grid.Row="1"
                   Grid.Column="0"
                   Margin="24,2,0,0"
-                  Content="Coastal" />
+                  Content="Coastal" 
+                  IsChecked="{Binding IsCoastal}"/>
               <CheckBox
                   x:Name="Desert"
                   Grid.Row="2"
                   Grid.Column="0"
                   Margin="24,2,0,0"
-                  Content="Desert" />
+                  Content="Desert"
+                  IsChecked="{Binding IsDesert}"/>
               <CheckBox
                   x:Name="Forest"
                   Grid.Row="3"
                   Grid.Column="0"
                   Margin="24,2,0,0"
-                  Content="Forest" />
+                  Content="Forest"
+                  IsChecked="{Binding IsForest}"/>
               <CheckBox
                   x:Name="Grassland"
                   Grid.Row="4"
                   Grid.Column="0"
                   Margin="24,2,0,0"
-                  Content="Grassland" />
+                  Content="Grassland"
+                  IsChecked="{Binding IsGrassland}"/>
               <CheckBox
                   x:Name="Hill"
                   Grid.Row="5"
                   Grid.Column="0"
                   Margin="24,2,0,0"
-                  Content="Hill" />
+                  Content="Hill" 
+                  IsChecked="{Binding IsHill}"/>
               <CheckBox
                   x:Name="Mountain"
                   Grid.Row="0"
                   Grid.Column="1"
                   Margin="24,2,0,0"
-                  Content="Mountain" />
+                  Content="Mountain"
+                  IsChecked="{Binding IsMountain}"/>
               <CheckBox
                   x:Name="Swamp"
                   Grid.Row="1"
                   Grid.Column="1"
                   Margin="24,2,0,0"
-                  Content="Swamp" />
+                  Content="Swamp" 
+                  IsChecked="{Binding IsSwamp}"/>
               <CheckBox
                   x:Name="Underdark"
                   Grid.Row="2"
                   Grid.Column="1"
                   Margin="24,2,0,0"
-                  Content="Underdark" />
+                  Content="Underdark"
+                  IsChecked="{Binding IsUnderdark}"/>
               <CheckBox
                   x:Name="Underwater"
                   Grid.Row="3"
                   Grid.Column="1"
                   Margin="24,2,0,0"
-                  Content="Underwater" />
+                  Content="Underwater"
+                  IsChecked="{Binding IsUnderwater}"/>
               <CheckBox
                   x:Name="Urban"
                   Grid.Row="4"
                   Grid.Column="1"
                   Margin="24,2,0,0"
-                  Content="Urban" />
+                  Content="Urban"
+                  IsChecked="{Binding IsUrban}"/>
             </Grid>
           </StackPanel>
 
@@ -423,7 +432,8 @@
                 Grid.Column="1"
                 Margin="60.8,76.4,61.2,-90"
                 Click="Button_Click"
-                Content="Save Monster" />
+                Content="Save Monster"
+                Command="{Binding UpdateEnvironments}"/>
 
         </Grid>
     </Border>

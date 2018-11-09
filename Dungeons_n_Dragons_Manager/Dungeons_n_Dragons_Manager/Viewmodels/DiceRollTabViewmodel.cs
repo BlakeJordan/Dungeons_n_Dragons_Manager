@@ -43,7 +43,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             {
                 if (m_Rolls == null)
                 {
-                    m_Rolls = "Rolls!";
+                    m_Rolls = "";
                 }
                 return m_Rolls;
             }

@@ -232,6 +232,12 @@
     <Resource Include="Assets\dice-twenty-faces-twenty.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\d100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\D100edit.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Assets\UserManual.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
