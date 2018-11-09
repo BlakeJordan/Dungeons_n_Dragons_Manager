@@ -99,6 +99,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\MusicPlayerTabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\CreateMonsterWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -128,6 +132,9 @@
     <Compile Include="Controls\EncountersTabControl.xaml.cs">
       <DependentUpon>EncountersTabControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\MusicPlayerTabControl.xaml.cs">
+      <DependentUpon>MusicPlayerTabControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Monster.cs" />
     <Compile Include="Tools\CommandHandler.cs" />
@@ -139,6 +146,7 @@
     <Compile Include="Viewmodels\EditCharacterWindowViewModel.cs" />
     <Compile Include="Viewmodels\EncountersTabViewmodel.cs" />
     <Compile Include="Viewmodels\MainWindowViewmodel.cs" />
+    <Compile Include="Viewmodels\MusicPlayerTabViewmodel.cs" />
     <Compile Include="Windows\CreateMonsterWindow.xaml.cs">
       <DependentUpon>CreateMonsterWindow.xaml</DependentUpon>
     </Compile>

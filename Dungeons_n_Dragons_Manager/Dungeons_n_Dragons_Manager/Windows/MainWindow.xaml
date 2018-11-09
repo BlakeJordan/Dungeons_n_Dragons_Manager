@@ -51,6 +51,9 @@
                     <TabItem DataContext="{Binding EncountersTabViewmodel}" Header="Encounters">
                         <Controls:EncountersTabControl />
                     </TabItem>
+                    <TabItem DataContext="{Binding MusicPlayerTabViewmodel}" Header="Music">
+                        <Controls:MusicPlayerTabControl />
+                    </TabItem>
                 </TabControl>
             </Grid>
         </Border>

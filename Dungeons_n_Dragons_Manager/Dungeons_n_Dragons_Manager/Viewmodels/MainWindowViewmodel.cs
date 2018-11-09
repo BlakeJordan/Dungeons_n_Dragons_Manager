@@ -50,6 +50,21 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             get { return m_encountersTabViewmodel; }
         }
 
+        /// <summary>
+        /// Viewmodel for the MusicPlayerTab.
+        /// </summary>
+        private MusicPlayerTabViewmodel m_MusicPlayerTabViewmodel = new MusicPlayerTabViewmodel();
+
+        /// <summary>
+        /// Public accessor for m_MusicPlayerTabViewmodel.
+        /// </summary>
+        
+        public MusicPlayerTabViewmodel MusicPlayerTabViewmodel
+        {
+            get { return m_MusicPlayerTabViewmodel; }
+        }
+       
+
         #endregion Sub Viewmodels
 
         #region Commands
