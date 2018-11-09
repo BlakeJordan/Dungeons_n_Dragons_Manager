@@ -21,6 +21,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         public CreateMonsterWindowViewmodel(ref Monster monster)
         {
             newMonster = monster;
+            newMonster.IsCustom = true;
             populateDropdowns();
         }
 
@@ -33,6 +34,61 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// The monster's options for armor
         /// </summary>
         public List<string> ArmorTypes { get; set; }
+
+        /// <summary>
+        /// Boolean for if the artic environment is checked.
+        /// </summary>
+        public bool IsArctic { get; set; }
+
+        /// <summary>
+        /// Boolean for if the coastal environment is checked.
+        /// </summary>
+        public bool IsCoastal { get; set; }
+
+        /// <summary>
+        /// Boolean for if the Desert environment is checked.
+        /// </summary>
+        public bool IsDesert { get; set; }
+
+        /// <summary>
+        /// Boolean for if the forest environment is checked.
+        /// </summary>
+        public bool IsForest { get; set; }
+
+        /// <summary>
+        /// Boolean for if the grassland environment is checked.
+        /// </summary>
+        public bool IsGrassland { get; set; }
+
+        /// <summary>
+        /// Boolean for if the hill environment is checked.
+        /// </summary>
+        public bool IsHill { get; set; }
+
+        /// <summary>
+        /// Boolean for if the mountain environment is checked.
+        /// </summary>
+        public bool IsMountain { get; set; }
+
+        /// <summary>
+        /// Boolean for if the swamp environment is checked.
+        /// </summary>
+        public bool IsSwamp { get; set; }
+
+        /// <summary>
+        /// Boolean for if the underdark environment is checked.
+        /// </summary>
+        public bool IsUnderdark { get; set; }
+
+        /// <summary>
+        /// Boolean for if the underwater environment is checked.
+        /// </summary>
+        public bool IsUnderwater { get; set; }
+
+        /// <summary>
+        /// Boolean for if the urban environment is checked.
+        /// </summary>
+        public bool IsUrban { get; set; }
 
         /// <summary>
         /// Populates the dropdown menus for the armor type options

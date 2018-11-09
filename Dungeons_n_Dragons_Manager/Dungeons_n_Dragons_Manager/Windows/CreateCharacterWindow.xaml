@@ -238,110 +238,126 @@
                         Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Athletics"
-                        IsChecked="{Binding IsProficiencyChecked}"
-                        Command="{Binding ProficiencyCheck}"/>
+                        IsChecked="{Binding Path=newCharacter.Athletics}" />
                     <CheckBox
                         x:Name="Acrobatics"
                         Grid.Row="1"
                         Grid.Column="0"
                         Margin="24,2,0,0"
-                        Content="Acrobatics" />
+                        Content="Acrobatics"
+                        IsChecked="{Binding Path=newCharacter.Acrobatics}" />
                     <CheckBox
                         x:Name="SleightOfHand"
                         Grid.Row="2"
                         Grid.Column="0"
                         Margin="24,2,0,0"
-                        Content="Sleight of Hand" />
+                        Content="Sleight of Hand"
+                        IsChecked="{Binding Path=newCharacter.SleightOfHand}" />
                     <CheckBox
                         x:Name="Stealth"
                         Grid.Row="3"
                         Grid.Column="0"
                         Margin="24,2,0,0"
-                        Content="Stealth" />
+                        Content="Stealth"
+                        IsChecked="{Binding Path=newCharacter.Stealth}" />
                     <CheckBox
                         x:Name="Arcana"
                         Grid.Row="4"
                         Grid.Column="0"
                         Margin="24,2,0,0"
-                        Content="Arcana" />
+                        Content="Arcana"
+                        IsChecked="{Binding Path=newCharacter.Arcana}" />
                     <CheckBox
                         x:Name="History"
                         Grid.Row="5"
                         Grid.Column="0"
                         Margin="24,2,0,0"
-                        Content="History" />
+                        Content="History"
+                        IsChecked="{Binding Path=newCharacter.History}" />
                     <CheckBox
                         x:Name="Investigation"
                         Grid.Row="6"
                         Grid.Column="0"
                         Margin="24,2,0,0"
-                        Content="Investigation" />
+                        Content="Investigation"
+                        IsChecked="{Binding Path=newCharacter.Investigation}" />
                     <CheckBox
                         x:Name="Nature"
                         Grid.Row="7"
                         Grid.Column="0"
                         Margin="24,2,0,0"
-                        Content="Nature" />
+                        Content="Nature"
+                        IsChecked="{Binding Path=newCharacter.Nature}" />
                     <CheckBox
                         x:Name="Religion"
                         Grid.Row="8"
                         Grid.Column="0"
                         Margin="24,2,0,0"
-                        Content="Religion" />
+                        Content="Religion"
+                        IsChecked="{Binding Path=newCharacter.Religion}" />
                     <CheckBox
                         x:Name="AnimalHandling"
                         Grid.Row="0"
                         Grid.Column="1"
                         Margin="24,2,0,0"
-                        Content="Animal Handling" />
+                        Content="Animal Handling"
+                        IsChecked="{Binding Path=newCharacter.AnimalHandling}" />
                     <CheckBox
                         x:Name="Insight"
                         Grid.Row="1"
                         Grid.Column="1"
                         Margin="24,2,0,0"
-                        Content="Insight" />
+                        Content="Insight"
+                        IsChecked="{Binding Path=newCharacter.Insight}" />
                     <CheckBox
                         x:Name="Medicine"
                         Grid.Row="2"
                         Grid.Column="1"
                         Margin="24,2,0,0"
-                        Content="Medicine" />
+                        Content="Medicine"
+                        IsChecked="{Binding Path=newCharacter.Medicine}" />
                     <CheckBox
                         x:Name="Perception"
                         Grid.Row="3"
                         Grid.Column="1"
                         Margin="24,2,0,0"
-                        Content="Perception" />
+                        Content="Perception"
+                        IsChecked="{Binding Path=newCharacter.Perception}" />
                     <CheckBox
                         x:Name="Survival"
                         Grid.Row="4"
                         Grid.Column="1"
                         Margin="24,2,0,0"
-                        Content="Survival" />
+                        Content="Survival"
+                        IsChecked="{Binding Path=newCharacter.Survival}" />
                     <CheckBox
                         x:Name="Deception"
                         Grid.Row="5"
                         Grid.Column="1"
                         Margin="24,2,0,0"
-                        Content="Deception" />
+                        Content="Deception"
+                        IsChecked="{Binding Path=newCharacter.Deception}" />
                     <CheckBox
                         x:Name="Intimidation"
                         Grid.Row="6"
                         Grid.Column="1"
                         Margin="24,2,0,0"
-                        Content="Intimidation" />
+                        Content="Intimidation"
+                        IsChecked="{Binding Path=newCharacter.Intimidation}" />
                     <CheckBox
                         x:Name="Performance"
                         Grid.Row="7"
                         Grid.Column="1"
                         Margin="24,2,0,0"
-                        Content="Performance" />
+                        Content="Performance"
+                        IsChecked="{Binding Path=newCharacter.Performance}" />
                     <CheckBox
                         x:Name="Persuasion"
                         Grid.Row="8"
                         Grid.Column="1"
                         Margin="24,2,0,0"
-                        Content="Persuasion" />
+                        Content="Persuasion"
+                        IsChecked="{Binding Path=newCharacter.Persuasion}" />
                 </Grid>
             </StackPanel>
 
