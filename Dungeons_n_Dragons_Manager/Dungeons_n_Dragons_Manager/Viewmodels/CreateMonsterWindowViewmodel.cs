@@ -1,7 +1,11 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
+using Dungeons_n_Dragons_Manager.Tools;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Windows.Input;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
 {
@@ -34,6 +38,16 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// The monster's options for armor
         /// </summary>
         public List<string> ArmorTypes { get; set; }
+
+        /// <summary>
+        /// The character's options for each skill's level
+        /// </summary>
+        public List<string> SkillValues { get; set; }
+
+        /// <summary>
+        /// The character's options for each Modifier
+        /// </summary>
+        public List<string> ModifierValues { get; set; }
 
         /// <summary>
         /// Boolean for if the artic environment is checked.
@@ -91,6 +105,78 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         public bool IsUrban { get; set; }
 
         /// <summary>
+        /// Command binded to the "Save Monster" button which calls UpdateEnvironment
+        /// </summary>
+        private ICommand m_UpdateEnvironments;
+
+        /// <summary>
+        /// Public facing accessor to m_chooseRandomEncounter.
+        /// </summary>
+        public ICommand UpdateEnvironments
+        {
+            get
+            {
+                return m_UpdateEnvironments ?? (m_UpdateEnvironments = new CommandHandler(() => updateEnvironments(), true));
+            }
+        }
+        /// <summary>
+        /// Populates the list of environments for the new monster
+        ///
+        /// Pre: monster has been created
+        ///
+        /// Post: The monster's list has all environments selected.
+        /// </summary>
+        public void updateEnvironments()
+        {
+            newMonster.Environments = new List<string>();
+            if(IsArctic)
+            {
+                newMonster.Environments.Add("Arctic");
+            }
+            if(IsCoastal)
+            {
+                newMonster.Environments.Add("Coastal");
+            }
+            if(IsDesert)
+            {
+                newMonster.Environments.Add("Desert");
+            }
+            if(IsForest)
+            {
+                newMonster.Environments.Add("Forest");
+            }
+            if(IsGrassland)
+            {
+                newMonster.Environments.Add("Grassland");
+            }
+            if(IsHill)
+            {
+                newMonster.Environments.Add("Hill");
+            }
+            if(IsMountain)
+            {
+                newMonster.Environments.Add("Mountain");
+            }
+            if(IsSwamp)
+            {
+                newMonster.Environments.Add("Swamp");
+            }
+            if(IsUnderdark)
+            {
+                newMonster.Environments.Add("Underdark");
+            }
+            if(IsUnderwater)
+            {
+                newMonster.Environments.Add("Underwater");
+            }
+            if(IsUrban)
+            {
+                newMonster.Environments.Add("Urban");
+            }
+
+        }
+
+        /// <summary>
         /// Populates the dropdown menus for the armor type options
         ///
         /// Pre: None
@@ -100,6 +186,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private void populateDropdowns()
         {
             ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            SkillValues = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }.ToList();
+            ModifierValues = new string[] { "-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }.ToList();
+
         }
 
         #region Interfaces

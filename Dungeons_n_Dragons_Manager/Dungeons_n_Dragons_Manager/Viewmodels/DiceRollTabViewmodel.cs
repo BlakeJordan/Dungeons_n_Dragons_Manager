@@ -28,178 +28,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             bag = new DiceBag();
         }
 
-        /// <summary>
-        /// private facing int which will hold the number of times the D4 should be rolled
-        /// </summary>
-        private int m_D4Input;
-
-        /// <summary>
-        /// public facing accessor for m_D4Input
-        /// </summary>
-        public int D4Input
-        {
-            get
-            {
-                return m_D4Input;
-            }
-            set
-            {
-                if (value != m_D4Input)
-                {
-                    m_D4Input = value;
-                    OnPropertyRaised(nameof(D4Input));
-                }
-            }
-        }
-
-        /// <summary>
-        /// private facing int which will hold the number of times the D6 should be rolled
-        /// </summary>
-        private int m_D6Input;
-
-        /// <summary>
-        /// public facing accessor for m_D6Input
-        /// </summary>
-        public int D6Input
-        {
-            get
-            {
-                return m_D6Input;
-            }
-            set
-            {
-                if (value != m_D6Input)
-                {
-                    m_D6Input = value;
-                    OnPropertyRaised(nameof(D6Input));
-                }
-            }
-        }
-
-        /// <summary>
-        /// private facing int which will hold the number of times the D8 should be rolled
-        /// </summary>
-        private int m_D8Input;
-
-        /// <summary>
-        /// public facing accessor for m_D8Input
-        /// </summary>
-        public int D8Input
-        {
-            get
-            {
-                return m_D8Input;
-            }
-            set
-            {
-                if (value != m_D8Input)
-                {
-                    m_D8Input = value;
-                    OnPropertyRaised(nameof(D8Input));
-                }
-            }
-        }
-
-        /// <summary>
-        /// private facing int which will hold the number of times the D10 should be rolled
-        /// </summary>
-        private int m_D10Input;
-
-        /// <summary>
-        /// public facing accessor for m_D10Input
-        /// </summary>
-        public int D10Input
-        {
-            get
-            {
-                return m_D10Input;
-            }
-            set
-            {
-                if (value != m_D10Input)
-                {
-                    m_D10Input = value;
-                    OnPropertyRaised(nameof(D10Input));
-                }
-            }
-        }
-
-        /// <summary>
-        /// private facing int which will hold the number of times the D12 should be rolled
-        /// </summary>
-        private int m_D12Input;
-
-        /// <summary>
-        /// public facing accessor for m_D12Input
-        /// </summary>
-        public int D12Input
-        {
-            get
-            {
-                return m_D12Input;
-            }
-            set
-            {
-                if (value != m_D12Input)
-                {
-                    m_D12Input = value;
-                    OnPropertyRaised(nameof(D12Input));
-                }
-            }
-        }
-
-        /// <summary>
-        /// private facing int which will hold the number of times the D20 should be rolled
-        /// </summary>
-        private int m_D20Input;
-
-        /// <summary>
-        /// public facing accessor for m_D20Input
-        /// </summary>
-        public int D20Input
-        {
-            get
-            {
-                return m_D20Input;
-            }
-            set
-            {
-                if (value != m_D20Input)
-                {
-                    m_D20Input = value;
-                    OnPropertyRaised(nameof(D20Input));
-                }
-            }
-        }
-
-        /// <summary>
-        /// private facing int which will hold the number of times the D100 should be rolled
-        /// </summary>
-        private int m_D100Input;
-
-        /// <summary>
-        /// public facing accessor for m_D100Input
-        /// </summary>
-        public int D100Input
-        {
-            get
-            {
-                return m_D100Input;
-            }
-            set
-            {
-                if (value != m_D100Input)
-                {
-                    m_D100Input = value;
-                    OnPropertyRaised(nameof(D100Input));
-                }
-            }
-        }
-
-        /// <summary>
-        /// private facing array which will be populated by the values of the roll quantity text boxes
-        /// </summary>
-        private int[] rollTimes { get; set; }
 
         /// <summary>
         /// private facing string which will hold all of the rolls in one long string
@@ -215,7 +43,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             {
                 if (m_Rolls == null)
                 {
-                    m_Rolls = "Your rolls will appear here.";
+                    m_Rolls = "";
                 }
                 return m_Rolls;
             }
@@ -236,22 +64,47 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         ///
         /// Post: rolls string is populated by all of the rolls for the die
         /// </summary>
-        private void roll_button_click()
+        private void roll_D4()
         {
-            rollTimes = new int[] { D4Input, D6Input, D8Input, D10Input, D12Input, D20Input, D100Input };
-            string rollstemp = "rolls: \n";
-            List<List<string>> temp = bag.RollMultiple(rollTimes);
-            foreach (List<string> roll in temp)
-            {
-                rollstemp += "\n";
-                foreach (string num in roll)
-                {
-                    rollstemp += num + " ";
-                }
-            }
-            rolls = rollstemp;
+
+            rolls = bag.Roll(4);
         }
 
+        private void roll_D6()
+        {
+
+            rolls = bag.Roll(6);
+        }
+
+        private void roll_D8()
+        {
+
+            rolls = bag.Roll(8);
+        }
+
+        private void roll_D10()
+        {
+
+            rolls = bag.Roll(10);
+        }
+
+        private void roll_D12()
+        {
+
+            rolls = bag.Roll(12);
+        }
+
+        private void roll_D20()
+        {
+
+            rolls = bag.Roll(20);
+        }
+
+        private void roll_D100()
+        {
+
+            rolls = bag.Roll(100);
+        }
         #region Commands
 
         /// <summary>
@@ -265,19 +118,100 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// <summary>
         /// commnd binded to Roll button which calls roll_button_click if canClick is true
         /// </summary>
-        private ICommand m_Click;
+        private ICommand m_ClickD4;
 
         /// <summary>
         /// public facing accessor for m_Click
         /// </summary>
-        public ICommand Click
+        public ICommand ClickD4
         {
             get
             {
-                return m_Click ?? (m_Click = new CommandHandler(() => roll_button_click(), m_canClick));
+                return m_ClickD4 ?? (m_ClickD4 = new CommandHandler(() => roll_D4(), m_canClick));
             }
         }
 
+        /// <summary>
+        /// commnd binded to Roll button which calls roll_button_click if canClick is true
+        /// </summary>
+        private ICommand m_ClickD6;
+
+        /// <summary>
+        /// public facing accessor for m_Click
+        /// </summary>
+        public ICommand ClickD6
+        {
+            get
+            {
+                return m_ClickD6 ?? (m_ClickD6 = new CommandHandler(() => roll_D6(), m_canClick));
+            }
+        }
+
+        private ICommand m_ClickD8;
+
+        /// <summary>
+        /// public facing accessor for m_Click
+        /// </summary>
+        public ICommand ClickD8
+        {
+            get
+            {
+                return m_ClickD8 ?? (m_ClickD8 = new CommandHandler(() => roll_D8(), m_canClick));
+            }
+        }
+
+        private ICommand m_ClickD10;
+
+        /// <summary>
+        /// public facing accessor for m_Click
+        /// </summary>
+        public ICommand ClickD10
+        {
+            get
+            {
+                return m_ClickD10 ?? (m_ClickD10 = new CommandHandler(() => roll_D10(), m_canClick));
+            }
+        }
+
+        private ICommand m_ClickD12;
+
+        /// <summary>
+        /// public facing accessor for m_Click
+        /// </summary>
+        public ICommand ClickD12
+        {
+            get
+            {
+                return m_ClickD12 ?? (m_ClickD12 = new CommandHandler(() => roll_D12(), m_canClick));
+            }
+        }
+
+
+        private ICommand m_ClickD20;
+
+        /// <summary>
+        /// public facing accessor for m_Click
+        /// </summary>
+        public ICommand ClickD20
+        {
+            get
+            {
+                return m_ClickD20 ?? (m_ClickD20 = new CommandHandler(() => roll_D20(), m_canClick));
+            }
+        }
+
+        private ICommand m_ClickD100;
+
+        /// <summary>
+        /// public facing accessor for m_Click
+        /// </summary>
+        public ICommand ClickD100
+        {
+            get
+            {
+                return m_ClickD100 ?? (m_ClickD4 = new CommandHandler(() => roll_D100(), m_canClick));
+            }
+        }
         #endregion Commands
 
         #region Interfaces
