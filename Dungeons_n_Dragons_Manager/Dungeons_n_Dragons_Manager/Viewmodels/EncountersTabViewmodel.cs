@@ -130,7 +130,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         private bool m_canCreateMonster
         {
-            get { return true; } //Add check to see if characters are created later.
+            get { return true; } 
         }
 
         /// <summary>
@@ -148,6 +148,31 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 return m_createMonster ?? (m_createMonster = new CommandHandler(() => createNewMonster(), m_canCreateMonster));
             }
         }
+
+        /*
+        /// <summary>
+        /// Boolean which determines if EditMonsters can be executed.
+        /// </summary>
+        private bool m_canEditMonsters
+        {
+            get { return true; } 
+        }
+
+        /// <summary>
+        /// Command binded to the "edit monsters" button which calls editMonsters if m_canEditMonsters is true.
+        /// </summary>
+        private ICommand m_editMonsters;
+
+        /// <summary>
+        /// Public facing accessor to m_editMonsters.
+        /// </summary>
+        public ICommand EditMonsters
+        {
+            get
+            {
+                return m_editMonsters ?? (m_editMonsters = new CommandHandler(() => editMonsters(), m_canEditMonsters));
+            }
+        }*/
 
         #endregion Commands
 
@@ -197,16 +222,16 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         /// <summary>
-        /// Creates a new character and passes it by reference to an instance of CreateCharacterWindow to be edited.
+        /// Creates a new monster and passes it by reference to an instance of CreateMonsterWindow to be edited.
         ///
-        /// Pre: "Create Character" button has been clicked.
+        /// Pre: "Create Monster" button has been clicked.
         ///
-        /// Post: A new character has been created.
+        /// Post: A new monster has been created.
         /// </summary>
         public void createNewMonster()
         {
-            Monster newMonster = new Monster(); //Create blank character.
-            CreateMonsterWindow createMonsterWindow = new CreateMonsterWindow(ref newMonster); //Pass character to window by reference to be modified.
+            Monster newMonster = new Monster(); //Create blank monster.
+            CreateMonsterWindow createMonsterWindow = new CreateMonsterWindow(ref newMonster); //Pass monster to window by reference to be modified.
             createMonsterWindow.ShowDialog(); //Open window instance until closed.
             if (createMonsterWindow.SaveMonster)
             {
@@ -217,6 +242,17 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 parseMonstersResource();
             }
         }
+
+        /// <summary>
+        /// creates a edit monster window where you can edit the custom monsters you have created.
+        ///
+        /// Pre: "Edit Monsters" button has been clicked.
+        ///
+        /// Post: The edits made to any monsters are updated.
+        /// </summary>
+        /*public void editMonsters()
+        {
+        }*/
 
         #endregion Functions
 
