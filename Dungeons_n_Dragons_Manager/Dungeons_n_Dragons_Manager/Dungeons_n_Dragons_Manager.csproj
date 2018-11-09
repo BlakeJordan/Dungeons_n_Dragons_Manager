@@ -231,5 +231,10 @@
   <ItemGroup>
     <Resource Include="Assets\dice-twenty-faces-twenty.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\UserManual.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
