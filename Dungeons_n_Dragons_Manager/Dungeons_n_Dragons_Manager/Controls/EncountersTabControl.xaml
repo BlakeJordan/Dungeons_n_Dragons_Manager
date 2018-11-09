@@ -34,11 +34,29 @@
             </StackPanel>
           <StackPanel Grid.Row="0"
               HorizontalAlignment="Center">
-            <TextBlock Text="Create Monster"/>
-            <Button
-                   Margin="2.5,0,1,0"
+            <Grid>
+
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <Button 
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="2.5,0,1,0"
                    Command="{Binding CreateMonster}"
-                   Content=" Create Monster " />
+                   Content=" Create Monster "/>
+              <Button
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="2.5,0,1,0"
+                Content=" Edit Custom Monsters"/>
+            </Grid>
           </StackPanel>
 
             <StackPanel Grid.Row="0"
