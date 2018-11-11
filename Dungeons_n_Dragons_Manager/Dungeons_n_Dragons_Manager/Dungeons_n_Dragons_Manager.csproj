@@ -237,5 +237,10 @@
   <ItemGroup>
     <Resource Include="Assets\D100edit.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\UserManual.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,10 +7,12 @@
     xmlns:Controls="clr-namespace:Dungeons_n_Dragons_Manager.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Dungeons and Dragons Manager"
-    Width="800"
-    Height="450"
+    Width="960"
+    Height="600"
     Icon="../Assets/Icon.ico"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Closing="Window_Closing">
+    
 
     <Grid>
         <Grid.ColumnDefinitions>
