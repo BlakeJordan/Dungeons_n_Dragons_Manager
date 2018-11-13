@@ -4,29 +4,437 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="EditMonstersWindow"
-    Width="400"
-    Height="225"
+    Title="EditMonsterWindow"
+    Width="800"
+    Height="450"
     mc:Ignorable="d">
-    <Border Margin="0,0,0,-184.4" Padding="6">
-        <Grid Margin="0.2,0.2,0.2,175.8">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+  <Border Margin="0,0,0,-184.4" Padding="6">
+    <Grid Margin="0.2,0.2,0.2,175.8">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40" />
-            </Grid.RowDefinitions>
-            <StackPanel
-                Grid.Row="0"
-                Grid.Column="0"
-                HorizontalAlignment="Left">
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    FontSize="14"
-                    FontWeight="DemiBold"
-                    Text="Select a custom monster:" />
-            </StackPanel>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="40" />
+        <RowDefinition Height="40" />
+        <RowDefinition Height="40" />
+        <RowDefinition Height="40" />
+        <RowDefinition Height="40" />
+        <RowDefinition Height="40" />
+        <RowDefinition Height="40" />
+        <RowDefinition Height="40" />
+        <RowDefinition Height="40" />
+      </Grid.RowDefinitions>
+
+      <StackPanel
+          Grid.Row="0"
+          Grid.Column="0"
+          HorizontalAlignment="Center">
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            Width="140"
+            FontWeight="DemiBold"
+            Text="Monster Name" />
+        <TextBox
+            Text="{Binding EditedMonster.Name}"
+            Width="140"/>
+      </StackPanel>
+
+      <StackPanel
+          Grid.Row="0"
+          Grid.Column="1"
+          HorizontalAlignment="Center">
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontWeight="DemiBold"
+            Text="Armor Class Type" />
+        <ComboBox
+            Width="140"
+            Margin="2.5,0,0,0"
+            ItemsSource="{Binding ArmorTypes}"
+            SelectedItem="{Binding EditedMonster.ArmorClassType}" />
+      </StackPanel>
+
+      <StackPanel
+            Grid.Row="0"
+            Grid.Column="2"
+            HorizontalAlignment="Center">
+        <TextBlock
+           HorizontalAlignment="Center"
+           FontSize="14"
+           FontWeight="DemiBold"
+           Text="Armor Class" />
+        <TextBox
+           Text="{Binding EditedMonster.ArmorClass}"
+           Width="140"/>
+      </StackPanel>
+
+      <StackPanel
+          Grid.Row="1"
+          Grid.Column="0"
+          HorizontalAlignment="Center">
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontWeight="DemiBold"
+            Text="Challenge Rating" />
+        <TextBox
+            Text="{Binding EditedMonster.ChallengeRating}"
+            Width="140"/>
+      </StackPanel>
+
+      <StackPanel
+          Grid.Row="2"
+          Grid.Column="0"
+          HorizontalAlignment="Center">
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontWeight="DemiBold"
+            Text="Challenge XP" />
+        <TextBox
+          Text="{Binding EditedMonster.ChallengeXP}"
+          Width="140"/>
+      </StackPanel>
+
+      <StackPanel
+          Grid.Row="1"
+          Grid.Column="1"
+          HorizontalAlignment="Center">
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontWeight="DemiBold"
+            Text="Hit Points" />
+        <TextBox
+        Text="{Binding EditedMonster.HitPoints}"
+        Width="140"/>
+      </StackPanel>
+
+      <StackPanel
+          Grid.Row="2"
+          Grid.Column="1"
+          HorizontalAlignment="Center">
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontWeight="DemiBold"
+            Text="Hit Points Dice" />
+        <TextBox
+         Text="{Binding EditedMonster.HitPointsDice}"
+         Width="140"/>
+      </StackPanel>
+
+      <StackPanel
+          Grid.Row="1"
+          Grid.Column="2"
+          HorizontalAlignment="Center">
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontWeight="DemiBold"
+            Text="Strength" />
+        <ComboBox
+              Width="140"
+              Margin="2.5,0,0,0"
+              ItemsSource="{Binding SkillValues}"
+              SelectedItem="{Binding EditedMonster.Strength}" />
+      </StackPanel>
+
+      <StackPanel
+          Grid.Row="2"
+          Grid.Column="2"
+          HorizontalAlignment="Center">
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontWeight="DemiBold"
+            Text="Strength Modifier" />
+        <ComboBox
+            Width="140"
+            Margin="2.5,0,0,0"
+            ItemsSource="{Binding ModifierValues}"
+            SelectedItem="{Binding EditedMonster.StrengthMod}" />
+      </StackPanel>
+
+      <StackPanel
+          Grid.Row="3"
+          Grid.Column="0"
+          HorizontalAlignment="Center">
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontWeight="DemiBold"
+            Text="Dexterity" />
+        <ComboBox
+            Width="140"
+            Margin="2.5,0,0,0"
+            ItemsSource="{Binding SkillValues}"
+            SelectedItem="{Binding EditedMonster.Dexterity}" />
+      </StackPanel>
+
+      <StackPanel
+          Grid.Row="4"
+          Grid.Column="0"
+          HorizontalAlignment="Center">
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontWeight="DemiBold"
+            Text="Dexterity Modifier" />
+        <ComboBox
+            Width="140"
+            Margin="2.5,0,0,0"
+            ItemsSource="{Binding ModifierValues}"
+            SelectedItem="{Binding EditedMonster.DexterityMod}" />
+      </StackPanel>
+
+      <StackPanel
+          Grid.Row="3"
+          Grid.Column="1"
+          HorizontalAlignment="Center">
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontWeight="DemiBold"
+            Text="Constitution" />
+        <ComboBox
+            Width="140"
+            Margin="2.5,0,0,0"
+            ItemsSource="{Binding SkillValues}"
+            SelectedItem="{Binding EditedMonster.Constitution}" />
+      </StackPanel>
+
+      <StackPanel
+          Grid.Row="4"
+          Grid.Column="1"
+          HorizontalAlignment="Center">
+        <TextBlock
+              HorizontalAlignment="Center"
+              FontSize="14"
+              FontWeight="DemiBold"
+              Text="Constitution Modifier" />
+        <ComboBox
+            Width="140"
+            Margin="2.5,0,0,0"
+            ItemsSource="{Binding ModifierValues}"
+            SelectedItem="{Binding EditedMonster.ConstitutionMod}" />
+      </StackPanel>
+
+
+      <StackPanel
+          Grid.Row="3"
+          Grid.Column="2"
+          HorizontalAlignment="Center">
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontWeight="DemiBold"
+            Text="Intelligence" />
+        <ComboBox
+              Width="140"
+              Margin="2.5,0,0,0"
+              ItemsSource="{Binding SkillValues}"
+              SelectedItem="{Binding EditedMonster.Intelligence}" />
+      </StackPanel>
+
+      <StackPanel
+            Grid.Row="4"
+            Grid.Column="2"
+            HorizontalAlignment="Center">
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontWeight="DemiBold"
+            Text="Intelligence Modifier" />
+        <ComboBox
+                Width="140"
+                Margin="2.5,0,0,0"
+                ItemsSource="{Binding ModifierValues}"
+                SelectedItem="{Binding EditedMonster.IntelligenceMod}" />
+      </StackPanel>
+
+      <StackPanel
+            Grid.Row="5"
+            Grid.Column="0"
+            HorizontalAlignment="Center">
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontWeight="DemiBold"
+            Text="Wisdom" />
+        <ComboBox
+                Width="140"
+                Margin="2.5,0,0,0"
+                ItemsSource="{Binding SkillValues}"
+                SelectedItem="{Binding EditedMonster.Wisdom}" />
+      </StackPanel>
+
+      <StackPanel
+            Grid.Row="6"
+            Grid.Column="0"
+            HorizontalAlignment="Center">
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontWeight="DemiBold"
+            Text="Wisdom Modifier" />
+        <ComboBox
+                Width="140"
+                Margin="2.5,0,0,0"
+                ItemsSource="{Binding ModifierValues}"
+                SelectedItem="{Binding EditedMonster.WisdomMod}" />
+      </StackPanel>
+
+      <StackPanel
+            Grid.Row="5"
+            Grid.Column="1"
+            HorizontalAlignment="Center">
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontWeight="DemiBold"
+            Text="Charisma" />
+        <ComboBox
+                Width="140"
+                Margin="2.5,0,0,0"
+                ItemsSource="{Binding SkillValues}"
+                SelectedItem="{Binding EditedMonster.Charisma}" />
+      </StackPanel>
+
+      <StackPanel
+            Grid.Row="6"
+            Grid.Column="1"
+            HorizontalAlignment="Center">
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontWeight="DemiBold"
+            Text="Charisma Modifier" />
+        <ComboBox
+                Width="140"
+                Margin="2.5,0,0,0"
+                ItemsSource="{Binding ModifierValues}"
+                SelectedItem="{Binding EditedMonster.CharismaMod}" />
+      </StackPanel>
+
+      <StackPanel
+            Grid.Row="7"
+            Grid.Column="2"
+            Width="271"
+            Margin="2.5,-80,0,0"
+            HorizontalAlignment="Center">
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontWeight="DemiBold"
+            Text="Environments" />
+        <Grid Margin="0.2,0.2,0.2,175.8">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+          <CheckBox
+              x:Name="Artic"
+              Grid.Row="0"
+              Grid.Column="0"
+              Margin="24,2,0,0"
+              Content="Artic"
+              IsChecked="{Binding IsArctic}"/>
+          <CheckBox
+              x:Name="Coastal"
+              Grid.Row="1"
+              Grid.Column="0"
+              Margin="24,2,0,0"
+              Content="Coastal"
+              IsChecked="{Binding IsCoastal}"/>
+          <CheckBox
+              x:Name="Desert"
+              Grid.Row="2"
+              Grid.Column="0"
+              Margin="24,2,0,0"
+              Content="Desert"
+              IsChecked="{Binding IsDesert}"/>
+          <CheckBox
+              x:Name="Forest"
+              Grid.Row="3"
+              Grid.Column="0"
+              Margin="24,2,0,0"
+              Content="Forest"
+              IsChecked="{Binding IsForest}"/>
+          <CheckBox
+              x:Name="Grassland"
+              Grid.Row="4"
+              Grid.Column="0"
+              Margin="24,2,0,0"
+              Content="Grassland"
+              IsChecked="{Binding IsGrassland}"/>
+          <CheckBox
+              x:Name="Hill"
+              Grid.Row="5"
+              Grid.Column="0"
+              Margin="24,2,0,0"
+              Content="Hill"
+              IsChecked="{Binding IsHill}"/>
+          <CheckBox
+              x:Name="Mountain"
+              Grid.Row="0"
+              Grid.Column="1"
+              Margin="24,2,0,0"
+              Content="Mountain"
+              IsChecked="{Binding IsMountain}"/>
+          <CheckBox
+              x:Name="Swamp"
+              Grid.Row="1"
+              Grid.Column="1"
+              Margin="24,2,0,0"
+              Content="Swamp"
+              IsChecked="{Binding IsSwamp}"/>
+          <CheckBox
+              x:Name="Underdark"
+              Grid.Row="2"
+              Grid.Column="1"
+              Margin="24,2,0,0"
+              Content="Underdark"
+              IsChecked="{Binding IsUnderdark}"/>
+          <CheckBox
+              x:Name="Underwater"
+              Grid.Row="3"
+              Grid.Column="1"
+              Margin="24,2,0,0"
+              Content="Underwater"
+              IsChecked="{Binding IsUnderwater}"/>
+          <CheckBox
+              x:Name="Urban"
+              Grid.Row="4"
+              Grid.Column="1"
+              Margin="24,2,0,0"
+              Content="Urban"
+              IsChecked="{Binding IsUrban}"/>
         </Grid>
-    </Border>
+      </StackPanel>
+
+      <Button
+          Grid.Row="6"
+          Grid.Column="1"
+          Margin="60.8,76.4,61.2,-90"
+          Click="Button_Click"
+          Content="Save Monster"
+          Command="{Binding UpdateEnvironments}"/>
+
+    </Grid>
+  </Border>
 </Window>

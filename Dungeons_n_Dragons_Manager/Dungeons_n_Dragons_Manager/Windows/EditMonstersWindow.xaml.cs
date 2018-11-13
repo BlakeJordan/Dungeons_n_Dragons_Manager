@@ -1,5 +1,6 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
 using Dungeons_n_Dragons_Manager.Viewmodels;
+using System;
 using System.Windows;
 
 namespace Dungeons_n_Dragons_Manager.Windows
@@ -16,12 +17,16 @@ namespace Dungeons_n_Dragons_Manager.Windows
         ///
         /// Post: Data context is set with m_newMonster as monster passed by reference.
         /// </summary>
-        public EditMonstersWindow()
+        public EditMonstersWindow(ref Monster monster)
         {
-            //this.DataContext = new CreateMonsterWindowViewmodel(ref monster); //Initialize viewmodel.
-            //InitializeComponent();
+            this.DataContext = new EditMonsterWindowViewmodel(ref monster); //Initialize viewmodel.
+            InitializeComponent();
         }
 
+        /// <summary>
+        /// A boolean indicating whether the save button has been clicked or not
+        /// </summary>
+        public bool SaveMonster { get; set; }
 
         /// <summary>
         /// Handles the clicking of the save button
@@ -32,6 +37,7 @@ namespace Dungeons_n_Dragons_Manager.Windows
         /// </summary>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            SaveMonster = true;
             this.Close();
         }
 

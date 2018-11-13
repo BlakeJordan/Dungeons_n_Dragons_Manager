@@ -34,6 +34,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         #region Members
 
         private ObservableCollection<Monster> m_monsters;
+        private ObservableCollection<Monster> m_customMonsters;
 
         /// <summary>
         /// ObservableCollection of Monsters which is bound to a combobox.
@@ -54,6 +55,29 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 {
                     m_monsters = value;
                     OnPropertyRaised(nameof(Monsters));
+                }
+            }
+        }
+
+        /// <summary>
+        /// ObservableCollection of customMonsters which is bound to a combobox.
+        /// </summary>
+        public ObservableCollection<Monster> CustomMonsters
+        {
+            get
+            {
+                if (m_customMonsters == null)
+                {
+                    m_customMonsters = new ObservableCollection<Monster>();
+                }
+                return m_customMonsters;
+            }
+            set
+            {
+                if (m_customMonsters != value)
+                {
+                    m_customMonsters = value;
+                    OnPropertyRaised(nameof(CustomMonsters));
                 }
             }
         }
@@ -82,6 +106,34 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 {
                     m_selectedMonster = value;
                     OnPropertyRaised(nameof(SelectedMonster));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Private backing to store the currently selected custom monster in the combobox.
+        /// </summary>
+        private Monster m_selectedCustomMonster;
+
+        /// <summary>
+        /// Public facing accessor to m_selectedCustomMonster.
+        /// </summary>
+        public Monster SelectedCustomMonster
+        {
+            get
+            {
+                if (m_selectedCustomMonster == null)
+                {
+                    m_selectedCustomMonster = Monsters[0];
+                }
+                return m_selectedCustomMonster;
+            }
+            set
+            {
+                if (value != m_selectedCustomMonster)
+                {
+                    m_selectedCustomMonster = value;
+                    OnPropertyRaised(nameof(SelectedCustomMonster));
                 }
             }
         }
@@ -174,6 +226,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+
         #endregion Commands
 
         #region Functions
@@ -188,6 +241,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private void parseMonstersResource()
         {
             List<Monster> listOfMonsters = new List<Monster>(); //Temp list to store monsters
+            List<Monster> listOfCustomMonsters = new List<Monster>(); //Temp list to store custom monsters
             List<string> defaultMonsters = Properties.Resources.Monsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             List<string> customMonsters = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             defaultMonsters.RemoveAt(0); //Remove data header
@@ -202,9 +256,11 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 {
                     string[] values = entry.Split(';');
                     listOfMonsters.Add(new Monster(values));
+                    listOfCustomMonsters.Add(new Monster(values));
                 }
             }
             Monsters = new ObservableCollection<Monster>( listOfMonsters.OrderBy(o => o.Name).ToList() ); //Sort list by name and create observable collection
+            CustomMonsters = new ObservableCollection<Monster>( listOfCustomMonsters.OrderBy(o => o.Name).ToList() ); //Sort list by name and create observable collection
         }
 
         /// <summary>
@@ -252,7 +308,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public void editMonsters()
         {
-            EditMonstersWindow editMonstersWindow = new EditMonstersWindow();
+            Monster EditedMonster = SelectedCustomMonster;
+            EditMonstersWindow editMonstersWindow = new EditMonstersWindow(ref EditedMonster);
             editMonstersWindow.ShowDialog();
         }
 

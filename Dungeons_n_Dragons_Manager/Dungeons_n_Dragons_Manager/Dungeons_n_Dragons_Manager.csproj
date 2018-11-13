@@ -78,6 +78,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Tools\BrowserBehavior.cs" />
+    <Compile Include="Viewmodels\EditMonsterWindowViewmodel.cs" />
     <Compile Include="Windows\EditMonstersWindow.xaml.cs">
       <DependentUpon>EditMonstersWindow.xaml</DependentUpon>
     </Compile>
