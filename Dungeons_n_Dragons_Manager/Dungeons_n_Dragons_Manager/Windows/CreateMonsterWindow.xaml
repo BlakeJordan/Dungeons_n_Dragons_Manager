@@ -39,7 +39,7 @@
                     FontWeight="DemiBold"
                     Text="Monster Name" />
                 <TextBox 
-                    Text="{Binding newMonster.Name}"
+                    Text="{Binding Name}"
                     Width="140"/>
             </StackPanel>
 
@@ -433,7 +433,8 @@
                 Margin="60.8,76.4,61.2,-90"
                 Click="Button_Click"
                 Content="Save Monster"
-                Command="{Binding UpdateEnvironments}"/>
+                Command="{Binding UpdateEnvironments}"
+                IsEnabled="{Binding CanSave}"/>
 
         </Grid>
     </Border>

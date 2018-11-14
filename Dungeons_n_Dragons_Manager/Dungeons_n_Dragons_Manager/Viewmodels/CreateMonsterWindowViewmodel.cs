@@ -29,6 +29,39 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             populateDropdowns();
         }
 
+        public bool CanSave
+        {
+            get;
+            set;
+        }
+
+        private void updateCanSave()
+        {
+            if(string.IsNullOrWhiteSpace(Name))
+            {
+                CanSave = false;
+            }
+            else
+            {
+                CanSave = true;
+            }
+        }
+
+        private string m_name;
+        public string Name
+        {
+            get { return m_name; }
+            set
+            {
+                if (m_name != value)
+                {
+                    m_name = value;
+                    updateCanSave();
+                    OnPropertyRaised(nameof(CanSave));
+                }
+            }
+        }
+
         /// <summary>
         /// The new monster being created
         /// </summary>
@@ -128,53 +161,71 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public void updateEnvironments()
         {
+            int Count = 0;
             newMonster.Environments = new List<string>();
             if(IsArctic)
             {
                 newMonster.Environments.Add("Arctic");
+                Count++;
             }
             if(IsCoastal)
             {
                 newMonster.Environments.Add("Coastal");
+                Count++;
             }
             if(IsDesert)
             {
                 newMonster.Environments.Add("Desert");
+                Count++;
             }
             if(IsForest)
             {
                 newMonster.Environments.Add("Forest");
+                Count++;
             }
             if(IsGrassland)
             {
                 newMonster.Environments.Add("Grassland");
+                Count++;
             }
             if(IsHill)
             {
                 newMonster.Environments.Add("Hill");
+                Count++;
             }
             if(IsMountain)
             {
                 newMonster.Environments.Add("Mountain");
+                Count++;
             }
             if(IsSwamp)
             {
                 newMonster.Environments.Add("Swamp");
+                Count++;
             }
             if(IsUnderdark)
             {
                 newMonster.Environments.Add("Underdark");
+                Count++;
             }
             if(IsUnderwater)
             {
                 newMonster.Environments.Add("Underwater");
+                Count++;
             }
-            if(IsUrban)
+            if (IsUrban)
             {
                 newMonster.Environments.Add("Urban");
+                Count++;
+            }
+            if(Count == 0)
+            {
+                
             }
 
         }
+
+
 
         /// <summary>
         /// Populates the dropdown menus for the armor type options
