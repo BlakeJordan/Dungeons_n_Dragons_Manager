@@ -13,7 +13,6 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// <summary>
         /// Blank Constructor for create Monster.
         /// </summary>
-        
         public Monster()
         {
         }
@@ -229,7 +228,7 @@ namespace Dungeons_n_Dragons_Manager.Models
                         + sc;
             if(Environments != null)
             {
-                for (int i = 0; i < Environments.Count - 2; i++)
+                for (int i = 0; i < Environments.Count - 1; i++)
                 {
                     stringRep += Environments[i] + c;
                 }

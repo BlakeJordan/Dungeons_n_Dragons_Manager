@@ -1,5 +1,6 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
 using Dungeons_n_Dragons_Manager.Viewmodels;
+using System;
 using System.Windows;
 
 namespace Dungeons_n_Dragons_Manager.Windows
@@ -7,7 +8,7 @@ namespace Dungeons_n_Dragons_Manager.Windows
     /// <summary>
     /// Interaction logic for CreateMonsterWindow.xaml
     /// </summary>
-    public partial class CreateMonsterWindow : Window
+    public partial class EditMonstersWindow : Window
     {
         /// <summary>
         /// Constructor
@@ -16,14 +17,11 @@ namespace Dungeons_n_Dragons_Manager.Windows
         ///
         /// Post: Data context is set with m_newMonster as monster passed by reference.
         /// </summary>
-        public CreateMonsterWindow(ref Monster monster)
+        public EditMonstersWindow(ref Monster monster)
         {
-            m_dataContext = new CreateMonsterWindowViewmodel(ref monster); //Initialize viewmodel.
-            this.DataContext = m_dataContext;
+            this.DataContext = new EditMonsterWindowViewmodel(ref monster); //Initialize viewmodel.
             InitializeComponent();
         }
-
-        private CreateMonsterWindowViewmodel m_dataContext;
 
         /// <summary>
         /// A boolean indicating whether the save button has been clicked or not
@@ -43,14 +41,5 @@ namespace Dungeons_n_Dragons_Manager.Windows
             this.Close();
         }
 
-        private void ComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            m_dataContext.updateCanSave();
-        }
-
-        private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            m_dataContext.updateCanSave();
-        }
     }
 }

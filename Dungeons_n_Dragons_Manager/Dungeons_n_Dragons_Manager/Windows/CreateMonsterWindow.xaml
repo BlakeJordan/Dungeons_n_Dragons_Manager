@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="CreateMonsterWindow"
+    Title="Monster Creator"
     Width="800"
     Height="450"
     mc:Ignorable="d">
@@ -39,7 +39,8 @@
                     FontWeight="DemiBold"
                     Text="Monster Name" />
                 <TextBox 
-                    Text="{Binding newMonster.Name}"
+                    Text="{Binding newMonster.Name, UpdateSourceTrigger=PropertyChanged}"
+                    TextChanged="TextBox_TextChanged"
                     Width="140"/>
             </StackPanel>
 
@@ -52,11 +53,12 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Armor Class Type" />
-              <ComboBox
+                <ComboBox
                   Width="140"
                   Margin="2.5,0,0,0"
                   ItemsSource="{Binding ArmorTypes}"
-                  SelectedItem="{Binding newMonster.ArmorClassType}" />
+                  SelectedItem="{Binding newMonster.ArmorClassType}"
+                  SelectionChanged="ComboBox_SelectionChanged"/>
             </StackPanel>
 
             <StackPanel
@@ -353,6 +355,7 @@
                   Grid.Column="0"
                   Margin="24,2,0,0"
                   Content="Artic"
+                  Command="{Binding UpdateCanSave}"
                   IsChecked="{Binding IsArctic}"/>
               <CheckBox
                   x:Name="Coastal"
@@ -360,6 +363,7 @@
                   Grid.Column="0"
                   Margin="24,2,0,0"
                   Content="Coastal" 
+                  Command="{Binding UpdateCanSave}"
                   IsChecked="{Binding IsCoastal}"/>
               <CheckBox
                   x:Name="Desert"
@@ -367,6 +371,7 @@
                   Grid.Column="0"
                   Margin="24,2,0,0"
                   Content="Desert"
+                  Command="{Binding UpdateCanSave}"
                   IsChecked="{Binding IsDesert}"/>
               <CheckBox
                   x:Name="Forest"
@@ -374,6 +379,7 @@
                   Grid.Column="0"
                   Margin="24,2,0,0"
                   Content="Forest"
+                  Command="{Binding UpdateCanSave}"
                   IsChecked="{Binding IsForest}"/>
               <CheckBox
                   x:Name="Grassland"
@@ -381,6 +387,7 @@
                   Grid.Column="0"
                   Margin="24,2,0,0"
                   Content="Grassland"
+                  Command="{Binding UpdateCanSave}"
                   IsChecked="{Binding IsGrassland}"/>
               <CheckBox
                   x:Name="Hill"
@@ -388,6 +395,7 @@
                   Grid.Column="0"
                   Margin="24,2,0,0"
                   Content="Hill" 
+                  Command="{Binding UpdateCanSave}"
                   IsChecked="{Binding IsHill}"/>
               <CheckBox
                   x:Name="Mountain"
@@ -395,6 +403,7 @@
                   Grid.Column="1"
                   Margin="24,2,0,0"
                   Content="Mountain"
+                  Command="{Binding UpdateCanSave}"
                   IsChecked="{Binding IsMountain}"/>
               <CheckBox
                   x:Name="Swamp"
@@ -402,6 +411,7 @@
                   Grid.Column="1"
                   Margin="24,2,0,0"
                   Content="Swamp" 
+                  Command="{Binding UpdateCanSave}"
                   IsChecked="{Binding IsSwamp}"/>
               <CheckBox
                   x:Name="Underdark"
@@ -409,6 +419,7 @@
                   Grid.Column="1"
                   Margin="24,2,0,0"
                   Content="Underdark"
+                  Command="{Binding UpdateCanSave}"
                   IsChecked="{Binding IsUnderdark}"/>
               <CheckBox
                   x:Name="Underwater"
@@ -416,6 +427,7 @@
                   Grid.Column="1"
                   Margin="24,2,0,0"
                   Content="Underwater"
+                  Command="{Binding UpdateCanSave}"
                   IsChecked="{Binding IsUnderwater}"/>
               <CheckBox
                   x:Name="Urban"
@@ -423,6 +435,7 @@
                   Grid.Column="1"
                   Margin="24,2,0,0"
                   Content="Urban"
+                  Command="{Binding UpdateCanSave}"
                   IsChecked="{Binding IsUrban}"/>
             </Grid>
           </StackPanel>
@@ -433,6 +446,7 @@
                 Margin="60.8,76.4,61.2,-90"
                 Click="Button_Click"
                 Content="Save Monster"
+                IsEnabled="{Binding CanSave}"
                 Command="{Binding UpdateEnvironments}"/>
 
         </Grid>
