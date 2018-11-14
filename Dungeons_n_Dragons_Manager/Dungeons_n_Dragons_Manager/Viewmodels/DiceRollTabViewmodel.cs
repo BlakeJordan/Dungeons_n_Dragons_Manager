@@ -43,7 +43,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             {
                 if (m_Rolls == null)
                 {
-                    m_Rolls = "Rolls!";
+                    m_Rolls = "";
                 }
                 return m_Rolls;
             }
@@ -114,6 +114,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get { return true; }
         }
+
+        
 
         /// <summary>
         /// commnd binded to Roll button which calls roll_button_click if canClick is true
@@ -209,9 +211,11 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get
             {
-                return m_ClickD100 ?? (m_ClickD4 = new CommandHandler(() => roll_D100(), m_canClick));
+                return m_ClickD100 ?? (m_ClickD100 = new CommandHandler(() => roll_D100(), m_canClick));
             }
         }
+
+        
         #endregion Commands
 
         #region Interfaces
@@ -236,6 +240,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
             }
         }
+
+        
 
         #endregion Interfaces
     }

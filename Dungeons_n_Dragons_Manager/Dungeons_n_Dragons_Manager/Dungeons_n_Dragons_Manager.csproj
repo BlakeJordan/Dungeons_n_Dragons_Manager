@@ -78,6 +78,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Tools\BrowserBehavior.cs" />
+    <Compile Include="Windows\AboutBoxWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\AboutBoxWindow.Designer.cs">
+      <DependentUpon>AboutBoxWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\UserManualWindow.xaml.cs">
       <DependentUpon>UserManualWindow.xaml</DependentUpon>
     </Compile>
@@ -177,6 +183,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\AboutBoxWindow.resx">
+      <DependentUpon>AboutBoxWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -208,19 +217,28 @@
     <Resource Include="Assets\d4.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\dice-six-faces-six.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\dice-eight-faces-eight.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\d10.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\d12.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\dice-twenty-faces-twenty.png" />
+    <Resource Include="Assets\d100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\d4alt.png" />
+    <Resource Include="Assets\d6alt.png" />
+    <Resource Include="Assets\d8alt.png" />
+    <Resource Include="Assets\d10alt.png" />
+    <Resource Include="Assets\d100alt.png" />
+    <Resource Include="Assets\d12alt.png" />
+    <Resource Include="Assets\d20alt.png" />
+    <Resource Include="Assets\d6.png" />
+    <Resource Include="Assets\d8.png" />
+    <Resource Include="Assets\d20.png" />
+    <Content Include="Assets\UserManual.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

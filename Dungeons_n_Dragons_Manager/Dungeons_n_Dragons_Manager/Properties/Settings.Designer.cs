@@ -34,5 +34,77 @@ namespace Dungeons_n_Dragons_Manager.Properties {
                 this["CustomMonsters"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CustomCharacters {
+            get {
+                return ((string)(this["CustomCharacters"]));
+            }
+            set {
+                this["CustomCharacters"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double MainWindow_Top {
+            get {
+                return ((double)(this["MainWindow_Top"]));
+            }
+            set {
+                this["MainWindow_Top"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double MainWindow_Left {
+            get {
+                return ((double)(this["MainWindow_Left"]));
+            }
+            set {
+                this["MainWindow_Left"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("600")]
+        public double MainWindow_Height {
+            get {
+                return ((double)(this["MainWindow_Height"]));
+            }
+            set {
+                this["MainWindow_Height"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("960")]
+        public double MainWindow_Width {
+            get {
+                return ((double)(this["MainWindow_Width"]));
+            }
+            set {
+                this["MainWindow_Width"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool MainWindow_Maximized {
+            get {
+                return ((bool)(this["MainWindow_Maximized"]));
+            }
+            set {
+                this["MainWindow_Maximized"] = value;
+            }
+        }
     }
 }

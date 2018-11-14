@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,12 @@ namespace Dungeons_n_Dragons_Manager.Windows
         public UserManualWindow()
         {
             InitializeComponent();
+
+            //Navigate WebBrowser to local HTML
+            string currentDirectory = Directory.GetCurrentDirectory();
+            string HTML = System.IO.File.ReadAllText(currentDirectory + "\\Assets\\UserManual.html");
+            HTML = HTML.Replace("\n", String.Empty).Replace("\r", String.Empty);
+            ui_webBrowser.NavigateToString(HTML);
         }
     }
 }

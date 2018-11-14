@@ -34,7 +34,8 @@
             </StackPanel>
           <StackPanel Grid.Row="0"
               HorizontalAlignment="Center">
-            <TextBlock Text="Create Monster"/>
+            <TextBlock Text="Create Monster"
+                       HorizontalAlignment="Center"/>
             <Button
                    Margin="2.5,0,1,0"
                    Command="{Binding CreateMonster}"
