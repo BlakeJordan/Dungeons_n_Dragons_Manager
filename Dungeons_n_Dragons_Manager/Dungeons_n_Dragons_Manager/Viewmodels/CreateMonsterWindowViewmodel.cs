@@ -179,6 +179,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public void updateEnvironments()
         {
+            newMonster.Name = Name;
+
             int Count = 0;
             newMonster.Environments = new List<string>();
             if(IsArctic)
@@ -242,8 +244,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
 
         }
-
-
 
         /// <summary>
         /// Populates the dropdown menus for the armor type options
