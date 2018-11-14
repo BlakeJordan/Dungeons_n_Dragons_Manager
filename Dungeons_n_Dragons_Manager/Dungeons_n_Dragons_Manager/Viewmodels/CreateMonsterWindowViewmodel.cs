@@ -12,7 +12,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
     /// <summary>
     /// The viewmodel for creating monsters
     /// </summary>
-    public class CreateMonsterWindowViewmodel
+    public class CreateMonsterWindowViewmodel : INotifyPropertyChanged
     {
         /// <summary>
         /// Constructor for the create monster viewmodel
@@ -29,25 +29,31 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             populateDropdowns();
         }
 
+        #region Properties
+
+        /// <summary>
+        /// Determines if the user can save the new monster.
+        /// </summary>
         public bool CanSave
         {
-            get;
-            set;
-        }
-
-        private void updateCanSave()
-        {
-            if(string.IsNullOrWhiteSpace(Name))
+            get
             {
-                CanSave = false;
-            }
-            else
-            {
-                CanSave = true;
+                if (string.IsNullOrWhiteSpace(Name))
+                {
+                    return false;
+                }
+                return true;
             }
         }
 
+        /// <summary>
+        /// String bound to Name textbox.
+        /// </summary>
         private string m_name;
+
+        /// <summary>
+        /// Public facing accessor for m_name.
+        /// </summary>
         public string Name
         {
             get { return m_name; }
@@ -56,7 +62,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 if (m_name != value)
                 {
                     m_name = value;
-                    updateCanSave();
                     OnPropertyRaised(nameof(CanSave));
                 }
             }
@@ -81,6 +86,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// The character's options for each Modifier
         /// </summary>
         public List<string> ModifierValues { get; set; }
+
+        #region Environment Checks
 
         /// <summary>
         /// Boolean for if the artic environment is checked.
@@ -137,6 +144,12 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public bool IsUrban { get; set; }
 
+        #endregion
+
+        #endregion
+
+        #region Commands
+
         /// <summary>
         /// Command binded to the "Save Monster" button which calls UpdateEnvironment
         /// </summary>
@@ -152,6 +165,11 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 return m_UpdateEnvironments ?? (m_UpdateEnvironments = new CommandHandler(() => updateEnvironments(), true));
             }
         }
+
+        #endregion
+
+        #region Functions
+
         /// <summary>
         /// Populates the list of environments for the new monster
         ///
@@ -241,6 +259,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             ModifierValues = new string[] { "-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }.ToList();
 
         }
+
+        #endregion
 
         #region Interfaces
 
