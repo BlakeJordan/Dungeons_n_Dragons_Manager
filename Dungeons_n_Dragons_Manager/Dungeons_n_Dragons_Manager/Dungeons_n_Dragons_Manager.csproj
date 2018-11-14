@@ -222,5 +222,38 @@
   <ItemGroup>
     <Resource Include="Assets\dice-twenty-faces-twenty.png" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Assets\Music\104_River_Town.mp3" />
+    <Content Include="Assets\Music\131_The_Bog_Standard.mp3" />
+    <Content Include="Assets\Music\133_Halfling_Festival.mp3" />
+    <Content Include="Assets\Music\134_Carriage_Journey.mp3" />
+    <Content Include="Assets\Music\137_Mill_Town_a.mp3" />
+    <Content Include="Assets\Music\13_Cave_of_Time.mp3" />
+    <Content Include="Assets\Music\147_Graveyard.mp3" />
+    <Content Include="Assets\Music\148_Barovian_Castle.mp3" />
+    <Content Include="Assets\Music\153_Secret_Garden.mp3" />
+    <Content Include="Assets\Music\154_Artists_Garret.mp3" />
+    <Content Include="Assets\Music\27_Xingu_Nights.mp3" />
+    <Content Include="Assets\Music\35_Swamplandia.mp3" />
+    <Content Include="Assets\Music\3_The_March_of_the_Faithful.mp3" />
+    <Content Include="Assets\Music\47_There_be_Dragons.mp3" />
+    <Content Include="Assets\Music\49_Goblin%27s_Cave.mp3" />
+    <Content Include="Assets\Music\51_Woodland_Campsite.mp3" />
+    <Content Include="Assets\Music\54_Mountain_Tavern.mp3" />
+    <Content Include="Assets\Music\56_Medieval_Town.mp3" />
+    <Content Include="Assets\Music\62_Middle_Earth_Dawn.mp3" />
+    <Content Include="Assets\Music\64_Mountain_Pass.mp3" />
+    <Content Include="Assets\Music\69_Forest_Night.mp3" />
+    <Content Include="Assets\Music\71_Sleeping_Dragon.mp3" />
+    <Content Include="Assets\Music\76_Alchemists_Lab.mp3" />
+    <Content Include="Assets\Music\79_Medieval_Battle.mp3" />
+    <Content Include="Assets\Music\80_Blacksmith_Shoppe.mp3" />
+    <Content Include="Assets\Music\89_Winter_Woods.mp3" />
+    <Content Include="Assets\Music\91_Elven_Glade.mp3" />
+    <Content Include="Assets\Music\92_Skirmish.mp3" />
+    <Content Include="Assets\Music\98_Lost_Mine.mp3" />
+    <Content Include="Assets\Music\9_Before_The_Storm.mp3" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
