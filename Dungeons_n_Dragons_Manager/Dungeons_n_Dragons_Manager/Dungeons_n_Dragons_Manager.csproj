@@ -77,16 +77,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Tools\BrowserBehavior.cs" />
-    <Compile Include="Windows\AboutBoxWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Windows\AboutBoxWindow.Designer.cs">
-      <DependentUpon>AboutBoxWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\UserManualWindow.xaml.cs">
-      <DependentUpon>UserManualWindow.xaml</DependentUpon>
-    </Compile>
     <Page Include="Controls\CharactersTabControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -96,10 +86,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\EncountersTabControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\MusicPlayerTabControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,9 +118,6 @@
     <Compile Include="Controls\EncountersTabControl.xaml.cs">
       <DependentUpon>EncountersTabControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MusicPlayerTabControl.xaml.cs">
-      <DependentUpon>MusicPlayerTabControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Monster.cs" />
     <Compile Include="Tools\CommandHandler.cs" />
@@ -146,7 +129,6 @@
     <Compile Include="Viewmodels\EditCharacterWindowViewModel.cs" />
     <Compile Include="Viewmodels\EncountersTabViewmodel.cs" />
     <Compile Include="Viewmodels\MainWindowViewmodel.cs" />
-    <Compile Include="Viewmodels\MusicPlayerTabViewmodel.cs" />
     <Compile Include="Windows\CreateMonsterWindow.xaml.cs">
       <DependentUpon>CreateMonsterWindow.xaml</DependentUpon>
     </Compile>
@@ -160,10 +142,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Windows\UserManualWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -182,9 +160,6 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\AboutBoxWindow.resx">
-      <DependentUpon>AboutBoxWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -213,32 +188,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\d4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\d10.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\d12.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\d100.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\d4alt.png" />
-    <Resource Include="Assets\d6alt.png" />
-    <Resource Include="Assets\d8alt.png" />
-    <Resource Include="Assets\d10alt.png" />
-    <Resource Include="Assets\d100alt.png" />
-    <Resource Include="Assets\d12alt.png" />
-    <Resource Include="Assets\d20alt.png" />
-    <Resource Include="Assets\d6.png" />
-    <Resource Include="Assets\d8.png" />
-    <Resource Include="Assets\d20.png" />
-    <Content Include="Assets\UserManual.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

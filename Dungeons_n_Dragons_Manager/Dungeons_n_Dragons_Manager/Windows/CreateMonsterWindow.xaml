@@ -157,7 +157,7 @@
               <ComboBox
                   Width="140"
                   Margin="2.5,0,0,0"
-                  ItemsSource="{Binding ModifierValues}"
+                  ItemsSource="{Binding SkillValues}"
                   SelectedItem="{Binding newMonster.StrengthMod}" />
             </StackPanel>
 
@@ -189,7 +189,7 @@
               <ComboBox
                   Width="140"
                   Margin="2.5,0,0,0"
-                  ItemsSource="{Binding ModifierValues}"
+                  ItemsSource="{Binding SkillValues}"
                   SelectedItem="{Binding newMonster.DexterityMod}" />
             </StackPanel>
 
@@ -221,7 +221,7 @@
               <ComboBox
                   Width="140"
                   Margin="2.5,0,0,0"
-                  ItemsSource="{Binding ModifierValues}"
+                  ItemsSource="{Binding SkillValues}"
                   SelectedItem="{Binding newMonster.ConstitutionMod}" />
             </StackPanel>
 
@@ -254,7 +254,7 @@
             <ComboBox
                     Width="140"
                     Margin="2.5,0,0,0"
-                    ItemsSource="{Binding ModifierValues}"
+                    ItemsSource="{Binding SkillValues}"
                     SelectedItem="{Binding newMonster.IntelligenceMod}" />
           </StackPanel>
           
@@ -286,7 +286,7 @@
             <ComboBox
                     Width="140"
                     Margin="2.5,0,0,0"
-                    ItemsSource="{Binding ModifierValues}"
+                    ItemsSource="{Binding SkillValues}"
                     SelectedItem="{Binding newMonster.WisdomMod}" />
           </StackPanel>
 
@@ -318,7 +318,7 @@
             <ComboBox
                     Width="140"
                     Margin="2.5,0,0,0"
-                    ItemsSource="{Binding ModifierValues}"
+                    ItemsSource="{Binding SkillValues}"
                     SelectedItem="{Binding newMonster.CharismaMod}" />
           </StackPanel>
 
@@ -353,77 +353,68 @@
                   Grid.Column="0"
                   Margin="24,2,0,0"
                   Content="Artic"
-                  IsChecked="{Binding IsArctic}"/>
+                  IsChecked="{Binding IsEnvironmentChecked}"
+                  Command="{Binding EnvironmentCheck}"/>
               <CheckBox
                   x:Name="Coastal"
                   Grid.Row="1"
                   Grid.Column="0"
                   Margin="24,2,0,0"
-                  Content="Coastal" 
-                  IsChecked="{Binding IsCoastal}"/>
+                  Content="Coastal" />
               <CheckBox
                   x:Name="Desert"
                   Grid.Row="2"
                   Grid.Column="0"
                   Margin="24,2,0,0"
-                  Content="Desert"
-                  IsChecked="{Binding IsDesert}"/>
+                  Content="Desert" />
               <CheckBox
                   x:Name="Forest"
                   Grid.Row="3"
                   Grid.Column="0"
                   Margin="24,2,0,0"
-                  Content="Forest"
-                  IsChecked="{Binding IsForest}"/>
+                  Content="Forest" />
               <CheckBox
                   x:Name="Grassland"
                   Grid.Row="4"
                   Grid.Column="0"
                   Margin="24,2,0,0"
-                  Content="Grassland"
-                  IsChecked="{Binding IsGrassland}"/>
+                  Content="Grassland" />
               <CheckBox
                   x:Name="Hill"
                   Grid.Row="5"
                   Grid.Column="0"
                   Margin="24,2,0,0"
-                  Content="Hill" 
-                  IsChecked="{Binding IsHill}"/>
+                  Content="Hill" />
               <CheckBox
                   x:Name="Mountain"
                   Grid.Row="0"
                   Grid.Column="1"
                   Margin="24,2,0,0"
-                  Content="Mountain"
-                  IsChecked="{Binding IsMountain}"/>
+                  Content="Mountain" />
               <CheckBox
                   x:Name="Swamp"
                   Grid.Row="1"
                   Grid.Column="1"
                   Margin="24,2,0,0"
-                  Content="Swamp" 
-                  IsChecked="{Binding IsSwamp}"/>
+                  Content="Swamp" />
               <CheckBox
                   x:Name="Underdark"
                   Grid.Row="2"
                   Grid.Column="1"
                   Margin="24,2,0,0"
-                  Content="Underdark"
-                  IsChecked="{Binding IsUnderdark}"/>
+                  Content="Underdark" />
               <CheckBox
                   x:Name="Underwater"
                   Grid.Row="3"
                   Grid.Column="1"
                   Margin="24,2,0,0"
-                  Content="Underwater"
-                  IsChecked="{Binding IsUnderwater}"/>
+                  Content="Underwater" />
               <CheckBox
                   x:Name="Urban"
                   Grid.Row="4"
                   Grid.Column="1"
                   Margin="24,2,0,0"
-                  Content="Urban"
-                  IsChecked="{Binding IsUrban}"/>
+                  Content="Urban" />
             </Grid>
           </StackPanel>
 
@@ -432,8 +423,7 @@
                 Grid.Column="1"
                 Margin="60.8,76.4,61.2,-90"
                 Click="Button_Click"
-                Content="Save Monster"
-                Command="{Binding UpdateEnvironments}"/>
+                Content="Save Monster" />
 
         </Grid>
     </Border>

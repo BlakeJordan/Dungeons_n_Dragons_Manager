@@ -39,6 +39,5 @@ namespace Dungeons_n_Dragons_Manager.Windows
             SaveMonster = true;
             this.Close();
         }
-
     }
 }

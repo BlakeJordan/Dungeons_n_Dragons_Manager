@@ -6,9 +6,9 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Dungeons_n_Dragons_Manager")]
-[assembly: AssemblyDescription("Built to help Dungeon Masters manage D&D campaigns.")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Smells Like Team Spirit")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Dungeons_n_Dragons_Manager")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]

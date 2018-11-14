@@ -9,239 +9,122 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <Border Padding="5">
-        <Grid HorizontalAlignment="Center">
+        <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100" />
-                <ColumnDefinition Width="100" />
-                <ColumnDefinition Width="100" />
-                <ColumnDefinition Width="100" />
-                <ColumnDefinition Width="100" />
-                <ColumnDefinition Width="100" />
-                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="100" />
             </Grid.RowDefinitions>
 
             <Border
                 Grid.Row="0"
                 Grid.Column="0"
                 Padding="2.5">
-                
-                    <Button Width="95" Height="95" Command="{Binding ClickD4}">
-                        <Button.Resources>
-                            <DataTemplate x:Key="Unpressed">
-                                <Image Source="../Assets/d4.png"/>
-                            </DataTemplate>
-                            <DataTemplate x:Key="Pressed">
-                                <Image Source="../Assets/d4alt.png"/>
-                            </DataTemplate>
-                        </Button.Resources>
+                <StackPanel>
+                    <DataGridColumnHeader Content="Choose which dice to roll:" />
+                    <CheckBox
+                        x:Name="D4"
+                        Margin="24,2,0,0"
+                        Content="D4" />
+                    <CheckBox
+                        x:Name="D6"
+                        Margin="24,2,0,0"
+                        Content="D6" />
+                    <CheckBox
+                        x:Name="D8"
+                        Margin="24,2,0,0"
+                        Content="D8" />
+                    <CheckBox
+                        x:Name="D10"
+                        Margin="24,2,0,0"
+                        Content="D10" />
+                    <CheckBox
+                        x:Name="D12"
+                        Margin="24,2,0,0"
+                        Content="D12" />
+                    <CheckBox
+                        x:Name="D20"
+                        Margin="24,2,0,0"
+                        Content="D20" />
+                    <CheckBox
+                        x:Name="D100"
+                        Margin="24,2,0,0"
+                        Content="D100" />
+                </StackPanel>
+            </Border>
 
-                        <Button.Style>
-                            <Style TargetType="{x:Type Button}">
-                                <Setter Property="ContentTemplate" Value="{StaticResource Unpressed}"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsPressed" Value="True">
-                                        <Setter Property="ContentTemplate" Value="{StaticResource Pressed}"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                    </Button>
+            <Border
+                Grid.Row="1"
+                Grid.Column="0"
+                Padding="2.5">
+                <Button
+                    Width="50"
+                    Height="24"
+                    Margin="67.6,5.6,38.4,166.4"
+                    Command="{Binding Click}"
+                    Content="Roll" />
             </Border>
 
             <Border
                 Grid.Row="0"
                 Grid.Column="1"
-                Padding="2.5">
-                <Button Width="95" Height="95" Command="{Binding ClickD6}">
-                    <Button.Resources>
-                        <DataTemplate x:Key="Unpressed">
-                            <Image Source="../Assets/d6.png"/>
-                        </DataTemplate>
-                        <DataTemplate x:Key="Pressed">
-                            <Image Source="../Assets/d6alt.png"/>
-                        </DataTemplate>
-                    </Button.Resources>
-
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="ContentTemplate" Value="{StaticResource Unpressed}"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsPressed" Value="True">
-                                    <Setter Property="ContentTemplate" Value="{StaticResource Pressed}"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
+                Padding="3.5">
+                <StackPanel>
+                    <DataGridColumnHeader Content="How many dice do you want to roll?" />
+                    <TextBox
+                        x:Name="D4Input"
+                        Width="40"
+                        Height="15"
+                        Margin="0,2,0,0"
+                        Text="{Binding Path=D4Input, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox
+                        x:Name="D6Input"
+                        Width="40"
+                        Height="15"
+                        Margin="0,2,0,0"
+                        Text="{Binding Path=D6Input, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox
+                        x:Name="D8Input"
+                        Width="40"
+                        Height="15"
+                        Margin="0,2,0,0"
+                        Text="{Binding Path=D8Input, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox
+                        x:Name="D10Input"
+                        Width="40"
+                        Height="15"
+                        Margin="0,2,0,0"
+                        Text="{Binding Path=D10Input, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox
+                        x:Name="D12Input"
+                        Width="40"
+                        Height="15"
+                        Margin="0,2,0,0"
+                        Text="{Binding Path=D12Input, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox
+                        x:Name="D20Input"
+                        Width="40"
+                        Height="15"
+                        Margin="0,2,0,0"
+                        Text="{Binding Path=D20Input, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox
+                        x:Name="D100Input"
+                        Width="40"
+                        Height="15"
+                        Margin="0,2,0,0"
+                        Text="{Binding Path=D100Input, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
             </Border>
-
-            <Border
-                Grid.Row="0"
-                Grid.Column="2"
-                Padding="2.5">
-                <Button Width="95" Height="95" Command="{Binding ClickD8}">
-                    <Button.Resources>
-                        <DataTemplate x:Key="Unpressed">
-                            <Image Source="../Assets/d8.png"/>
-                        </DataTemplate>
-                        <DataTemplate x:Key="Pressed">
-                            <Image Source="../Assets/d8alt.png"/>
-                        </DataTemplate>
-                    </Button.Resources>
-
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="ContentTemplate" Value="{StaticResource Unpressed}"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsPressed" Value="True">
-                                    <Setter Property="ContentTemplate" Value="{StaticResource Pressed}"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-            </Border>
-
-            <Border
-                Grid.Row="0"
-                Grid.Column="3"
-                Padding="2.5">
-                <Button Width="95" Height="95" Command="{Binding ClickD10}">
-                    <Button.Resources>
-                        <DataTemplate x:Key="Unpressed">
-                            <Image Source="../Assets/d10.png"/>
-                        </DataTemplate>
-                        <DataTemplate x:Key="Pressed">
-                            <Image Source="../Assets/d10alt.png"/>
-                        </DataTemplate>
-                    </Button.Resources>
-
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="ContentTemplate" Value="{StaticResource Unpressed}"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsPressed" Value="True">
-                                    <Setter Property="ContentTemplate" Value="{StaticResource Pressed}"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-            </Border>
-
-            <Border
-                Grid.Row="0"
-                Grid.Column="4"
-                Padding="2.5">
-                <Button Width="95" Height="95" Command="{Binding ClickD12}">
-                    <Button.Resources>
-                        <DataTemplate x:Key="Unpressed">
-                            <Image Source="../Assets/d12.png"/>
-                        </DataTemplate>
-                        <DataTemplate x:Key="Pressed">
-                            <Image Source="../Assets/d12alt.png"/>
-                        </DataTemplate>
-                    </Button.Resources>
-
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="ContentTemplate" Value="{StaticResource Unpressed}"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsPressed" Value="True">
-                                    <Setter Property="ContentTemplate" Value="{StaticResource Pressed}"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-            </Border>
-
-            <Border
-                Grid.Row="0"
-                Grid.Column="5"
-                Padding="2.5">
-                <Button Width="95" Height="95" Command="{Binding ClickD20}">
-                    <Button.Resources>
-                        <DataTemplate x:Key="Unpressed">
-                            <Image Source="../Assets/d20.png"/>
-                        </DataTemplate>
-                        <DataTemplate x:Key="Pressed">
-                            <Image Source="../Assets/d20alt.png"/>
-                        </DataTemplate>
-                    </Button.Resources>
-
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="ContentTemplate" Value="{StaticResource Unpressed}"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsPressed" Value="True">
-                                    <Setter Property="ContentTemplate" Value="{StaticResource Pressed}"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-            </Border>
-
-            <Border
-                Grid.Row="0"
-                Grid.Column="6"
-                Padding="2.5">
-                <Button Width="95" Height="95" Command="{Binding ClickD100}">
-                    <Button.Resources>
-                        <DataTemplate x:Key="Unpressed">
-                            <Image Source="../Assets/d100.png"/>
-                        </DataTemplate>
-                        <DataTemplate x:Key="Pressed">
-                            <Image Source="../Assets/d100alt.png"/>
-                        </DataTemplate>
-                    </Button.Resources>
-
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="ContentTemplate" Value="{StaticResource Unpressed}"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsPressed" Value="True">
-                                    <Setter Property="ContentTemplate" Value="{StaticResource Pressed}"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-            </Border>
-
 
             <Border
                 Grid.Row="1"
-                Grid.Column="3"
-                Padding="2.5"
-                >
-
-                <TextBlock x:Name="Title" Text="Roll:"  Margin="18, 50, 5, 10">
-                    <TextBlock.RenderTransform>
-                        <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
-                    </TextBlock.RenderTransform>
-                </TextBlock>
-            </Border>
-
-
-            <Border
-                Grid.Row="2"
-                Grid.Column="3"
-                Padding="2.5"
-                VerticalAlignment="Top">
-
-                <TextBlock x:Name="Result" Text="{Binding rolls}"  HorizontalAlignment="Center">
-                    <TextBlock.RenderTransform>
-                        <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
-                    </TextBlock.RenderTransform>
-                </TextBlock>
+                Grid.Column="1"
+                Padding="2.5">
+                <TextBlock x:Name="Result" Text="{Binding rolls}" />
             </Border>
         </Grid>
     </Border>
