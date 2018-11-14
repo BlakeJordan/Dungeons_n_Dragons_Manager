@@ -217,27 +217,25 @@
     <Resource Include="Assets\d4.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\dice-six-faces-six.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\dice-eight-faces-eight.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\d10.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\d12.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\dice-twenty-faces-twenty.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\d100.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\D100edit.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="Assets\d4alt.png" />
+    <Resource Include="Assets\d6alt.png" />
+    <Resource Include="Assets\d8alt.png" />
+    <Resource Include="Assets\d10alt.png" />
+    <Resource Include="Assets\d100alt.png" />
+    <Resource Include="Assets\d12alt.png" />
+    <Resource Include="Assets\d20alt.png" />
+    <Resource Include="Assets\d6.png" />
+    <Resource Include="Assets\d8.png" />
+    <Resource Include="Assets\d20.png" />
     <Content Include="Assets\UserManual.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
