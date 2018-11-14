@@ -428,13 +428,14 @@
           </StackPanel>
 
             <Button
+                Name="SaveButton"
                 Grid.Row="6"
                 Grid.Column="1"
                 Margin="60.8,76.4,61.2,-90"
                 Click="Button_Click"
                 Content="Save Monster"
                 Command="{Binding UpdateEnvironments}"
-                IsEnabled="{Binding CanSave}"/>
+                IsEnabled="false"/>
 
         </Grid>
     </Border>

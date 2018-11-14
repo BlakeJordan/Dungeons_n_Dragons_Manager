@@ -29,6 +29,41 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         /// <summary>
+        /// Private backing to store the currently selected monster in the combobox.
+        /// </summary>
+        private string m_selectedStrength;
+
+        /// <summary>
+        /// Public facing accessor to m_selectedMonster.
+        /// </summary>
+        public string SelectedStrength
+        {
+            get
+            {
+                if (m_selectedStrength == null)
+                {
+                    int temp = EditedMonster.Strength;
+                    string temp2 = temp.ToString();
+                    foreach (string entry in SkillValues)
+                    {
+                        if(entry == temp2)
+                        {
+                            m_selectedStrength = entry;
+                        }
+                    }
+                }
+                return m_selectedStrength;
+            }
+            set
+            {
+                if (value != m_selectedStrength)
+                {
+                    m_selectedStrength = value;
+                    OnPropertyRaised(nameof(SelectedStrength));
+                }
+            }
+        }
+        /// <summary>
         /// The new monster being created
         /// </summary>
         public Monster EditedMonster { get; set; }
