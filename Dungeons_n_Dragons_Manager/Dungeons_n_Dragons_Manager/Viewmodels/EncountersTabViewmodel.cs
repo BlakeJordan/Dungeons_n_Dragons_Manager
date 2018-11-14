@@ -308,9 +308,42 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public void editMonsters()
         {
+            string oldMonsterName = SelectedCustomMonster.Name;
             Monster EditedMonster = SelectedCustomMonster;
             EditMonstersWindow editMonstersWindow = new EditMonstersWindow(ref EditedMonster);
             editMonstersWindow.ShowDialog();
+
+            //Generate list of custom monster by parsing settings
+            List<Monster> listOfCustomMonsters = new List<Monster>(); //Temp list to store custom monsters
+            List<string> customMonsters = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+
+            //Find old monster -> delete
+            if (customMonsters.Count != 0)
+            {
+                foreach (string entry in customMonsters)
+                {
+                    string[] values = entry.Split(';');
+                    listOfCustomMonsters.Add(new Monster(values));
+                }
+            }
+
+            listOfCustomMonsters.RemoveAll(x => x.Name == oldMonsterName);
+
+
+            //Add new monster
+            listOfCustomMonsters.Add(EditedMonster);
+            //Clear settings string
+            Properties.Settings.Default.CustomMonsters = "";
+            //Reconstruct string from new list
+            foreach (Monster entry in listOfCustomMonsters)
+            {
+                Properties.Settings.Default.CustomMonsters += entry.ToString() + System.Environment.NewLine;
+                
+                
+            }
+            Properties.Settings.Default.Save();
+            parseMonstersResource();
+
         }
 
         #endregion Functions
