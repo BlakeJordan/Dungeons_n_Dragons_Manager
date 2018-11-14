@@ -38,34 +38,43 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(Name))
+                if (string.IsNullOrWhiteSpace(newMonster.Name)) //Name check
                 {
                     return false;
                 }
+                else if (!(IsArctic || IsCoastal || IsDesert || IsForest || IsGrassland || IsHill || IsMountain || IsSwamp || IsUnderdark || IsUnderwater || IsUrban)) //Envrionment check
+                {
+                    return false;
+                }
+                else if (string.IsNullOrWhiteSpace(newMonster.ArmorClassType)) //ArmorClassType check
+                {
+                    return false;
+                }
+
                 return true;
             }
         }
 
-        /// <summary>
-        /// String bound to Name textbox.
-        /// </summary>
-        private string m_name;
+        ///// <summary>
+        ///// String bound to Name textbox.
+        ///// </summary>
+        //private string m_name;
 
-        /// <summary>
-        /// Public facing accessor for m_name.
-        /// </summary>
-        public string Name
-        {
-            get { return m_name; }
-            set
-            {
-                if (m_name != value)
-                {
-                    m_name = value;
-                    OnPropertyRaised(nameof(CanSave));
-                }
-            }
-        }
+        ///// <summary>
+        ///// Public facing accessor for m_name.
+        ///// </summary>
+        //public string Name
+        //{
+        //    get { return m_name; }
+        //    set
+        //    {
+        //        if (m_name != value)
+        //        {
+        //            m_name = value;
+        //            OnPropertyRaised(nameof(CanSave));
+        //        }
+        //    }
+        //}
 
         /// <summary>
         /// The new monster being created
@@ -153,16 +162,32 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// <summary>
         /// Command binded to the "Save Monster" button which calls UpdateEnvironment
         /// </summary>
-        private ICommand m_UpdateEnvironments;
+        private ICommand m_updateEnvironments;
 
         /// <summary>
-        /// Public facing accessor to m_chooseRandomEncounter.
+        /// Public facing accessor to m_updateEnvironments.
         /// </summary>
         public ICommand UpdateEnvironments
         {
             get
             {
-                return m_UpdateEnvironments ?? (m_UpdateEnvironments = new CommandHandler(() => updateEnvironments(), true));
+                return m_updateEnvironments ?? (m_updateEnvironments = new CommandHandler(() => updateEnvironments(), true));
+            }
+        }
+
+        /// <summary>
+        /// Command binded to all environment checkboxes which will update CanSave.
+        /// </summary>
+        private ICommand m_updateCanSave;
+
+        /// <summary>
+        /// Public facing accessor to m_updateCanSave.
+        /// </summary>
+        public ICommand UpdateCanSave
+        {
+            get
+            {
+                return m_updateCanSave ?? (m_updateCanSave = new CommandHandler(() => updateCanSave(), true));
             }
         }
 
@@ -179,7 +204,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public void updateEnvironments()
         {
-            newMonster.Name = Name;
+            //newMonster.Name = Name;
 
             int Count = 0;
             newMonster.Environments = new List<string>();
@@ -243,6 +268,18 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 
             }
 
+        }
+
+        /// <summary>
+        /// Reevaluates the CanSave binding.
+        /// 
+        /// Pre: none
+        /// 
+        /// Post: CanSave has been reevaluated.
+        /// </summary>
+        public void updateCanSave()
+        {
+            OnPropertyRaised(nameof(CanSave));
         }
 
         /// <summary>

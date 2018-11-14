@@ -18,9 +18,12 @@ namespace Dungeons_n_Dragons_Manager.Windows
         /// </summary>
         public CreateMonsterWindow(ref Monster monster)
         {
-            this.DataContext = new CreateMonsterWindowViewmodel(ref monster); //Initialize viewmodel.
+            m_dataContext = new CreateMonsterWindowViewmodel(ref monster); //Initialize viewmodel.
+            this.DataContext = m_dataContext;
             InitializeComponent();
         }
+
+        private CreateMonsterWindowViewmodel m_dataContext;
 
         /// <summary>
         /// A boolean indicating whether the save button has been clicked or not
@@ -40,5 +43,14 @@ namespace Dungeons_n_Dragons_Manager.Windows
             this.Close();
         }
 
+        private void ComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            m_dataContext.updateCanSave();
+        }
+
+        private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            m_dataContext.updateCanSave();
+        }
     }
 }

@@ -13,7 +13,6 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// <summary>
         /// Blank Constructor for create Monster.
         /// </summary>
-        
         public Monster()
         {
         }
