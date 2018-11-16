@@ -21,7 +21,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         ///
         /// Post: A new monster is created with a reference to an existing, blank monster
         /// </summary>
-        /// /// <param name="monster">A reference to the new character</param>
         public EditMonsterWindowViewmodel()
         {
             populateDropdowns();
@@ -119,9 +118,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public List<int> ModifierValues { get; set; }
 
-        #endregion
+        #endregion ComboBox Sources
 
-        #endregion
+        #endregion Properties
 
         #region Commands
 
@@ -157,7 +156,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-        #endregion
+        #endregion Commands
 
         #region Functions
 
@@ -234,10 +233,10 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
             CustomMonsters = new ObservableCollection<Monster>(CustomMonsters.OrderBy(o => o.Name));
 
-            #endregion
+            #endregion Custom Monsters
         }
 
-        #endregion
+        #endregion Functions
 
         #region Interfaces
 

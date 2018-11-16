@@ -2,7 +2,6 @@
 using Dungeons_n_Dragons_Manager.Tools;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
@@ -153,9 +152,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public bool IsUrban { get; set; }
 
-        #endregion
+        #endregion Environment Checks
 
-        #endregion
+        #endregion Properties
 
         #region Commands
 
@@ -191,7 +190,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-        #endregion
+        #endregion Commands
 
         #region Functions
 
@@ -265,16 +264,14 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             //}
             //if(Count == 0)
             //{
-                
             //}
-
         }
 
         /// <summary>
         /// Reevaluates the CanSave binding.
-        /// 
+        ///
         /// Pre: none
-        /// 
+        ///
         /// Post: CanSave has been reevaluated.
         /// </summary>
         public void updateCanSave()
@@ -294,10 +291,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             SkillValues = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }.ToList();
             ModifierValues = new string[] { "-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }.ToList();
-
         }
 
-        #endregion
+        #endregion Functions
 
         #region Interfaces
 

@@ -16,7 +16,6 @@ namespace Dungeons_n_Dragons_Manager.Windows
             this.DataContext = new MainWindowViewmodel(); //Initialize viewmodel.
             InitializeComponent();
 
-
             #region Window Size and Location Continuity
 
             Height = Properties.Settings.Default.MainWindow_Height;
@@ -39,7 +38,7 @@ namespace Dungeons_n_Dragons_Manager.Windows
             if (Properties.Settings.Default.MainWindow_Maximized)
             { WindowState = WindowState.Maximized; }
 
-            #endregion
+            #endregion Window Size and Location Continuity
         }
 
         /// <summary>

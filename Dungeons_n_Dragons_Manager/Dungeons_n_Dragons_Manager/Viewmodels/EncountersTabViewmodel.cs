@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
 using System.Windows.Input;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
@@ -97,7 +96,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public string SelectedEnvironment { get; set; }
 
-
         #endregion Properties
 
         #region Commands
@@ -131,7 +129,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         private bool m_canCreateMonster
         {
-            get { return true; } 
+            get { return true; }
         }
 
         /// <summary>
@@ -150,13 +148,12 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-        
         /// <summary>
         /// Boolean which determines if EditMonsters can be executed.
         /// </summary>
         private bool m_canEditMonsters
         {
-            get { return true; } 
+            get { return true; }
         }
 
         /// <summary>
@@ -174,7 +171,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 return m_editMonsters ?? (m_editMonsters = new CommandHandler(() => editMonsters(), m_canEditMonsters));
             }
         }
-
 
         #endregion Commands
 
@@ -208,7 +204,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                     listOfCustomMonsters.Add(new Monster(values));
                 }
             }
-            Monsters = new ObservableCollection<Monster>( listOfMonsters.OrderBy(o => o.Name).ToList() ); //Sort list by name and create observable collection
+            Monsters = new ObservableCollection<Monster>(listOfMonsters.OrderBy(o => o.Name).ToList()); //Sort list by name and create observable collection
             if (Monsters.Count != 0)
             {
                 SelectedMonster = Monsters[0];

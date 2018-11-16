@@ -58,12 +58,11 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// <summary>
         /// Public accessor for m_MusicPlayerTabViewmodel.
         /// </summary>
-        
+
         public MusicPlayerTabViewmodel MusicPlayerTabViewmodel
         {
             get { return m_MusicPlayerTabViewmodel; }
         }
-       
 
         #endregion Sub Viewmodels
 
@@ -98,8 +97,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-
-        #endregion
+        #endregion Commands
 
         #region Functions
 
@@ -118,6 +116,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             aboutBoxWindow.Show();
         }
 
-        #endregion
+        #endregion Functions
     }
 }

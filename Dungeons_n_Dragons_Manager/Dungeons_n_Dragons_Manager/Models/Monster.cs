@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace Dungeons_n_Dragons_Manager.Models
 {
@@ -11,12 +9,12 @@ namespace Dungeons_n_Dragons_Manager.Models
     /// </summary>
     public class Monster
     {
+        #region Constructors
+
         /// <summary>
         /// Blank Constructor for create Monster.
         /// </summary>
-        public Monster()
-        {
-        }
+        public Monster() { }
 
         /// <summary>
         /// Constructor which takes in an array of strings representing the values of attributes.
@@ -75,19 +73,19 @@ namespace Dungeons_n_Dragons_Manager.Models
             }
             else
             {
-                foreach(string environment in values[19].Split(','))
+                foreach (string environment in values[19].Split(','))
                 {
-                    if (environment == "Arctic")           IsArctic = true;
-                    else if (environment == "Coastal")     IsCoastal = true;
-                    else if (environment == "Desert")      IsDesert = true;
-                    else if (environment == "Forest")      IsForest = true;
-                    else if (environment == "Grassland")   IsGrassland = true;
-                    else if (environment == "Hill")        IsHill = true;
-                    else if (environment == "Mountain")    IsMountain = true;
-                    else if (environment == "Swamp")       IsSwamp = true;
-                    else if (environment == "UnderDark")   IsUnderdark = true;
-                    else if (environment == "UnderWater")  IsUnderwater = true;
-                    else if (environment == "Urban")       IsUrban = true;
+                    if (environment == "Arctic") IsArctic = true;
+                    else if (environment == "Coastal") IsCoastal = true;
+                    else if (environment == "Desert") IsDesert = true;
+                    else if (environment == "Forest") IsForest = true;
+                    else if (environment == "Grassland") IsGrassland = true;
+                    else if (environment == "Hill") IsHill = true;
+                    else if (environment == "Mountain") IsMountain = true;
+                    else if (environment == "Swamp") IsSwamp = true;
+                    else if (environment == "UnderDark") IsUnderdark = true;
+                    else if (environment == "UnderWater") IsUnderwater = true;
+                    else if (environment == "Urban") IsUrban = true;
                 }
             }
 
@@ -143,6 +141,8 @@ namespace Dungeons_n_Dragons_Manager.Models
             Charisma = monsterToCopy.Charisma;
             CharismaMod = monsterToCopy.CharismaMod;
         }
+
+        #endregion Constructors
 
         #region Properties
 
@@ -231,7 +231,7 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// </summary>
         public bool IsUrban { get; set; }
 
-        #endregion
+        #endregion Environment Bools
 
         /// <summary>
         /// Represents the name of the monster.
@@ -361,17 +361,17 @@ namespace Dungeons_n_Dragons_Manager.Models
                         + sc;
 
             string environments = string.Empty;
-            if (IsArctic)      environments += "Arctic" + c;
-            if (IsCoastal)     environments += "Coastal" + c;
-            if (IsDesert)      environments += "Desert" + c;
-            if (IsForest)      environments += "Forest" + c;
-            if (IsGrassland)   environments += "Grassland" + c;
-            if (IsHill)        environments += "Hill" + c;
-            if (IsMountain)    environments += "Mountain" + c;
-            if (IsSwamp)       environments += "Swamp" + c;
-            if (IsUnderdark)   environments += "Underdark" + c;
-            if (IsUnderwater)  environments += "Underwater" + c;
-            if (IsUrban)       environments += "Urban" + c;
+            if (IsArctic) environments += "Arctic" + c;
+            if (IsCoastal) environments += "Coastal" + c;
+            if (IsDesert) environments += "Desert" + c;
+            if (IsForest) environments += "Forest" + c;
+            if (IsGrassland) environments += "Grassland" + c;
+            if (IsHill) environments += "Hill" + c;
+            if (IsMountain) environments += "Mountain" + c;
+            if (IsSwamp) environments += "Swamp" + c;
+            if (IsUnderdark) environments += "Underdark" + c;
+            if (IsUnderwater) environments += "Underwater" + c;
+            if (IsUrban) environments += "Urban" + c;
             if (!string.IsNullOrWhiteSpace(environments) && environments.EndsWith(","))
             {
                 environments = environments.TrimEnd(',');
@@ -379,11 +379,16 @@ namespace Dungeons_n_Dragons_Manager.Models
             environments += sc;
             stringRep += environments;
 
-            stringRep +=  IsCustom.ToString();
+            stringRep += IsCustom.ToString();
 
             return stringRep;
         }
 
+        /// <summary>
+        /// Implementation of equals function for the class.
+        /// </summary>
+        /// <param name="monster">Other monster.</param>
+        /// <returns>True if equal, false if not.</returns>
         public bool Equals(Monster monster)
         {
             PropertyInfo[] properties = new Monster().GetType().GetProperties();
