@@ -16,5 +16,10 @@ namespace Dungeons_n_Dragons_Manager.Controls
         {
 
         }
+
+        private void StackPanel_GiveFeedback_1(object sender, System.Windows.GiveFeedbackEventArgs e)
+        {
+
+        }
     }
 }

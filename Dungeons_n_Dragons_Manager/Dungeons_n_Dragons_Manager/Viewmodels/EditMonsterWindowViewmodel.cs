@@ -12,7 +12,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
     /// <summary>
     /// The viewmodel for creating monsters
     /// </summary>
-    public class EditMonsterWindowViewmodel
+    public class EditMonsterWindowViewmodel : INotifyPropertyChanged
     {
         /// <summary>
         /// Constructor for the create monster viewmodel
@@ -22,51 +22,112 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// Post: A new monster is created with a reference to an existing, blank monster
         /// </summary>
         /// /// <param name="monster">A reference to the new character</param>
-        public EditMonsterWindowViewmodel(ref Monster monster)
+        public EditMonsterWindowViewmodel()
         {
-            EditedMonster = monster;
             populateDropdowns();
         }
 
-        /// <summary>
-        /// Private backing to store the currently selected monster in the combobox.
-        /// </summary>
-        private string m_selectedStrength;
+        #region Properties
 
         /// <summary>
-        /// Public facing accessor to m_selectedMonster.
+        /// Represents the currently selected Monster in the combobox.
         /// </summary>
-        public string SelectedStrength
+        private Monster m_selectedMonster;
+
+        /// <summary>
+        /// Public accessor to m_selectedMonster.
+        /// </summary>
+        public Monster SelectedMonster
         {
             get
             {
-                if (m_selectedStrength == null)
+                if (m_selectedMonster == null && CustomMonsters.Count != 0)
                 {
-                    int temp = EditedMonster.Strength;
-                    string temp2 = temp.ToString();
-                    foreach (string entry in SkillValues)
-                    {
-                        if(entry == temp2)
-                        {
-                            m_selectedStrength = entry;
-                        }
-                    }
+                    m_selectedMonster = CustomMonsters[0];
                 }
-                return m_selectedStrength;
+                return m_selectedMonster;
             }
             set
             {
-                if (value != m_selectedStrength)
+                if (m_selectedMonster != value)
                 {
-                    m_selectedStrength = value;
-                    OnPropertyRaised(nameof(SelectedStrength));
+                    m_selectedMonster = value;
+                    OnPropertyRaised(nameof(SelectedMonster));
+                    EditableMonster = new Monster(SelectedMonster); //Create deep copy of SelectedMonster to edit without actually editing SelectedMonster.
                 }
             }
         }
+
         /// <summary>
-        /// The new monster being created
+        /// Deep clone of SelectedMonster. Used to edit without affecting currently selected monster.
         /// </summary>
-        public Monster EditedMonster { get; set; }
+        private Monster m_editableMonster;
+
+        /// <summary>
+        /// Public accessor for m_editableMonster.
+        /// </summary>
+        public Monster EditableMonster
+        {
+            get
+            {
+                if (m_editableMonster == null && CustomMonsters.Count != 0)
+                {
+                    m_editableMonster = new Monster(CustomMonsters[0]);
+                }
+                return m_editableMonster;
+            }
+            set
+            {
+                if (m_editableMonster != value)
+                {
+                    m_editableMonster = value;
+                    OnPropertyRaised(nameof(EditableMonster));
+                }
+            }
+        }
+
+        ///// <summary>
+        ///// Private backing to store the currently selected monster in the combobox.
+        ///// </summary>
+        //private string m_selectedStrength;
+
+        ///// <summary>
+        ///// Public facing accessor to m_selectedMonster.
+        ///// </summary>
+        //public string SelectedStrength
+        //{
+        //    get
+        //    {
+        //        if (m_selectedStrength == null)
+        //        {
+        //            int temp = EditedMonster.Strength;
+        //            string temp2 = temp.ToString();
+        //            foreach (string entry in SkillValues)
+        //            {
+        //                if(entry == temp2)
+        //                {
+        //                    m_selectedStrength = entry;
+        //                }
+        //            }
+        //        }
+        //        return m_selectedStrength;
+        //    }
+        //    set
+        //    {
+        //        if (value != m_selectedStrength)
+        //        {
+        //            m_selectedStrength = value;
+        //            OnPropertyRaised(nameof(SelectedStrength));
+        //        }
+        //    }
+        //}
+
+        #region ComboBox Sources
+
+        /// <summary>
+        /// A collection of the currently saved monsters.
+        /// </summary>
+        public ObservableCollection<Monster> CustomMonsters { get; set; }
 
         /// <summary>
         /// The monster's options for armor
@@ -76,12 +137,16 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// <summary>
         /// The character's options for each skill's level
         /// </summary>
-        public List<string> SkillValues { get; set; }
+        public List<int> SkillValues { get; set; }
 
         /// <summary>
         /// The character's options for each Modifier
         /// </summary>
-        public List<string> ModifierValues { get; set; }
+        public List<int> ModifierValues { get; set; }
+
+        #endregion
+
+        #region Environment Bools
 
         /// <summary>
         /// Boolean for if the artic environment is checked.
@@ -138,6 +203,12 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public bool IsUrban { get; set; }
 
+        #endregion
+
+        #endregion
+
+        #region Commands
+
         /// <summary>
         /// Command binded to the "Save Monster" button which calls UpdateEnvironment
         /// </summary>
@@ -153,6 +224,11 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 return m_UpdateEnvironments ?? (m_UpdateEnvironments = new CommandHandler(() => updateEnvironments(), true));
             }
         }
+
+        #endregion
+
+        #region Functions
+
         /// <summary>
         /// Populates the list of environments for the new monster
         ///
@@ -162,52 +238,51 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public void updateEnvironments()
         {
-            EditedMonster.Environments = new List<string>();
-            if(IsArctic)
-            {
-                EditedMonster.Environments.Add("Arctic");
-            }
-            if(IsCoastal)
-            {
-                EditedMonster.Environments.Add("Coastal");
-            }
-            if(IsDesert)
-            {
-                EditedMonster.Environments.Add("Desert");
-            }
-            if(IsForest)
-            {
-                EditedMonster.Environments.Add("Forest");
-            }
-            if(IsGrassland)
-            {
-                EditedMonster.Environments.Add("Grassland");
-            }
-            if(IsHill)
-            {
-                EditedMonster.Environments.Add("Hill");
-            }
-            if(IsMountain)
-            {
-                EditedMonster.Environments.Add("Mountain");
-            }
-            if(IsSwamp)
-            {
-                EditedMonster.Environments.Add("Swamp");
-            }
-            if(IsUnderdark)
-            {
-                EditedMonster.Environments.Add("Underdark");
-            }
-            if(IsUnderwater)
-            {
-                EditedMonster.Environments.Add("Underwater");
-            }
-            if(IsUrban)
-            {
-                EditedMonster.Environments.Add("Urban");
-            }
-
+            //EditedMonster.Environments = new List<string>();
+            //if(IsArctic)
+            //{
+            //    EditedMonster.Environments.Add("Arctic");
+            //}
+            //if(IsCoastal)
+            //{
+            //    EditedMonster.Environments.Add("Coastal");
+            //}
+            //if(IsDesert)
+            //{
+            //    EditedMonster.Environments.Add("Desert");
+            //}
+            //if(IsForest)
+            //{
+            //    EditedMonster.Environments.Add("Forest");
+            //}
+            //if(IsGrassland)
+            //{
+            //    EditedMonster.Environments.Add("Grassland");
+            //}
+            //if(IsHill)
+            //{
+            //    EditedMonster.Environments.Add("Hill");
+            //}
+            //if(IsMountain)
+            //{
+            //    EditedMonster.Environments.Add("Mountain");
+            //}
+            //if(IsSwamp)
+            //{
+            //    EditedMonster.Environments.Add("Swamp");
+            //}
+            //if(IsUnderdark)
+            //{
+            //    EditedMonster.Environments.Add("Underdark");
+            //}
+            //if(IsUnderwater)
+            //{
+            //    EditedMonster.Environments.Add("Underwater");
+            //}
+            //if(IsUrban)
+            //{
+            //    EditedMonster.Environments.Add("Urban");
+            //}
         }
 
         /// <summary>
@@ -220,10 +295,26 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private void populateDropdowns()
         {
             ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            SkillValues = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }.ToList();
-            ModifierValues = new string[] { "-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }.ToList();
+            SkillValues = Enumerable.Range(1, 30).ToList();
+            ModifierValues = Enumerable.Range(-5, 16).ToList();
 
+            #region Custom Monsters
+
+            CustomMonsters = new ObservableCollection<Monster>();
+
+            //Generate list of custom monster by parsing settings
+            List<string> customMonsterStrings = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+
+            foreach (string entry in customMonsterStrings)
+            {
+                string[] values = entry.Split(';');
+                CustomMonsters.Add(new Monster(values));
+            }
+
+            #endregion
         }
+
+        #endregion
 
         #region Interfaces
 

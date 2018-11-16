@@ -10,6 +10,12 @@
     <Border Padding="5">
         <Grid>
 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -17,6 +23,7 @@
 
             <StackPanel
                                     Grid.Row="0"
+                                    Grid.Column="0"
                                     HorizontalAlignment="Left">
                 <TextBlock Text="Random Encounter"/>
                 <StackPanel Orientation="Horizontal">
@@ -32,48 +39,36 @@
                 </StackPanel>
                 
             </StackPanel>
+            
           <StackPanel Grid.Row="0"
-              HorizontalAlignment="Center">
-            <Grid>
+                      Grid.Column="1">
+                <TextBlock 
+                    HorizontalAlignment="Center"
+                    Text="Monster Customization"/>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Width="Auto">
+                    <Button 
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="0,2.5,1.25,0"
+                        Width="76.5"
+                        Command="{Binding CreateMonster}"
+                        Content=" Create "/>
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Margin="1.25,2.5,0,0"
+                        Width="76.5"
+                        Command="{Binding EditMonsters}"
+                        Content=" Edit "/>
+                </StackPanel>
 
-              <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-              </Grid.RowDefinitions>
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-              </Grid.ColumnDefinitions>
-              <TextBlock 
-                HorizontalAlignment="Left"
-                Text="Customization"/>
-              <Button 
-                Grid.Row="1"
-                Grid.Column="0"
-                Margin="2.5,0,1,0"
-                   Command="{Binding CreateMonster}"
-                   Content=" Create Monster "/>
-              <StackPanel Grid.Row="1"
-                          Grid.Column="1"
-                       HorizontalAlignment="Right">
-                <ComboBox
-                                        Width="158"
-                                        DisplayMemberPath="Name"
-                                        ItemsSource="{Binding CustomMonsters}"
-                                        SelectedItem="{Binding SelectedCustomMonster}" />
-              </StackPanel>
-              <Button
-                Grid.Row="1"
-                Grid.Column="2"
-                Margin="2.5,0,2.5,0"
-                Command="{Binding EditMonsters}"
-                Content=" Edit Custom Monsters"/>
-            </Grid>
-          </StackPanel>
+
+            </StackPanel>
 
             <StackPanel Grid.Row="0"
+                        Grid.Column="2"
                         HorizontalAlignment="Right">
                 <TextBlock Text="Manually Select"/>
                 <ComboBox
@@ -84,6 +79,8 @@
             </StackPanel>
 
             <GroupBox Grid.Row="1"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="3"
                       Margin="0,5,0,0"
                       Header="Monster Stats">
                 <Border Padding="5">

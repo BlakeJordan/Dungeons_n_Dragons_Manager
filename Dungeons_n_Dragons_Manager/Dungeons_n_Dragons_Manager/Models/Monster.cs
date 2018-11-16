@@ -30,7 +30,7 @@ namespace Dungeons_n_Dragons_Manager.Models
 
             if (string.IsNullOrEmpty(values[3]))
             {
-                ArmorClassType = "none";
+                ArmorClassType = "None";
             }
             else
             {
@@ -72,10 +72,35 @@ namespace Dungeons_n_Dragons_Manager.Models
                 Environments.Add("Swamp");
                 Environments.Add("Underdark");
                 Environments.Add("Urban");
+
+                IsArctic = true;
+                IsCoastal = true;
+                IsDesert = true;
+                IsForest = true;
+                IsGrassland = true;
+                IsHill = true;
+                IsMountain = true;
+                IsSwamp = true;
+                IsUnderdark = true;
+                IsUrban = true;
             }
             else
             {
                 Environments = values[19].Split(',').OfType<string>().ToList(); //Parse string of enviroments
+                foreach(string environment in values[19].Split(','))
+                {
+                    if (environment == "Arctic")           IsArctic = true;
+                    else if (environment == "Coastal")     IsCoastal = true;
+                    else if (environment == "Desert")      IsDesert = true;
+                    else if (environment == "Forest")      IsForest = true;
+                    else if (environment == "Grassland")   IsGrassland = true;
+                    else if (environment == "Hill")        IsHill = true;
+                    else if (environment == "Mountain")    IsMountain = true;
+                    else if (environment == "Swamp")       IsSwamp = true;
+                    else if (environment == "UnderDark")   IsUnderdark = true;
+                    else if (environment == "UnderWater")  IsUnderwater = true;
+                    else if (environment == "Urban")       IsUrban = true;
+                }
             }
 
             if (values[20] == "True")
@@ -86,6 +111,49 @@ namespace Dungeons_n_Dragons_Manager.Models
             {
                 IsCustom = false;
             }
+        }
+
+        /// <summary>
+        /// Constructor that deep copies an already created monster.
+        /// </summary>
+        /// <param name="monsterToCopy">Monster to be copied.</param>
+        public Monster(Monster monsterToCopy)
+        {
+            IsCustom = monsterToCopy.IsCustom;
+            Name = monsterToCopy.Name;
+
+            IsArctic = monsterToCopy.IsArctic;
+            IsCoastal = monsterToCopy.IsCoastal;
+            IsDesert = monsterToCopy.IsDesert;
+            IsForest = monsterToCopy.IsForest;
+            IsGrassland = monsterToCopy.IsGrassland;
+            IsHill = monsterToCopy.IsHill;
+            IsMountain = monsterToCopy.IsMountain;
+            IsSwamp = monsterToCopy.IsSwamp;
+            IsUnderdark = monsterToCopy.IsUnderdark;
+            IsUnderwater = monsterToCopy.IsUnderwater;
+            IsUrban = monsterToCopy.IsUrban;
+
+            ChallengeRating = monsterToCopy.ChallengeRating;
+            ChallengeXP = monsterToCopy.ChallengeXP;
+            ArmorClassType = monsterToCopy.ArmorClassType;
+            ArmorClass = monsterToCopy.ArmorClass;
+            HitPoints = monsterToCopy.HitPoints;
+            HitPointsDice = monsterToCopy.HitPointsDice;
+
+            Strength = monsterToCopy.Strength;
+            StrengthMod = monsterToCopy.StrengthMod;
+            Dexterity = monsterToCopy.Dexterity;
+            DexterityMod = monsterToCopy.DexterityMod;
+            Constitution = monsterToCopy.Constitution;
+            ConstitutionMod = monsterToCopy.ConstitutionMod;
+
+            Intelligence = monsterToCopy.Intelligence;
+            IntelligenceMod = monsterToCopy.IntelligenceMod;
+            Wisdom = monsterToCopy.Wisdom;
+            WisdomMod = monsterToCopy.WisdomMod;
+            Charisma = monsterToCopy.Charisma;
+            CharismaMod = monsterToCopy.CharismaMod;
         }
 
         #region Properties
@@ -99,6 +167,65 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// Represents the enviroments of the monster.
         /// </summary>
         public List<string> Environments { get; set; }
+
+        #region Environment Bools
+
+        /// <summary>
+        /// Boolean for if the artic environment is checked.
+        /// </summary>
+        public bool IsArctic { get; set; }
+
+        /// <summary>
+        /// Boolean for if the coastal environment is checked.
+        /// </summary>
+        public bool IsCoastal { get; set; }
+
+        /// <summary>
+        /// Boolean for if the Desert environment is checked.
+        /// </summary>
+        public bool IsDesert { get; set; }
+
+        /// <summary>
+        /// Boolean for if the forest environment is checked.
+        /// </summary>
+        public bool IsForest { get; set; }
+
+        /// <summary>
+        /// Boolean for if the grassland environment is checked.
+        /// </summary>
+        public bool IsGrassland { get; set; }
+
+        /// <summary>
+        /// Boolean for if the hill environment is checked.
+        /// </summary>
+        public bool IsHill { get; set; }
+
+        /// <summary>
+        /// Boolean for if the mountain environment is checked.
+        /// </summary>
+        public bool IsMountain { get; set; }
+
+        /// <summary>
+        /// Boolean for if the swamp environment is checked.
+        /// </summary>
+        public bool IsSwamp { get; set; }
+
+        /// <summary>
+        /// Boolean for if the underdark environment is checked.
+        /// </summary>
+        public bool IsUnderdark { get; set; }
+
+        /// <summary>
+        /// Boolean for if the underwater environment is checked.
+        /// </summary>
+        public bool IsUnderwater { get; set; }
+
+        /// <summary>
+        /// Boolean for if the urban environment is checked.
+        /// </summary>
+        public bool IsUrban { get; set; }
+
+        #endregion
 
         /// <summary>
         /// Represents the name of the monster.
@@ -226,14 +353,25 @@ namespace Dungeons_n_Dragons_Manager.Models
                         + sc + HitPointsDice
                         + sc + HitPoints.ToString()
                         + sc;
-            if(Environments != null)
+
+            string environments = string.Empty;
+            if (IsArctic)      environments += "Arctic" + c;
+            if (IsCoastal)     environments += "Coastal" + c;
+            if (IsDesert)      environments += "Desert" + c;
+            if (IsForest)      environments += "Forest" + c;
+            if (IsGrassland)   environments += "Grassland" + c;
+            if (IsHill)        environments += "Hill" + c;
+            if (IsMountain)    environments += "Mountain" + c;
+            if (IsSwamp)       environments += "Swamp" + c;
+            if (IsUnderdark)   environments += "Underdark" + c;
+            if (IsUnderwater)  environments += "Underwater" + c;
+            if (IsUrban)       environments += "Urban" + c;
+            if (!string.IsNullOrWhiteSpace(environments) && environments.EndsWith(","))
             {
-                for (int i = 0; i < Environments.Count - 1; i++)
-                {
-                    stringRep += Environments[i] + c;
-                }
-                stringRep += Environments[Environments.Count - 1];
+                environments.TrimEnd(',');
             }
+            environments += sc;
+            stringRep += environments;
 
             stringRep += sc + IsCustom.ToString();
 

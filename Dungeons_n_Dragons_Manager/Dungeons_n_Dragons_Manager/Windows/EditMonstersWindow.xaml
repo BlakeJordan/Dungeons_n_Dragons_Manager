@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="EditMonsterWindow"
+    Title="Monster Editor"
     Width="800"
     Height="450"
     mc:Ignorable="d">
@@ -17,19 +17,34 @@
       </Grid.ColumnDefinitions>
 
       <Grid.RowDefinitions>
-        <RowDefinition Height="40" />
-        <RowDefinition Height="40" />
-        <RowDefinition Height="40" />
-        <RowDefinition Height="40" />
-        <RowDefinition Height="40" />
-        <RowDefinition Height="40" />
-        <RowDefinition Height="40" />
-        <RowDefinition Height="40" />
-        <RowDefinition Height="40" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
       </Grid.RowDefinitions>
 
       <StackPanel
           Grid.Row="0"
+          Grid.Column="1">
+                <TextBlock 
+                    HorizontalAlignment="Center"
+                    Text="Select Monster"/>
+                <ComboBox Width="158"
+                          SelectedItem="{Binding SelectedMonster}"
+                          ItemsSource="{Binding CustomMonsters}"
+                          DisplayMemberPath="Name"/>
+                <Separator Margin="0,5,0,20"/>
+            </StackPanel>
+          
+
+      <StackPanel
+          Grid.Row="1"
           Grid.Column="0"
           HorizontalAlignment="Center">
         <TextBlock
@@ -39,12 +54,12 @@
             FontWeight="DemiBold"
             Text="Monster Name" />
         <TextBox
-            Text="{Binding EditedMonster.Name}"
+            Text="{Binding EditableMonster.Name}"
             Width="140"/>
       </StackPanel>
 
       <StackPanel
-          Grid.Row="0"
+          Grid.Row="1"
           Grid.Column="1"
           HorizontalAlignment="Center">
         <TextBlock
@@ -56,11 +71,11 @@
             Width="140"
             Margin="2.5,0,0,0"
             ItemsSource="{Binding ArmorTypes}"
-            SelectedItem="{Binding EditedMonster.ArmorClassType}" />
+            SelectedItem="{Binding EditableMonster.ArmorClassType}" />
       </StackPanel>
 
       <StackPanel
-            Grid.Row="0"
+            Grid.Row="1"
             Grid.Column="2"
             HorizontalAlignment="Center">
         <TextBlock
@@ -69,12 +84,12 @@
            FontWeight="DemiBold"
            Text="Armor Class" />
         <TextBox
-           Text="{Binding EditedMonster.ArmorClass}"
+           Text="{Binding EditableMonster.ArmorClass}"
            Width="140"/>
       </StackPanel>
 
       <StackPanel
-          Grid.Row="1"
+          Grid.Row="2"
           Grid.Column="0"
           HorizontalAlignment="Center">
         <TextBlock
@@ -83,12 +98,12 @@
             FontWeight="DemiBold"
             Text="Challenge Rating" />
         <TextBox
-            Text="{Binding EditedMonster.ChallengeRating}"
+            Text="{Binding EditableMonster.ChallengeRating}"
             Width="140"/>
       </StackPanel>
 
       <StackPanel
-          Grid.Row="2"
+          Grid.Row="3"
           Grid.Column="0"
           HorizontalAlignment="Center">
         <TextBlock
@@ -97,22 +112,8 @@
             FontWeight="DemiBold"
             Text="Challenge XP" />
         <TextBox
-          Text="{Binding EditedMonster.ChallengeXP}"
+          Text="{Binding EditableMonster.ChallengeXP}"
           Width="140"/>
-      </StackPanel>
-
-      <StackPanel
-          Grid.Row="1"
-          Grid.Column="1"
-          HorizontalAlignment="Center">
-        <TextBlock
-            HorizontalAlignment="Center"
-            FontSize="14"
-            FontWeight="DemiBold"
-            Text="Hit Points" />
-        <TextBox
-        Text="{Binding EditedMonster.HitPoints}"
-        Width="140"/>
       </StackPanel>
 
       <StackPanel
@@ -123,14 +124,28 @@
             HorizontalAlignment="Center"
             FontSize="14"
             FontWeight="DemiBold"
+            Text="Hit Points" />
+        <TextBox
+        Text="{Binding EditableMonster.HitPoints}"
+        Width="140"/>
+      </StackPanel>
+
+      <StackPanel
+          Grid.Row="3"
+          Grid.Column="1"
+          HorizontalAlignment="Center">
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontWeight="DemiBold"
             Text="Hit Points Dice" />
         <TextBox
-         Text="{Binding EditedMonster.HitPointsDice}"
+         Text="{Binding EditableMonster.HitPointsDice}"
          Width="140"/>
       </StackPanel>
 
       <StackPanel
-          Grid.Row="1"
+          Grid.Row="2"
           Grid.Column="2"
           HorizontalAlignment="Center">
         <TextBlock
@@ -142,11 +157,11 @@
               Width="140"
               Margin="2.5,0,0,0"
               ItemsSource="{Binding SkillValues}"
-              SelectedItem="{Binding EditedMonster.Strength}" />
+              SelectedItem="{Binding EditableMonster.Strength}" />
       </StackPanel>
 
       <StackPanel
-          Grid.Row="2"
+          Grid.Row="3"
           Grid.Column="2"
           HorizontalAlignment="Center">
         <TextBlock
@@ -158,11 +173,11 @@
             Width="140"
             Margin="2.5,0,0,0"
             ItemsSource="{Binding ModifierValues}"
-            SelectedItem="{Binding EditedMonster.StrengthMod}" />
+            SelectedItem="{Binding EditableMonster.StrengthMod}" />
       </StackPanel>
 
       <StackPanel
-          Grid.Row="3"
+          Grid.Row="4"
           Grid.Column="0"
           HorizontalAlignment="Center">
         <TextBlock
@@ -174,11 +189,11 @@
             Width="140"
             Margin="2.5,0,0,0"
             ItemsSource="{Binding SkillValues}"
-            SelectedItem="{Binding EditedMonster.Dexterity}" />
+            SelectedItem="{Binding EditableMonster.Dexterity}" />
       </StackPanel>
 
       <StackPanel
-          Grid.Row="4"
+          Grid.Row="5"
           Grid.Column="0"
           HorizontalAlignment="Center">
         <TextBlock
@@ -190,11 +205,11 @@
             Width="140"
             Margin="2.5,0,0,0"
             ItemsSource="{Binding ModifierValues}"
-            SelectedItem="{Binding EditedMonster.DexterityMod}" />
+            SelectedItem="{Binding EditableMonster.DexterityMod}" />
       </StackPanel>
 
       <StackPanel
-          Grid.Row="3"
+          Grid.Row="4"
           Grid.Column="1"
           HorizontalAlignment="Center">
         <TextBlock
@@ -206,11 +221,11 @@
             Width="140"
             Margin="2.5,0,0,0"
             ItemsSource="{Binding SkillValues}"
-            SelectedItem="{Binding EditedMonster.Constitution}" />
+            SelectedItem="{Binding EditableMonster.Constitution}" />
       </StackPanel>
 
       <StackPanel
-          Grid.Row="4"
+          Grid.Row="5"
           Grid.Column="1"
           HorizontalAlignment="Center">
         <TextBlock
@@ -222,12 +237,12 @@
             Width="140"
             Margin="2.5,0,0,0"
             ItemsSource="{Binding ModifierValues}"
-            SelectedItem="{Binding EditedMonster.ConstitutionMod}" />
+            SelectedItem="{Binding EditableMonster.ConstitutionMod}" />
       </StackPanel>
 
 
       <StackPanel
-          Grid.Row="3"
+          Grid.Row="4"
           Grid.Column="2"
           HorizontalAlignment="Center">
         <TextBlock
@@ -239,11 +254,11 @@
               Width="140"
               Margin="2.5,0,0,0"
               ItemsSource="{Binding SkillValues}"
-              SelectedItem="{Binding EditedMonster.Intelligence}" />
+              SelectedItem="{Binding EditableMonster.Intelligence}" />
       </StackPanel>
 
       <StackPanel
-            Grid.Row="4"
+            Grid.Row="5"
             Grid.Column="2"
             HorizontalAlignment="Center">
         <TextBlock
@@ -255,11 +270,11 @@
                 Width="140"
                 Margin="2.5,0,0,0"
                 ItemsSource="{Binding ModifierValues}"
-                SelectedItem="{Binding EditedMonster.IntelligenceMod}" />
+                SelectedItem="{Binding EditableMonster.IntelligenceMod}" />
       </StackPanel>
 
       <StackPanel
-            Grid.Row="5"
+            Grid.Row="6"
             Grid.Column="0"
             HorizontalAlignment="Center">
         <TextBlock
@@ -271,11 +286,11 @@
                 Width="140"
                 Margin="2.5,0,0,0"
                 ItemsSource="{Binding SkillValues}"
-                SelectedItem="{Binding EditedMonster.Wisdom}" />
+                SelectedItem="{Binding EditableMonster.Wisdom}" />
       </StackPanel>
 
       <StackPanel
-            Grid.Row="6"
+            Grid.Row="7"
             Grid.Column="0"
             HorizontalAlignment="Center">
         <TextBlock
@@ -287,11 +302,11 @@
                 Width="140"
                 Margin="2.5,0,0,0"
                 ItemsSource="{Binding ModifierValues}"
-                SelectedItem="{Binding EditedMonster.WisdomMod}" />
+                SelectedItem="{Binding EditableMonster.WisdomMod}" />
       </StackPanel>
 
       <StackPanel
-            Grid.Row="5"
+            Grid.Row="6"
             Grid.Column="1"
             HorizontalAlignment="Center">
         <TextBlock
@@ -303,11 +318,11 @@
                 Width="140"
                 Margin="2.5,0,0,0"
                 ItemsSource="{Binding SkillValues}"
-                SelectedItem="{Binding EditedMonster.Charisma}" />
+                SelectedItem="{Binding EditableMonster.Charisma}" />
       </StackPanel>
 
       <StackPanel
-            Grid.Row="6"
+            Grid.Row="7"
             Grid.Column="1"
             HorizontalAlignment="Center">
         <TextBlock
@@ -319,11 +334,11 @@
                 Width="140"
                 Margin="2.5,0,0,0"
                 ItemsSource="{Binding ModifierValues}"
-                SelectedItem="{Binding EditedMonster.CharismaMod}" />
+                SelectedItem="{Binding EditableMonster.CharismaMod}" />
       </StackPanel>
 
       <StackPanel
-            Grid.Row="7"
+            Grid.Row="8"
             Grid.Column="2"
             Width="271"
             Margin="2.5,-80,0,0"
@@ -353,86 +368,89 @@
               Grid.Column="0"
               Margin="24,2,0,0"
               Content="Artic"
-              IsChecked="{Binding IsArctic}"/>
+              IsChecked="{Binding EditableMonster.IsArctic}"/>
           <CheckBox
               x:Name="Coastal"
               Grid.Row="1"
               Grid.Column="0"
               Margin="24,2,0,0"
               Content="Coastal"
-              IsChecked="{Binding IsCoastal}"/>
+              IsChecked="{Binding EditableMonster.IsCoastal}"/>
           <CheckBox
               x:Name="Desert"
               Grid.Row="2"
               Grid.Column="0"
               Margin="24,2,0,0"
               Content="Desert"
-              IsChecked="{Binding IsDesert}"/>
+              IsChecked="{Binding EditableMonster.IsDesert}"/>
           <CheckBox
               x:Name="Forest"
               Grid.Row="3"
               Grid.Column="0"
               Margin="24,2,0,0"
               Content="Forest"
-              IsChecked="{Binding IsForest}"/>
+              IsChecked="{Binding EditableMonster.IsForest}"/>
           <CheckBox
               x:Name="Grassland"
               Grid.Row="4"
               Grid.Column="0"
               Margin="24,2,0,0"
               Content="Grassland"
-              IsChecked="{Binding IsGrassland}"/>
+              IsChecked="{Binding EditableMonster.IsGrassland}"/>
           <CheckBox
               x:Name="Hill"
               Grid.Row="5"
               Grid.Column="0"
               Margin="24,2,0,0"
               Content="Hill"
-              IsChecked="{Binding IsHill}"/>
+              IsChecked="{Binding EditableMonster.IsHill}"/>
           <CheckBox
               x:Name="Mountain"
               Grid.Row="0"
               Grid.Column="1"
               Margin="24,2,0,0"
               Content="Mountain"
-              IsChecked="{Binding IsMountain}"/>
+              IsChecked="{Binding EditableMonster.IsMountain}"/>
           <CheckBox
               x:Name="Swamp"
               Grid.Row="1"
               Grid.Column="1"
               Margin="24,2,0,0"
               Content="Swamp"
-              IsChecked="{Binding IsSwamp}"/>
+              IsChecked="{Binding EditableMonster.IsSwamp}"/>
           <CheckBox
               x:Name="Underdark"
               Grid.Row="2"
               Grid.Column="1"
               Margin="24,2,0,0"
               Content="Underdark"
-              IsChecked="{Binding IsUnderdark}"/>
+              IsChecked="{Binding EditableMonster.IsUnderdark}"/>
           <CheckBox
               x:Name="Underwater"
               Grid.Row="3"
               Grid.Column="1"
               Margin="24,2,0,0"
               Content="Underwater"
-              IsChecked="{Binding IsUnderwater}"/>
+              IsChecked="{Binding EditableMonster.IsUnderwater}"/>
           <CheckBox
               x:Name="Urban"
               Grid.Row="4"
               Grid.Column="1"
               Margin="24,2,0,0"
               Content="Urban"
-              IsChecked="{Binding IsUrban}"/>
+              IsChecked="{Binding EditableMonster.IsUrban}"/>
         </Grid>
       </StackPanel>
 
       <Button
-          Grid.Row="6"
+          Grid.Row="9"
           Grid.Column="1"
-          Margin="60.8,76.4,61.2,-90"
+          Width="140"
+          Height="25"
+          Margin="0,0,0,10"
           Click="Button_Click"
           Content="Save Monster"
+          IsEnabled="{Binding CanSave}"
           Command="{Binding UpdateEnvironments}"/>
 
     </Grid>

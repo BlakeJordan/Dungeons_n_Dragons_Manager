@@ -34,7 +34,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         #region Members
 
         private ObservableCollection<Monster> m_monsters;
-        private ObservableCollection<Monster> m_customMonsters;
 
         /// <summary>
         /// ObservableCollection of Monsters which is bound to a combobox.
@@ -55,29 +54,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 {
                     m_monsters = value;
                     OnPropertyRaised(nameof(Monsters));
-                }
-            }
-        }
-
-        /// <summary>
-        /// ObservableCollection of customMonsters which is bound to a combobox.
-        /// </summary>
-        public ObservableCollection<Monster> CustomMonsters
-        {
-            get
-            {
-                if (m_customMonsters == null)
-                {
-                    m_customMonsters = new ObservableCollection<Monster>();
-                }
-                return m_customMonsters;
-            }
-            set
-            {
-                if (m_customMonsters != value)
-                {
-                    m_customMonsters = value;
-                    OnPropertyRaised(nameof(CustomMonsters));
                 }
             }
         }
@@ -110,33 +86,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-        /// <summary>
-        /// Private backing to store the currently selected custom monster in the combobox.
-        /// </summary>
-        private Monster m_selectedCustomMonster;
-
-        /// <summary>
-        /// Public facing accessor to m_selectedCustomMonster.
-        /// </summary>
-        public Monster SelectedCustomMonster
-        {
-            get
-            {
-                if (m_selectedCustomMonster == null)
-                {
-                    m_selectedCustomMonster = Monsters[0];
-                }
-                return m_selectedCustomMonster;
-            }
-            set
-            {
-                if (value != m_selectedCustomMonster)
-                {
-                    m_selectedCustomMonster = value;
-                    OnPropertyRaised(nameof(SelectedCustomMonster));
-                }
-            }
-        }
 
         /// <summary>
         /// List of environments that are bound to a combobox.
@@ -260,7 +209,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 }
             }
             Monsters = new ObservableCollection<Monster>( listOfMonsters.OrderBy(o => o.Name).ToList() ); //Sort list by name and create observable collection
-            CustomMonsters = new ObservableCollection<Monster>( listOfCustomMonsters.OrderBy(o => o.Name).ToList() ); //Sort list by name and create observable collection
         }
 
         /// <summary>
@@ -308,41 +256,41 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public void editMonsters()
         {
-            string oldMonsterName = SelectedCustomMonster.Name;
-            Monster EditedMonster = SelectedCustomMonster;
-            EditMonstersWindow editMonstersWindow = new EditMonstersWindow(ref EditedMonster);
+            //string oldMonsterName = SelectedCustomMonster.Name;
+            //Monster EditedMonster = SelectedCustomMonster;
+            EditMonstersWindow editMonstersWindow = new EditMonstersWindow();
             editMonstersWindow.ShowDialog();
 
-            //Generate list of custom monster by parsing settings
-            List<Monster> listOfCustomMonsters = new List<Monster>(); //Temp list to store custom monsters
-            List<string> customMonsters = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            ////Generate list of custom monster by parsing settings
+            //List<Monster> listOfCustomMonsters = new List<Monster>(); //Temp list to store custom monsters
+            //List<string> customMonsters = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
-            //Find old monster -> delete
-            if (customMonsters.Count != 0)
-            {
-                foreach (string entry in customMonsters)
-                {
-                    string[] values = entry.Split(';');
-                    listOfCustomMonsters.Add(new Monster(values));
-                }
-            }
+            ////Find old monster -> delete
+            //if (customMonsters.Count != 0)
+            //{
+            //    foreach (string entry in customMonsters)
+            //    {
+            //        string[] values = entry.Split(';');
+            //        listOfCustomMonsters.Add(new Monster(values));
+            //    }
+            //}
 
-            listOfCustomMonsters.RemoveAll(x => x.Name == oldMonsterName);
+            //listOfCustomMonsters.RemoveAll(x => x.Name == oldMonsterName);
 
 
-            //Add new monster
-            listOfCustomMonsters.Add(EditedMonster);
-            //Clear settings string
-            Properties.Settings.Default.CustomMonsters = "";
-            //Reconstruct string from new list
-            foreach (Monster entry in listOfCustomMonsters)
-            {
-                Properties.Settings.Default.CustomMonsters += entry.ToString() + System.Environment.NewLine;
+            ////Add new monster
+            //listOfCustomMonsters.Add(EditedMonster);
+            ////Clear settings string
+            //Properties.Settings.Default.CustomMonsters = "";
+            ////Reconstruct string from new list
+            //foreach (Monster entry in listOfCustomMonsters)
+            //{
+            //    Properties.Settings.Default.CustomMonsters += entry.ToString() + System.Environment.NewLine;
                 
                 
-            }
-            Properties.Settings.Default.Save();
-            parseMonstersResource();
+            //}
+            //Properties.Settings.Default.Save();
+            //parseMonstersResource();
 
         }
 
