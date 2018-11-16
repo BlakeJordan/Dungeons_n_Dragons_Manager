@@ -14,7 +14,13 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// <summary>
         /// Blank Constructor for create Monster.
         /// </summary>
-        public Monster() { }
+        public Monster()
+        {
+            Name = string.Empty;
+            HitPointsDice = string.Empty;
+            ArmorClassType = string.Empty;
+            StrengthMod = DexterityMod = ConstitutionMod = IntelligenceMod = WisdomMod = CharismaMod = -6;
+        }
 
         /// <summary>
         /// Constructor which takes in an array of strings representing the values of attributes.

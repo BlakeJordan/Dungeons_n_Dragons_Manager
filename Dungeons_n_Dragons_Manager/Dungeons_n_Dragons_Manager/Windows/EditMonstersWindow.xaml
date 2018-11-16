@@ -476,7 +476,7 @@
                 Click="Button_Click"
                 Command="{Binding SaveMonster}"
                 Content="Save Monster"
-                IsEnabled="{Binding CanSave}" />
+                IsEnabled="{Binding CanSave, UpdateSourceTrigger=PropertyChanged}" />
         </Grid>
     </Border>
 </Window>
