@@ -75,7 +75,7 @@
                                         Width="158"
                                         DisplayMemberPath="Name"
                                         ItemsSource="{Binding Monsters}"
-                                        SelectedItem="{Binding SelectedMonster}" />
+                                        SelectedItem="{Binding SelectedMonster, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
 
             <GroupBox Grid.Row="1"
@@ -249,7 +249,7 @@
                                        Text="Environments"/>
                             <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                      HorizontalAlignment="Center"
-                                     ItemsSource="{Binding SelectedMonster.Environments}">
+                                     ItemsSource="{Binding SelectedMonster.Environments, UpdateSourceTrigger=PropertyChanged}">
                                 <ListBox.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <WrapPanel IsItemsHost="True" />

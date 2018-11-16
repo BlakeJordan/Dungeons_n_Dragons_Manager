@@ -19,9 +19,11 @@ namespace Dungeons_n_Dragons_Manager.Windows
         /// </summary>
         public EditMonstersWindow()
         {
-            this.DataContext = new EditMonsterWindowViewmodel(); //Initialize viewmodel.
+            this.DataContext = m_viewModel;
             InitializeComponent();
         }
+
+        private EditMonsterWindowViewmodel m_viewModel = new EditMonsterWindowViewmodel();
 
         ///// <summary>
         ///// A boolean indicating whether the save button has been clicked or not
@@ -37,9 +39,17 @@ namespace Dungeons_n_Dragons_Manager.Windows
         /// </summary>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //SaveMonster = true;
             this.Close();
         }
 
+        private void TextBox_CheckCanSave(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            m_viewModel.CheckCanSave.Execute(null);
+        }
+
+        private void ComboBox_CheckCanSave(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            m_viewModel.CheckCanSave.Execute(null);
+        }
     }
 }

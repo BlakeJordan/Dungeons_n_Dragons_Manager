@@ -52,10 +52,11 @@
             FontSize="14"
             Width="140"
             FontWeight="DemiBold"
-            Text="Monster Name" />
+            Text="Monster Name"/>
         <TextBox
-            Text="{Binding EditableMonster.Name}"
-            Width="140"/>
+            Text="{Binding EditableMonster.Name, UpdateSourceTrigger=PropertyChanged}"
+            Width="140"
+            TextChanged="TextBox_CheckCanSave"/>
       </StackPanel>
 
       <StackPanel
@@ -71,7 +72,8 @@
             Width="140"
             Margin="2.5,0,0,0"
             ItemsSource="{Binding ArmorTypes}"
-            SelectedItem="{Binding EditableMonster.ArmorClassType}" />
+            SelectedItem="{Binding EditableMonster.ArmorClassType, UpdateSourceTrigger=PropertyChanged}"
+            SelectionChanged="ComboBox_CheckCanSave"/>
       </StackPanel>
 
       <StackPanel
@@ -84,8 +86,9 @@
            FontWeight="DemiBold"
            Text="Armor Class" />
         <TextBox
-           Text="{Binding EditableMonster.ArmorClass}"
-           Width="140"/>
+           Text="{Binding EditableMonster.ArmorClass, UpdateSourceTrigger=PropertyChanged}"
+           Width="140"
+            TextChanged="TextBox_CheckCanSave"/>
       </StackPanel>
 
       <StackPanel
@@ -98,8 +101,9 @@
             FontWeight="DemiBold"
             Text="Challenge Rating" />
         <TextBox
-            Text="{Binding EditableMonster.ChallengeRating}"
-            Width="140"/>
+            Text="{Binding EditableMonster.ChallengeRating, UpdateSourceTrigger=PropertyChanged}"
+            Width="140"
+            TextChanged="TextBox_CheckCanSave"/>
       </StackPanel>
 
       <StackPanel
@@ -112,8 +116,9 @@
             FontWeight="DemiBold"
             Text="Challenge XP" />
         <TextBox
-          Text="{Binding EditableMonster.ChallengeXP}"
-          Width="140"/>
+          Text="{Binding EditableMonster.ChallengeXP, UpdateSourceTrigger=PropertyChanged}"
+          Width="140"
+            TextChanged="TextBox_CheckCanSave"/>
       </StackPanel>
 
       <StackPanel
@@ -126,8 +131,9 @@
             FontWeight="DemiBold"
             Text="Hit Points" />
         <TextBox
-        Text="{Binding EditableMonster.HitPoints}"
-        Width="140"/>
+        Text="{Binding EditableMonster.HitPoints, UpdateSourceTrigger=PropertyChanged}"
+        Width="140"
+            TextChanged="TextBox_CheckCanSave"/>
       </StackPanel>
 
       <StackPanel
@@ -140,8 +146,9 @@
             FontWeight="DemiBold"
             Text="Hit Points Dice" />
         <TextBox
-         Text="{Binding EditableMonster.HitPointsDice}"
-         Width="140"/>
+         Text="{Binding EditableMonster.HitPointsDice, UpdateSourceTrigger=PropertyChanged}"
+         Width="140"
+            TextChanged="TextBox_CheckCanSave"/>
       </StackPanel>
 
       <StackPanel
@@ -157,7 +164,8 @@
               Width="140"
               Margin="2.5,0,0,0"
               ItemsSource="{Binding SkillValues}"
-              SelectedItem="{Binding EditableMonster.Strength}" />
+              SelectedItem="{Binding EditableMonster.Strength, UpdateSourceTrigger=PropertyChanged}"
+            SelectionChanged="ComboBox_CheckCanSave"/>
       </StackPanel>
 
       <StackPanel
@@ -173,7 +181,8 @@
             Width="140"
             Margin="2.5,0,0,0"
             ItemsSource="{Binding ModifierValues}"
-            SelectedItem="{Binding EditableMonster.StrengthMod}" />
+            SelectedItem="{Binding EditableMonster.StrengthMod, UpdateSourceTrigger=PropertyChanged}"
+            SelectionChanged="ComboBox_CheckCanSave"/>
       </StackPanel>
 
       <StackPanel
@@ -189,7 +198,8 @@
             Width="140"
             Margin="2.5,0,0,0"
             ItemsSource="{Binding SkillValues}"
-            SelectedItem="{Binding EditableMonster.Dexterity}" />
+            SelectedItem="{Binding EditableMonster.Dexterity, UpdateSourceTrigger=PropertyChanged}"
+            SelectionChanged="ComboBox_CheckCanSave"/>
       </StackPanel>
 
       <StackPanel
@@ -205,7 +215,8 @@
             Width="140"
             Margin="2.5,0,0,0"
             ItemsSource="{Binding ModifierValues}"
-            SelectedItem="{Binding EditableMonster.DexterityMod}" />
+            SelectedItem="{Binding EditableMonster.DexterityMod, UpdateSourceTrigger=PropertyChanged}"
+            SelectionChanged="ComboBox_CheckCanSave"/>
       </StackPanel>
 
       <StackPanel
@@ -221,7 +232,8 @@
             Width="140"
             Margin="2.5,0,0,0"
             ItemsSource="{Binding SkillValues}"
-            SelectedItem="{Binding EditableMonster.Constitution}" />
+            SelectedItem="{Binding EditableMonster.Constitution, UpdateSourceTrigger=PropertyChanged}"
+            SelectionChanged="ComboBox_CheckCanSave"/>
       </StackPanel>
 
       <StackPanel
@@ -237,7 +249,8 @@
             Width="140"
             Margin="2.5,0,0,0"
             ItemsSource="{Binding ModifierValues}"
-            SelectedItem="{Binding EditableMonster.ConstitutionMod}" />
+            SelectedItem="{Binding EditableMonster.ConstitutionMod, UpdateSourceTrigger=PropertyChanged}"
+            SelectionChanged="ComboBox_CheckCanSave"/>
       </StackPanel>
 
 
@@ -254,7 +267,8 @@
               Width="140"
               Margin="2.5,0,0,0"
               ItemsSource="{Binding SkillValues}"
-              SelectedItem="{Binding EditableMonster.Intelligence}" />
+              SelectedItem="{Binding EditableMonster.Intelligence, UpdateSourceTrigger=PropertyChanged}"
+            SelectionChanged="ComboBox_CheckCanSave"/>
       </StackPanel>
 
       <StackPanel
@@ -270,7 +284,8 @@
                 Width="140"
                 Margin="2.5,0,0,0"
                 ItemsSource="{Binding ModifierValues}"
-                SelectedItem="{Binding EditableMonster.IntelligenceMod}" />
+                SelectedItem="{Binding EditableMonster.IntelligenceMod, UpdateSourceTrigger=PropertyChanged}"
+            SelectionChanged="ComboBox_CheckCanSave"/>
       </StackPanel>
 
       <StackPanel
@@ -286,7 +301,8 @@
                 Width="140"
                 Margin="2.5,0,0,0"
                 ItemsSource="{Binding SkillValues}"
-                SelectedItem="{Binding EditableMonster.Wisdom}" />
+                SelectedItem="{Binding EditableMonster.Wisdom, UpdateSourceTrigger=PropertyChanged}"
+            SelectionChanged="ComboBox_CheckCanSave"/>
       </StackPanel>
 
       <StackPanel
@@ -302,7 +318,8 @@
                 Width="140"
                 Margin="2.5,0,0,0"
                 ItemsSource="{Binding ModifierValues}"
-                SelectedItem="{Binding EditableMonster.WisdomMod}" />
+                SelectedItem="{Binding EditableMonster.WisdomMod, UpdateSourceTrigger=PropertyChanged}"
+            SelectionChanged="ComboBox_CheckCanSave"/>
       </StackPanel>
 
       <StackPanel
@@ -318,7 +335,8 @@
                 Width="140"
                 Margin="2.5,0,0,0"
                 ItemsSource="{Binding SkillValues}"
-                SelectedItem="{Binding EditableMonster.Charisma}" />
+                SelectedItem="{Binding EditableMonster.Charisma, UpdateSourceTrigger=PropertyChanged}"
+            SelectionChanged="ComboBox_CheckCanSave"/>
       </StackPanel>
 
       <StackPanel
@@ -334,7 +352,8 @@
                 Width="140"
                 Margin="2.5,0,0,0"
                 ItemsSource="{Binding ModifierValues}"
-                SelectedItem="{Binding EditableMonster.CharismaMod}" />
+                SelectedItem="{Binding EditableMonster.CharismaMod, UpdateSourceTrigger=PropertyChanged}"
+            SelectionChanged="ComboBox_CheckCanSave"/>
       </StackPanel>
 
       <StackPanel
@@ -368,77 +387,88 @@
               Grid.Column="0"
               Margin="24,2,0,0"
               Content="Artic"
-              IsChecked="{Binding EditableMonster.IsArctic}"/>
+              IsChecked="{Binding EditableMonster.IsArctic}"
+              Command="{Binding CheckCanSave}"/>
           <CheckBox
               x:Name="Coastal"
               Grid.Row="1"
               Grid.Column="0"
               Margin="24,2,0,0"
               Content="Coastal"
-              IsChecked="{Binding EditableMonster.IsCoastal}"/>
+              IsChecked="{Binding EditableMonster.IsCoastal}"
+              Command="{Binding CheckCanSave}"/>
           <CheckBox
               x:Name="Desert"
               Grid.Row="2"
               Grid.Column="0"
               Margin="24,2,0,0"
               Content="Desert"
-              IsChecked="{Binding EditableMonster.IsDesert}"/>
+              IsChecked="{Binding EditableMonster.IsDesert}"
+              Command="{Binding CheckCanSave}"/>
           <CheckBox
               x:Name="Forest"
               Grid.Row="3"
               Grid.Column="0"
               Margin="24,2,0,0"
               Content="Forest"
-              IsChecked="{Binding EditableMonster.IsForest}"/>
+              IsChecked="{Binding EditableMonster.IsForest}"
+              Command="{Binding CheckCanSave}"/>
           <CheckBox
               x:Name="Grassland"
               Grid.Row="4"
               Grid.Column="0"
               Margin="24,2,0,0"
               Content="Grassland"
-              IsChecked="{Binding EditableMonster.IsGrassland}"/>
+              IsChecked="{Binding EditableMonster.IsGrassland}"
+              Command="{Binding CheckCanSave}"/>
           <CheckBox
               x:Name="Hill"
               Grid.Row="5"
               Grid.Column="0"
               Margin="24,2,0,0"
               Content="Hill"
-              IsChecked="{Binding EditableMonster.IsHill}"/>
+              IsChecked="{Binding EditableMonster.IsHill}"
+              Command="{Binding CheckCanSave}"/>
           <CheckBox
               x:Name="Mountain"
               Grid.Row="0"
               Grid.Column="1"
               Margin="24,2,0,0"
               Content="Mountain"
-              IsChecked="{Binding EditableMonster.IsMountain}"/>
+              IsChecked="{Binding EditableMonster.IsMountain}"
+              Command="{Binding CheckCanSave}"/>
           <CheckBox
               x:Name="Swamp"
               Grid.Row="1"
               Grid.Column="1"
               Margin="24,2,0,0"
               Content="Swamp"
-              IsChecked="{Binding EditableMonster.IsSwamp}"/>
+              IsChecked="{Binding EditableMonster.IsSwamp}"
+              Command="{Binding CheckCanSave}"/>
           <CheckBox
               x:Name="Underdark"
               Grid.Row="2"
               Grid.Column="1"
               Margin="24,2,0,0"
               Content="Underdark"
-              IsChecked="{Binding EditableMonster.IsUnderdark}"/>
+              IsChecked="{Binding EditableMonster.IsUnderdark}"
+              Command="{Binding CheckCanSave}"/>
           <CheckBox
               x:Name="Underwater"
               Grid.Row="3"
               Grid.Column="1"
               Margin="24,2,0,0"
               Content="Underwater"
-              IsChecked="{Binding EditableMonster.IsUnderwater}"/>
+              IsChecked="{Binding EditableMonster.IsUnderwater}"
+              Command="{Binding CheckCanSave}"/>
           <CheckBox
               x:Name="Urban"
               Grid.Row="4"
               Grid.Column="1"
               Margin="24,2,0,0"
               Content="Urban"
-              IsChecked="{Binding EditableMonster.IsUrban}"/>
+              IsChecked="{Binding EditableMonster.IsUrban}"
+              Command="{Binding CheckCanSave}"/>
         </Grid>
       </StackPanel>
 
@@ -451,7 +481,7 @@
           Click="Button_Click"
           Content="Save Monster"
           IsEnabled="{Binding CanSave}"
-          Command="{Binding UpdateEnvironments}"/>
+          Command="{Binding SaveMonster}"/>
 
     </Grid>
   </Border>

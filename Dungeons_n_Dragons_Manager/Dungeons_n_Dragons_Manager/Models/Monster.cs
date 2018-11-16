@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace Dungeons_n_Dragons_Manager.Models
@@ -59,20 +60,8 @@ namespace Dungeons_n_Dragons_Manager.Models
             HitPointsDice = values[17];
             HitPoints = Int32.Parse(values[18]);
 
-            Environments = new List<string>();
             if (values[19] == "All") //All environments except Underwater
             {
-                Environments.Add("Arctic");
-                Environments.Add("Coastal");
-                Environments.Add("Desert");
-                Environments.Add("Forest");
-                Environments.Add("Grassland");
-                Environments.Add("Hill");
-                Environments.Add("Mountain");
-                Environments.Add("Swamp");
-                Environments.Add("Underdark");
-                Environments.Add("Urban");
-
                 IsArctic = true;
                 IsCoastal = true;
                 IsDesert = true;
@@ -86,7 +75,6 @@ namespace Dungeons_n_Dragons_Manager.Models
             }
             else
             {
-                Environments = values[19].Split(',').OfType<string>().ToList(); //Parse string of enviroments
                 foreach(string environment in values[19].Split(','))
                 {
                     if (environment == "Arctic")           IsArctic = true;
@@ -164,9 +152,27 @@ namespace Dungeons_n_Dragons_Manager.Models
         public bool IsCustom { get; set; }
 
         /// <summary>
-        /// Represents the enviroments of the monster.
+        /// List representing the monster's environments.
         /// </summary>
-        public List<string> Environments { get; set; }
+        public List<string> Environments
+        {
+            get
+            {
+                List<string> enviroments = new List<string>();
+                if (IsArctic) enviroments.Add("Arctic");
+                if (IsCoastal) enviroments.Add("Coastal");
+                if (IsDesert) enviroments.Add("Desert");
+                if (IsForest) enviroments.Add("Forest");
+                if (IsGrassland) enviroments.Add("Grassland");
+                if (IsHill) enviroments.Add("Hill");
+                if (IsMountain) enviroments.Add("Mountain");
+                if (IsSwamp) enviroments.Add("Swamp");
+                if (IsUnderdark) enviroments.Add("Underdark");
+                if (IsUnderwater) enviroments.Add("Underwater");
+                if (IsUrban) enviroments.Add("Urban");
+                return enviroments;
+            }
+        }
 
         #region Environment Bools
 
@@ -368,14 +374,31 @@ namespace Dungeons_n_Dragons_Manager.Models
             if (IsUrban)       environments += "Urban" + c;
             if (!string.IsNullOrWhiteSpace(environments) && environments.EndsWith(","))
             {
-                environments.TrimEnd(',');
+                environments = environments.TrimEnd(',');
             }
             environments += sc;
             stringRep += environments;
 
-            stringRep += sc + IsCustom.ToString();
+            stringRep +=  IsCustom.ToString();
 
             return stringRep;
+        }
+
+        public bool Equals(Monster monster)
+        {
+            PropertyInfo[] properties = new Monster().GetType().GetProperties();
+
+            foreach (PropertyInfo property in properties)
+            {
+                Object value1 = new Monster().GetType().GetProperty(property.Name).GetValue(this);
+                Object value2 = new Monster().GetType().GetProperty(property.Name).GetValue(monster);
+                if (value1.ToString() != value2.ToString())
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         #endregion Functions

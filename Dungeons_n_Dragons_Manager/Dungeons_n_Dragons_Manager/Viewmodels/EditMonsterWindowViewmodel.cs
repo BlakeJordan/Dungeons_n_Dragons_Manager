@@ -86,41 +86,16 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-        ///// <summary>
-        ///// Private backing to store the currently selected monster in the combobox.
-        ///// </summary>
-        //private string m_selectedStrength;
-
-        ///// <summary>
-        ///// Public facing accessor to m_selectedMonster.
-        ///// </summary>
-        //public string SelectedStrength
-        //{
-        //    get
-        //    {
-        //        if (m_selectedStrength == null)
-        //        {
-        //            int temp = EditedMonster.Strength;
-        //            string temp2 = temp.ToString();
-        //            foreach (string entry in SkillValues)
-        //            {
-        //                if(entry == temp2)
-        //                {
-        //                    m_selectedStrength = entry;
-        //                }
-        //            }
-        //        }
-        //        return m_selectedStrength;
-        //    }
-        //    set
-        //    {
-        //        if (value != m_selectedStrength)
-        //        {
-        //            m_selectedStrength = value;
-        //            OnPropertyRaised(nameof(SelectedStrength));
-        //        }
-        //    }
-        //}
+        /// <summary>
+        /// Bool that determines if the user can save.
+        /// </summary>
+        public bool CanSave
+        {
+            get
+            {
+                return SelectedMonster.Equals(EditableMonster) == false;
+            }
+        }
 
         #region ComboBox Sources
 
@@ -146,82 +121,39 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         #endregion
 
-        #region Environment Bools
-
-        /// <summary>
-        /// Boolean for if the artic environment is checked.
-        /// </summary>
-        public bool IsArctic { get; set; }
-
-        /// <summary>
-        /// Boolean for if the coastal environment is checked.
-        /// </summary>
-        public bool IsCoastal { get; set; }
-
-        /// <summary>
-        /// Boolean for if the Desert environment is checked.
-        /// </summary>
-        public bool IsDesert { get; set; }
-
-        /// <summary>
-        /// Boolean for if the forest environment is checked.
-        /// </summary>
-        public bool IsForest { get; set; }
-
-        /// <summary>
-        /// Boolean for if the grassland environment is checked.
-        /// </summary>
-        public bool IsGrassland { get; set; }
-
-        /// <summary>
-        /// Boolean for if the hill environment is checked.
-        /// </summary>
-        public bool IsHill { get; set; }
-
-        /// <summary>
-        /// Boolean for if the mountain environment is checked.
-        /// </summary>
-        public bool IsMountain { get; set; }
-
-        /// <summary>
-        /// Boolean for if the swamp environment is checked.
-        /// </summary>
-        public bool IsSwamp { get; set; }
-
-        /// <summary>
-        /// Boolean for if the underdark environment is checked.
-        /// </summary>
-        public bool IsUnderdark { get; set; }
-
-        /// <summary>
-        /// Boolean for if the underwater environment is checked.
-        /// </summary>
-        public bool IsUnderwater { get; set; }
-
-        /// <summary>
-        /// Boolean for if the urban environment is checked.
-        /// </summary>
-        public bool IsUrban { get; set; }
-
-        #endregion
-
         #endregion
 
         #region Commands
 
         /// <summary>
-        /// Command binded to the "Save Monster" button which calls UpdateEnvironment
+        /// Command binded to the "Save Monster" button which calls saveMonster.
         /// </summary>
-        private ICommand m_UpdateEnvironments;
+        private ICommand m_saveMonster;
 
         /// <summary>
-        /// Public facing accessor to m_chooseRandomEncounter.
+        /// Public facing accessor to m_saveMonster.
         /// </summary>
-        public ICommand UpdateEnvironments
+        public ICommand SaveMonster
         {
             get
             {
-                return m_UpdateEnvironments ?? (m_UpdateEnvironments = new CommandHandler(() => updateEnvironments(), true));
+                return m_saveMonster ?? (m_saveMonster = new CommandHandler(() => saveMonster(), true));
+            }
+        }
+
+        /// <summary>
+        /// Command binded to the "Save Monster" button which calls saveMonster.
+        /// </summary>
+        private ICommand m_checkCanSave;
+
+        /// <summary>
+        /// Public facing accessor to m_saveMonster.
+        /// </summary>
+        public ICommand CheckCanSave
+        {
+            get
+            {
+                return m_checkCanSave ?? (m_checkCanSave = new CommandHandler(() => checkCanSave(), true));
             }
         }
 
@@ -236,61 +168,50 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         ///
         /// Post: The monster's list has all environments selected.
         /// </summary>
-        public void updateEnvironments()
+        private void saveMonster()
         {
-            //EditedMonster.Environments = new List<string>();
-            //if(IsArctic)
-            //{
-            //    EditedMonster.Environments.Add("Arctic");
-            //}
-            //if(IsCoastal)
-            //{
-            //    EditedMonster.Environments.Add("Coastal");
-            //}
-            //if(IsDesert)
-            //{
-            //    EditedMonster.Environments.Add("Desert");
-            //}
-            //if(IsForest)
-            //{
-            //    EditedMonster.Environments.Add("Forest");
-            //}
-            //if(IsGrassland)
-            //{
-            //    EditedMonster.Environments.Add("Grassland");
-            //}
-            //if(IsHill)
-            //{
-            //    EditedMonster.Environments.Add("Hill");
-            //}
-            //if(IsMountain)
-            //{
-            //    EditedMonster.Environments.Add("Mountain");
-            //}
-            //if(IsSwamp)
-            //{
-            //    EditedMonster.Environments.Add("Swamp");
-            //}
-            //if(IsUnderdark)
-            //{
-            //    EditedMonster.Environments.Add("Underdark");
-            //}
-            //if(IsUnderwater)
-            //{
-            //    EditedMonster.Environments.Add("Underwater");
-            //}
-            //if(IsUrban)
-            //{
-            //    EditedMonster.Environments.Add("Urban");
-            //}
+            if (!CanSave) return; //Redundancy check.
+
+            //Generate list of outdated custom monsters by parsing settings.
+            List<string> customMonsters = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            List<Monster> listOfCustomMonsters = new List<Monster>();
+            foreach (string entry in customMonsters)
+            {
+                string[] values = entry.Split(';');
+                listOfCustomMonsters.Add(new Monster(values));
+            }
+
+            //Remove outdated monster.
+            listOfCustomMonsters.RemoveAll(x => x.Name == SelectedMonster.Name);
+
+            //Add new monster.
+            listOfCustomMonsters.Add(EditableMonster);
+
+            //Clear custom monsters settings string.
+            Properties.Settings.Default.CustomMonsters = string.Empty;
+
+            //Reconstruct string from updated list.
+            foreach (Monster entry in listOfCustomMonsters)
+            {
+                Properties.Settings.Default.CustomMonsters += entry.ToString() + System.Environment.NewLine;
+            }
+            Properties.Settings.Default.Save();
         }
 
         /// <summary>
-        /// Populates the dropdown menus for the armor type options
+        /// Reevaluates CanSave.
+        /// </summary>
+        private void checkCanSave()
+        {
+            OnPropertyRaised(nameof(CanSave));
+        }
+
+        /// <summary>
+        /// Populates the lists that are bound to  UI comboBoxes.
         ///
         /// Pre: None
         ///
-        /// Post: The dropdown menus contain selectable armor type
+        /// Post: The dropdown menus contain data.
         /// </summary>
         private void populateDropdowns()
         {
@@ -310,6 +231,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 string[] values = entry.Split(';');
                 CustomMonsters.Add(new Monster(values));
             }
+
+            CustomMonsters = new ObservableCollection<Monster>(CustomMonsters.OrderBy(o => o.Name));
 
             #endregion
         }

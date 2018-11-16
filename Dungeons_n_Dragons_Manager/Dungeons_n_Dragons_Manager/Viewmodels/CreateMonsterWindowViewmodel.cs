@@ -207,66 +207,66 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             //newMonster.Name = Name;
 
             int Count = 0;
-            newMonster.Environments = new List<string>();
-            if(IsArctic)
-            {
-                newMonster.Environments.Add("Arctic");
-                Count++;
-            }
-            if(IsCoastal)
-            {
-                newMonster.Environments.Add("Coastal");
-                Count++;
-            }
-            if(IsDesert)
-            {
-                newMonster.Environments.Add("Desert");
-                Count++;
-            }
-            if(IsForest)
-            {
-                newMonster.Environments.Add("Forest");
-                Count++;
-            }
-            if(IsGrassland)
-            {
-                newMonster.Environments.Add("Grassland");
-                Count++;
-            }
-            if(IsHill)
-            {
-                newMonster.Environments.Add("Hill");
-                Count++;
-            }
-            if(IsMountain)
-            {
-                newMonster.Environments.Add("Mountain");
-                Count++;
-            }
-            if(IsSwamp)
-            {
-                newMonster.Environments.Add("Swamp");
-                Count++;
-            }
-            if(IsUnderdark)
-            {
-                newMonster.Environments.Add("Underdark");
-                Count++;
-            }
-            if(IsUnderwater)
-            {
-                newMonster.Environments.Add("Underwater");
-                Count++;
-            }
-            if (IsUrban)
-            {
-                newMonster.Environments.Add("Urban");
-                Count++;
-            }
-            if(Count == 0)
-            {
+            //newMonster.Environments = new List<string>();
+            //if(IsArctic)
+            //{
+            //    newMonster.Environments.Add("Arctic");
+            //    Count++;
+            //}
+            //if(IsCoastal)
+            //{
+            //    newMonster.Environments.Add("Coastal");
+            //    Count++;
+            //}
+            //if(IsDesert)
+            //{
+            //    newMonster.Environments.Add("Desert");
+            //    Count++;
+            //}
+            //if(IsForest)
+            //{
+            //    newMonster.Environments.Add("Forest");
+            //    Count++;
+            //}
+            //if(IsGrassland)
+            //{
+            //    newMonster.Environments.Add("Grassland");
+            //    Count++;
+            //}
+            //if(IsHill)
+            //{
+            //    newMonster.Environments.Add("Hill");
+            //    Count++;
+            //}
+            //if(IsMountain)
+            //{
+            //    newMonster.Environments.Add("Mountain");
+            //    Count++;
+            //}
+            //if(IsSwamp)
+            //{
+            //    newMonster.Environments.Add("Swamp");
+            //    Count++;
+            //}
+            //if(IsUnderdark)
+            //{
+            //    newMonster.Environments.Add("Underdark");
+            //    Count++;
+            //}
+            //if(IsUnderwater)
+            //{
+            //    newMonster.Environments.Add("Underwater");
+            //    Count++;
+            //}
+            //if (IsUrban)
+            //{
+            //    newMonster.Environments.Add("Urban");
+            //    Count++;
+            //}
+            //if(Count == 0)
+            //{
                 
-            }
+            //}
 
         }
 
