@@ -243,14 +243,14 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         private void createNewMonster()
         {
-            Monster newMonster = new Monster(); //Create blank monster.
-            CreateMonsterWindow createMonsterWindow = new CreateMonsterWindow(ref newMonster); //Pass monster to window by reference to be modified.
+            //Monster newMonster = new Monster(); //Create blank monster.
+            CreateMonsterWindow createMonsterWindow = new CreateMonsterWindow(); //ref newMonster //Pass monster to window by reference to be modified.
             createMonsterWindow.ShowDialog(); //Open window instance until closed.
-            if (createMonsterWindow.SaveMonster)
-            {
-                Properties.Settings.Default.CustomMonsters += newMonster.ToString() + System.Environment.NewLine;
-                Properties.Settings.Default.Save();
-            }
+            //if (createMonsterWindow.SaveMonster)
+            //{
+            //    Properties.Settings.Default.CustomMonsters += newMonster.ToString() + System.Environment.NewLine;
+            //    Properties.Settings.Default.Save();
+            //}
             parseMonstersResource();
         }
 
