@@ -35,10 +35,10 @@
                 HorizontalAlignment="Center">
                 <TextBlock
                     Width="140"
-                    HorizontalAlignment="Center"
                     FontSize="14"
                     FontWeight="DemiBold"
-                    Text="Monster Name" />
+                    Text="Name"
+                    TextAlignment="Center" />
                 <TextBox
                     Width="140"
                     Text="{Binding EditableMonster.Name, UpdateSourceTrigger=PropertyChanged}"
@@ -341,18 +341,13 @@
                     SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
-            <StackPanel
-                Grid.Row="8"
+            <GroupBox
+                Grid.Row="6"
+                Grid.RowSpan="3"
                 Grid.Column="2"
-                Width="271"
-                Margin="2.5,-80,0,0"
-                HorizontalAlignment="Center">
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    FontSize="14"
-                    FontWeight="DemiBold"
-                    Text="Environments" />
-                <Grid Margin="0.2,0.2,0.2,175.8">
+                Header="Environments">
+
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -366,6 +361,7 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
+
                     <CheckBox
                         x:Name="Artic"
                         Grid.Row="0"
@@ -374,6 +370,7 @@
                         Command="{Binding CheckCanSave}"
                         Content="Artic"
                         IsChecked="{Binding EditableMonster.IsArctic}" />
+
                     <CheckBox
                         x:Name="Coastal"
                         Grid.Row="1"
@@ -382,6 +379,7 @@
                         Command="{Binding CheckCanSave}"
                         Content="Coastal"
                         IsChecked="{Binding EditableMonster.IsCoastal}" />
+
                     <CheckBox
                         x:Name="Desert"
                         Grid.Row="2"
@@ -390,6 +388,7 @@
                         Command="{Binding CheckCanSave}"
                         Content="Desert"
                         IsChecked="{Binding EditableMonster.IsDesert}" />
+
                     <CheckBox
                         x:Name="Forest"
                         Grid.Row="3"
@@ -398,6 +397,7 @@
                         Command="{Binding CheckCanSave}"
                         Content="Forest"
                         IsChecked="{Binding EditableMonster.IsForest}" />
+
                     <CheckBox
                         x:Name="Grassland"
                         Grid.Row="4"
@@ -406,6 +406,7 @@
                         Command="{Binding CheckCanSave}"
                         Content="Grassland"
                         IsChecked="{Binding EditableMonster.IsGrassland}" />
+
                     <CheckBox
                         x:Name="Hill"
                         Grid.Row="5"
@@ -414,6 +415,7 @@
                         Command="{Binding CheckCanSave}"
                         Content="Hill"
                         IsChecked="{Binding EditableMonster.IsHill}" />
+
                     <CheckBox
                         x:Name="Mountain"
                         Grid.Row="0"
@@ -422,6 +424,7 @@
                         Command="{Binding CheckCanSave}"
                         Content="Mountain"
                         IsChecked="{Binding EditableMonster.IsMountain}" />
+
                     <CheckBox
                         x:Name="Swamp"
                         Grid.Row="1"
@@ -430,6 +433,7 @@
                         Command="{Binding CheckCanSave}"
                         Content="Swamp"
                         IsChecked="{Binding EditableMonster.IsSwamp}" />
+
                     <CheckBox
                         x:Name="Underdark"
                         Grid.Row="2"
@@ -438,6 +442,7 @@
                         Command="{Binding CheckCanSave}"
                         Content="Underdark"
                         IsChecked="{Binding EditableMonster.IsUnderdark}" />
+
                     <CheckBox
                         x:Name="Underwater"
                         Grid.Row="3"
@@ -446,6 +451,7 @@
                         Command="{Binding CheckCanSave}"
                         Content="Underwater"
                         IsChecked="{Binding EditableMonster.IsUnderwater}" />
+
                     <CheckBox
                         x:Name="Urban"
                         Grid.Row="4"
@@ -455,7 +461,8 @@
                         Content="Urban"
                         IsChecked="{Binding EditableMonster.IsUrban}" />
                 </Grid>
-            </StackPanel>
+
+            </GroupBox>
 
             <Button
                 Grid.Row="9"
@@ -465,7 +472,7 @@
                 Margin="0,0,0,10"
                 Click="Button_Click"
                 Command="{Binding SaveMonster}"
-                Content="Save Monster"
+                Content="Create Monster"
                 IsEnabled="{Binding CanSave, UpdateSourceTrigger=PropertyChanged}" />
         </Grid>
     </Border>

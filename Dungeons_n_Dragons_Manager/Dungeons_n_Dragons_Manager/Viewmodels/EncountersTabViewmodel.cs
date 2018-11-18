@@ -25,38 +25,10 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         public EncountersTabViewmodel()
         {
             //Properties.Settings.Default.Reset();                                              //Uncomment to delete current settings!
-
             parseMonstersResource();
-            Environments = Properties.Resources.Environments.Split(';').ToList();
-            SelectedEnvironment = Environments[0];
         }
 
         #region Properties
-
-        private ObservableCollection<Monster> m_monsters;
-
-        /// <summary>
-        /// ObservableCollection of Monsters which is bound to a combobox.
-        /// </summary>
-        public ObservableCollection<Monster> Monsters
-        {
-            get
-            {
-                if (m_monsters == null)
-                {
-                    m_monsters = new ObservableCollection<Monster>();
-                }
-                return m_monsters;
-            }
-            set
-            {
-                if (m_monsters != value)
-                {
-                    m_monsters = value;
-                    OnPropertyRaised(nameof(Monsters));
-                }
-            }
-        }
 
         /// <summary>
         /// Private backing to store the currently selected monster in the combobox.
@@ -86,27 +58,85 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-        /// <summary>
-        /// List of environments that are bound to a combobox.
-        /// </summary>
-        public List<string> Environments { get; set; }
 
         /// <summary>
         /// Stores the currently selected environment.
         /// </summary>
-        public string SelectedEnvironment { get; set; }
+        private string m_selectedEnvironment;
+
+        /// <summary>
+        /// Public accessor for m_selectedEnvironment.
+        /// </summary>
+        public string SelectedEnvironment
+        {
+            get
+            {
+                if (m_selectedEnvironment == null)
+                {
+                    m_selectedEnvironment = Environments[0];
+                }
+                return m_selectedEnvironment;
+            }
+            set
+            {
+                if (m_selectedEnvironment != value)
+                {
+                    m_selectedEnvironment = value;
+                    OnPropertyRaised(nameof(SelectedEnvironment));
+                }
+            }
+        }
+
+        #region ComboBox Sources
+
+        /// <summary>
+        /// ObservableCollection of Monsters which is bound to a combobox.
+        /// </summary>
+        private ObservableCollection<Monster> m_monsters;
+
+        /// <summary>
+        /// Public accessor for m_monsters.
+        /// </summary>
+        public ObservableCollection<Monster> Monsters
+        {
+            get
+            {
+                if (m_monsters == null)
+                {
+                    m_monsters = new ObservableCollection<Monster>();
+                }
+                return m_monsters;
+            }
+            set
+            {
+                if (m_monsters != value)
+                {
+                    m_monsters = value;
+                    if (m_monsters.Count != 0)
+                    {
+                        SelectedMonster = Monsters[0];
+                    }
+                    OnPropertyRaised(nameof(Monsters));
+                }
+            }
+        }
+
+        /// <summary>
+        /// List of environments that are bound to a combobox.
+        /// </summary>
+        public List<string> Environments
+        {
+            get
+            {
+                return Properties.Resources.Environments.Split(';').ToList();
+            }
+        }
+
+        #endregion
 
         #endregion Properties
 
         #region Commands
-
-        /// <summary>
-        /// Boolean which determines if ChooseRandomEncounter can be executed.
-        /// </summary>
-        private bool m_canChooseRandomEncounter
-        {
-            get { return true; } //Add check to see if characters are created later.
-        }
 
         /// <summary>
         /// Command binded to the "Random Encounter" button which calls chooseRandomEncounter if m_canChooseRandomEncounter is true.
@@ -120,16 +150,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get
             {
-                return m_chooseRandomEncounter ?? (m_chooseRandomEncounter = new CommandHandler(() => chooseRandomEncounter(), m_canChooseRandomEncounter));
+                return m_chooseRandomEncounter ?? (m_chooseRandomEncounter = new CommandHandler(() => chooseRandomEncounter(), true));
             }
-        }
-
-        /// <summary>
-        /// Boolean which determines if CreateMonster can be executed.
-        /// </summary>
-        private bool m_canCreateMonster
-        {
-            get { return true; }
         }
 
         /// <summary>
@@ -144,16 +166,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get
             {
-                return m_createMonster ?? (m_createMonster = new CommandHandler(() => createNewMonster(), m_canCreateMonster));
+                return m_createMonster ?? (m_createMonster = new CommandHandler(() => createNewMonster(), true));
             }
-        }
-
-        /// <summary>
-        /// Boolean which determines if EditMonsters can be executed.
-        /// </summary>
-        private bool m_canEditMonsters
-        {
-            get { return true; }
         }
 
         /// <summary>
@@ -168,7 +182,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get
             {
-                return m_editMonsters ?? (m_editMonsters = new CommandHandler(() => editMonsters(), m_canEditMonsters));
+                return m_editMonsters ?? (m_editMonsters = new CommandHandler(() => editMonsters(), true));
             }
         }
 
@@ -186,7 +200,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private void parseMonstersResource()
         {
             List<Monster> listOfMonsters = new List<Monster>(); //Temp list to store monsters
-            List<Monster> listOfCustomMonsters = new List<Monster>(); //Temp list to store custom monsters
             List<string> defaultMonsters = Properties.Resources.Monsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             List<string> customMonsters = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             defaultMonsters.RemoveAt(0); //Remove data header
@@ -201,14 +214,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 {
                     string[] values = entry.Split(';');
                     listOfMonsters.Add(new Monster(values));
-                    listOfCustomMonsters.Add(new Monster(values));
                 }
             }
             Monsters = new ObservableCollection<Monster>(listOfMonsters.OrderBy(o => o.Name).ToList()); //Sort list by name and create observable collection
-            if (Monsters.Count != 0)
-            {
-                SelectedMonster = Monsters[0];
-            }
         }
 
         /// <summary>
@@ -243,14 +251,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         private void createNewMonster()
         {
-            //Monster newMonster = new Monster(); //Create blank monster.
-            CreateMonsterWindow createMonsterWindow = new CreateMonsterWindow(); //ref newMonster //Pass monster to window by reference to be modified.
+            CreateMonsterWindow createMonsterWindow = new CreateMonsterWindow();
             createMonsterWindow.ShowDialog(); //Open window instance until closed.
-            //if (createMonsterWindow.SaveMonster)
-            //{
-            //    Properties.Settings.Default.CustomMonsters += newMonster.ToString() + System.Environment.NewLine;
-            //    Properties.Settings.Default.Save();
-            //}
             parseMonstersResource();
         }
 
