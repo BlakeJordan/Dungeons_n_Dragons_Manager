@@ -116,9 +116,9 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Strength" />
-                <ComboBox 
-                    Width="140" 
-                    Margin="2.5,0,0,0" 
+                <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
                     SelectedItem="{Binding newCharacter.Strength}" />
             </StackPanel>
@@ -132,9 +132,9 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Dexterity" />
-                <ComboBox 
-                    Width="140" 
-                    Margin="2.5,0,0,0" 
+                <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
                     SelectedItem="{Binding newCharacter.Dexterity}" />
             </StackPanel>
@@ -148,9 +148,9 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Constitution" />
-                <ComboBox 
-                    Width="140" 
-                    Margin="2.5,0,0,0" 
+                <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
                     SelectedItem="{Binding newCharacter.Constitution}" />
             </StackPanel>
@@ -164,9 +164,9 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Intelligence" />
-                <ComboBox 
-                    Width="140" 
-                    Margin="2.5,0,0,0" 
+                <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
                     SelectedItem="{Binding newCharacter.Intelligence}" />
             </StackPanel>
@@ -180,9 +180,9 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Wisdom" />
-                <ComboBox 
-                    Width="140" 
-                    Margin="2.5,0,0,0" 
+                <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
                     SelectedItem="{Binding newCharacter.Wisdom}" />
             </StackPanel>
@@ -196,9 +196,9 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Charisma" />
-                <ComboBox 
-                    Width="140" 
-                    Margin="2.5,0,0,0" 
+                <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
                     SelectedItem="{Binding newCharacter.Charisma}" />
             </StackPanel>

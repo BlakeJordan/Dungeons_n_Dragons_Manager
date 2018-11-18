@@ -31,7 +31,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             SelectedEnvironment = Environments[0];
         }
 
-        #region Members
+        #region Properties
 
         private ObservableCollection<Monster> m_monsters;
 
@@ -96,8 +96,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public string SelectedEnvironment { get; set; }
 
-
-        #endregion Members
+        #endregion Properties
 
         #region Commands
 
@@ -130,7 +129,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         private bool m_canCreateMonster
         {
-            get { return true; } //Add check to see if characters are created later.
+            get { return true; }
         }
 
         /// <summary>
@@ -149,6 +148,30 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        /// <summary>
+        /// Boolean which determines if EditMonsters can be executed.
+        /// </summary>
+        private bool m_canEditMonsters
+        {
+            get { return true; }
+        }
+
+        /// <summary>
+        /// Command binded to the "edit monsters" button which calls editMonsters if m_canEditMonsters is true.
+        /// </summary>
+        private ICommand m_editMonsters;
+
+        /// <summary>
+        /// Public facing accessor to m_editMonsters.
+        /// </summary>
+        public ICommand EditMonsters
+        {
+            get
+            {
+                return m_editMonsters ?? (m_editMonsters = new CommandHandler(() => editMonsters(), m_canEditMonsters));
+            }
+        }
+
         #endregion Commands
 
         #region Functions
@@ -163,6 +186,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private void parseMonstersResource()
         {
             List<Monster> listOfMonsters = new List<Monster>(); //Temp list to store monsters
+            List<Monster> listOfCustomMonsters = new List<Monster>(); //Temp list to store custom monsters
             List<string> defaultMonsters = Properties.Resources.Monsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             List<string> customMonsters = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             defaultMonsters.RemoveAt(0); //Remove data header
@@ -177,9 +201,14 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 {
                     string[] values = entry.Split(';');
                     listOfMonsters.Add(new Monster(values));
+                    listOfCustomMonsters.Add(new Monster(values));
                 }
             }
-            Monsters = new ObservableCollection<Monster>( listOfMonsters.OrderBy(o => o.Name).ToList() ); //Sort list by name and create observable collection
+            Monsters = new ObservableCollection<Monster>(listOfMonsters.OrderBy(o => o.Name).ToList()); //Sort list by name and create observable collection
+            if (Monsters.Count != 0)
+            {
+                SelectedMonster = Monsters[0];
+            }
         }
 
         /// <summary>
@@ -191,31 +220,52 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         private void chooseRandomEncounter()
         {
+            List<Monster> filteredMonsters = new List<Monster>();
+            foreach (Monster monster in Monsters)
+            {
+                Object obj = new Monster().GetType().GetProperty("Is" + SelectedEnvironment).GetValue(monster);
+                if (obj is bool && (bool)obj == true)
+                {
+                    filteredMonsters.Add(monster);
+                }
+            }
+
             Random randomNumberGenerator = new Random();
-            List<Monster> filteredMonsters = Monsters.Where(o => o.Environments.Contains(SelectedEnvironment) == true).ToList();
             SelectedMonster = filteredMonsters[randomNumberGenerator.Next(0, filteredMonsters.Count - 1)]; //Chooses random index
         }
 
         /// <summary>
-        /// Creates a new character and passes it by reference to an instance of CreateCharacterWindow to be edited.
+        /// Creates a new monster and passes it by reference to an instance of CreateMonsterWindow to be edited.
         ///
-        /// Pre: "Create Character" button has been clicked.
+        /// Pre: "Create Monster" button has been clicked.
         ///
-        /// Post: A new character has been created.
+        /// Post: A new monster has been created.
         /// </summary>
-        public void createNewMonster()
+        private void createNewMonster()
         {
-            Monster newMonster = new Monster(); //Create blank character.
-            CreateMonsterWindow createMonsterWindow = new CreateMonsterWindow(ref newMonster); //Pass character to window by reference to be modified.
+            //Monster newMonster = new Monster(); //Create blank monster.
+            CreateMonsterWindow createMonsterWindow = new CreateMonsterWindow(); //ref newMonster //Pass monster to window by reference to be modified.
             createMonsterWindow.ShowDialog(); //Open window instance until closed.
-            if (createMonsterWindow.SaveMonster)
-            {
-                string temp = newMonster.ToString();
+            //if (createMonsterWindow.SaveMonster)
+            //{
+            //    Properties.Settings.Default.CustomMonsters += newMonster.ToString() + System.Environment.NewLine;
+            //    Properties.Settings.Default.Save();
+            //}
+            parseMonstersResource();
+        }
 
-                Properties.Settings.Default.CustomMonsters += newMonster.ToString() + System.Environment.NewLine;
-                Properties.Settings.Default.Save();
-                parseMonstersResource();
-            }
+        /// <summary>
+        /// creates a edit monster window where you can edit the custom monsters you have created.
+        ///
+        /// Pre: "Edit Monsters" button has been clicked.
+        ///
+        /// Post: The edits made to any monsters are updated.
+        /// </summary>
+        private void editMonsters()
+        {
+            EditMonstersWindow editMonstersWindow = new EditMonstersWindow();
+            editMonstersWindow.ShowDialog();
+            parseMonstersResource();
         }
 
         #endregion Functions

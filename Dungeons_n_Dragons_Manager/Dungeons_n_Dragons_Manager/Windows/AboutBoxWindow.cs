@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Dungeons_n_Dragons_Manager.Windows
@@ -29,10 +24,10 @@ namespace Dungeons_n_Dragons_Manager.Windows
             get
             {
                 object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
-                if(attributes.Length > 0)
+                if (attributes.Length > 0)
                 {
                     AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributes[0];
-                    if(titleAttribute.Title != "")
+                    if (titleAttribute.Title != "")
                     {
                         return titleAttribute.Title;
                     }
@@ -100,6 +95,7 @@ namespace Dungeons_n_Dragons_Manager.Windows
                 return ((AssemblyCompanyAttribute)attributes[0]).Company;
             }
         }
-        #endregion
+
+        #endregion Assembly Attribute Accessors
     }
 }
