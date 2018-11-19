@@ -82,6 +82,18 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        /// <summary>
+        /// Bool that determines if the user can edit any monsters. This requires that the user has created a monster already.
+        /// </summary>
+        public bool CanEdit
+        {
+            get
+            {
+                if (Properties.Settings.Default.CustomMonstersList == null || Properties.Settings.Default.CustomMonstersList.Count == 0) return false;
+                else return true;
+            }
+        }
+
         #region ComboBox Sources
 
         /// <summary>
@@ -272,6 +284,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             CreateMonsterWindow createMonsterWindow = new CreateMonsterWindow();
             createMonsterWindow.ShowDialog(); //Open window instance until closed.
+            OnPropertyRaised(nameof(CanEdit)); 
             parseMonstersResource();
         }
 
