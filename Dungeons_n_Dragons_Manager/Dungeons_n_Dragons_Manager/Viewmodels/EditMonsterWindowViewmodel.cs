@@ -92,7 +92,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get
             {
-                return SelectedMonster.Equals(EditableMonster) == false;
+                if (SelectedMonster != null) return SelectedMonster.Equals(EditableMonster) == false;
+                return false;
             }
         }
 
@@ -101,7 +102,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// <summary>
         /// A collection of the currently saved monsters.
         /// </summary>
-        public ObservableCollection<Monster> CustomMonsters { get; set; }
+        public List<Monster> CustomMonsters { get; set; }
 
         /// <summary>
         /// The monster's options for armor
@@ -171,30 +172,33 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             if (!CanSave) return; //Redundancy check.
 
-            //Generate list of outdated custom monsters by parsing settings.
-            List<string> customMonsters = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            List<Monster> listOfCustomMonsters = new List<Monster>();
-            foreach (string entry in customMonsters)
-            {
-                string[] values = entry.Split(';');
-                listOfCustomMonsters.Add(new Monster(values));
-            }
+            Properties.Settings.Default.CustomMonstersList.Remove(SelectedMonster);
+            Properties.Settings.Default.CustomMonstersList.Add(EditableMonster);
 
-            //Remove outdated monster.
-            listOfCustomMonsters.RemoveAll(x => x.Name == SelectedMonster.Name);
+            ////Generate list of outdated custom monsters by parsing settings.
+            //List<string> customMonsters = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            //List<Monster> listOfCustomMonsters = new List<Monster>();
+            //foreach (string entry in customMonsters)
+            //{
+            //    string[] values = entry.Split(';');
+            //    listOfCustomMonsters.Add(new Monster(values));
+            //}
 
-            //Add new monster.
-            listOfCustomMonsters.Add(EditableMonster);
+            ////Remove outdated monster.
+            //listOfCustomMonsters.RemoveAll(x => x.Name == SelectedMonster.Name);
 
-            //Clear custom monsters settings string.
-            Properties.Settings.Default.CustomMonsters = string.Empty;
+            ////Add new monster.
+            //listOfCustomMonsters.Add(EditableMonster);
 
-            //Reconstruct string from updated list.
-            foreach (Monster entry in listOfCustomMonsters)
-            {
-                Properties.Settings.Default.CustomMonsters += entry.ToString() + System.Environment.NewLine;
-            }
-            Properties.Settings.Default.Save();
+            ////Clear custom monsters settings string.
+            //Properties.Settings.Default.CustomMonsters = string.Empty;
+
+            ////Reconstruct string from updated list.
+            //foreach (Monster entry in listOfCustomMonsters)
+            //{
+            //    Properties.Settings.Default.CustomMonsters += entry.ToString() + System.Environment.NewLine;
+            //}
+            //Properties.Settings.Default.Save();
         }
 
         /// <summary>
@@ -217,25 +221,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             SkillValues = Enumerable.Range(1, 30).ToList();
             ModifierValues = Enumerable.Range(-5, 16).ToList();
-
-            #region Custom Monsters
-
-            CustomMonsters = new ObservableCollection<Monster>();
-
-            //Generate list of custom monster by parsing settings
-            List<string> customMonsterStrings = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
-
-            foreach (string entry in customMonsterStrings)
-            {
-                string[] values = entry.Split(';');
-                CustomMonsters.Add(new Monster(values));
-            }
-
-            CustomMonsters = new ObservableCollection<Monster>(CustomMonsters.OrderBy(o => o.Name));
-
-            #endregion Custom Monsters
+            CustomMonsters = Properties.Settings.Default.CustomMonstersList;
         }
-
         #endregion Functions
 
         #region Interfaces
