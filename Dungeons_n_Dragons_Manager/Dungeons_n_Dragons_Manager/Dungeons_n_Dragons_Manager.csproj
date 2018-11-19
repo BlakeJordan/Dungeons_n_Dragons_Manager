@@ -77,6 +77,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Test Suite\TestSuite.cs" />
+    <Compile Include="Test Suite\Tests\EncountersTabTests.cs" />
+    <Compile Include="Test Suite\Tests\MonsterTests.cs" />
     <Compile Include="Tools\BrowserBehavior.cs" />
     <Compile Include="Viewmodels\EditMonsterWindowViewmodel.cs" />
     <Compile Include="Windows\EditMonstersWindow.xaml.cs">
@@ -87,9 +90,6 @@
     </Compile>
     <Compile Include="Windows\AboutBoxWindow.Designer.cs">
       <DependentUpon>AboutBoxWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\UserManualWindow.xaml.cs">
-      <DependentUpon>UserManualWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Controls\CharactersTabControl.xaml">
       <SubType>Designer</SubType>
@@ -168,10 +168,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Windows\UserManualWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -222,29 +218,38 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\d4.png" />
+    <Resource Include="Assets\Dice Images\d4.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\d10.png" />
+    <Resource Include="Assets\Dice Images\d10.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\d12.png" />
+    <Resource Include="Assets\Dice Images\d12.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\d100.png" />
+    <Resource Include="Assets\Dice Images\d100.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\d4alt.png" />
-    <Resource Include="Assets\d6alt.png" />
-    <Resource Include="Assets\d8alt.png" />
-    <Resource Include="Assets\d10alt.png" />
-    <Resource Include="Assets\d100alt.png" />
-    <Resource Include="Assets\d12alt.png" />
-    <Resource Include="Assets\d20alt.png" />
-    <Resource Include="Assets\d6.png" />
-    <Resource Include="Assets\d8.png" />
-    <Resource Include="Assets\d20.png" />
-    <Content Include="Assets\UserManual.html">
+    <Resource Include="Test Suite\TestingOutput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Dice Images\d4alt.png" />
+    <Resource Include="Assets\Dice Images\d6alt.png" />
+    <Resource Include="Assets\Dice Images\d8alt.png" />
+    <Resource Include="Assets\Dice Images\d10alt.png" />
+    <Resource Include="Assets\Dice Images\d100alt.png" />
+    <Resource Include="Assets\Dice Images\d12alt.png" />
+    <Resource Include="Assets\Dice Images\d20alt.png" />
+    <Resource Include="Assets\Dice Images\d6.png" />
+    <Resource Include="Assets\Dice Images\d8.png" />
+    <Resource Include="Assets\Dice Images\d20.png" />
+    <Content Include="Assets\UserManual\Styles\bulma.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\UserManual\Styles\debug.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\UserManual\UserManual.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

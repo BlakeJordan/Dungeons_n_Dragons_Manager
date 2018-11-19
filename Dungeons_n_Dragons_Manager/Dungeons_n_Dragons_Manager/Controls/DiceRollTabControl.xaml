@@ -37,10 +37,10 @@
                     Command="{Binding ClickD4}">
                     <Button.Resources>
                         <DataTemplate x:Key="Unpressed">
-                            <Image Source="../Assets/d4.png" />
+                            <Image Source="../Assets/Dice Images/d4.png" />
                         </DataTemplate>
                         <DataTemplate x:Key="Pressed">
-                            <Image Source="../Assets/d4alt.png" />
+                            <Image Source="../Assets/Dice Images//d4alt.png" />
                         </DataTemplate>
                     </Button.Resources>
 
@@ -67,10 +67,10 @@
                     Command="{Binding ClickD6}">
                     <Button.Resources>
                         <DataTemplate x:Key="Unpressed">
-                            <Image Source="../Assets/d6.png" />
+                            <Image Source="../Assets/Dice Images/d6.png" />
                         </DataTemplate>
                         <DataTemplate x:Key="Pressed">
-                            <Image Source="../Assets/d6alt.png" />
+                            <Image Source="../Assets/Dice Images/d6alt.png" />
                         </DataTemplate>
                     </Button.Resources>
 
@@ -97,10 +97,10 @@
                     Command="{Binding ClickD8}">
                     <Button.Resources>
                         <DataTemplate x:Key="Unpressed">
-                            <Image Source="../Assets/d8.png" />
+                            <Image Source="../Assets/Dice Images/d8.png" />
                         </DataTemplate>
                         <DataTemplate x:Key="Pressed">
-                            <Image Source="../Assets/d8alt.png" />
+                            <Image Source="../Assets/Dice Images/d8alt.png" />
                         </DataTemplate>
                     </Button.Resources>
 
@@ -127,10 +127,10 @@
                     Command="{Binding ClickD10}">
                     <Button.Resources>
                         <DataTemplate x:Key="Unpressed">
-                            <Image Source="../Assets/d10.png" />
+                            <Image Source="../Assets/Dice Images/d10.png" />
                         </DataTemplate>
                         <DataTemplate x:Key="Pressed">
-                            <Image Source="../Assets/d10alt.png" />
+                            <Image Source="../Assets/Dice Images/d10alt.png" />
                         </DataTemplate>
                     </Button.Resources>
 
@@ -157,10 +157,10 @@
                     Command="{Binding ClickD12}">
                     <Button.Resources>
                         <DataTemplate x:Key="Unpressed">
-                            <Image Source="../Assets/d12.png" />
+                            <Image Source="../Assets/Dice Images/d12.png" />
                         </DataTemplate>
                         <DataTemplate x:Key="Pressed">
-                            <Image Source="../Assets/d12alt.png" />
+                            <Image Source="../Assets/Dice Images/d12alt.png" />
                         </DataTemplate>
                     </Button.Resources>
 
@@ -187,10 +187,10 @@
                     Command="{Binding ClickD20}">
                     <Button.Resources>
                         <DataTemplate x:Key="Unpressed">
-                            <Image Source="../Assets/d20.png" />
+                            <Image Source="../Assets/Dice Images/d20.png" />
                         </DataTemplate>
                         <DataTemplate x:Key="Pressed">
-                            <Image Source="../Assets/d20alt.png" />
+                            <Image Source="../Assets/Dice Images/d20alt.png" />
                         </DataTemplate>
                     </Button.Resources>
 
@@ -217,10 +217,10 @@
                     Command="{Binding ClickD100}">
                     <Button.Resources>
                         <DataTemplate x:Key="Unpressed">
-                            <Image Source="../Assets/d100.png" />
+                            <Image Source="../Assets/Dice Images/d100.png" />
                         </DataTemplate>
                         <DataTemplate x:Key="Pressed">
-                            <Image Source="../Assets/d100alt.png" />
+                            <Image Source="../Assets/Dice Images/d100alt.png" />
                         </DataTemplate>
                     </Button.Resources>
 

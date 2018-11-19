@@ -1,5 +1,8 @@
-﻿using Dungeons_n_Dragons_Manager.Tools;
+﻿using Dungeons_n_Dragons_Manager.Test_Suite;
+using Dungeons_n_Dragons_Manager.Tools;
 using Dungeons_n_Dragons_Manager.Windows;
+using System.Collections.Generic;
+using System.IO;
 using System.Windows.Input;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
@@ -9,60 +12,45 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
     /// </summary>
     public class MainWindowViewmodel
     {
-        #region Sub Viewmodels
-
         /// <summary>
-        /// Viewmodel for the Dice Roll Tab.
+        /// Constructor for the MainWindowViewmodel.
+        /// 
+        /// Pre: None.
+        /// 
+        /// Post: Sub-Viewmodels have been intialized.
         /// </summary>
-        private DiceRollTabViewmodel m_diceRollTabViewmodel = new DiceRollTabViewmodel();
-
-        /// <summary>
-        /// Public accessor for m_diceRollTabViewmodel.
-        /// </summary>
-        public DiceRollTabViewmodel DiceRollTabViewmodel
+        public MainWindowViewmodel()
         {
-            get { return m_diceRollTabViewmodel; }
+            DiceRollTabViewmodel = new DiceRollTabViewmodel();
+            CharactersTabViewmodel = new CharactersTabViewmodel();
+            EncountersTabViewmodel = new EncountersTabViewmodel();
+            MusicPlayerTabViewmodel = new MusicPlayerTabViewmodel();
+
+            TestSuite test = new TestSuite();
+            List<string> test2 = test.RunAllTests();
         }
 
-        /// <summary>
-        /// Viewmodel for the Characters Tab.
-        /// </summary>
-        private CharactersTabViewmodel m_charactersTabViewmodel = new CharactersTabViewmodel();
+        #region Sub-Viewmodels
 
         /// <summary>
-        /// Public accessor for m_charactersTabViewmodel.
+        /// DataContext for the Dice Tab.
         /// </summary>
-        public CharactersTabViewmodel CharactersTabViewmodel
-        {
-            get { return m_charactersTabViewmodel; }
-        }
+        public DiceRollTabViewmodel DiceRollTabViewmodel { get; set; }
 
         /// <summary>
-        /// Viewmodel for the EncountersTab.
+        /// DataContext for the Characters Tab.
         /// </summary>
-        private EncountersTabViewmodel m_encountersTabViewmodel = new EncountersTabViewmodel();
+        public CharactersTabViewmodel CharactersTabViewmodel { get; set; }
 
         /// <summary>
-        /// Public accessor for m_encountersTabViewmodel.
+        /// DataContext for the Encounters Tab.
         /// </summary>
-        public EncountersTabViewmodel EncountersTabViewmodel
-        {
-            get { return m_encountersTabViewmodel; }
-        }
+        public EncountersTabViewmodel EncountersTabViewmodel { get; set; }
 
         /// <summary>
-        /// Viewmodel for the MusicPlayerTab.
+        /// DataContext for the Music Tab.
         /// </summary>
-        private MusicPlayerTabViewmodel m_MusicPlayerTabViewmodel = new MusicPlayerTabViewmodel();
-
-        /// <summary>
-        /// Public accessor for m_MusicPlayerTabViewmodel.
-        /// </summary>
-
-        public MusicPlayerTabViewmodel MusicPlayerTabViewmodel
-        {
-            get { return m_MusicPlayerTabViewmodel; }
-        }
+        public MusicPlayerTabViewmodel MusicPlayerTabViewmodel { get; set; }
 
         #endregion Sub Viewmodels
 
@@ -102,14 +90,18 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         #region Functions
 
         /// <summary>
-        /// Creates a UserManualWindow.S
+        /// Opens user manual in preferred web browser.
         /// </summary>
         private void openUserManual()
         {
-            UserManualWindow userManualWindow = new UserManualWindow();
-            userManualWindow.Show();
+            string currentDirectory = Directory.GetCurrentDirectory();
+            string userManualFilePath = currentDirectory + "\\Assets\\UserManual\\UserManual.html";
+            System.Diagnostics.Process.Start(userManualFilePath);
         }
 
+        /// <summary>
+        /// Creates and opens an about box.
+        /// </summary>
         private void openAboutBox()
         {
             AboutBoxWindow aboutBoxWindow = new AboutBoxWindow();

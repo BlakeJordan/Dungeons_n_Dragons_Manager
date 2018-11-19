@@ -186,7 +186,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         ///
         /// Post: CanSave has been reevaluated.
         /// </summary>
-        public void checkCanSave()
+        private void checkCanSave()
         {
             OnPropertyRaised(nameof(CanSave));
         }
