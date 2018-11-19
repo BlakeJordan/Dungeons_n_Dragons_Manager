@@ -23,7 +23,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="100" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Border
@@ -261,11 +261,24 @@
                 <TextBlock
                     x:Name="Result"
                     HorizontalAlignment="Center"
-                    Text="{Binding rolls}">
+                    Text="{Binding rolls}" TextWrapping="Wrap">
                     <TextBlock.RenderTransform>
                         <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
                     </TextBlock.RenderTransform>
                 </TextBlock>
+            </Border>
+
+            <Border
+                Grid.Row="1"
+                Grid.Column="4"
+                Padding="2.5" 
+                >
+                <Button
+                    Height="25"
+                    Margin="18,50,5,10"
+                    Content="Clear Rolls"
+                    Command="{Binding Clear}">
+                </Button>
             </Border>
         </Grid>
     </Border>
