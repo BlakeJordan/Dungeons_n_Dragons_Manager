@@ -174,31 +174,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
             Properties.Settings.Default.CustomMonstersList.Remove(SelectedMonster);
             Properties.Settings.Default.CustomMonstersList.Add(EditableMonster);
-
-            ////Generate list of outdated custom monsters by parsing settings.
-            //List<string> customMonsters = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            //List<Monster> listOfCustomMonsters = new List<Monster>();
-            //foreach (string entry in customMonsters)
-            //{
-            //    string[] values = entry.Split(';');
-            //    listOfCustomMonsters.Add(new Monster(values));
-            //}
-
-            ////Remove outdated monster.
-            //listOfCustomMonsters.RemoveAll(x => x.Name == SelectedMonster.Name);
-
-            ////Add new monster.
-            //listOfCustomMonsters.Add(EditableMonster);
-
-            ////Clear custom monsters settings string.
-            //Properties.Settings.Default.CustomMonsters = string.Empty;
-
-            ////Reconstruct string from updated list.
-            //foreach (Monster entry in listOfCustomMonsters)
-            //{
-            //    Properties.Settings.Default.CustomMonsters += entry.ToString() + System.Environment.NewLine;
-            //}
-            //Properties.Settings.Default.Save();
+            Properties.Settings.Default.Save();
         }
 
         /// <summary>

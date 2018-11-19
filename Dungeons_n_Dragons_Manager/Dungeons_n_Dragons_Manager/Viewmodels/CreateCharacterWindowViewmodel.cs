@@ -49,8 +49,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         private List<Character> m_characters;
 
-        public bool IsProficiencyChecked { get; set; }
-
         #region ComboBox Sources
 
         /// <summary>
@@ -100,22 +98,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-        /// <summary>
-        /// Command binded to proficiency checkboxes which calls proficiencyCheck
-        /// </summary>
-        private ICommand m_ProficiencyCheck;
-
-        /// <summary>
-        /// Public facing accessor for m_ProficiencyCheck
-        /// </summary>
-        public ICommand ProficiencyCheck
-        {
-            get
-            {
-                return m_ProficiencyCheck ?? (m_ProficiencyCheck = new CommandHandler(() => SetProficiency(IsProficiencyChecked), true));
-            }
-        }
-
         #endregion
 
         #region Functions
@@ -126,21 +108,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private void checkCanSave()
         {
             OnPropertyRaised(nameof(CanSave));
-        }
-
-        /// <summary>
-        /// Checks if a proficiency can be added, then adds the proficiency to the character's proficiency list
-        /// </summary>
-        public void SetProficiency(bool canSetProficiency)
-        {
-            if (IsProficiencyChecked == true)
-            {
-                Console.WriteLine("ayyy");
-            }
-            else
-            {
-                Console.WriteLine("awww");
-            }
         }
 
         /// <summary>

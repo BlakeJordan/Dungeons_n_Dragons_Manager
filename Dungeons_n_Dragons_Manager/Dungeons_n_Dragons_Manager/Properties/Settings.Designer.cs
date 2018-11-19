@@ -128,5 +128,16 @@ namespace Dungeons_n_Dragons_Manager.Properties {
                 this["CustomCharactersList"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Generic.List<Dungeons_n_Dragons_Manager.Models.Monster> DefaultMonstersList {
+            get {
+                return ((global::System.Collections.Generic.List<Dungeons_n_Dragons_Manager.Models.Monster>)(this["DefaultMonstersList"]));
+            }
+            set {
+                this["DefaultMonstersList"] = value;
+            }
+        }
     }
 }
