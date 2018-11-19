@@ -20,7 +20,7 @@ namespace Dungeons_n_Dragons_Manager.Models
             HitPointsDice = string.Empty;
             ArmorClassType = string.Empty;
             StrengthMod = DexterityMod = ConstitutionMod = IntelligenceMod = WisdomMod = CharismaMod = -6;
-            ArmorClass = -1;
+            ArmorClass = ChallengeRating = -1;
         }
 
         /// <summary>

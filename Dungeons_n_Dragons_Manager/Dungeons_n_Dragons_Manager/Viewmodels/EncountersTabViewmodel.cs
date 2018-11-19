@@ -1,5 +1,4 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
-using Dungeons_n_Dragons_Manager.Test_Suite;
 using Dungeons_n_Dragons_Manager.Tools;
 using Dungeons_n_Dragons_Manager.Windows;
 using System;
@@ -23,11 +22,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         ///
         /// Post: Monsters is filled.
         /// </summary>
-        public EncountersTabViewmodel()
-        {
-            //Properties.Settings.Default.Reset();                                              //Uncomment to delete current settings!
-            parseMonstersResource();
-        }
+        public EncountersTabViewmodel() { }
 
         #region Properties
 
@@ -59,7 +54,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-
         /// <summary>
         /// Stores the currently selected environment.
         /// </summary>
@@ -88,6 +82,18 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        /// <summary>
+        /// Bool that determines if the user can edit any monsters. This requires that the user has created a monster already.
+        /// </summary>
+        public bool CanEdit
+        {
+            get
+            {
+                if (Properties.Settings.Default.CustomMonstersList == null || Properties.Settings.Default.CustomMonstersList.Count == 0) return false;
+                else return true;
+            }
+        }
+
         #region ComboBox Sources
 
         /// <summary>
@@ -105,6 +111,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 if (m_monsters == null)
                 {
                     m_monsters = new ObservableCollection<Monster>();
+                    parseMonstersResource();
                 }
                 return m_monsters;
             }
@@ -133,7 +140,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-        #endregion
+        #endregion ComboBox Sources
 
         #endregion Properties
 
@@ -201,22 +208,17 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private void parseMonstersResource()
         {
             List<Monster> listOfMonsters = new List<Monster>(); //Temp list to store monsters
-            List<string> defaultMonsters = Properties.Resources.Monsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            List<string> customMonsters = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            defaultMonsters.RemoveAt(0); //Remove data header
-            foreach (string entry in defaultMonsters)
+
+            if (Properties.Settings.Default.DefaultMonstersList != null)
             {
-                string[] values = entry.Split(';');
-                listOfMonsters.Add(new Monster(values));
-            }+
-            if (customMonsters.Count != 0)
-            {
-                foreach (string entry in customMonsters)
-                {
-                    string[] values = entry.Split(';');
-                    listOfMonsters.Add(new Monster(values));
-                }
+                listOfMonsters.AddRange(Properties.Settings.Default.DefaultMonstersList);
             }
+
+            if (Properties.Settings.Default.CustomMonstersList != null)
+            {
+                listOfMonsters.AddRange(Properties.Settings.Default.CustomMonstersList);
+            }
+
             Monsters = new ObservableCollection<Monster>(listOfMonsters.OrderBy(o => o.Name).ToList()); //Sort list by name and create observable collection
         }
 
@@ -230,17 +232,45 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private void chooseRandomEncounter()
         {
             List<Monster> filteredMonsters = new List<Monster>();
+
+            //Filter by Environment.
             foreach (Monster monster in Monsters)
             {
-                Object obj = new Monster().GetType().GetProperty("Is" + SelectedEnvironment).GetValue(monster);
-                if (obj is bool && (bool)obj == true)
+                if (monster.Environments.Contains(SelectedEnvironment))
                 {
                     filteredMonsters.Add(monster);
                 }
             }
 
+            //Filter by Combat Rating.
+            List<Character> characters = Properties.Settings.Default.CustomCharactersList;
+            if (characters != null && characters.Count != 0)
+            {
+                int averageCharacterLevel = 0;
+                foreach(Character character in characters)
+                {
+                    averageCharacterLevel += character.Level;
+                }
+                averageCharacterLevel = averageCharacterLevel / characters.Count;
+
+
+                List<Monster> environmentlyFilteredMonsters = filteredMonsters;
+                filteredMonsters = new List<Monster>();
+                foreach(Monster monster in environmentlyFilteredMonsters)
+                {
+                    if (monster.ChallengeRating <= averageCharacterLevel)
+                    {
+                        filteredMonsters.Add(monster);
+                    }
+                }
+            }
+
             Random randomNumberGenerator = new Random();
-            SelectedMonster = filteredMonsters[randomNumberGenerator.Next(0, filteredMonsters.Count - 1)]; //Chooses random index
+            Monster oldMonster = new Monster(SelectedMonster);
+            while (SelectedMonster.Equals(oldMonster)) //Ensure random monster is not equal to old monster.
+            {
+                SelectedMonster = filteredMonsters[randomNumberGenerator.Next(0, filteredMonsters.Count - 1)]; //Chooses random index
+            }
         }
 
         /// <summary>
@@ -254,6 +284,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             CreateMonsterWindow createMonsterWindow = new CreateMonsterWindow();
             createMonsterWindow.ShowDialog(); //Open window instance until closed.
+            OnPropertyRaised(nameof(CanEdit)); 
             parseMonstersResource();
         }
 

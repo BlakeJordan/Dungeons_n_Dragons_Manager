@@ -25,30 +25,6 @@ namespace Dungeons_n_Dragons_Manager.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string CustomMonsters {
-            get {
-                return ((string)(this["CustomMonsters"]));
-            }
-            set {
-                this["CustomMonsters"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string CustomCharacters {
-            get {
-                return ((string)(this["CustomCharacters"]));
-            }
-            set {
-                this["CustomCharacters"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double MainWindow_Top {
             get {
@@ -126,6 +102,17 @@ namespace Dungeons_n_Dragons_Manager.Properties {
             }
             set {
                 this["CustomCharactersList"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Generic.List<Dungeons_n_Dragons_Manager.Models.Monster> DefaultMonstersList {
+            get {
+                return ((global::System.Collections.Generic.List<Dungeons_n_Dragons_Manager.Models.Monster>)(this["DefaultMonstersList"]));
+            }
+            set {
+                this["DefaultMonstersList"] = value;
             }
         }
     }
