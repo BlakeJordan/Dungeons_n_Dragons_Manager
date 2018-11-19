@@ -119,7 +119,7 @@
                     Width="140"
                     Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding EditedCharacter.Strength}" />
+                    SelectedItem="{Binding EditedCharacter.Strength.score}" />
             </StackPanel>
 
             <StackPanel
@@ -135,7 +135,7 @@
                     Width="140"
                     Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding EditedCharacter.Dexterity}" />
+                    SelectedItem="{Binding EditedCharacter.Dexterity.score}" />
             </StackPanel>
 
             <StackPanel
@@ -151,7 +151,7 @@
                     Width="140"
                     Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding EditedCharacter.Constitution}" />
+                    SelectedItem="{Binding EditedCharacter.Constitution.score}" />
             </StackPanel>
 
             <StackPanel
@@ -167,7 +167,7 @@
                     Width="140"
                     Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding EditedCharacter.Intelligence}" />
+                    SelectedItem="{Binding EditedCharacter.Intelligence.score}" />
             </StackPanel>
 
             <StackPanel
@@ -183,7 +183,7 @@
                     Width="140"
                     Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding EditedCharacter.Wisdom}" />
+                    SelectedItem="{Binding EditedCharacter.Wisdom.score}" />
             </StackPanel>
 
             <StackPanel
@@ -199,7 +199,7 @@
                     Width="140"
                     Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding EditedCharacter.Charisma}" />
+                    SelectedItem="{Binding EditedCharacter.Charisma.score}" />
             </StackPanel>
 
             <StackPanel
@@ -237,126 +237,126 @@
                         Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Athletics"
-                        IsChecked="{Binding Path=EditedCharacter.Athletics}" />
+                        IsChecked="{Binding Path=EditedCharacter.Athletics.score}" />
                     <CheckBox
                         x:Name="Acrobatics"
                         Grid.Row="1"
                         Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Acrobatics"
-                        IsChecked="{Binding Path=EditedCharacter.Acrobatics}" />
+                        IsChecked="{Binding Path=EditedCharacter.Acrobatics.score}" />
                     <CheckBox
                         x:Name="SleightOfHand"
                         Grid.Row="2"
                         Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Sleight of Hand"
-                        IsChecked="{Binding Path=EditedCharacter.SleightOfHand}" />
+                        IsChecked="{Binding Path=EditedCharacter.SleightOfHand.score}" />
                     <CheckBox
                         x:Name="Stealth"
                         Grid.Row="3"
                         Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Stealth"
-                        IsChecked="{Binding Path=EditedCharacter.Stealth}" />
+                        IsChecked="{Binding Path=EditedCharacter.Stealth.score}" />
                     <CheckBox
                         x:Name="Arcana"
                         Grid.Row="4"
                         Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Arcana"
-                        IsChecked="{Binding Path=EditedCharacter.Arcana}" />
+                        IsChecked="{Binding Path=EditedCharacter.Arcana.score}" />
                     <CheckBox
                         x:Name="History"
                         Grid.Row="5"
                         Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="History"
-                        IsChecked="{Binding Path=EditedCharacter.History}" />
+                        IsChecked="{Binding Path=EditedCharacter.History.score}" />
                     <CheckBox
                         x:Name="Investigation"
                         Grid.Row="6"
                         Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Investigation"
-                        IsChecked="{Binding Path=EditedCharacter.Investigation}" />
+                        IsChecked="{Binding Path=EditedCharacter.Investigation.score}" />
                     <CheckBox
                         x:Name="Nature"
                         Grid.Row="7"
                         Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Nature"
-                        IsChecked="{Binding Path=EditedCharacter.Nature}" />
+                        IsChecked="{Binding Path=EditedCharacter.Nature.score}" />
                     <CheckBox
                         x:Name="Religion"
                         Grid.Row="8"
                         Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Religion"
-                        IsChecked="{Binding Path=EditedCharacter.Religion}" />
+                        IsChecked="{Binding Path=EditedCharacter.Religion.score}" />
                     <CheckBox
                         x:Name="AnimalHandling"
                         Grid.Row="0"
                         Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Animal Handling"
-                        IsChecked="{Binding Path=EditedCharacter.AnimalHandling}" />
+                        IsChecked="{Binding Path=EditedCharacter.AnimalHandling.score}" />
                     <CheckBox
                         x:Name="Insight"
                         Grid.Row="1"
                         Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Insight"
-                        IsChecked="{Binding Path=EditedCharacter.Insight}" />
+                        IsChecked="{Binding Path=EditedCharacter.Insight.score}" />
                     <CheckBox
                         x:Name="Medicine"
                         Grid.Row="2"
                         Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Medicine"
-                        IsChecked="{Binding Path=EditedCharacter.Medicine}" />
+                        IsChecked="{Binding Path=EditedCharacter.Medicine.score}" />
                     <CheckBox
                         x:Name="Perception"
                         Grid.Row="3"
                         Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Perception"
-                        IsChecked="{Binding Path=EditedCharacter.Perception}" />
+                        IsChecked="{Binding Path=EditedCharacter.Perception.score}" />
                     <CheckBox
                         x:Name="Survival"
                         Grid.Row="4"
                         Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Survival"
-                        IsChecked="{Binding Path=EditedCharacter.Survival}" />
+                        IsChecked="{Binding Path=EditedCharacter.Survival.score}" />
                     <CheckBox
                         x:Name="Deception"
                         Grid.Row="5"
                         Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Deception"
-                        IsChecked="{Binding Path=EditedCharacter.Deception}" />
+                        IsChecked="{Binding Path=EditedCharacter.Deception.score}" />
                     <CheckBox
                         x:Name="Intimidation"
                         Grid.Row="6"
                         Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Intimidation"
-                        IsChecked="{Binding Path=EditedCharacter.Intimidation}" />
+                        IsChecked="{Binding Path=EditedCharacter.Intimidation.score}" />
                     <CheckBox
                         x:Name="Performance"
                         Grid.Row="7"
                         Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Performance"
-                        IsChecked="{Binding Path=EditedCharacter.Performance}" />
+                        IsChecked="{Binding Path=EditedCharacter.Performance.score}" />
                     <CheckBox
                         x:Name="Persuasion"
                         Grid.Row="8"
                         Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Persuasion"
-                        IsChecked="{Binding Path=EditedCharacter.Persuasion}" />
+                        IsChecked="{Binding Path=EditedCharacter.Persuasion.score}" />
                 </Grid>
             </StackPanel>
 

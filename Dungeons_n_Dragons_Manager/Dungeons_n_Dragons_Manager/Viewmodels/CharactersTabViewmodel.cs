@@ -148,6 +148,12 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             Character EditedCharacter = SelectedCharacter; //Copy existing character.
             EditCharacterWindow editCharacterWindow = new EditCharacterWindow(ref EditedCharacter); //Pass character to window by reference to be modified.
             editCharacterWindow.ShowDialog(); //Open window instance until closed.
+            if (editCharacterWindow.SaveCharacter)
+            {
+                EditedCharacter.CalculateStats();
+                EditedCharacter.SetProficiency();
+                EditedCharacter.CalculateSkills();
+            }
         }
 
         #endregion Functions

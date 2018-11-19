@@ -1,6 +1,7 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
@@ -8,7 +9,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
     /// <summary>
     /// Viewmodel for the edit character window
     /// </summary>
-    public class EditCharacterWindowViewModel
+    public class EditCharacterWindowViewModel : INotifyPropertyChanged
     {
         /// <summary>
         /// Constructor for the edit character viewmodel
