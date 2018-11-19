@@ -243,6 +243,17 @@
     <Resource Include="Assets\Dice Images\d6.png" />
     <Resource Include="Assets\Dice Images\d8.png" />
     <Resource Include="Assets\Dice Images\d20.png" />
+    <Content Include="Assets\Music\129_Weirder_Things_2.mp3" />
+    <Content Include="Assets\Music\132_Open_Ocean.mp3" />
+    <Content Include="Assets\Music\138_Desert_Winds.mp3" />
+    <Content Include="Assets\Music\149_Lakeside_Camp.mp3" />
+    <Content Include="Assets\Music\31_Frozen_Wastes.mp3" />
+    <Content Include="Assets\Music\36_Down_by_the_Sea.mp3" />
+    <Content Include="Assets\Music\5_Desert_Bazaar.mp3" />
+    <Content Include="Assets\Music\65_Dungeon_I.mp3" />
+    <Content Include="Assets\Music\75_Docks_District.mp3" />
+    <Content Include="Assets\Music\7_The_Desert_Awaits.mp3" />
+    <Content Include="Assets\Music\96_Windswept_Plains_b.mp3" />
     <Content Include="Assets\UserManual\Styles\bulma.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -264,7 +275,6 @@
     <Content Include="Assets\Music\147_Graveyard.mp3" />
     <Content Include="Assets\Music\148_Barovian_Castle.mp3" />
     <Content Include="Assets\Music\153_Secret_Garden.mp3" />
-    <Content Include="Assets\Music\154_Artists_Garret.mp3" />
     <Content Include="Assets\Music\27_Xingu_Nights.mp3" />
     <Content Include="Assets\Music\35_Swamplandia.mp3" />
     <Content Include="Assets\Music\3_The_March_of_the_Faithful.mp3" />
