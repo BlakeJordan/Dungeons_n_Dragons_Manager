@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
@@ -97,6 +98,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        public Action CloseAction { get; set; }
+
         #region ComboBox Sources
 
         /// <summary>
@@ -144,6 +147,22 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// <summary>
         /// Command binded to the "Save Monster" button which calls saveMonster.
         /// </summary>
+        private ICommand m_deleteMonster;
+
+        /// <summary>
+        /// Public facing accessor to m_saveMonster.
+        /// </summary>
+        public ICommand DeleteMonster
+        {
+            get
+            {
+                return m_deleteMonster ?? (m_deleteMonster = new CommandHandler(() => deleteMonster(), true));
+            }
+        }
+
+        /// <summary>
+        /// Command binded to the "Save Monster" button which calls saveMonster.
+        /// </summary>
         private ICommand m_checkCanSave;
 
         /// <summary>
@@ -156,6 +175,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 return m_checkCanSave ?? (m_checkCanSave = new CommandHandler(() => checkCanSave(), true));
             }
         }
+
 
         #endregion Commands
 
@@ -176,6 +196,30 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             Properties.Settings.Default.CustomMonstersList.Add(EditableMonster);
             Properties.Settings.Default.Save();
         }
+
+        /// <summary>
+        /// deletes the monster from the custom monster list.
+        ///
+        /// Pre: monster has been created
+        ///
+        /// Post: The monster's list has been updated with the selected monster removed.
+        /// </summary>
+        private void deleteMonster()
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this monster?",
+            "Confirmation", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                Properties.Settings.Default.CustomMonstersList.Remove(SelectedMonster);
+                Properties.Settings.Default.Save();
+                CloseAction();
+            }
+            else
+            {
+                
+            }
+        }
+
 
         /// <summary>
         /// Reevaluates CanSave.

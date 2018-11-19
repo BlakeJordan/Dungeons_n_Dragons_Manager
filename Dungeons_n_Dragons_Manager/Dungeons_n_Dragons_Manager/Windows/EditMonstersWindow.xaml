@@ -27,6 +27,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="0" Grid.Column="1">
@@ -477,6 +478,18 @@
                 Command="{Binding SaveMonster}"
                 Content="Save Monster"
                 IsEnabled="{Binding CanSave, UpdateSourceTrigger=PropertyChanged}" />
+            
+          
+            <Button
+                Grid.Row="10"
+                Grid.Column="1"
+                Width="140"
+                Height="25"
+                Margin="0,0,0,10"
+                Click="Delete_Button_Click"
+                Command="{Binding DeleteMonster}"
+                CommandParameter="{Binding ElementName=EditMonstersWindow}"
+                Content="Delete Monster" />
         </Grid>
     </Border>
 </Window>

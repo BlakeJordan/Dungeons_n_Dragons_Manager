@@ -274,7 +274,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             EditMonstersWindow editMonstersWindow = new EditMonstersWindow();
             editMonstersWindow.ShowDialog();
+            OnPropertyRaised(nameof(CanEdit));
             parseMonstersResource();
+
         }
 
         #endregion Functions
