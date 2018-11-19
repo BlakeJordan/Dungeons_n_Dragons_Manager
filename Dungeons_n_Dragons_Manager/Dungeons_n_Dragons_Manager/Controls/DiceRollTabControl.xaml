@@ -23,7 +23,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="100" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Border
@@ -222,7 +222,6 @@
                 Grid.Column="3"
                 Padding="2.5"
                 >
-
                 <TextBlock x:Name="Title" Text="Roll:"  Margin="18, 50, 5, 10">
                     <TextBlock.RenderTransform>
                         <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
@@ -236,13 +235,24 @@
                 Grid.Column="3"
                 Padding="2.5"
                 VerticalAlignment="Top">
-
-                <TextBlock x:Name="Result" Text="{Binding rolls}"  HorizontalAlignment="Center">
+                <TextBlock x:Name="Result" Text="{Binding rolls}"  HorizontalAlignment="Center" TextWrapping="Wrap">
                     <TextBlock.RenderTransform>
-                        <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
+                        
+                            <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
+                        
                     </TextBlock.RenderTransform>
                 </TextBlock>
             </Border>
+
+            <Border
+                Grid.Row="1"
+                Grid.Column="4"
+                Padding="2.5"
+                >
+                <Button Height="25" Content="Clear Rolls" Command="{Binding Clear}" Margin="18, 50, 5, 10">
+                </Button>
+            </Border>
+         
         </Grid>
     </Border>
 </UserControl>
