@@ -23,8 +23,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         public CreateCharacterWindowViewmodel()
         {
             NewCharacter = new Character();
-            NewCharacter.Medicine = true;
-            NewCharacter.Name = "test";
             populateDropdowns();
         }
 
