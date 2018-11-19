@@ -61,6 +61,7 @@
                         Width="76.5"
                         Margin="1.25,2.5,0,0"
                         Command="{Binding EditMonsters}"
+                        IsEnabled="{Binding CanEdit, UpdateSourceTrigger=PropertyChanged}"
                         Content=" Edit " />
                 </StackPanel>
             </StackPanel>
