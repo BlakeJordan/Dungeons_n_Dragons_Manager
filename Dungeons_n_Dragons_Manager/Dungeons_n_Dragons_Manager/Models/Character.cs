@@ -10,10 +10,12 @@ namespace Dungeons_n_Dragons_Manager.Models
     public class Character
     {
         #region Properties
+
         /// <summary>
         /// A collection of the charcter's attributes
         /// </summary>
         public ObservableCollection<Attribute> Attributes { get; set; }
+
         public ObservableCollection<Skill> Skills { get; set; }
         public Attribute Strength { get; set; }
         public Attribute Constitution { get; set; }
@@ -183,11 +185,12 @@ namespace Dungeons_n_Dragons_Manager.Models
         public int ProficiencyBonus { get; set; }
 
         #endregion Properties
+
         /// <summary>
         /// Constructs a new, blank character
         /// </summary>
         public Character()
-        { 
+        {
             Attributes = new ObservableCollection<Attribute>();
             Strength = new Attribute();
             Constitution = new Attribute();
@@ -243,7 +246,7 @@ namespace Dungeons_n_Dragons_Manager.Models
 
         public void CalculateStats()
         {
-            foreach(Attribute stat in Attributes)
+            foreach (Attribute stat in Attributes)
             {
                 if (stat.score < 2)
                 {
@@ -285,7 +288,8 @@ namespace Dungeons_n_Dragons_Manager.Models
                     stat.modifier = 2;
                     stat.save = 2;
                 }
-                else if (stat.score < 18) {
+                else if (stat.score < 18)
+                {
                     stat.modifier = 3;
                     stat.save = 3;
                 }
@@ -340,7 +344,6 @@ namespace Dungeons_n_Dragons_Manager.Models
             }
         }
 
-
         /// <summary>
         /// Holds all the stats for a certain character attribute
         /// </summary>
@@ -350,10 +353,12 @@ namespace Dungeons_n_Dragons_Manager.Models
             /// Represents the score for a certain attribute, which modifies the save and modifier scores for that attribute
             /// </summary>
             public int score { get; set; }
+
             /// <summary>
             /// The chance a character can use this skill to escape danger
             /// </summary>
             public int save { get; set; }
+
             /// <summary>
             /// The chance a character will succeed in performing tasks related to the attribute
             /// </summary>
@@ -369,18 +374,22 @@ namespace Dungeons_n_Dragons_Manager.Models
             /// Indicates whether or not the character is proficient with this skill
             /// </summary>
             public bool isProficient { get; set; }
+
             /// <summary>
             /// Represents the modifier for the skill
             /// </summary>
             public int skillMod { get; set; }
+
             /// <summary>
             /// Represents the attribute this skill pertains to
             /// </summary>
             public string SkillAttribute { get; set; }
+
             /// <summary>
             /// The total score for the skill
             /// </summary>
             public int score { get; set; }
+
             /// <summary>
             /// Constructor for the skill class
             /// </summary>

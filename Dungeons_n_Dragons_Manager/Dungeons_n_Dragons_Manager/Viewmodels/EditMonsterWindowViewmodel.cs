@@ -2,7 +2,6 @@
 using Dungeons_n_Dragons_Manager.Tools;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
@@ -199,6 +198,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             ModifierValues = Enumerable.Range(-5, 16).ToList();
             CustomMonsters = Properties.Settings.Default.CustomMonstersList;
         }
+
         #endregion Functions
 
         #region Interfaces

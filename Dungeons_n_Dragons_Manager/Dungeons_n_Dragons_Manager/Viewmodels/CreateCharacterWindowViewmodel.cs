@@ -76,9 +76,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public List<int> Levels { get; set; }
 
-        #endregion
+        #endregion ComboBox Sources
 
-        #endregion
+        #endregion Properties
 
         #region Commands
 
@@ -98,7 +98,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-        #endregion
+        #endregion Commands
 
         #region Functions
 
@@ -126,7 +126,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             Levels = Enumerable.Range(1, 30).ToList();
         }
 
-        #endregion
+        #endregion Functions
 
         #region Interfaces
 

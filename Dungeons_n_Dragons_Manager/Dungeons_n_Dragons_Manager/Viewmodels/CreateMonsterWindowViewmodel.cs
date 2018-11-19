@@ -47,12 +47,17 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                                                 EditableMonster.IsUnderdark || EditableMonster.IsUnderwater || EditableMonster.IsUrban;
 
                 //Modifers picked logic.
-                bool modifersNotPicked = EditableMonster.StrengthMod == -6     || EditableMonster.DexterityMod == -6 || EditableMonster.ConstitutionMod == -6 ||
-                                          EditableMonster.IntelligenceMod == -6 || EditableMonster.WisdomMod == -6    || EditableMonster.CharismaMod == -6;
+                bool modifersNotPicked = EditableMonster.StrengthMod == -6 || EditableMonster.DexterityMod == -6 || EditableMonster.ConstitutionMod == -6 ||
+                                          EditableMonster.IntelligenceMod == -6 || EditableMonster.WisdomMod == -6 || EditableMonster.CharismaMod == -6;
 
                 bool statsNotPicked = EditableMonster.Strength == 0 || EditableMonster.Dexterity == 0 || EditableMonster.Constitution == 0 ||
                                       EditableMonster.Intelligence == 0 || EditableMonster.Wisdom == 0 || EditableMonster.Charisma == 0;
 
+                bool challengeXpOrHPnotPicked = EditableMonster.ChallengeXP == 0 || EditableMonster.HitPoints == 0;
+
+                bool hitPointsDiceNotPicked = string.IsNullOrWhiteSpace(EditableMonster.HitPointsDice);
+
+                bool armorClassTypeNotPicked = string.IsNullOrWhiteSpace(EditableMonster.ArmorClassType);
 
                 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 //Blank & duplicate name check.
@@ -68,7 +73,11 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 }
 
                 //ArmorClassType, modifers, and stats picked check.
-                else if (string.IsNullOrWhiteSpace(EditableMonster.ArmorClassType) || modifersNotPicked || statsNotPicked)
+                else if (modifersNotPicked || statsNotPicked || challengeXpOrHPnotPicked)
+                {
+                    return false;
+                }
+                else if (hitPointsDiceNotPicked || armorClassTypeNotPicked)
                 {
                     return false;
                 }
@@ -115,6 +124,58 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         private List<Monster> m_customMonsters;
 
+        /// <summary>
+        /// Buffer binding for Monster.HitPoints.
+        /// </summary>
+        private string m_hitPointsString;
+
+        /// <summary>
+        /// Public accessor for m_hitPointsString.
+        /// </summary>
+        public string HitPointsString
+        {
+            get { return m_hitPointsString; }
+            set
+            {
+                if (m_hitPointsString != value)
+                {
+                    m_hitPointsString = value;
+                    OnPropertyRaised(nameof(HitPointsString));
+                    if (!string.IsNullOrWhiteSpace(m_hitPointsString))
+                    {
+                        EditableMonster.HitPoints = Int32.Parse(m_hitPointsString);
+                    }
+                    else EditableMonster.HitPoints = 0;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Buffer binding for Monster.ChallengeXP.
+        /// </summary>
+        private string m_challengeXpString;
+
+        /// <summary>
+        /// Public accessor for m_challengeXpString.
+        /// </summary>
+        public string ChallengeXpString
+        {
+            get { return m_challengeXpString; }
+            set
+            {
+                if (m_challengeXpString != value)
+                {
+                    m_challengeXpString = value;
+                    OnPropertyRaised(nameof(ChallengeXpString));
+                    if (!string.IsNullOrWhiteSpace(m_challengeXpString))
+                    {
+                        EditableMonster.ChallengeXP = Int32.Parse(m_challengeXpString);
+                    }
+                    else EditableMonster.ChallengeXP = 0;
+                }
+            }
+        }
+
         #region ComboBox Sources
 
         /// <summary>
@@ -137,7 +198,12 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public List<int> ArmorClassValues { get; set; }
 
-        #endregion
+        /// <summary>
+        /// The monster's options for challenge rating.
+        /// </summary>
+        public List<int> ChallengeRatingValues { get; set; }
+
+        #endregion ComboBox Sources
 
         #endregion Properties
 
@@ -214,18 +280,20 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             SkillValues = Enumerable.Range(1, 30).ToList();
             ModifierValues = Enumerable.Range(-5, 16).ToList();
             ArmorClassValues = Enumerable.Range(0, 32).ToList();
+            ChallengeRatingValues = Enumerable.Range(0, 31).ToList();
 
             #region Custom Monsters
 
             m_customMonsters = new List<Monster>();
 
             //Generate list of custom monster by parsing settings
-            List<string> customMonsterStrings = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
-
-            foreach (string entry in customMonsterStrings)
+            if (Properties.Settings.Default.CustomMonstersList != null)
             {
-                string[] values = entry.Split(';');
-                m_customMonsters.Add(new Monster(values));
+                m_customMonsters = Properties.Settings.Default.CustomMonstersList;
+            }
+            else
+            {
+                m_customMonsters = new List<Monster>();
             }
 
             #endregion Custom Monsters

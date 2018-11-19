@@ -2,11 +2,10 @@
 using Dungeons_n_Dragons_Manager.Test_Suite;
 using Dungeons_n_Dragons_Manager.Tools;
 using Dungeons_n_Dragons_Manager.Windows;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Input;
-using System.Configuration;
-using System;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
 {
@@ -17,9 +16,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
     {
         /// <summary>
         /// Constructor for the MainWindowViewmodel.
-        /// 
+        ///
         /// Pre: None.
-        /// 
+        ///
         /// Post: Sub-Viewmodels have been intialized.
         /// </summary>
         public MainWindowViewmodel()
@@ -30,7 +29,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             CharactersTabViewmodel = new CharactersTabViewmodel();
             EncountersTabViewmodel = new EncountersTabViewmodel();
             MusicPlayerTabViewmodel = new MusicPlayerTabViewmodel();
-
 
             TestSuite test = new TestSuite();                                                   //Test Suite testing.
             List<string> test2 = test.RunAllTests();
@@ -60,7 +58,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public MusicPlayerTabViewmodel MusicPlayerTabViewmodel { get; set; }
 
-        #endregion Sub Viewmodels
+        #endregion Sub-Viewmodels
 
         #region Commands
 
