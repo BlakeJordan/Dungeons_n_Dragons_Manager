@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Configuration;
 using System.Linq;
 using System.Windows.Input;
 
@@ -23,11 +24,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         ///
         /// Post: Monsters is filled.
         /// </summary>
-        public EncountersTabViewmodel()
-        {
-            //Properties.Settings.Default.Reset();                                              //Uncomment to delete current settings!
-            parseMonstersResource();
-        }
+        public EncountersTabViewmodel() { }
 
         #region Properties
 
@@ -105,6 +102,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 if (m_monsters == null)
                 {
                     m_monsters = new ObservableCollection<Monster>();
+                    parseMonstersResource();
                 }
                 return m_monsters;
             }
@@ -201,22 +199,17 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private void parseMonstersResource()
         {
             List<Monster> listOfMonsters = new List<Monster>(); //Temp list to store monsters
-            List<string> defaultMonsters = Properties.Resources.Monsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            List<string> customMonsters = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            defaultMonsters.RemoveAt(0); //Remove data header
-            foreach (string entry in defaultMonsters)
+
+            if (Properties.Settings.Default.DefaultMonstersList != null)
             {
-                string[] values = entry.Split(';');
-                listOfMonsters.Add(new Monster(values));
+                listOfMonsters.AddRange(Properties.Settings.Default.DefaultMonstersList);
             }
-            if (customMonsters.Count != 0)
+
+            if (Properties.Settings.Default.CustomMonstersList != null)
             {
-                foreach (string entry in customMonsters)
-                {
-                    string[] values = entry.Split(';');
-                    listOfMonsters.Add(new Monster(values));
-                }
+                listOfMonsters.AddRange(Properties.Settings.Default.CustomMonstersList);
             }
+
             Monsters = new ObservableCollection<Monster>(listOfMonsters.OrderBy(o => o.Name).ToList()); //Sort list by name and create observable collection
         }
 
