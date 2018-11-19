@@ -47,8 +47,11 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                                                 EditableMonster.IsUnderdark || EditableMonster.IsUnderwater || EditableMonster.IsUrban;
 
                 //Modifers picked logic.
-                bool modiferNotPicked = EditableMonster.StrengthMod == -6     || EditableMonster.DexterityMod == -6 || EditableMonster.ConstitutionMod == -6 ||
+                bool modifersNotPicked = EditableMonster.StrengthMod == -6     || EditableMonster.DexterityMod == -6 || EditableMonster.ConstitutionMod == -6 ||
                                           EditableMonster.IntelligenceMod == -6 || EditableMonster.WisdomMod == -6    || EditableMonster.CharismaMod == -6;
+
+                bool statsNotPicked = EditableMonster.Strength == 0 || EditableMonster.Dexterity == 0 || EditableMonster.Constitution == 0 ||
+                                      EditableMonster.Intelligence == 0 || EditableMonster.Wisdom == 0 || EditableMonster.Charisma == 0;
 
 
                 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -64,8 +67,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                     return false;
                 }
 
-                //ArmorClassType and modifers picked check.
-                else if (string.IsNullOrWhiteSpace(EditableMonster.ArmorClassType) || modiferNotPicked)
+                //ArmorClassType, modifers, and stats picked check.
+                else if (string.IsNullOrWhiteSpace(EditableMonster.ArmorClassType) || modifersNotPicked || statsNotPicked)
                 {
                     return false;
                 }
