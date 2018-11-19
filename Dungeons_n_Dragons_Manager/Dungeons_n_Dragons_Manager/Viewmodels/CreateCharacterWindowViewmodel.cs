@@ -67,6 +67,11 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         public List<string> ArmorTypes { get; set; }
 
         /// <summary>
+        /// The character's options for armor class.
+        /// </summary>
+        public List<int> ArmorClasses { get; set; }
+
+        /// <summary>
         /// The character's options for each skill's level
         /// </summary>
         public List<int> Skills { get; set; }
@@ -122,6 +127,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             Races = Properties.Resources.Races.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             Classes = Properties.Resources.Classes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            ArmorClasses = Enumerable.Range(0, 31).ToList();
             Skills = Enumerable.Range(0, 21).ToList();
             Levels = Enumerable.Range(1, 30).ToList();
         }

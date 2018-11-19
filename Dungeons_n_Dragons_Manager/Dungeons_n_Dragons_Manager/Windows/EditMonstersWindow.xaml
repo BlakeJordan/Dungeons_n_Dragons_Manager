@@ -6,10 +6,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Monster Editor"
     Width="800"
-    Height="450"
+    Height="550"
+    ResizeMode="NoResize"
     mc:Ignorable="d">
-    <Border Margin="0,0,0,-184.4" Padding="6">
-        <Grid Margin="0.2,0.2,0.2,175.8">
+    <Border Padding="6">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -67,7 +68,6 @@
                     Text="Armor Class Type" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding ArmorTypes}"
                     SelectedItem="{Binding EditableMonster.ArmorClassType, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
@@ -159,7 +159,6 @@
                     Text="Strength" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding SkillValues}"
                     SelectedItem="{Binding EditableMonster.Strength, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
@@ -176,7 +175,6 @@
                     Text="Strength Modifier" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding ModifierValues}"
                     SelectedItem="{Binding EditableMonster.StrengthMod, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
@@ -193,7 +191,6 @@
                     Text="Dexterity" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding SkillValues}"
                     SelectedItem="{Binding EditableMonster.Dexterity, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
@@ -210,7 +207,6 @@
                     Text="Dexterity Modifier" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding ModifierValues}"
                     SelectedItem="{Binding EditableMonster.DexterityMod, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
@@ -227,7 +223,6 @@
                     Text="Constitution" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding SkillValues}"
                     SelectedItem="{Binding EditableMonster.Constitution, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
@@ -244,7 +239,6 @@
                     Text="Constitution Modifier" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding ModifierValues}"
                     SelectedItem="{Binding EditableMonster.ConstitutionMod, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
@@ -261,7 +255,6 @@
                     Text="Intelligence" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding SkillValues}"
                     SelectedItem="{Binding EditableMonster.Intelligence, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
@@ -278,7 +271,6 @@
                     Text="Intelligence Modifier" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding ModifierValues}"
                     SelectedItem="{Binding EditableMonster.IntelligenceMod, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
@@ -295,7 +287,6 @@
                     Text="Wisdom" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding SkillValues}"
                     SelectedItem="{Binding EditableMonster.Wisdom, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
@@ -312,7 +303,6 @@
                     Text="Wisdom Modifier" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding ModifierValues}"
                     SelectedItem="{Binding EditableMonster.WisdomMod, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
@@ -329,7 +319,6 @@
                     Text="Charisma" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding SkillValues}"
                     SelectedItem="{Binding EditableMonster.Charisma, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
@@ -346,27 +335,24 @@
                     Text="Charisma Modifier" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding ModifierValues}"
                     SelectedItem="{Binding EditableMonster.CharismaMod, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
-            <StackPanel
-                Grid.Row="8"
+            <GroupBox
+                Grid.Row="6"
+                Grid.RowSpan="3"
                 Grid.Column="2"
-                Width="271"
-                Margin="2.5,-80,0,0"
-                HorizontalAlignment="Center">
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    FontSize="14"
-                    FontWeight="DemiBold"
-                    Text="Environments" />
-                <Grid Margin="0.2,0.2,0.2,175.8">
+                Width="230"
+                Height="130"
+                Header="Environments">
+
+                <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="14*" />
+                        <ColumnDefinition Width="39*" />
+                        <ColumnDefinition Width="53*" />
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
@@ -380,8 +366,10 @@
                     <CheckBox
                         x:Name="Artic"
                         Grid.Row="0"
+                        Grid.RowSpan="2"
                         Grid.Column="0"
-                        Margin="24,2,0,0"
+                        Grid.ColumnSpan="3"
+                        Margin="24,2,106,17.2"
                         Command="{Binding CheckCanSave}"
                         Content="Artic"
                         IsChecked="{Binding EditableMonster.IsArctic}" />
@@ -389,15 +377,18 @@
                         x:Name="Coastal"
                         Grid.Row="1"
                         Grid.Column="0"
-                        Margin="24,2,0,0"
+                        Grid.ColumnSpan="3"
+                        Margin="24,2.4,106,0.2"
                         Command="{Binding CheckCanSave}"
                         Content="Coastal"
                         IsChecked="{Binding EditableMonster.IsCoastal}" />
                     <CheckBox
                         x:Name="Desert"
                         Grid.Row="2"
+                        Grid.RowSpan="2"
                         Grid.Column="0"
-                        Margin="24,2,0,0"
+                        Grid.ColumnSpan="3"
+                        Margin="24,1.8,106,18.2"
                         Command="{Binding CheckCanSave}"
                         Content="Desert"
                         IsChecked="{Binding EditableMonster.IsDesert}" />
@@ -405,15 +396,18 @@
                         x:Name="Forest"
                         Grid.Row="3"
                         Grid.Column="0"
-                        Margin="24,2,0,0"
+                        Grid.ColumnSpan="3"
+                        Margin="24,2.2,106,0.2"
                         Command="{Binding CheckCanSave}"
                         Content="Forest"
                         IsChecked="{Binding EditableMonster.IsForest}" />
                     <CheckBox
                         x:Name="Grassland"
                         Grid.Row="4"
+                        Grid.RowSpan="2"
                         Grid.Column="0"
-                        Margin="24,2,0,0"
+                        Grid.ColumnSpan="3"
+                        Margin="24,1.8,106,18.2"
                         Command="{Binding CheckCanSave}"
                         Content="Grassland"
                         IsChecked="{Binding EditableMonster.IsGrassland}" />
@@ -421,52 +415,57 @@
                         x:Name="Hill"
                         Grid.Row="5"
                         Grid.Column="0"
-                        Margin="24,2,0,0"
+                        Grid.ColumnSpan="3"
+                        Margin="24,2.2,106,0.2"
                         Command="{Binding CheckCanSave}"
                         Content="Hill"
                         IsChecked="{Binding EditableMonster.IsHill}" />
                     <CheckBox
                         x:Name="Mountain"
                         Grid.Row="0"
-                        Grid.Column="1"
-                        Margin="24,2,0,0"
+                        Grid.RowSpan="2"
+                        Grid.Column="2"
+                        Margin="24.4,2,0,17.2"
                         Command="{Binding CheckCanSave}"
                         Content="Mountain"
                         IsChecked="{Binding EditableMonster.IsMountain}" />
                     <CheckBox
                         x:Name="Swamp"
                         Grid.Row="1"
-                        Grid.Column="1"
-                        Margin="24,2,0,0"
+                        Grid.Column="2"
+                        Margin="24.4,2.4,0,0.2"
                         Command="{Binding CheckCanSave}"
                         Content="Swamp"
                         IsChecked="{Binding EditableMonster.IsSwamp}" />
                     <CheckBox
                         x:Name="Underdark"
                         Grid.Row="2"
-                        Grid.Column="1"
-                        Margin="24,2,0,0"
+                        Grid.RowSpan="2"
+                        Grid.Column="2"
+                        Margin="24.4,1.8,0,18.2"
                         Command="{Binding CheckCanSave}"
                         Content="Underdark"
                         IsChecked="{Binding EditableMonster.IsUnderdark}" />
                     <CheckBox
                         x:Name="Underwater"
                         Grid.Row="3"
-                        Grid.Column="1"
-                        Margin="24,2,0,0"
+                        Grid.Column="2"
+                        Margin="24.4,2.2,0,0.2"
                         Command="{Binding CheckCanSave}"
                         Content="Underwater"
                         IsChecked="{Binding EditableMonster.IsUnderwater}" />
                     <CheckBox
                         x:Name="Urban"
                         Grid.Row="4"
-                        Grid.Column="1"
-                        Margin="24,2,0,0"
+                        Grid.RowSpan="2"
+                        Grid.Column="2"
+                        Margin="24.4,1.8,0,18.2"
                         Command="{Binding CheckCanSave}"
                         Content="Urban"
                         IsChecked="{Binding EditableMonster.IsUrban}" />
                 </Grid>
-            </StackPanel>
+
+            </GroupBox>
 
             <Button
                 Grid.Row="9"

@@ -18,9 +18,15 @@ namespace Dungeons_n_Dragons_Manager.Windows
         /// </summary>
         public EditCharacterWindow(ref Character character)
         {
-            this.DataContext = new EditCharacterWindowViewModel(ref character); //Initialize viewmodel.
+            m_viewmodel = new EditCharacterWindowViewModel(ref character);
+            this.DataContext = m_viewmodel;
             InitializeComponent();
         }
+
+        /// <summary>
+        /// DataContext for the window.
+        /// </summary>
+        private EditCharacterWindowViewModel m_viewmodel { get; set; }
 
         /// <summary>
         /// A boolean indicating whether the save button has been clicked or not
@@ -38,6 +44,16 @@ namespace Dungeons_n_Dragons_Manager.Windows
         {
             SaveCharacter = true;
             this.Close();
+        }
+
+        private void TextBox_CheckCanSave(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            // m_viewmodel.CheckCanSave.Execute(null);
+        }
+
+        private void ComboBox_CheckCanSave(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            //m_viewmodel.CheckCanSave.Execute(null);
         }
     }
 }

@@ -5,11 +5,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Character Creator"
-    Width="800"
+    Width="825"
     Height="450"
+    ResizeMode="NoResize"
     mc:Ignorable="d">
-    <Border Margin="0,0,0,-184.4" Padding="5">
-        <Grid Margin="0.2,0.2,0.2,175.8">
+
+    <Border Padding="5">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -17,11 +19,12 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <StackPanel
@@ -57,7 +60,6 @@
                     Text="Level" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Levels}"
                     SelectedItem="{Binding NewCharacter.Level}"
                     SelectionChanged="ComboBox_CheckCanSave" />
@@ -74,7 +76,6 @@
                     Text="Race" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Races}"
                     SelectedItem="{Binding NewCharacter.Race}"
                     SelectionChanged="ComboBox_CheckCanSave" />
@@ -88,12 +89,27 @@
                     HorizontalAlignment="Center"
                     FontSize="14"
                     FontWeight="DemiBold"
-                    Text="Class" />
+                    Text="Armor Type" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
-                    ItemsSource="{Binding Classes}"
-                    SelectedItem="{Binding NewCharacter.Class}"
+                    ItemsSource="{Binding ArmorTypes}"
+                    SelectedItem="{Binding NewCharacter.ArmorType}"
+                    SelectionChanged="ComboBox_CheckCanSave" />
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="2"
+                Grid.Column="1"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Armor Class" />
+                <ComboBox
+                    Width="140"
+                    ItemsSource="{Binding ArmorClasses}"
+                    SelectedItem="{Binding NewCharacter.AC}"
                     SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
@@ -105,12 +121,11 @@
                     HorizontalAlignment="Center"
                     FontSize="14"
                     FontWeight="DemiBold"
-                    Text="Armor Type" />
+                    Text="Class" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
-                    ItemsSource="{Binding ArmorTypes}"
-                    SelectedItem="{Binding NewCharacter.ArmorType}"
+                    ItemsSource="{Binding Classes}"
+                    SelectedItem="{Binding NewCharacter.Class}"
                     SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
@@ -125,14 +140,13 @@
                     Text="Strength" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
                     SelectedItem="{Binding NewCharacter.Strength}"
                     SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
             <StackPanel
-                Grid.Row="2"
+                Grid.Row="3"
                 Grid.Column="1"
                 HorizontalAlignment="Center">
                 <TextBlock
@@ -142,7 +156,6 @@
                     Text="Dexterity" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
                     SelectedItem="{Binding NewCharacter.Dexterity}"
                     SelectionChanged="ComboBox_CheckCanSave" />
@@ -159,7 +172,6 @@
                     Text="Constitution" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
                     SelectedItem="{Binding NewCharacter.Constitution}"
                     SelectionChanged="ComboBox_CheckCanSave" />
@@ -176,14 +188,13 @@
                     Text="Intelligence" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
                     SelectedItem="{Binding NewCharacter.Intelligence}"
                     SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
             <StackPanel
-                Grid.Row="3"
+                Grid.Row="4"
                 Grid.Column="1"
                 HorizontalAlignment="Center">
                 <TextBlock
@@ -193,7 +204,6 @@
                     Text="Wisdom" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
                     SelectedItem="{Binding NewCharacter.Wisdom}"
                     SelectionChanged="ComboBox_CheckCanSave" />
@@ -210,18 +220,15 @@
                     Text="Charisma" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
                     SelectedItem="{Binding NewCharacter.Charisma}"
                     SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
             <StackPanel
-                Grid.Row="4"
+                Grid.Row="5"
                 Grid.Column="0"
-                Grid.ColumnSpan="2"
                 Width="271"
-                Margin="-9,0.4,261.2,-147"
                 HorizontalAlignment="Center">
                 <TextBlock
                     HorizontalAlignment="Center"
@@ -393,20 +400,19 @@
             </StackPanel>
 
             <Button
-                Grid.Row="4"
+                Grid.Row="5"
                 Grid.Column="1"
-                Margin="60.8,76.4,61.2,-90"
+                Width="150"
+                Height="50"
                 Click="Button_Click"
                 Command="{Binding CheckCanSave}"
-                Content="Save Character"
+                Content="Create Character"
                 IsEnabled="{Binding CanSave, UpdateSourceTrigger=PropertyChanged}" />
 
             <StackPanel
-                Grid.Row="4"
-                Grid.Column="1"
-                Grid.ColumnSpan="2"
+                Grid.Row="5"
+                Grid.Column="2"
                 Width="262"
-                Margin="260.4,0.4,0,-157"
                 HorizontalAlignment="Center">
                 <TextBlock
                     HorizontalAlignment="Center"
