@@ -124,13 +124,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public void createNewCharacter()
         {
-            Character newCharacter = new Character(); //Create blank character.
-            CreateCharacterWindow createCharacterWindow = new CreateCharacterWindow(ref newCharacter); //Pass character to window by reference to be modified.
+            CreateCharacterWindow createCharacterWindow = new CreateCharacterWindow();
             createCharacterWindow.ShowDialog(); //Open window instance until closed.
-            if (createCharacterWindow.SaveCharacter)
-            {
-                Characters.Add(newCharacter); //Add modified character to collection.
-            }
+            //Call parse character settings function here.
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using Dungeons_n_Dragons_Manager.Viewmodels;
+using System;
 using System.Windows;
 
 namespace Dungeons_n_Dragons_Manager.Windows
@@ -19,6 +20,8 @@ namespace Dungeons_n_Dragons_Manager.Windows
         {
             this.DataContext = m_viewModel;
             InitializeComponent();
+            if (m_viewModel.CloseAction == null)
+                m_viewModel.CloseAction = new Action(this.Close);
         }
 
         private EditMonsterWindowViewmodel m_viewModel = new EditMonsterWindowViewmodel();
@@ -38,6 +41,21 @@ namespace Dungeons_n_Dragons_Manager.Windows
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        /// <summary>
+        /// Handles the clicking of the save button
+        ///
+        /// Pre: Save button is clicked
+        ///
+        /// Post: The Save Monster boolean is set to true and the window is closed
+        /// </summary>
+        private void Delete_Button_Click(object sender, RoutedEventArgs e)
+        {
+           //if(Properties.Settings.Default.CustomMonstersList.Count == 1)
+            //{
+              //  this.Close();
+            //}         
         }
 
         private void TextBox_CheckCanSave(object sender, System.Windows.Controls.TextChangedEventArgs e)

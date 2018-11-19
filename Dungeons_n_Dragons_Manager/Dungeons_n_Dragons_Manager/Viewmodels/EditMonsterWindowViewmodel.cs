@@ -2,9 +2,9 @@
 using Dungeons_n_Dragons_Manager.Tools;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
@@ -92,16 +92,19 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get
             {
-                return SelectedMonster.Equals(EditableMonster) == false;
+                if (SelectedMonster != null) return SelectedMonster.Equals(EditableMonster) == false;
+                return false;
             }
         }
+
+        public Action CloseAction { get; set; }
 
         #region ComboBox Sources
 
         /// <summary>
         /// A collection of the currently saved monsters.
         /// </summary>
-        public ObservableCollection<Monster> CustomMonsters { get; set; }
+        public List<Monster> CustomMonsters { get; set; }
 
         /// <summary>
         /// The monster's options for armor
@@ -143,6 +146,22 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// <summary>
         /// Command binded to the "Save Monster" button which calls saveMonster.
         /// </summary>
+        private ICommand m_deleteMonster;
+
+        /// <summary>
+        /// Public facing accessor to m_saveMonster.
+        /// </summary>
+        public ICommand DeleteMonster
+        {
+            get
+            {
+                return m_deleteMonster ?? (m_deleteMonster = new CommandHandler(() => deleteMonster(), true));
+            }
+        }
+
+        /// <summary>
+        /// Command binded to the "Save Monster" button which calls saveMonster.
+        /// </summary>
         private ICommand m_checkCanSave;
 
         /// <summary>
@@ -155,6 +174,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 return m_checkCanSave ?? (m_checkCanSave = new CommandHandler(() => checkCanSave(), true));
             }
         }
+
 
         #endregion Commands
 
@@ -171,31 +191,34 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             if (!CanSave) return; //Redundancy check.
 
-            //Generate list of outdated custom monsters by parsing settings.
-            List<string> customMonsters = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            List<Monster> listOfCustomMonsters = new List<Monster>();
-            foreach (string entry in customMonsters)
-            {
-                string[] values = entry.Split(';');
-                listOfCustomMonsters.Add(new Monster(values));
-            }
-
-            //Remove outdated monster.
-            listOfCustomMonsters.RemoveAll(x => x.Name == SelectedMonster.Name);
-
-            //Add new monster.
-            listOfCustomMonsters.Add(EditableMonster);
-
-            //Clear custom monsters settings string.
-            Properties.Settings.Default.CustomMonsters = string.Empty;
-
-            //Reconstruct string from updated list.
-            foreach (Monster entry in listOfCustomMonsters)
-            {
-                Properties.Settings.Default.CustomMonsters += entry.ToString() + System.Environment.NewLine;
-            }
+            Properties.Settings.Default.CustomMonstersList.Remove(SelectedMonster);
+            Properties.Settings.Default.CustomMonstersList.Add(EditableMonster);
             Properties.Settings.Default.Save();
         }
+
+        /// <summary>
+        /// deletes the monster from the custom monster list.
+        ///
+        /// Pre: monster has been created
+        ///
+        /// Post: The monster's list has been updated with the selected monster removed.
+        /// </summary>
+        private void deleteMonster()
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this monster?",
+            "Confirmation", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                Properties.Settings.Default.CustomMonstersList.Remove(SelectedMonster);
+                Properties.Settings.Default.Save();
+                CloseAction();
+            }
+            else
+            {
+                
+            }
+        }
+
 
         /// <summary>
         /// Reevaluates CanSave.
@@ -217,23 +240,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             SkillValues = Enumerable.Range(1, 30).ToList();
             ModifierValues = Enumerable.Range(-5, 16).ToList();
-
-            #region Custom Monsters
-
-            CustomMonsters = new ObservableCollection<Monster>();
-
-            //Generate list of custom monster by parsing settings
-            List<string> customMonsterStrings = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
-
-            foreach (string entry in customMonsterStrings)
-            {
-                string[] values = entry.Split(';');
-                CustomMonsters.Add(new Monster(values));
-            }
-
-            CustomMonsters = new ObservableCollection<Monster>(CustomMonsters.OrderBy(o => o.Name));
-
-            #endregion Custom Monsters
+            CustomMonsters = Properties.Settings.Default.CustomMonstersList;
         }
 
         #endregion Functions
