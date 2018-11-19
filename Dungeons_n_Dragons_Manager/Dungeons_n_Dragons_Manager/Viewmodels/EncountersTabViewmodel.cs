@@ -25,7 +25,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public EncountersTabViewmodel()
         {
-            Properties.Settings.Default.Reset();                                              //Uncomment to delete current settings!
+            //Properties.Settings.Default.Reset();                                              //Uncomment to delete current settings!
             parseMonstersResource();
         }
 
