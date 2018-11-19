@@ -1,8 +1,11 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
 using Dungeons_n_Dragons_Manager.Tools;
 using Dungeons_n_Dragons_Manager.Windows;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Input;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
@@ -21,7 +24,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public CharactersTabViewmodel()
         {
-            Characters = new ObservableCollection<Character>();
+            parseCharactersResource();
         }
 
         #region Members
@@ -29,7 +32,31 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// <summary>
         /// An observable collection of Characters which is bound to the combobox.
         /// </summary>
-        public static ObservableCollection<Character> Characters { get; set; }
+        public static ObservableCollection<Character> m_Characters;
+
+        public ObservableCollection<Character> Characters
+        {
+            get
+            {
+                if (m_Characters == null)
+                {
+                    m_Characters = new ObservableCollection<Character>();
+                }
+                return m_Characters;
+            }
+            set
+            {
+                if (m_Characters != value)
+                {
+                    m_Characters = value;
+                    if (m_Characters.Count != 0)
+                    {
+                        SelectedCharacter = Characters[0];
+                    }
+                    OnPropertyRaised(nameof(Characters));
+                }
+            }
+        }
 
         /// <summary>
         /// Private backing to store the currently selected character in the combobox.
@@ -115,6 +142,21 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         #region Functions
 
+        private void parseCharactersResource()
+        {
+            List<Character> listOfCharacters = new List<Character>();
+            List<string> customCharacters = Properties.Settings.Default.CustomCharacters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            if (customCharacters.Count != 0)
+            {
+                foreach (string entry in customCharacters)
+                {
+                    string[] values = entry.Split(';');
+                    listOfCharacters.Add(new Character(values));
+                }
+            }
+            Characters = new ObservableCollection<Character>(listOfCharacters.OrderBy(o => o.Name).ToList()); //Sort list by name and create observable collection
+        }
+
         /// <summary>
         /// Creates a new character and passes it by reference to an instance of CreateCharacterWindow to be edited.
         ///
@@ -126,7 +168,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             CreateCharacterWindow createCharacterWindow = new CreateCharacterWindow();
             createCharacterWindow.ShowDialog(); //Open window instance until closed.
-            //Call parse character settings function here.
+            parseCharactersResource();
         }
 
         /// <summary>
@@ -138,15 +180,10 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public void CharacterRevision()
         {
-            Character EditedCharacter = SelectedCharacter; //Copy existing character.
+            Character EditedCharacter = new Character(SelectedCharacter); //Copy existing character.
             EditCharacterWindow editCharacterWindow = new EditCharacterWindow(ref EditedCharacter); //Pass character to window by reference to be modified.
             editCharacterWindow.ShowDialog(); //Open window instance until closed.
-            if (editCharacterWindow.SaveCharacter)
-            {
-                EditedCharacter.CalculateStats();
-                EditedCharacter.SetProficiency();
-                EditedCharacter.CalculateSkills();
-            }
+            parseCharactersResource();
         }
 
         #endregion Functions

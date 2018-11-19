@@ -208,7 +208,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             {
                 string[] values = entry.Split(';');
                 listOfMonsters.Add(new Monster(values));
-            }
+            }+
             if (customMonsters.Count != 0)
             {
                 foreach (string entry in customMonsters)

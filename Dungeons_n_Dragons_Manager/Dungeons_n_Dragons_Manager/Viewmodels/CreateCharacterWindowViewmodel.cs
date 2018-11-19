@@ -34,13 +34,61 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         public Character NewCharacter { get; set; }
 
         /// <summary>
+        /// Character that is bound to the UI.
+        /// </summary>
+        private Character m_editableCharacter;
+
+        /// <summary>
+        /// Public accessor for m_editableCharacter.
+        /// </summary>
+        public Character EditableCharacter
+        {
+            get
+            {
+                if (m_editableCharacter == null)
+                {
+                    m_editableCharacter = new Character();
+                }
+                return m_editableCharacter;
+            }
+            set
+            {
+                if (m_editableCharacter != value)
+                {
+                    m_editableCharacter = value;
+                    OnPropertyRaised(nameof(EditableCharacter));
+                }
+            }
+        }
+
+        /// <summary>
         /// Bool binded to the IsEnabled property of the Save button.
         /// </summary>
         public bool CanSave
         {
             get
             {
-                return true; //Add logic for saving.
+                bool hasUniqueName = true;
+                foreach (Character character in m_characters)
+                {
+                    if (character.Name == EditableCharacter.Name) hasUniqueName = false;
+                }
+                bool hasName = (EditableCharacter.Name != null);
+                bool hasClass = (EditableCharacter.Class != null);
+                bool hasRace = (EditableCharacter.Race != null);
+                bool hasLevel = (EditableCharacter.Level != 0);
+                bool hasAllStats = EditableCharacter.Strength.score != 0 || EditableCharacter.Dexterity.score != 0 || EditableCharacter.Constitution.score != 0 ||
+                                      EditableCharacter.Intelligence.score != 0 || EditableCharacter.Wisdom.score != 0 || EditableCharacter.Charisma.score != 0;
+
+                if (hasUniqueName && hasName && hasClass && hasRace && hasLevel && hasAllStats)
+                {
+                    return true;
+                }
+
+                else
+                {
+                    return false;
+                }
             }
         }
 
@@ -48,8 +96,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// List of current characters for reference.
         /// </summary>
         private List<Character> m_characters;
-
-        public bool IsProficiencyChecked { get; set; }
 
         #region ComboBox Sources
 
@@ -100,25 +146,17 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-        /// <summary>
-        /// Command binded to proficiency checkboxes which calls proficiencyCheck
-        /// </summary>
-        private ICommand m_ProficiencyCheck;
-
-        /// <summary>
-        /// Public facing accessor for m_ProficiencyCheck
-        /// </summary>
-        public ICommand ProficiencyCheck
-        {
-            get
-            {
-                return m_ProficiencyCheck ?? (m_ProficiencyCheck = new CommandHandler(() => SetProficiency(IsProficiencyChecked), true));
-            }
-        }
-
         #endregion
 
         #region Functions
+
+        private void saveCharacter()
+        {
+            if (Properties.Settings.Default.CustomCharactersList == null) Properties.Settings.Default.CustomCharactersList = new List<Character>();
+            Properties.Settings.Default.CustomCharactersList.Add(EditableCharacter);
+            Properties.Settings.Default.Save();
+        }
+
 
         /// <summary>
         /// Reevaluates CanSave.
@@ -126,21 +164,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private void checkCanSave()
         {
             OnPropertyRaised(nameof(CanSave));
-        }
-
-        /// <summary>
-        /// Checks if a proficiency can be added, then adds the proficiency to the character's proficiency list
-        /// </summary>
-        public void SetProficiency(bool canSetProficiency)
-        {
-            if (IsProficiencyChecked == true)
-            {
-                Console.WriteLine("ayyy");
-            }
-            else
-            {
-                Console.WriteLine("awww");
-            }
         }
 
         /// <summary>
@@ -157,6 +180,14 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             Skills = Enumerable.Range(0, 21).ToList();
             Levels = Enumerable.Range(1, 30).ToList();
+
+            List<string> customCharacterStrings = Properties.Settings.Default.CustomCharacters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+
+            foreach (string entry in customCharacterStrings)
+            {
+                string[] values = entry.Split(';');
+                m_characters.Add(new Character(values));
+            }
         }
 
         #endregion

@@ -241,6 +241,97 @@ namespace Dungeons_n_Dragons_Manager.Models
             Skills.Add(Perception);
         }
 
+        public Character(Character copyCharacter)
+        {
+            Name = copyCharacter.Name;
+            Level = copyCharacter.Level;
+            Class = copyCharacter.Class;
+            Race = copyCharacter.Race;
+            Skills = copyCharacter.Skills;
+            Attributes = copyCharacter.Attributes;
+            MaxHP = copyCharacter.MaxHP;
+            HP = copyCharacter.HP;
+            XP = copyCharacter.XP;
+            ArmorType = copyCharacter.ArmorType;
+            AC = copyCharacter.AC;
+            ProficiencyBonus = copyCharacter.ProficiencyBonus;
+            Notes = copyCharacter.Notes;
+            Weapons = copyCharacter.Weapons;
+            Abilities = copyCharacter.Abilities;
+            Specialization = copyCharacter.Specialization;
+        }
+
+        public Character(string[] values)
+        {
+            Name = values[0];
+            Class = values[1];
+            Race = values[2];
+            Level = Int32.Parse(values[3]);
+            HP = Int32.Parse(values[4]);
+            MaxHP = Int32.Parse(values[5]);
+            XP = Int32.Parse(values[6]);
+            AC = Int32.Parse(values[7]);
+            ProficiencyBonus = Int32.Parse(values[8]);
+            Notes = values[9];
+            ArmorType = values[10];
+            Specialization = values[11];
+
+            Skills = copyCharacter.Skills;
+            Attributes = copyCharacter.Attributes;
+            Weapons = copyCharacter.Weapons;
+            Abilities = copyCharacter.Abilities;
+            Specialization = copyCharacter.Specialization;
+
+            if (string.IsNullOrEmpty(values[3]))
+            {
+                ArmorClassType = "None";
+            }
+            else
+            {
+                ArmorClassType = values[3];
+            }
+
+            if (values[19] == "All") //All environments except Underwater
+            {
+                IsArctic = true;
+                IsCoastal = true;
+                IsDesert = true;
+                IsForest = true;
+                IsGrassland = true;
+                IsHill = true;
+                IsMountain = true;
+                IsSwamp = true;
+                IsUnderdark = true;
+                IsUrban = true;
+            }
+            else
+            {
+                foreach (string environment in values[19].Split(','))
+                {
+                    if (environment == "Arctic") IsArctic = true;
+                    else if (environment == "Coastal") IsCoastal = true;
+                    else if (environment == "Desert") IsDesert = true;
+                    else if (environment == "Forest") IsForest = true;
+                    else if (environment == "Grassland") IsGrassland = true;
+                    else if (environment == "Hill") IsHill = true;
+                    else if (environment == "Mountain") IsMountain = true;
+                    else if (environment == "Swamp") IsSwamp = true;
+                    else if (environment == "UnderDark") IsUnderdark = true;
+                    else if (environment == "UnderWater") IsUnderwater = true;
+                    else if (environment == "Urban") IsUrban = true;
+                }
+            }
+
+            if (values[20] == "True")
+            {
+                IsCustom = true;
+            }
+            else
+            {
+                IsCustom = false;
+            }
+        }
+
         public void CalculateStats()
         {
             foreach(Attribute stat in Attributes)
