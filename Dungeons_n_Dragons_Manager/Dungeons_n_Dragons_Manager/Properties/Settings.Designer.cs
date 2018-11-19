@@ -106,5 +106,27 @@ namespace Dungeons_n_Dragons_Manager.Properties {
                 this["MainWindow_Maximized"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Generic.List<Dungeons_n_Dragons_Manager.Models.Monster> CustomMonstersList {
+            get {
+                return ((global::System.Collections.Generic.List<Dungeons_n_Dragons_Manager.Models.Monster>)(this["CustomMonstersList"]));
+            }
+            set {
+                this["CustomMonstersList"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Generic.List<Dungeons_n_Dragons_Manager.Models.Character> CustomCharactersList {
+            get {
+                return ((global::System.Collections.Generic.List<Dungeons_n_Dragons_Manager.Models.Character>)(this["CustomCharactersList"]));
+            }
+            set {
+                this["CustomCharactersList"] = value;
+            }
+        }
     }
 }

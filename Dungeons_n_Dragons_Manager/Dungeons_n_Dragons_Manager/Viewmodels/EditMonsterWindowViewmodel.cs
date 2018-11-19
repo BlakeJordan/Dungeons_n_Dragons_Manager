@@ -92,7 +92,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get
             {
-                return SelectedMonster.Equals(EditableMonster) == false;
+                if (SelectedMonster != null) return SelectedMonster.Equals(EditableMonster) == false;
+                return false;
             }
         }
 

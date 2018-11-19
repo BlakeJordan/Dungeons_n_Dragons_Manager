@@ -120,14 +120,19 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         public List<string> ArmorTypes { get; set; }
 
         /// <summary>
-        /// The character's options for each skill's level
+        /// The monsters's options for each skill's level
         /// </summary>
         public List<int> SkillValues { get; set; }
 
         /// <summary>
-        /// The character's options for each Modifier
+        /// The monsters's options for each Modifier
         /// </summary>
         public List<int> ModifierValues { get; set; }
+
+        /// <summary>
+        /// The monster's options for armor class.
+        /// </summary>
+        public List<int> ArmorClassValues { get; set; }
 
         #endregion
 
@@ -176,7 +181,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         private void saveMonster()
         {
-            //Logic to save monster to settings here.
+            if (Properties.Settings.Default.CustomMonstersList == null) Properties.Settings.Default.CustomMonstersList = new List<Monster>();
+            Properties.Settings.Default.CustomMonstersList.Add(EditableMonster);
+            Properties.Settings.Default.Save();
         }
 
         /// <summary>
@@ -203,6 +210,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             SkillValues = Enumerable.Range(1, 30).ToList();
             ModifierValues = Enumerable.Range(-5, 16).ToList();
+            ArmorClassValues = Enumerable.Range(0, 32).ToList();
 
             #region Custom Monsters
 
