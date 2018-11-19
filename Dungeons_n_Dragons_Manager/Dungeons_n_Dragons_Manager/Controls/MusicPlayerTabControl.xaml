@@ -45,10 +45,8 @@
                     <ListBoxItem>Medieval Town - Ambience - All the sounds of a bustling and hectic Renaissance period town.</ListBoxItem>
                     <ListBoxItem>River Town - Music + Ambience - A small tidy town on the bank of a river.</ListBoxItem>
                     <ListBoxItem>Mill Town - Ambience + Music - A busy mill town on the banks of a river.</ListBoxItem>
-                    
                 </ListBox>
             </GroupBox>
-
         </Grid>
     </Border>
 </UserControl>

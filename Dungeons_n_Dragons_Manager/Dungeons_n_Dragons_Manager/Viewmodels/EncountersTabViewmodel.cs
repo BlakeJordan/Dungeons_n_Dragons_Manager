@@ -1,12 +1,10 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
-using Dungeons_n_Dragons_Manager.Test_Suite;
 using Dungeons_n_Dragons_Manager.Tools;
 using Dungeons_n_Dragons_Manager.Windows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Configuration;
 using System.Linq;
 using System.Windows.Input;
 
@@ -55,7 +53,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 }
             }
         }
-
 
         /// <summary>
         /// Stores the currently selected environment.
@@ -143,7 +140,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-        #endregion
+        #endregion ComboBox Sources
 
         #endregion Properties
 
@@ -235,17 +232,45 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private void chooseRandomEncounter()
         {
             List<Monster> filteredMonsters = new List<Monster>();
+
+            //Filter by Environment.
             foreach (Monster monster in Monsters)
             {
-                Object obj = new Monster().GetType().GetProperty("Is" + SelectedEnvironment).GetValue(monster);
-                if (obj is bool && (bool)obj == true)
+                if (monster.Environments.Contains(SelectedEnvironment))
                 {
                     filteredMonsters.Add(monster);
                 }
             }
 
+            //Filter by Combat Rating.
+            List<Character> characters = Properties.Settings.Default.CustomCharactersList;
+            if (characters != null && characters.Count != 0)
+            {
+                int averageCharacterLevel = 0;
+                foreach(Character character in characters)
+                {
+                    averageCharacterLevel += character.Level;
+                }
+                averageCharacterLevel = averageCharacterLevel / characters.Count;
+
+
+                List<Monster> environmentlyFilteredMonsters = filteredMonsters;
+                filteredMonsters = new List<Monster>();
+                foreach(Monster monster in environmentlyFilteredMonsters)
+                {
+                    if (monster.ChallengeRating <= averageCharacterLevel)
+                    {
+                        filteredMonsters.Add(monster);
+                    }
+                }
+            }
+
             Random randomNumberGenerator = new Random();
-            SelectedMonster = filteredMonsters[randomNumberGenerator.Next(0, filteredMonsters.Count - 1)]; //Chooses random index
+            Monster oldMonster = new Monster(SelectedMonster);
+            while (SelectedMonster.Equals(oldMonster)) //Ensure random monster is not equal to old monster.
+            {
+                SelectedMonster = filteredMonsters[randomNumberGenerator.Next(0, filteredMonsters.Count - 1)]; //Chooses random index
+            }
         }
 
         /// <summary>

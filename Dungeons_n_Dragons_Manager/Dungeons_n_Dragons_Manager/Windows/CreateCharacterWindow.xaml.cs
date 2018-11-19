@@ -1,5 +1,4 @@
-﻿using Dungeons_n_Dragons_Manager.Models;
-using Dungeons_n_Dragons_Manager.Viewmodels;
+﻿using Dungeons_n_Dragons_Manager.Viewmodels;
 using System.Windows;
 
 namespace Dungeons_n_Dragons_Manager.Windows
@@ -23,7 +22,6 @@ namespace Dungeons_n_Dragons_Manager.Windows
         }
 
         private CreateCharacterWindowViewmodel m_viewmodel = new CreateCharacterWindowViewmodel();
-
 
         /// <summary>
         /// Handles the clicking of the save button

@@ -1,14 +1,11 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
 using Dungeons_n_Dragons_Manager.Viewmodels;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dungeons_n_Dragons_Manager.Test_Suite.Tests
 {
-    class EncountersTabTests
+    internal class EncountersTabTests
     {
         public EncountersTabTests()
         {
@@ -20,7 +17,7 @@ namespace Dungeons_n_Dragons_Manager.Test_Suite.Tests
 
         private List<string> m_testingOutput { get; set; }
 
-        #endregion
+        #endregion Properties
 
         #region Functions
 
@@ -66,8 +63,8 @@ namespace Dungeons_n_Dragons_Manager.Test_Suite.Tests
             m_testingOutput.Add(test2);
         }
 
-        #endregion
+        #endregion Tests
 
-        #endregion
+        #endregion Functions
     }
 }
