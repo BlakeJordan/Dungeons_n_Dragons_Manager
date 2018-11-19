@@ -40,7 +40,7 @@
                             <Image Source="../Assets/Dice Images/d4.png" />
                         </DataTemplate>
                         <DataTemplate x:Key="Pressed">
-                            <Image Source="../Assets/Dice Images//d4alt.png" />
+                            <Image Source="../Assets/Dice Images/d4alt.png" />
                         </DataTemplate>
                     </Button.Resources>
 

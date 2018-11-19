@@ -233,7 +233,6 @@
     <Resource Include="Test Suite\TestingOutput.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Assets\Dice Images\d4alt.png" />
     <Resource Include="Assets\Dice Images\d6alt.png" />
     <Resource Include="Assets\Dice Images\d8alt.png" />
     <Resource Include="Assets\Dice Images\d10alt.png" />
@@ -243,6 +242,7 @@
     <Resource Include="Assets\Dice Images\d6.png" />
     <Resource Include="Assets\Dice Images\d8.png" />
     <Resource Include="Assets\Dice Images\d20.png" />
+    <Resource Include="Assets\Dice Images\d4alt.png" />
     <Content Include="Assets\UserManual\Styles\bulma.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
