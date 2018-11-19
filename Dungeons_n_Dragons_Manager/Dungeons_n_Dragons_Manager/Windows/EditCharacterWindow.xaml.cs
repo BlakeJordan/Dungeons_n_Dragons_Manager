@@ -1,6 +1,7 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
 using Dungeons_n_Dragons_Manager.Viewmodels;
 using System.Windows;
+
 namespace Dungeons_n_Dragons_Manager.Windows
 {
     /// <summary>

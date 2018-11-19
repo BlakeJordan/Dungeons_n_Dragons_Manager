@@ -16,29 +16,27 @@ namespace Dungeons_n_Dragons_Manager.Windows
         ///
         /// Post: Data context is set with m_newMonster as monster passed by reference.
         /// </summary>
-        public CreateMonsterWindow(ref Monster monster)
+        public CreateMonsterWindow()
         {
-            this.DataContext = new CreateMonsterWindowViewmodel(ref monster); //Initialize viewmodel.
+            this.DataContext = m_viewModel;
             InitializeComponent();
         }
 
-        /// <summary>
-        /// A boolean indicating whether the save button has been clicked or not
-        /// </summary>
-        public bool SaveMonster { get; set; }
+        private CreateMonsterWindowViewmodel m_viewModel = new CreateMonsterWindowViewmodel();
 
-        /// <summary>
-        /// Handles the clicking of the save button
-        ///
-        /// Pre: Save button is clicked
-        ///
-        /// Post: The Save Monster boolean is set to true and the window is closed
-        /// </summary>
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ComboBox_CheckCanSave(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            SaveMonster = true;
-            this.Close();
+            m_viewModel.CheckCanSave.Execute(null);
         }
 
+        private void TextBox_CheckCanSave(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            m_viewModel.CheckCanSave.Execute(null);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

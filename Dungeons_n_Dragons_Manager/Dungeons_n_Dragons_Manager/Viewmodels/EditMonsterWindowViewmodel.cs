@@ -2,6 +2,7 @@
 using Dungeons_n_Dragons_Manager.Tools;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
@@ -11,7 +12,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
     /// <summary>
     /// The viewmodel for creating monsters
     /// </summary>
-    public class CreateMonsterWindowViewmodel : INotifyPropertyChanged
+    public class EditMonsterWindowViewmodel : INotifyPropertyChanged
     {
         /// <summary>
         /// Constructor for the create monster viewmodel
@@ -20,7 +21,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         ///
         /// Post: A new monster is created with a reference to an existing, blank monster
         /// </summary>
-        public CreateMonsterWindowViewmodel()
+        public EditMonsterWindowViewmodel()
         {
             populateDropdowns();
         }
@@ -28,58 +29,36 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         #region Properties
 
         /// <summary>
-        /// Public accessor for m_canSave.
+        /// Represents the currently selected Monster in the combobox.
         /// </summary>
-        public bool CanSave
+        private Monster m_selectedMonster;
+
+        /// <summary>
+        /// Public accessor to m_selectedMonster.
+        /// </summary>
+        public Monster SelectedMonster
         {
             get
             {
-                //Duplicate name logic.
-                bool hasDuplicateName = false;
-                foreach (Monster monster in m_customMonsters)
+                if (m_selectedMonster == null && CustomMonsters.Count != 0)
                 {
-                    if (monster.Name == EditableMonster.Name) hasDuplicateName = true;
+                    m_selectedMonster = CustomMonsters[0];
                 }
-
-                //Atleast one environment logic.
-                bool hasAtleastOneEnvironment = EditableMonster.IsArctic || EditableMonster.IsCoastal || EditableMonster.IsDesert || EditableMonster.IsForest ||
-                                                EditableMonster.IsGrassland || EditableMonster.IsHill || EditableMonster.IsMountain || EditableMonster.IsSwamp ||
-                                                EditableMonster.IsUnderdark || EditableMonster.IsUnderwater || EditableMonster.IsUrban;
-
-                //Modifers picked logic.
-                bool modiferNotPicked = EditableMonster.StrengthMod == -6     || EditableMonster.DexterityMod == -6 || EditableMonster.ConstitutionMod == -6 ||
-                                          EditableMonster.IntelligenceMod == -6 || EditableMonster.WisdomMod == -6    || EditableMonster.CharismaMod == -6;
-
-
-                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                //Blank & duplicate name check.
-                if (string.IsNullOrWhiteSpace(EditableMonster.Name) || hasDuplicateName)
+                return m_selectedMonster;
+            }
+            set
+            {
+                if (m_selectedMonster != value)
                 {
-                    return false;
-                }
-
-                //Atleast one environment picked check.
-                else if (!hasAtleastOneEnvironment)
-                {
-                    return false;
-                }
-
-                //ArmorClassType and modifers picked check.
-                else if (string.IsNullOrWhiteSpace(EditableMonster.ArmorClassType) || modiferNotPicked)
-                {
-                    return false;
-                }
-
-                //All checks pass.
-                else
-                {
-                    return true;
+                    m_selectedMonster = value;
+                    OnPropertyRaised(nameof(SelectedMonster));
+                    EditableMonster = new Monster(SelectedMonster); //Create deep copy of SelectedMonster to edit without actually editing SelectedMonster.
                 }
             }
         }
 
         /// <summary>
-        /// Monster that is bound to the UI.
+        /// Deep clone of SelectedMonster. Used to edit without affecting currently selected monster.
         /// </summary>
         private Monster m_editableMonster;
 
@@ -90,10 +69,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get
             {
-                if (m_editableMonster == null)
+                if (m_editableMonster == null && CustomMonsters.Count != 0)
                 {
-                    m_editableMonster = new Monster();
-                    m_editableMonster.IsCustom = true;
+                    m_editableMonster = new Monster(CustomMonsters[0]);
                 }
                 return m_editableMonster;
             }
@@ -108,11 +86,22 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         /// <summary>
-        /// A list of the currently saved monsters for reference.
+        /// Bool that determines if the user can save.
         /// </summary>
-        private List<Monster> m_customMonsters;
+        public bool CanSave
+        {
+            get
+            {
+                return SelectedMonster.Equals(EditableMonster) == false;
+            }
+        }
 
         #region ComboBox Sources
+
+        /// <summary>
+        /// A collection of the currently saved monsters.
+        /// </summary>
+        public ObservableCollection<Monster> CustomMonsters { get; set; }
 
         /// <summary>
         /// The monster's options for armor
@@ -129,14 +118,14 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public List<int> ModifierValues { get; set; }
 
-        #endregion
+        #endregion ComboBox Sources
 
         #endregion Properties
 
         #region Commands
 
         /// <summary>
-        /// Command binded to Save button.
+        /// Command binded to the "Save Monster" button which calls saveMonster.
         /// </summary>
         private ICommand m_saveMonster;
 
@@ -152,12 +141,12 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         /// <summary>
-        /// Command binded to all ui components that executes when a selection is changed.
+        /// Command binded to the "Save Monster" button which calls saveMonster.
         /// </summary>
         private ICommand m_checkCanSave;
 
         /// <summary>
-        /// Public facing accessor to m_checkCanSave.
+        /// Public facing accessor to m_saveMonster.
         /// </summary>
         public ICommand CheckCanSave
         {
@@ -172,19 +161,44 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         #region Functions
 
         /// <summary>
-        /// Saves the monster to the settings.
+        /// Populates the list of environments for the new monster
+        ///
+        /// Pre: monster has been created
+        ///
+        /// Post: The monster's list has all environments selected.
         /// </summary>
         private void saveMonster()
         {
-            //Logic to save monster to settings here.
+            if (!CanSave) return; //Redundancy check.
+
+            //Generate list of outdated custom monsters by parsing settings.
+            List<string> customMonsters = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            List<Monster> listOfCustomMonsters = new List<Monster>();
+            foreach (string entry in customMonsters)
+            {
+                string[] values = entry.Split(';');
+                listOfCustomMonsters.Add(new Monster(values));
+            }
+
+            //Remove outdated monster.
+            listOfCustomMonsters.RemoveAll(x => x.Name == SelectedMonster.Name);
+
+            //Add new monster.
+            listOfCustomMonsters.Add(EditableMonster);
+
+            //Clear custom monsters settings string.
+            Properties.Settings.Default.CustomMonsters = string.Empty;
+
+            //Reconstruct string from updated list.
+            foreach (Monster entry in listOfCustomMonsters)
+            {
+                Properties.Settings.Default.CustomMonsters += entry.ToString() + System.Environment.NewLine;
+            }
+            Properties.Settings.Default.Save();
         }
 
         /// <summary>
-        /// Reevaluates the CanSave binding.
-        ///
-        /// Pre: none
-        ///
-        /// Post: CanSave has been reevaluated.
+        /// Reevaluates CanSave.
         /// </summary>
         private void checkCanSave()
         {
@@ -192,11 +206,11 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         /// <summary>
-        /// Populates the dropdown menus for the armor type options
+        /// Populates the lists that are bound to  UI comboBoxes.
         ///
         /// Pre: None
         ///
-        /// Post: The dropdown menus contain selectable armor type
+        /// Post: The dropdown menus contain data.
         /// </summary>
         private void populateDropdowns()
         {
@@ -206,7 +220,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
             #region Custom Monsters
 
-            m_customMonsters = new List<Monster>();
+            CustomMonsters = new ObservableCollection<Monster>();
 
             //Generate list of custom monster by parsing settings
             List<string> customMonsterStrings = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
@@ -214,8 +228,10 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             foreach (string entry in customMonsterStrings)
             {
                 string[] values = entry.Split(';');
-                m_customMonsters.Add(new Monster(values));
+                CustomMonsters.Add(new Monster(values));
             }
+
+            CustomMonsters = new ObservableCollection<Monster>(CustomMonsters.OrderBy(o => o.Name));
 
             #endregion Custom Monsters
         }
