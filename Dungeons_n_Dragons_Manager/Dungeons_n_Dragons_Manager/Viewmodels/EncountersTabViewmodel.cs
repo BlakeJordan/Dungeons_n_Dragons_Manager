@@ -1,4 +1,5 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
+using Dungeons_n_Dragons_Manager.Test_Suite;
 using Dungeons_n_Dragons_Manager.Tools;
 using Dungeons_n_Dragons_Manager.Windows;
 using System;
@@ -20,7 +21,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         ///
         /// Pre: None.
         ///
-        /// Post: CollectionOfMonsters is filled.
+        /// Post: Monsters is filled.
         /// </summary>
         public EncountersTabViewmodel()
         {
@@ -195,7 +196,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         ///
         /// Pre: None.
         ///
-        /// Post: CollectionOfMonsters has been filled.
+        /// Post: Monsters has been filled.
         /// </summary>
         private void parseMonstersResource()
         {
