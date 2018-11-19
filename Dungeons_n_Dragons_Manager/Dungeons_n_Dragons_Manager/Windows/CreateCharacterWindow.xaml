@@ -116,11 +116,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Strength" />
-                <ComboBox 
-                    Width="140" 
-                    Margin="2.5,0,0,0" 
+                <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding newCharacter.Strength}" />
+                    SelectedItem="{Binding newCharacter.Strength.score}" />
             </StackPanel>
 
             <StackPanel
@@ -132,11 +132,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Dexterity" />
-                <ComboBox 
-                    Width="140" 
-                    Margin="2.5,0,0,0" 
+                <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding newCharacter.Dexterity}" />
+                    SelectedItem="{Binding newCharacter.Dexterity.score}" />
             </StackPanel>
 
             <StackPanel
@@ -148,11 +148,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Constitution" />
-                <ComboBox 
-                    Width="140" 
-                    Margin="2.5,0,0,0" 
+                <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding newCharacter.Constitution}" />
+                    SelectedItem="{Binding newCharacter.Constitution.score}" />
             </StackPanel>
 
             <StackPanel
@@ -164,11 +164,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Intelligence" />
-                <ComboBox 
-                    Width="140" 
-                    Margin="2.5,0,0,0" 
+                <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding newCharacter.Intelligence}" />
+                    SelectedItem="{Binding newCharacter.Intelligence.score}" />
             </StackPanel>
 
             <StackPanel
@@ -180,11 +180,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Wisdom" />
-                <ComboBox 
-                    Width="140" 
-                    Margin="2.5,0,0,0" 
+                <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding newCharacter.Wisdom}" />
+                    SelectedItem="{Binding newCharacter.Wisdom.score}" />
             </StackPanel>
 
             <StackPanel
@@ -196,11 +196,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Charisma" />
-                <ComboBox 
-                    Width="140" 
-                    Margin="2.5,0,0,0" 
+                <ComboBox
+                    Width="140"
+                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding newCharacter.Charisma}" />
+                    SelectedItem="{Binding newCharacter.Charisma.score}" />
             </StackPanel>
 
             <StackPanel
@@ -238,126 +238,126 @@
                         Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Athletics"
-                        IsChecked="{Binding Path=newCharacter.Athletics}" />
+                        IsChecked="{Binding Path=newCharacter.Athletics.isProficient}" />
                     <CheckBox
                         x:Name="Acrobatics"
                         Grid.Row="1"
                         Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Acrobatics"
-                        IsChecked="{Binding Path=newCharacter.Acrobatics}" />
+                        IsChecked="{Binding Path=newCharacter.Acrobatics.isProficient}" />
                     <CheckBox
                         x:Name="SleightOfHand"
                         Grid.Row="2"
                         Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Sleight of Hand"
-                        IsChecked="{Binding Path=newCharacter.SleightOfHand}" />
+                        IsChecked="{Binding Path=newCharacter.SleightOfHand.isProficient}" />
                     <CheckBox
                         x:Name="Stealth"
                         Grid.Row="3"
                         Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Stealth"
-                        IsChecked="{Binding Path=newCharacter.Stealth}" />
+                        IsChecked="{Binding Path=newCharacter.Stealth.isProficient}" />
                     <CheckBox
                         x:Name="Arcana"
                         Grid.Row="4"
                         Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Arcana"
-                        IsChecked="{Binding Path=newCharacter.Arcana}" />
+                        IsChecked="{Binding Path=newCharacter.Arcana.isProficient}" />
                     <CheckBox
                         x:Name="History"
                         Grid.Row="5"
                         Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="History"
-                        IsChecked="{Binding Path=newCharacter.History}" />
+                        IsChecked="{Binding Path=newCharacter.History.isProficient}" />
                     <CheckBox
                         x:Name="Investigation"
                         Grid.Row="6"
                         Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Investigation"
-                        IsChecked="{Binding Path=newCharacter.Investigation}" />
+                        IsChecked="{Binding Path=newCharacter.Investigation.isProficient}" />
                     <CheckBox
                         x:Name="Nature"
                         Grid.Row="7"
                         Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Nature"
-                        IsChecked="{Binding Path=newCharacter.Nature}" />
+                        IsChecked="{Binding Path=newCharacter.Nature.isProficient}" />
                     <CheckBox
                         x:Name="Religion"
                         Grid.Row="8"
                         Grid.Column="0"
                         Margin="24,2,0,0"
                         Content="Religion"
-                        IsChecked="{Binding Path=newCharacter.Religion}" />
+                        IsChecked="{Binding Path=newCharacter.Religion.isProficient}" />
                     <CheckBox
                         x:Name="AnimalHandling"
                         Grid.Row="0"
                         Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Animal Handling"
-                        IsChecked="{Binding Path=newCharacter.AnimalHandling}" />
+                        IsChecked="{Binding Path=newCharacter.AnimalHandling.isProficient}" />
                     <CheckBox
                         x:Name="Insight"
                         Grid.Row="1"
                         Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Insight"
-                        IsChecked="{Binding Path=newCharacter.Insight}" />
+                        IsChecked="{Binding Path=newCharacter.Insight.isProficient}" />
                     <CheckBox
                         x:Name="Medicine"
                         Grid.Row="2"
                         Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Medicine"
-                        IsChecked="{Binding Path=newCharacter.Medicine}" />
+                        IsChecked="{Binding Path=newCharacter.Medicine.isProficient}" />
                     <CheckBox
                         x:Name="Perception"
                         Grid.Row="3"
                         Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Perception"
-                        IsChecked="{Binding Path=newCharacter.Perception}" />
+                        IsChecked="{Binding Path=newCharacter.Perception.isProficient}" />
                     <CheckBox
                         x:Name="Survival"
                         Grid.Row="4"
                         Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Survival"
-                        IsChecked="{Binding Path=newCharacter.Survival}" />
+                        IsChecked="{Binding Path=newCharacter.Survival.isProficient}" />
                     <CheckBox
                         x:Name="Deception"
                         Grid.Row="5"
                         Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Deception"
-                        IsChecked="{Binding Path=newCharacter.Deception}" />
+                        IsChecked="{Binding Path=newCharacter.Deception.isProficient}" />
                     <CheckBox
                         x:Name="Intimidation"
                         Grid.Row="6"
                         Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Intimidation"
-                        IsChecked="{Binding Path=newCharacter.Intimidation}" />
+                        IsChecked="{Binding Path=newCharacter.Intimidation.isProficient}" />
                     <CheckBox
                         x:Name="Performance"
                         Grid.Row="7"
                         Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Performance"
-                        IsChecked="{Binding Path=newCharacter.Performance}" />
+                        IsChecked="{Binding Path=newCharacter.Performance.isProficient}" />
                     <CheckBox
                         x:Name="Persuasion"
                         Grid.Row="8"
                         Grid.Column="1"
                         Margin="24,2,0,0"
                         Content="Persuasion"
-                        IsChecked="{Binding Path=newCharacter.Persuasion}" />
+                        IsChecked="{Binding Path=newCharacter.Persuasion.isProficient}" />
                 </Grid>
             </StackPanel>
 

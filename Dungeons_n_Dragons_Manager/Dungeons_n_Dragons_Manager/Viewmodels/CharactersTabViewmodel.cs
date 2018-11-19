@@ -129,6 +129,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             createCharacterWindow.ShowDialog(); //Open window instance until closed.
             if (createCharacterWindow.SaveCharacter)
             {
+                newCharacter.CalculateStats();
+                newCharacter.SetProficiency();
+                newCharacter.CalculateSkills();
                 Characters.Add(newCharacter); //Add modified character to collection.
             }
         }
