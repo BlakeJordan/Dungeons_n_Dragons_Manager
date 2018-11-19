@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace Dungeons_n_Dragons_Manager.Models
@@ -57,7 +56,6 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// </summary>
         /// <param name="times"></param>
         /// <returns></returns>
-     
 
         #region Interfaces
 

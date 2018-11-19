@@ -249,7 +249,6 @@
                 </Border>
             </GroupBox>
 
-
             <GroupBox
                 Grid.Row="5"
                 Grid.Column="2"
@@ -259,8 +258,6 @@
                     <TextBlock Text="{Binding SelectedCharacter.Notes, StringFormat=':{0}'}" />
                 </Border>
             </GroupBox>
-
-
         </Grid>
     </Border>
 </UserControl>

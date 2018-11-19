@@ -2,7 +2,6 @@
 using Dungeons_n_Dragons_Manager.Tools;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
@@ -12,7 +11,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
     /// <summary>
     /// The viewmodel for creating monsters
     /// </summary>
-    public class CreateMonsterWindowViewmodel
+    public class CreateMonsterWindowViewmodel : INotifyPropertyChanged
     {
         /// <summary>
         /// Constructor for the create monster viewmodel
@@ -21,18 +20,99 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         ///
         /// Post: A new monster is created with a reference to an existing, blank monster
         /// </summary>
-        /// /// <param name="monster">A reference to the new character</param>
-        public CreateMonsterWindowViewmodel(ref Monster monster)
+        public CreateMonsterWindowViewmodel()
         {
-            newMonster = monster;
-            newMonster.IsCustom = true;
             populateDropdowns();
         }
 
+        #region Properties
+
         /// <summary>
-        /// The new monster being created
+        /// Public accessor for m_canSave.
         /// </summary>
-        public Monster newMonster { get; set; }
+        public bool CanSave
+        {
+            get
+            {
+                //Duplicate name logic.
+                bool hasDuplicateName = false;
+                foreach (Monster monster in m_customMonsters)
+                {
+                    if (monster.Name == EditableMonster.Name) hasDuplicateName = true;
+                }
+
+                //Atleast one environment logic.
+                bool hasAtleastOneEnvironment = EditableMonster.IsArctic || EditableMonster.IsCoastal || EditableMonster.IsDesert || EditableMonster.IsForest ||
+                                                EditableMonster.IsGrassland || EditableMonster.IsHill || EditableMonster.IsMountain || EditableMonster.IsSwamp ||
+                                                EditableMonster.IsUnderdark || EditableMonster.IsUnderwater || EditableMonster.IsUrban;
+
+                //Modifers picked logic.
+                bool modiferNotPicked = EditableMonster.StrengthMod == -6     || EditableMonster.DexterityMod == -6 || EditableMonster.ConstitutionMod == -6 ||
+                                          EditableMonster.IntelligenceMod == -6 || EditableMonster.WisdomMod == -6    || EditableMonster.CharismaMod == -6;
+
+
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                //Blank & duplicate name check.
+                if (string.IsNullOrWhiteSpace(EditableMonster.Name) || hasDuplicateName)
+                {
+                    return false;
+                }
+
+                //Atleast one environment picked check.
+                else if (!hasAtleastOneEnvironment)
+                {
+                    return false;
+                }
+
+                //ArmorClassType and modifers picked check.
+                else if (string.IsNullOrWhiteSpace(EditableMonster.ArmorClassType) || modiferNotPicked)
+                {
+                    return false;
+                }
+
+                //All checks pass.
+                else
+                {
+                    return true;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Monster that is bound to the UI.
+        /// </summary>
+        private Monster m_editableMonster;
+
+        /// <summary>
+        /// Public accessor for m_editableMonster.
+        /// </summary>
+        public Monster EditableMonster
+        {
+            get
+            {
+                if (m_editableMonster == null)
+                {
+                    m_editableMonster = new Monster();
+                    m_editableMonster.IsCustom = true;
+                }
+                return m_editableMonster;
+            }
+            set
+            {
+                if (m_editableMonster != value)
+                {
+                    m_editableMonster = value;
+                    OnPropertyRaised(nameof(EditableMonster));
+                }
+            }
+        }
+
+        /// <summary>
+        /// A list of the currently saved monsters for reference.
+        /// </summary>
+        private List<Monster> m_customMonsters;
+
+        #region ComboBox Sources
 
         /// <summary>
         /// The monster's options for armor
@@ -42,138 +122,73 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// <summary>
         /// The character's options for each skill's level
         /// </summary>
-        public List<string> SkillValues { get; set; }
+        public List<int> SkillValues { get; set; }
 
         /// <summary>
         /// The character's options for each Modifier
         /// </summary>
-        public List<string> ModifierValues { get; set; }
+        public List<int> ModifierValues { get; set; }
+
+        #endregion
+
+        #endregion Properties
+
+        #region Commands
 
         /// <summary>
-        /// Boolean for if the artic environment is checked.
+        /// Command binded to Save button.
         /// </summary>
-        public bool IsArctic { get; set; }
+        private ICommand m_saveMonster;
 
         /// <summary>
-        /// Boolean for if the coastal environment is checked.
+        /// Public facing accessor to m_saveMonster.
         /// </summary>
-        public bool IsCoastal { get; set; }
-
-        /// <summary>
-        /// Boolean for if the Desert environment is checked.
-        /// </summary>
-        public bool IsDesert { get; set; }
-
-        /// <summary>
-        /// Boolean for if the forest environment is checked.
-        /// </summary>
-        public bool IsForest { get; set; }
-
-        /// <summary>
-        /// Boolean for if the grassland environment is checked.
-        /// </summary>
-        public bool IsGrassland { get; set; }
-
-        /// <summary>
-        /// Boolean for if the hill environment is checked.
-        /// </summary>
-        public bool IsHill { get; set; }
-
-        /// <summary>
-        /// Boolean for if the mountain environment is checked.
-        /// </summary>
-        public bool IsMountain { get; set; }
-
-        /// <summary>
-        /// Boolean for if the swamp environment is checked.
-        /// </summary>
-        public bool IsSwamp { get; set; }
-
-        /// <summary>
-        /// Boolean for if the underdark environment is checked.
-        /// </summary>
-        public bool IsUnderdark { get; set; }
-
-        /// <summary>
-        /// Boolean for if the underwater environment is checked.
-        /// </summary>
-        public bool IsUnderwater { get; set; }
-
-        /// <summary>
-        /// Boolean for if the urban environment is checked.
-        /// </summary>
-        public bool IsUrban { get; set; }
-
-        /// <summary>
-        /// Command binded to the "Save Monster" button which calls UpdateEnvironment
-        /// </summary>
-        private ICommand m_UpdateEnvironments;
-
-        /// <summary>
-        /// Public facing accessor to m_chooseRandomEncounter.
-        /// </summary>
-        public ICommand UpdateEnvironments
+        public ICommand SaveMonster
         {
             get
             {
-                return m_UpdateEnvironments ?? (m_UpdateEnvironments = new CommandHandler(() => updateEnvironments(), true));
+                return m_saveMonster ?? (m_saveMonster = new CommandHandler(() => saveMonster(), true));
             }
         }
-        /// <summary>
-        /// Populates the list of environments for the new monster
-        ///
-        /// Pre: monster has been created
-        ///
-        /// Post: The monster's list has all environments selected.
-        /// </summary>
-        public void updateEnvironments()
-        {
-            newMonster.Environments = new List<string>();
-            if(IsArctic)
-            {
-                newMonster.Environments.Add("Arctic");
-            }
-            if(IsCoastal)
-            {
-                newMonster.Environments.Add("Coastal");
-            }
-            if(IsDesert)
-            {
-                newMonster.Environments.Add("Desert");
-            }
-            if(IsForest)
-            {
-                newMonster.Environments.Add("Forest");
-            }
-            if(IsGrassland)
-            {
-                newMonster.Environments.Add("Grassland");
-            }
-            if(IsHill)
-            {
-                newMonster.Environments.Add("Hill");
-            }
-            if(IsMountain)
-            {
-                newMonster.Environments.Add("Mountain");
-            }
-            if(IsSwamp)
-            {
-                newMonster.Environments.Add("Swamp");
-            }
-            if(IsUnderdark)
-            {
-                newMonster.Environments.Add("Underdark");
-            }
-            if(IsUnderwater)
-            {
-                newMonster.Environments.Add("Underwater");
-            }
-            if(IsUrban)
-            {
-                newMonster.Environments.Add("Urban");
-            }
 
+        /// <summary>
+        /// Command binded to all ui components that executes when a selection is changed.
+        /// </summary>
+        private ICommand m_checkCanSave;
+
+        /// <summary>
+        /// Public facing accessor to m_checkCanSave.
+        /// </summary>
+        public ICommand CheckCanSave
+        {
+            get
+            {
+                return m_checkCanSave ?? (m_checkCanSave = new CommandHandler(() => checkCanSave(), true));
+            }
+        }
+
+        #endregion Commands
+
+        #region Functions
+
+        /// <summary>
+        /// Saves the monster to the settings.
+        /// </summary>
+        private void saveMonster()
+        {
+            //Logic to save monster to settings here.
+        }
+
+        /// <summary>
+        /// Reevaluates the CanSave binding.
+        ///
+        /// Pre: none
+        ///
+        /// Post: CanSave has been reevaluated.
+        /// </summary>
+        private void checkCanSave()
+        {
+            OnPropertyRaised(nameof(CanSave));
         }
 
         /// <summary>
@@ -186,10 +201,26 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private void populateDropdowns()
         {
             ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            SkillValues = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }.ToList();
-            ModifierValues = new string[] { "-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }.ToList();
+            SkillValues = Enumerable.Range(1, 30).ToList();
+            ModifierValues = Enumerable.Range(-5, 16).ToList();
 
+            #region Custom Monsters
+
+            m_customMonsters = new List<Monster>();
+
+            //Generate list of custom monster by parsing settings
+            List<string> customMonsterStrings = Properties.Settings.Default.CustomMonsters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+
+            foreach (string entry in customMonsterStrings)
+            {
+                string[] values = entry.Split(';');
+                m_customMonsters.Add(new Monster(values));
+            }
+
+            #endregion Custom Monsters
         }
+
+        #endregion Functions
 
         #region Interfaces
 

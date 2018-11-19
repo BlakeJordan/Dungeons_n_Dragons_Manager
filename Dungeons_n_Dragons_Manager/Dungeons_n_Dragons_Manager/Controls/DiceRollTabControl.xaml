@@ -23,34 +23,67 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="100" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Border
                 Grid.Row="0"
                 Grid.Column="0"
                 Padding="2.5">
-                <Button Height="75" Width="75" Command="{Binding ClickD4}">
-                    <Button.Template>
-                        <ControlTemplate>
-                            <Image Source="..\Assets\d4.png"></Image>
-                        </ControlTemplate>
-                    </Button.Template>
-                    
+
+                <Button
+                    Width="95"
+                    Height="95"
+                    Command="{Binding ClickD4}">
+                    <Button.Resources>
+                        <DataTemplate x:Key="Unpressed">
+                            <Image Source="../Assets/Dice Images/d4.png" />
+                        </DataTemplate>
+                        <DataTemplate x:Key="Pressed">
+                            <Image Source="../Assets/Dice Images//d4alt.png" />
+                        </DataTemplate>
+                    </Button.Resources>
+
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="ContentTemplate" Value="{StaticResource Unpressed}" />
+                            <Style.Triggers>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource Pressed}" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
                 </Button>
-                   
             </Border>
 
             <Border
                 Grid.Row="0"
                 Grid.Column="1"
                 Padding="2.5">
-                <Button Height="75" Width="75" Command="{Binding ClickD6}">
-                    <Button.Template>
-                        <ControlTemplate>
-                            <Image Source="..\Assets\dice-six-faces-six.png"></Image>
-                        </ControlTemplate>
-                    </Button.Template>
+                <Button
+                    Width="95"
+                    Height="95"
+                    Command="{Binding ClickD6}">
+                    <Button.Resources>
+                        <DataTemplate x:Key="Unpressed">
+                            <Image Source="../Assets/Dice Images/d6.png" />
+                        </DataTemplate>
+                        <DataTemplate x:Key="Pressed">
+                            <Image Source="../Assets/Dice Images/d6alt.png" />
+                        </DataTemplate>
+                    </Button.Resources>
+
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="ContentTemplate" Value="{StaticResource Unpressed}" />
+                            <Style.Triggers>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource Pressed}" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
                 </Button>
             </Border>
 
@@ -58,12 +91,29 @@
                 Grid.Row="0"
                 Grid.Column="2"
                 Padding="2.5">
-                <Button Height="75" Width="75" Command="{Binding ClickD8}">
-                    <Button.Template>
-                        <ControlTemplate>
-                            <Image Source="..\Assets\dice-eight-faces-eight.png"></Image>
-                        </ControlTemplate>
-                    </Button.Template>
+                <Button
+                    Width="95"
+                    Height="95"
+                    Command="{Binding ClickD8}">
+                    <Button.Resources>
+                        <DataTemplate x:Key="Unpressed">
+                            <Image Source="../Assets/Dice Images/d8.png" />
+                        </DataTemplate>
+                        <DataTemplate x:Key="Pressed">
+                            <Image Source="../Assets/Dice Images/d8alt.png" />
+                        </DataTemplate>
+                    </Button.Resources>
+
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="ContentTemplate" Value="{StaticResource Unpressed}" />
+                            <Style.Triggers>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource Pressed}" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
                 </Button>
             </Border>
 
@@ -71,12 +121,29 @@
                 Grid.Row="0"
                 Grid.Column="3"
                 Padding="2.5">
-                <Button Height="75" Width="75" Command="{Binding ClickD10}" HorizontalContentAlignment="Center">
-                    <Button.Template>
-                        <ControlTemplate>
-                            <Image Source="..\Assets\d10.png"></Image>
-                        </ControlTemplate>
-                    </Button.Template>
+                <Button
+                    Width="95"
+                    Height="95"
+                    Command="{Binding ClickD10}">
+                    <Button.Resources>
+                        <DataTemplate x:Key="Unpressed">
+                            <Image Source="../Assets/Dice Images/d10.png" />
+                        </DataTemplate>
+                        <DataTemplate x:Key="Pressed">
+                            <Image Source="../Assets/Dice Images/d10alt.png" />
+                        </DataTemplate>
+                    </Button.Resources>
+
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="ContentTemplate" Value="{StaticResource Unpressed}" />
+                            <Style.Triggers>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource Pressed}" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
                 </Button>
             </Border>
 
@@ -84,12 +151,29 @@
                 Grid.Row="0"
                 Grid.Column="4"
                 Padding="2.5">
-                <Button Height="75" Width="75" Command="{Binding ClickD12}">
-                    <Button.Template>
-                        <ControlTemplate>
-                            <Image Source="..\Assets\d12.png"></Image>
-                        </ControlTemplate>
-                    </Button.Template>
+                <Button
+                    Width="95"
+                    Height="95"
+                    Command="{Binding ClickD12}">
+                    <Button.Resources>
+                        <DataTemplate x:Key="Unpressed">
+                            <Image Source="../Assets/Dice Images/d12.png" />
+                        </DataTemplate>
+                        <DataTemplate x:Key="Pressed">
+                            <Image Source="../Assets/Dice Images/d12alt.png" />
+                        </DataTemplate>
+                    </Button.Resources>
+
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="ContentTemplate" Value="{StaticResource Unpressed}" />
+                            <Style.Triggers>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource Pressed}" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
                 </Button>
             </Border>
 
@@ -97,12 +181,29 @@
                 Grid.Row="0"
                 Grid.Column="5"
                 Padding="2.5">
-                <Button Height="75" Width="75" Command="{Binding ClickD20}">
-                    <Button.Template>
-                        <ControlTemplate>
-                            <Image Source="..\Assets\dice-twenty-faces-twenty.png"></Image>
-                        </ControlTemplate>
-                    </Button.Template>
+                <Button
+                    Width="95"
+                    Height="95"
+                    Command="{Binding ClickD20}">
+                    <Button.Resources>
+                        <DataTemplate x:Key="Unpressed">
+                            <Image Source="../Assets/Dice Images/d20.png" />
+                        </DataTemplate>
+                        <DataTemplate x:Key="Pressed">
+                            <Image Source="../Assets/Dice Images/d20alt.png" />
+                        </DataTemplate>
+                    </Button.Resources>
+
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="ContentTemplate" Value="{StaticResource Unpressed}" />
+                            <Style.Triggers>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource Pressed}" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
                 </Button>
             </Border>
 
@@ -110,29 +211,46 @@
                 Grid.Row="0"
                 Grid.Column="6"
                 Padding="2.5">
-                <Button Height="75" Width="75" Command="{Binding ClickD100}">
-                    <Button.Template>
-                        <ControlTemplate>
-                            <Image Source="..\Assets\d100edit.png"></Image>
-                        </ControlTemplate>
-                    </Button.Template>
+                <Button
+                    Width="95"
+                    Height="95"
+                    Command="{Binding ClickD100}">
+                    <Button.Resources>
+                        <DataTemplate x:Key="Unpressed">
+                            <Image Source="../Assets/Dice Images/d100.png" />
+                        </DataTemplate>
+                        <DataTemplate x:Key="Pressed">
+                            <Image Source="../Assets/Dice Images/d100alt.png" />
+                        </DataTemplate>
+                    </Button.Resources>
+
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="ContentTemplate" Value="{StaticResource Unpressed}" />
+                            <Style.Triggers>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource Pressed}" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
                 </Button>
             </Border>
-
 
             <Border
                 Grid.Row="1"
                 Grid.Column="3"
-                Padding="2.5"
-                >
+                Padding="2.5">
 
-                <TextBlock x:Name="Title" Text="Roll:"  Margin="18, 50, 5, 10">
+                <TextBlock
+                    x:Name="Title"
+                    Margin="18,50,5,10"
+                    Text="Roll:">
                     <TextBlock.RenderTransform>
                         <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
                     </TextBlock.RenderTransform>
                 </TextBlock>
             </Border>
-
 
             <Border
                 Grid.Row="2"
@@ -140,11 +258,27 @@
                 Padding="2.5"
                 VerticalAlignment="Top">
 
-                <TextBlock x:Name="Result" Text="{Binding rolls}"  HorizontalAlignment="Center">
+                <TextBlock
+                    x:Name="Result"
+                    HorizontalAlignment="Center"
+                    Text="{Binding rolls}" TextWrapping="Wrap">
                     <TextBlock.RenderTransform>
                         <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
                     </TextBlock.RenderTransform>
                 </TextBlock>
+            </Border>
+
+            <Border
+                Grid.Row="1"
+                Grid.Column="4"
+                Padding="2.5" 
+                >
+                <Button
+                    Height="25"
+                    Margin="18,50,5,10"
+                    Content="Clear Rolls"
+                    Command="{Binding Clear}">
+                </Button>
             </Border>
         </Grid>
     </Border>

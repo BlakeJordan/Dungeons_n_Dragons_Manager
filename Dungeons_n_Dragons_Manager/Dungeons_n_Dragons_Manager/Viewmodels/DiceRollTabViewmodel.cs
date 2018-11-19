@@ -67,43 +67,48 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private void roll_D4()
         {
 
-            rolls = bag.Roll(4);
+            rolls = rolls + " " + bag.Roll(4);
         }
 
         private void roll_D6()
         {
 
-            rolls = bag.Roll(6);
+            rolls = rolls + " " + bag.Roll(6);
         }
 
         private void roll_D8()
         {
 
-            rolls = bag.Roll(8);
+            rolls = rolls + " " + bag.Roll(8);
         }
 
         private void roll_D10()
         {
 
-            rolls = bag.Roll(10);
+            rolls = rolls + " " + bag.Roll(10);
         }
 
         private void roll_D12()
         {
 
-            rolls = bag.Roll(12);
+            rolls = rolls + " " + bag.Roll(12);
         }
 
         private void roll_D20()
         {
 
-            rolls = bag.Roll(20);
+            rolls = rolls + " " + bag.Roll(20);
         }
 
         private void roll_D100()
         {
 
-            rolls = bag.Roll(100);
+            rolls = rolls + " " + bag.Roll(100);
+        }
+
+        private void clear_Rolls()
+        {
+            rolls = "";
         }
         #region Commands
 
@@ -113,6 +118,22 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         private bool m_canClick
         {
             get { return true; }
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        private ICommand m_Clear;
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public ICommand Clear
+        {
+            get
+            {
+                return m_Clear ?? (m_Clear = new CommandHandler(() => clear_Rolls(), m_canClick));
+            }
         }
 
         /// <summary>
@@ -209,9 +230,11 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get
             {
-                return m_ClickD100 ?? (m_ClickD4 = new CommandHandler(() => roll_D100(), m_canClick));
+                return m_ClickD100 ?? (m_ClickD100 = new CommandHandler(() => roll_D100(), m_canClick));
             }
         }
+
+        
         #endregion Commands
 
         #region Interfaces
@@ -236,6 +259,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
             }
         }
+
+        
 
         #endregion Interfaces
     }

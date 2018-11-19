@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace Dungeons_n_Dragons_Manager.Tools
@@ -27,7 +22,7 @@ namespace Dungeons_n_Dragons_Manager.Tools
             d.SetValue(HtmlProperty, value);
         }
 
-        static void OnHtmlChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static void OnHtmlChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             WebBrowser wb = d as WebBrowser;
             if (wb != null)
