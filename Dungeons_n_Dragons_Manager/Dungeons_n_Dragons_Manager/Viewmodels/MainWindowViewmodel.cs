@@ -65,6 +65,22 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// <summary>
         /// Command binded to the "Help" button.
         /// </summary>
+        private ICommand m_openTestSuite;
+
+        /// <summary>
+        /// Public facing accessor to m_openTestSuite.
+        /// </summary>
+        public ICommand OpenTestSuite
+        {
+            get
+            {
+                return m_openTestSuite ?? (m_openTestSuite = new CommandHandler(() => openTestSuite(), true));
+            }
+        }
+
+        /// <summary>
+        /// Command binded to the "Help" button.
+        /// </summary>
         private ICommand m_openUserManual;
 
         /// <summary>
@@ -96,13 +112,22 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         #region Functions
 
         /// <summary>
+        /// Creates and opens a TestSuiteWindow.
+        /// </summary>
+        private void openTestSuite()
+        {
+            TestSuiteWindow testSuiteWindow = new TestSuiteWindow();
+            testSuiteWindow.ShowDialog();
+        }
+
+        /// <summary>
         /// Opens user manual in preferred web browser.
         /// </summary>
         private void openUserManual()
         {
-            string currentDirectory = Directory.GetCurrentDirectory();
-            string userManualFilePath = currentDirectory + "\\Assets\\UserManual\\UserManual.html";
-            System.Diagnostics.Process.Start(userManualFilePath);
+            //string currentDirectory = Directory.GetCurrentDirectory();
+            //string userManualFilePath = currentDirectory + "\\Assets\\UserManual\\UserManual.html";
+            //System.Diagnostics.Process.Start(userManualFilePath);
         }
 
         /// <summary>

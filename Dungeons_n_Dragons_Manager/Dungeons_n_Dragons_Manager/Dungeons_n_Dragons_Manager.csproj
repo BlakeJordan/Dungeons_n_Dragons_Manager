@@ -84,8 +84,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Test Suite\TestSuite.cs" />
-    <Compile Include="Test Suite\Tests\EncountersTabTests.cs" />
-    <Compile Include="Test Suite\Tests\MonsterTests.cs" />
+    <Compile Include="Test Suite\Tests\EncountersTabViewmodel_Tests.cs" />
+    <Compile Include="Test Suite\Tests\Monster_Tests.cs" />
     <Compile Include="Tools\BrowserBehavior.cs" />
     <Compile Include="Viewmodels\EditMonsterWindowViewmodel.cs" />
     <Compile Include="Windows\EditMonstersWindow.xaml.cs">
@@ -96,6 +96,9 @@
     </Compile>
     <Compile Include="Windows\AboutBoxWindow.Designer.cs">
       <DependentUpon>AboutBoxWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TestSuiteWindow.xaml.cs">
+      <DependentUpon>TestSuiteWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Controls\CharactersTabControl.xaml">
       <SubType>Designer</SubType>
@@ -174,6 +177,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Windows\TestSuiteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -258,17 +265,10 @@
     <Content Include="Assets\Music\75_Docks_District.mp3" />
     <Content Include="Assets\Music\7_The_Desert_Awaits.mp3" />
     <Content Include="Assets\Music\96_Windswept_Plains_b.mp3" />
-    <Content Include="Assets\UserManual\Styles\bulma.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\UserManual\Styles\debug.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\UserManual\UserManual.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\UserManual\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Music\104_River_Town.mp3" />
     <Content Include="Assets\Music\131_The_Bog_Standard.mp3" />
