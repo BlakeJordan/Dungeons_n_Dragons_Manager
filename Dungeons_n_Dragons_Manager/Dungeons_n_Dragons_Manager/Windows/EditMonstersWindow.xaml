@@ -116,6 +116,7 @@
                     Text="Challenge XP" />
                 <TextBox
                     Width="140"
+                    PreviewTextInput="TextBox_NumericCheck"
                     Text="{Binding EditableMonster.ChallengeXP, UpdateSourceTrigger=PropertyChanged}"
                     TextChanged="TextBox_CheckCanSave" />
             </StackPanel>
@@ -131,6 +132,7 @@
                     Text="Hit Points" />
                 <TextBox
                     Width="140"
+                    PreviewTextInput="TextBox_NumericCheck"
                     Text="{Binding EditableMonster.HitPoints, UpdateSourceTrigger=PropertyChanged}"
                     TextChanged="TextBox_CheckCanSave" />
             </StackPanel>
@@ -146,6 +148,7 @@
                     Text="Hit Points Dice" />
                 <TextBox
                     Width="140"
+                    PreviewTextInput="TextBox_RollCheck"
                     Text="{Binding EditableMonster.HitPointsDice, UpdateSourceTrigger=PropertyChanged}"
                     TextChanged="TextBox_CheckCanSave" />
             </StackPanel>

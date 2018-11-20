@@ -92,12 +92,59 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get
             {
-                if (SelectedMonster != null)
+                //Duplicate name logic.
+                bool hasDuplicateName = false;
+                foreach (Monster monster in CustomMonsters)
                 {
-
-                    return SelectedMonster.Equals(EditableMonster) == false;
+                    //if (monster.Name == EditableMonster.Name) hasDuplicateName = true;
                 }
-                return false;
+
+                //Atleast one environment logic.
+                bool hasAtleastOneEnvironment = EditableMonster.IsArctic || EditableMonster.IsCoastal || EditableMonster.IsDesert || EditableMonster.IsForest ||
+                                                EditableMonster.IsGrassland || EditableMonster.IsHill || EditableMonster.IsMountain || EditableMonster.IsSwamp ||
+                                                EditableMonster.IsUnderdark || EditableMonster.IsUnderwater || EditableMonster.IsUrban;
+
+                //Modifers picked logic.
+                bool modifersNotPicked = EditableMonster.StrengthMod == -6 || EditableMonster.DexterityMod == -6 || EditableMonster.ConstitutionMod == -6 ||
+                                          EditableMonster.IntelligenceMod == -6 || EditableMonster.WisdomMod == -6 || EditableMonster.CharismaMod == -6;
+
+                bool statsNotPicked = EditableMonster.Strength == 0 || EditableMonster.Dexterity == 0 || EditableMonster.Constitution == 0 ||
+                                      EditableMonster.Intelligence == 0 || EditableMonster.Wisdom == 0 || EditableMonster.Charisma == 0;
+
+                bool challengeXpOrHPnotPicked = EditableMonster.ChallengeXP == 0 || EditableMonster.HitPoints == 0;
+
+                bool hitPointsDiceNotPicked = string.IsNullOrWhiteSpace(EditableMonster.HitPointsDice);
+
+                bool armorClassTypeNotPicked = string.IsNullOrWhiteSpace(EditableMonster.ArmorClassType);
+
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                //Blank & duplicate name check.
+                if (string.IsNullOrWhiteSpace(EditableMonster.Name) || hasDuplicateName)
+                {
+                    return false;
+                }
+
+                //Atleast one environment picked check.
+                else if (!hasAtleastOneEnvironment)
+                {
+                    return false;
+                }
+
+                //ArmorClassType, modifers, and stats picked check.
+                else if (modifersNotPicked || statsNotPicked || challengeXpOrHPnotPicked)
+                {
+                    return false;
+                }
+                else if (hitPointsDiceNotPicked || armorClassTypeNotPicked)
+                {
+                    return false;
+                }
+
+                //All checks pass.
+                else
+                {
+                    return true;
+                }
             }
         }
 
