@@ -35,14 +35,23 @@
                 Grid.Row="0"
                 Grid.ColumnSpan="3"
                 Margin="263,0,263,13.333" />
+            <Button Margin="9.667,37,212.667,0.333" RenderTransformOrigin="7.236,0.308" Grid.Column="1">
+                <Image Source="../Assets/Music Player Icons/play-button.png" Height="32" Width="30" RenderTransformOrigin="6.622,0.875" />
+            </Button>
+            <Button Margin="111.667,37,110.667,0.333" RenderTransformOrigin="7.236,0.308" Grid.Column="1">
+                <Image Source="../Assets/Music Player Icons/pause.png" Height="32" Width="30" RenderTransformOrigin="6.622,0.875" />
+            </Button>
+            <Button Margin="212.667,37,9.667,0" RenderTransformOrigin="7.236,0.308" Grid.Column="1" Height="40" VerticalAlignment="Top">
+                <Image Source="../Assets/Music Player Icons/stop.png" Height="32" Width="30" RenderTransformOrigin="6.622,0.875" />
+            </Button>
 
             <GroupBox
                 Grid.Column="0"
                 Grid.ColumnSpan="3"
-                Margin="0,50,0,0.667"
+                Margin="0,77,0,0.667"
                 Header="Song Selection" Grid.RowSpan="2">
                 <ListBox>
-                    <Button Background="Transparent" BorderBrush="Transparent">
+                    <Button Background="Transparent" BorderBrush="Transparent" Width="200">
                         <ListBoxItem>Medieval Town - Ambience - All the sounds of a bustling and hectic Renaissance period town.</ListBoxItem>
                     </Button>
                     <Button Background="Transparent" BorderBrush="Transparent">
@@ -161,9 +170,6 @@
                     </Button>
                     <Button Background="Transparent" BorderBrush="Transparent">
                         <ListBoxItem>Medieval Battle - Ambience - Two armies meet at the battle field. Steel, horses, and bones clash in the fight for supremacy.</ListBoxItem>
-                    </Button>
-                    <Button Background="Transparent" BorderBrush="Transparent">
-                        <ListBoxItem></ListBoxItem>
                     </Button>
                 </ListBox>
             </GroupBox>
