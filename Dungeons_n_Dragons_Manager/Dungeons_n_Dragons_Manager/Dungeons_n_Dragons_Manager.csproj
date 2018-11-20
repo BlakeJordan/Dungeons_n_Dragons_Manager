@@ -244,6 +244,9 @@
     <Resource Include="Assets\Dice Images\d6.png" />
     <Resource Include="Assets\Dice Images\d8.png" />
     <Resource Include="Assets\Dice Images\d20.png" />
+    <Resource Include="Assets\Music Player Icons\play-button.png" />
+    <Resource Include="Assets\Music Player Icons\pause.png" />
+    <Resource Include="Assets\Music Player Icons\stop.png" />
     <Content Include="Assets\Music\129_Weirder_Things_2.mp3" />
     <Content Include="Assets\Music\132_Open_Ocean.mp3" />
     <Content Include="Assets\Music\138_Desert_Winds.mp3" />
