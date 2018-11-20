@@ -92,7 +92,11 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get
             {
-                if (SelectedMonster != null) return SelectedMonster.Equals(EditableMonster) == false;
+                if (SelectedMonster != null)
+                {
+
+                    return SelectedMonster.Equals(EditableMonster) == false;
+                }
                 return false;
             }
         }
@@ -120,6 +124,16 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// The character's options for each Modifier
         /// </summary>
         public List<int> ModifierValues { get; set; }
+
+        /// <summary>
+        /// The monster's options for armor class.
+        /// </summary>
+        public List<int> ArmorClassValues { get; set; }
+
+        /// <summary>
+        /// The monster's options for challenge rating.
+        /// </summary>
+        public List<int> ChallengeRatingValues { get; set; }
 
         #endregion ComboBox Sources
 
@@ -240,6 +254,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             SkillValues = Enumerable.Range(1, 30).ToList();
             ModifierValues = Enumerable.Range(-5, 16).ToList();
+            ArmorClassValues = Enumerable.Range(0, 32).ToList();
+            ChallengeRatingValues = Enumerable.Range(0, 31).ToList();
             CustomMonsters = Properties.Settings.Default.CustomMonstersList;
         }
 

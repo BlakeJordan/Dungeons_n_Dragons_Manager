@@ -82,10 +82,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Armor Class" />
-                <TextBox
+                <ComboBox
                     Width="140"
-                    Text="{Binding EditableMonster.ArmorClass, UpdateSourceTrigger=PropertyChanged}"
-                    TextChanged="TextBox_CheckCanSave" />
+                    ItemsSource="{Binding ArmorClassValues}"
+                    SelectedItem="{Binding EditableMonster.ArmorClass, UpdateSourceTrigger=PropertyChanged}"
+                    SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
             <StackPanel
@@ -97,10 +98,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Challenge Rating" />
-                <TextBox
+                <ComboBox
                     Width="140"
-                    Text="{Binding EditableMonster.ChallengeRating, UpdateSourceTrigger=PropertyChanged}"
-                    TextChanged="TextBox_CheckCanSave" />
+                    ItemsSource="{Binding ChallengeRatingValues}"
+                    SelectedItem="{Binding EditableMonster.ChallengeRating, UpdateSourceTrigger=PropertyChanged}"
+                    SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
             <StackPanel
