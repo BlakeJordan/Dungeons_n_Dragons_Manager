@@ -25,6 +25,7 @@ namespace Dungeons_n_Dragons_Manager.Test_Suite.Tests
         {
             constructorTest();
             chooseRandomEncounterTest();
+
             return m_testingOutput;
         }
 
