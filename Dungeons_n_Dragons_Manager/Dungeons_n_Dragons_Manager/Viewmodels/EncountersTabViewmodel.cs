@@ -247,16 +247,15 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             if (characters != null && characters.Count != 0)
             {
                 int averageCharacterLevel = 0;
-                foreach(Character character in characters)
+                foreach (Character character in characters)
                 {
                     averageCharacterLevel += character.Level;
                 }
                 averageCharacterLevel = averageCharacterLevel / characters.Count;
 
-
                 List<Monster> environmentlyFilteredMonsters = filteredMonsters;
                 filteredMonsters = new List<Monster>();
-                foreach(Monster monster in environmentlyFilteredMonsters)
+                foreach (Monster monster in environmentlyFilteredMonsters)
                 {
                     if (monster.ChallengeRating <= averageCharacterLevel)
                     {
@@ -284,7 +283,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             CreateMonsterWindow createMonsterWindow = new CreateMonsterWindow();
             createMonsterWindow.ShowDialog(); //Open window instance until closed.
-            OnPropertyRaised(nameof(CanEdit)); 
+            OnPropertyRaised(nameof(CanEdit));
             parseMonstersResource();
         }
 
@@ -299,7 +298,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             EditMonstersWindow editMonstersWindow = new EditMonstersWindow();
             editMonstersWindow.ShowDialog();
+            OnPropertyRaised(nameof(CanEdit));
             parseMonstersResource();
+
         }
 
         #endregion Functions

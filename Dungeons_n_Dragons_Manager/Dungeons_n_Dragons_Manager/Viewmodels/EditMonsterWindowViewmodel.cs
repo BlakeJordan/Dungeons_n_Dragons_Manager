@@ -4,21 +4,22 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
 {
     /// <summary>
-    /// The viewmodel for creating monsters
+    /// The viewmodel for editing monsters
     /// </summary>
     public class EditMonsterWindowViewmodel : INotifyPropertyChanged
     {
         /// <summary>
-        /// Constructor for the create monster viewmodel
+        /// Constructor for the edit monster viewmodel
         ///
-        /// Pre: Create monster window has been opened
+        /// Pre: edit monster window has been opened
         ///
-        /// Post: A new monster is created with a reference to an existing, blank monster
+        /// Post: dropdowns are populated.
         /// </summary>
         public EditMonsterWindowViewmodel()
         {
@@ -91,10 +92,63 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get
             {
-                if (SelectedMonster != null) return SelectedMonster.Equals(EditableMonster) == false;
-                return false;
+                //Duplicate name logic.
+                bool hasDuplicateName = false;
+                foreach (Monster monster in CustomMonsters)
+                {
+                    //if (monster.Name == EditableMonster.Name) hasDuplicateName = true;
+                }
+
+                //Atleast one environment logic.
+                bool hasAtleastOneEnvironment = EditableMonster.IsArctic || EditableMonster.IsCoastal || EditableMonster.IsDesert || EditableMonster.IsForest ||
+                                                EditableMonster.IsGrassland || EditableMonster.IsHill || EditableMonster.IsMountain || EditableMonster.IsSwamp ||
+                                                EditableMonster.IsUnderdark || EditableMonster.IsUnderwater || EditableMonster.IsUrban;
+
+                //Modifers picked logic.
+                bool modifersNotPicked = EditableMonster.StrengthMod == -6 || EditableMonster.DexterityMod == -6 || EditableMonster.ConstitutionMod == -6 ||
+                                          EditableMonster.IntelligenceMod == -6 || EditableMonster.WisdomMod == -6 || EditableMonster.CharismaMod == -6;
+
+                bool statsNotPicked = EditableMonster.Strength == 0 || EditableMonster.Dexterity == 0 || EditableMonster.Constitution == 0 ||
+                                      EditableMonster.Intelligence == 0 || EditableMonster.Wisdom == 0 || EditableMonster.Charisma == 0;
+
+                bool challengeXpOrHPnotPicked = EditableMonster.ChallengeXP == 0 || EditableMonster.HitPoints == 0;
+
+                bool hitPointsDiceNotPicked = string.IsNullOrWhiteSpace(EditableMonster.HitPointsDice);
+
+                bool armorClassTypeNotPicked = string.IsNullOrWhiteSpace(EditableMonster.ArmorClassType);
+
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                //Blank & duplicate name check.
+                if (string.IsNullOrWhiteSpace(EditableMonster.Name) || hasDuplicateName)
+                {
+                    return false;
+                }
+
+                //Atleast one environment picked check.
+                else if (!hasAtleastOneEnvironment)
+                {
+                    return false;
+                }
+
+                //ArmorClassType, modifers, and stats picked check.
+                else if (modifersNotPicked || statsNotPicked || challengeXpOrHPnotPicked)
+                {
+                    return false;
+                }
+                else if (hitPointsDiceNotPicked || armorClassTypeNotPicked)
+                {
+                    return false;
+                }
+
+                //All checks pass.
+                else
+                {
+                    return true;
+                }
             }
         }
+
+        public Action CloseAction { get; set; }
 
         #region ComboBox Sources
 
@@ -109,14 +163,24 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         public List<string> ArmorTypes { get; set; }
 
         /// <summary>
-        /// The character's options for each skill's level
+        /// The monster's options for each skill's level
         /// </summary>
         public List<int> SkillValues { get; set; }
 
         /// <summary>
-        /// The character's options for each Modifier
+        /// The monster's options for each Modifier
         /// </summary>
         public List<int> ModifierValues { get; set; }
+
+        /// <summary>
+        /// The monster's options for armor class.
+        /// </summary>
+        public List<int> ArmorClassValues { get; set; }
+
+        /// <summary>
+        /// The monster's options for challenge rating.
+        /// </summary>
+        public List<int> ChallengeRatingValues { get; set; }
 
         #endregion ComboBox Sources
 
@@ -143,6 +207,22 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// <summary>
         /// Command binded to the "Save Monster" button which calls saveMonster.
         /// </summary>
+        private ICommand m_deleteMonster;
+
+        /// <summary>
+        /// Public facing accessor to m_saveMonster.
+        /// </summary>
+        public ICommand DeleteMonster
+        {
+            get
+            {
+                return m_deleteMonster ?? (m_deleteMonster = new CommandHandler(() => deleteMonster(), true));
+            }
+        }
+
+        /// <summary>
+        /// Command binded to the "Save Monster" button which calls saveMonster.
+        /// </summary>
         private ICommand m_checkCanSave;
 
         /// <summary>
@@ -156,12 +236,13 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+
         #endregion Commands
 
         #region Functions
 
         /// <summary>
-        /// Populates the list of environments for the new monster
+        /// Populates the list of environments for the monster being edited. 
         ///
         /// Pre: monster has been created
         ///
@@ -177,6 +258,30 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         /// <summary>
+        /// deletes the monster from the custom monster list.
+        ///
+        /// Pre: monster has been created
+        ///
+        /// Post: The monster's list has been updated with the selected monster removed.
+        /// </summary>
+        private void deleteMonster()
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this monster?",
+            "Confirmation", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                Properties.Settings.Default.CustomMonstersList.Remove(SelectedMonster);
+                Properties.Settings.Default.Save();
+                CloseAction();
+            }
+            else
+            {
+                
+            }
+        }
+
+
+        /// <summary>
         /// Reevaluates CanSave.
         /// </summary>
         private void checkCanSave()
@@ -185,7 +290,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         /// <summary>
-        /// Populates the lists that are bound to  UI comboBoxes.
+        /// Populates the lists that are bound to UI comboBoxes.
         ///
         /// Pre: None
         ///
@@ -196,6 +301,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             SkillValues = Enumerable.Range(1, 30).ToList();
             ModifierValues = Enumerable.Range(-5, 16).ToList();
+            ArmorClassValues = Enumerable.Range(0, 32).ToList();
+            ChallengeRatingValues = Enumerable.Range(0, 31).ToList();
             CustomMonsters = Properties.Settings.Default.CustomMonstersList;
         }
 

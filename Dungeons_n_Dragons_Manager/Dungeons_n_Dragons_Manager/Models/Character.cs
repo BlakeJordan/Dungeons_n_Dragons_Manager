@@ -191,6 +191,9 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// </summary>
         public Character()
         {
+            //Initalize AC to -1 so not it is not auto populated in create character window.
+            AC = -1;
+
             Attributes = new ObservableCollection<Attribute>();
             Strength = new Attribute();
             Constitution = new Attribute();

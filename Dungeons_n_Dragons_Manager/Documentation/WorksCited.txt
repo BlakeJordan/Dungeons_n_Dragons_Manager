@@ -5,3 +5,4 @@ Reference for Armor Types - https://roll20.net/compendium/dnd5e/Armor#content
 Reference for Classes - https://en.wikipedia.org/wiki/Character_class_(Dungeons_%26_Dragons)#Classes
 Reference for Races - https://www.reddit.com/r/DnD/comments/5crfot/5e_races_and_subraces_chart_updated_again/
 Reference for Weapons - https://www.dndbeyond.com/compendium/rules/basic-rules/equipment#SimpleMeleeWeapons
+Reference for code that closes a window inside the view model - https://stackoverflow.com/questions/16172462/close-window-from-viewmodel 
