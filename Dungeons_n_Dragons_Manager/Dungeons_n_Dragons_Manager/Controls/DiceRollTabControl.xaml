@@ -271,8 +271,7 @@
             <Border
                 Grid.Row="1"
                 Grid.Column="4"
-                Padding="2.5" 
-                >
+                Padding="2.5">
                 <Button
                     Height="25"
                     Margin="18,50,5,10"

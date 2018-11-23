@@ -25,7 +25,10 @@
 
         <Menu Grid.Row="0" Grid.Column="0">
             <MenuItem Command="{Binding OpenAboutBox}" Header="About" />
-            <MenuItem Command="{Binding OpenUserManual}" Header="Help" />
+            <MenuItem Header="Help">
+                <MenuItem Command="{Binding OpenUserManual}" Header="User Manual" />
+                <MenuItem Command="{Binding OpenTestSuite}" Header="Test Suite" />
+            </MenuItem>
         </Menu>
 
         <Border Grid.Row="1" Padding="5">

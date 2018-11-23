@@ -137,7 +137,7 @@
                             VerticalAlignment="Center"
                             FontSize="14"
                             FontWeight="DemiBold"
-                            Text="{Binding SelectedCharacter.Strength, StringFormat='Strength: {0}'}" />
+                            Text="{Binding SelectedCharacter.Strength.score, StringFormat='Strength: {0}'}" />
                         <TextBlock
                             Grid.Row="0"
                             Grid.Column="1"
@@ -145,7 +145,7 @@
                             VerticalAlignment="Center"
                             FontSize="14"
                             FontWeight="DemiBold"
-                            Text="{Binding SelectedCharacter.Wisdom, StringFormat='Wisdom: {0}'}" />
+                            Text="{Binding SelectedCharacter.Wisdom.score, StringFormat='Wisdom: {0}'}" />
                         <Separator
                             Grid.Row="1"
                             Grid.Column="0"
@@ -158,7 +158,7 @@
                             VerticalAlignment="Center"
                             FontSize="14"
                             FontWeight="DemiBold"
-                            Text="{Binding SelectedCharacter.Dexterity, StringFormat='Dexterity: {0}'}" />
+                            Text="{Binding SelectedCharacter.Dexterity.score, StringFormat='Dexterity: {0}'}" />
                         <TextBlock
                             Grid.Row="2"
                             Grid.Column="1"
@@ -166,7 +166,7 @@
                             VerticalAlignment="Center"
                             FontSize="14"
                             FontWeight="DemiBold"
-                            Text="{Binding SelectedCharacter.Intelligence, StringFormat='Intelligence: {0}'}" />
+                            Text="{Binding SelectedCharacter.Intelligence.score, StringFormat='Intelligence: {0}'}" />
                         <Separator
                             Grid.Row="3"
                             Grid.Column="0"
@@ -179,7 +179,7 @@
                             VerticalAlignment="Center"
                             FontSize="14"
                             FontWeight="DemiBold"
-                            Text="{Binding SelectedCharacter.Constitution, StringFormat='Constitution: {0}'}" />
+                            Text="{Binding SelectedCharacter.Constitution.score, StringFormat='Constitution: {0}'}" />
                         <TextBlock
                             Grid.Row="4"
                             Grid.Column="1"
@@ -187,7 +187,7 @@
                             VerticalAlignment="Center"
                             FontSize="14"
                             FontWeight="DemiBold"
-                            Text="{Binding SelectedCharacter.Charisma, StringFormat='Charisma: {0}'}" />
+                            Text="{Binding SelectedCharacter.Charisma.score, StringFormat='Charisma: {0}'}" />
                     </Grid>
                 </Border>
             </GroupBox>
@@ -200,13 +200,6 @@
                 Header="Character Skills">
                 <Border Padding="5">
                     <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="10" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="10" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
 
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
@@ -214,73 +207,33 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel
-                            Grid.Row="0"
                             Grid.Column="0"
                             HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
                             Orientation="Vertical">
-                            <TextBlock
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Text="{Binding SelectedCharacter.Athletics, StringFormat='Athletics: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.AnimalHandling.score, StringFormat='AnimalHandling: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Insight.score, StringFormat='Insight: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Medicine.score, StringFormat='Medicine: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Perception.score, StringFormat='Perception: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Survival.score, StringFormat='Survival: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Arcana.score, StringFormat='Arcana: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.History.score, StringFormat='History: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Investigation.score, StringFormat='Investigation: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Nature.score, StringFormat='Nature: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Religion.score, StringFormat='Religion: {0}'}" />
                         </StackPanel>
 
                         <StackPanel
-                            Grid.Row="0"
                             Grid.Column="1"
                             HorizontalAlignment="Center"
                             Orientation="Vertical">
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.AnimalHandling, StringFormat='AnimalHandling: {0}'}" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Insight, StringFormat='Insight: {0}'}" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Medicine, StringFormat='Medicine: {0}'}" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Perception, StringFormat='Perception: {0}'}" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Survival, StringFormat='Survival: {0}'}" />
-                        </StackPanel>
-
-                        <Separator
-                            Grid.Row="1"
-                            Grid.ColumnSpan="2"
-                            Margin="0,10,0,10"
-                            VerticalAlignment="Center" />
-
-                        <StackPanel
-                            Grid.Row="2"
-                            Grid.Column="0"
-                            HorizontalAlignment="Center"
-                            Orientation="Vertical">
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Acrobatics, StringFormat='Acrobatics: {0}'}" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.SleightOfHand, StringFormat='SleightOfhand: {0}'}" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Stealth, StringFormat='Stealth: {0}'}" />
-                        </StackPanel>
-
-                        <StackPanel
-                            Grid.Row="2"
-                            Grid.Column="1"
-                            HorizontalAlignment="Center"
-                            Orientation="Vertical">
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Deception, StringFormat='Deception: {0}'}" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Intimidation, StringFormat='Intimidation: {0}'}" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Performance, StringFormat='Performance: {0}'}" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Persuasion, StringFormat='Persuasion: {0}'}" />
-                        </StackPanel>
-
-                        <Separator
-                            Grid.Row="3"
-                            Grid.Column="0"
-                            Grid.ColumnSpan="2"
-                            Margin="0,10,0,0"
-                            VerticalAlignment="Center" />
-
-                        <StackPanel
-                            Grid.Row="4"
-                            Grid.Column="0"
-                            HorizontalAlignment="Center"
-                            Orientation="Vertical">
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Arcana, StringFormat='Arcana: {0}'}" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.History, StringFormat='History: {0}'}" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Investigation, StringFormat='Investigation: {0}'}" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Nature, StringFormat='Nature: {0}'}" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Religion, StringFormat='Religion: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Athletics.score, StringFormat='Athletics: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Acrobatics.score, StringFormat='Acrobatics: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.SleightOfHand.score, StringFormat='SleightOfhand: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Stealth.score, StringFormat='Stealth: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Deception.score, StringFormat='Deception: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Intimidation.score, StringFormat='Intimidation: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Performance.score, StringFormat='Performance: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Persuasion.score, StringFormat='Persuasion: {0}'}" />
                         </StackPanel>
                     </Grid>
                 </Border>

@@ -20,6 +20,7 @@ namespace Dungeons_n_Dragons_Manager.Models
             HitPointsDice = string.Empty;
             ArmorClassType = string.Empty;
             StrengthMod = DexterityMod = ConstitutionMod = IntelligenceMod = WisdomMod = CharismaMod = -6;
+            ArmorClass = ChallengeRating = -1;
         }
 
         /// <summary>
@@ -158,6 +159,13 @@ namespace Dungeons_n_Dragons_Manager.Models
         public bool IsCustom { get; set; }
 
         /// <summary>
+        /// Represents the name of the monster.
+        /// </summary>
+        public string Name { get; set; }
+
+        #region Environments
+
+        /// <summary>
         /// List representing the monster's environments.
         /// </summary>
         public List<string> Environments
@@ -179,8 +187,6 @@ namespace Dungeons_n_Dragons_Manager.Models
                 return enviroments;
             }
         }
-
-        #region Environment Bools
 
         /// <summary>
         /// Boolean for if the artic environment is checked.
@@ -239,10 +245,7 @@ namespace Dungeons_n_Dragons_Manager.Models
 
         #endregion Environment Bools
 
-        /// <summary>
-        /// Represents the name of the monster.
-        /// </summary>
-        public string Name { get; set; }
+        #region Stats
 
         /// <summary>
         /// Represents the challenge rating.
@@ -333,6 +336,8 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// Represents the charisma modifier.
         /// </summary>
         public int CharismaMod { get; set; }
+
+        #endregion
 
         #endregion Properties
 

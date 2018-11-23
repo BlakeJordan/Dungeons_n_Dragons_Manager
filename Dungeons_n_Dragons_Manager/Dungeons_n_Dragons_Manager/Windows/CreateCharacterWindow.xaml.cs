@@ -1,5 +1,4 @@
-﻿using Dungeons_n_Dragons_Manager.Models;
-using Dungeons_n_Dragons_Manager.Viewmodels;
+﻿using Dungeons_n_Dragons_Manager.Viewmodels;
 using System.Windows;
 
 namespace Dungeons_n_Dragons_Manager.Windows
@@ -16,28 +15,34 @@ namespace Dungeons_n_Dragons_Manager.Windows
         ///
         /// Post: Data context is set with m_newCharacter as character passed by reference.
         /// </summary>
-        public CreateCharacterWindow(ref Character character)
+        public CreateCharacterWindow()
         {
-            this.DataContext = new CreateCharacterWindowViewmodel(ref character); //Initialize viewmodel.
+            this.DataContext = m_viewmodel;
             InitializeComponent();
         }
 
-        /// <summary>
-        /// A boolean indicating whether the save button has been clicked or not
-        /// </summary>
-        public bool SaveCharacter { get; set; }
+        private CreateCharacterWindowViewmodel m_viewmodel = new CreateCharacterWindowViewmodel();
 
         /// <summary>
         /// Handles the clicking of the save button
         ///
         /// Pre: Save button is clicked
         ///
-        /// Post: The Save Character boolean is set to true and the window is closed
+        /// Post: Window is closed.
         /// </summary>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SaveCharacter = true;
             this.Close();
+        }
+
+        private void TextBox_CheckCanSave(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            m_viewmodel.CheckCanSave.Execute(null);
+        }
+
+        private void ComboBox_CheckCanSave(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            m_viewmodel.CheckCanSave.Execute(null);
         }
     }
 }

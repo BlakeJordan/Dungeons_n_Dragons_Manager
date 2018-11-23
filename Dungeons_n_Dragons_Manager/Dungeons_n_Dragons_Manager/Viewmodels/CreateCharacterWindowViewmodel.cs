@@ -20,17 +20,36 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         ///
         /// Post: A new character is created with a reference to an existing, blank character
         /// </summary>
-        /// /// <param name="character">A reference to the new character</param>
-        public CreateCharacterWindowViewmodel(ref Character character)
+        public CreateCharacterWindowViewmodel()
         {
-            newCharacter = character;
+            NewCharacter = new Character();
             populateDropdowns();
         }
+
+        #region Properties
 
         /// <summary>
         /// The new character being created
         /// </summary>
-        public Character newCharacter { get; set; }
+        public Character NewCharacter { get; set; }
+
+        /// <summary>
+        /// Bool binded to the IsEnabled property of the Save button.
+        /// </summary>
+        public bool CanSave
+        {
+            get
+            {
+                return true; //Add logic for saving.
+            }
+        }
+
+        /// <summary>
+        /// List of current characters for reference.
+        /// </summary>
+        private List<Character> m_characters;
+
+        #region ComboBox Sources
 
         /// <summary>
         /// The character's options for race
@@ -48,41 +67,52 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         public List<string> ArmorTypes { get; set; }
 
         /// <summary>
+        /// The character's options for armor class.
+        /// </summary>
+        public List<int> ArmorClasses { get; set; }
+
+        /// <summary>
         /// The character's options for each skill's level
         /// </summary>
-        public List<string> Skills { get; set; }
+        public List<int> Skills { get; set; }
 
         /// <summary>
-        /// Command binded to proficiency checkboxes which calls proficiencyCheck
+        /// The character's options for character level.
         /// </summary>
-        private ICommand m_ProficiencyCheck;
+        public List<int> Levels { get; set; }
 
-        public bool IsProficiencyChecked { get; set; }
+        #endregion ComboBox Sources
+
+        #endregion Properties
+
+        #region Commands
 
         /// <summary>
-        /// Public facing accessor for m_ProficiencyCheck
+        /// Command binded to UI that updates CanSave.
         /// </summary>
-        public ICommand ProficiencyCheck
+        private ICommand m_checkCanSave;
+
+        /// <summary>
+        /// Public facing accessor for m_CheckCanSave
+        /// </summary>
+        public ICommand CheckCanSave
         {
             get
             {
-                return m_ProficiencyCheck ?? (m_ProficiencyCheck = new CommandHandler(() => SetProficiency(IsProficiencyChecked), true));
+                return m_checkCanSave ?? (m_checkCanSave = new CommandHandler(() => checkCanSave(), true));
             }
         }
 
+        #endregion Commands
+
+        #region Functions
+
         /// <summary>
-        /// Checks if a proficiency can be added, then adds the proficiency to the character's proficiency list
+        /// Reevaluates CanSave.
         /// </summary>
-        public void SetProficiency(bool canSetProficiency)
+        private void checkCanSave()
         {
-            if (IsProficiencyChecked == true)
-            {
-                Console.WriteLine("ayyy");
-            }
-            else
-            {
-                Console.WriteLine("awww");
-            }
+            OnPropertyRaised(nameof(CanSave));
         }
 
         /// <summary>
@@ -97,8 +127,12 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             Races = Properties.Resources.Races.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             Classes = Properties.Resources.Classes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            Skills = new string[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }.ToList();
+            ArmorClasses = Enumerable.Range(0, 31).ToList();
+            Skills = Enumerable.Range(0, 21).ToList();
+            Levels = Enumerable.Range(1, 30).ToList();
         }
+
+        #endregion Functions
 
         #region Interfaces
 

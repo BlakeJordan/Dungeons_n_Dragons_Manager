@@ -20,7 +20,6 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" MinHeight="77" />
                 <RowDefinition />
-                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <TextBlock
@@ -36,21 +35,144 @@
                 Grid.Row="0"
                 Grid.ColumnSpan="3"
                 Margin="263,0,263,13.333" />
+            <Button Margin="9.667,37,212.667,0.333" RenderTransformOrigin="7.236,0.308" Grid.Column="1">
+                <Image Source="../Assets/Music Player Icons/play-button.png" Height="32" Width="30" RenderTransformOrigin="6.622,0.875" />
+            </Button>
+            <Button Margin="111.667,37,110.667,0.333" RenderTransformOrigin="7.236,0.308" Grid.Column="1">
+                <Image Source="../Assets/Music Player Icons/pause.png" Height="32" Width="30" RenderTransformOrigin="6.622,0.875" />
+            </Button>
+            <Button Margin="212.667,37,9.667,0" RenderTransformOrigin="7.236,0.308" Grid.Column="1" Height="40" VerticalAlignment="Top">
+                <Image Source="../Assets/Music Player Icons/stop.png" Height="32" Width="30" RenderTransformOrigin="6.622,0.875" />
+            </Button>
 
             <GroupBox
                 Grid.Column="0"
                 Grid.ColumnSpan="3"
-                Margin="0,50,0,0.667"
+                Margin="0,77,0,0.667"
                 Header="Song Selection" Grid.RowSpan="2">
                 <ListBox>
-                    <ListBoxItem>Medieval Town - Ambience - All the sounds of a bustling and hectic Renaissance period town.</ListBoxItem>
-                    <ListBoxItem>River Town - Music + Ambience - A small tidy town on the bank of a river.</ListBoxItem>
-                    <ListBoxItem>Mill Town - Ambience + Music - A busy mill town on the banks of a river.</ListBoxItem>
-
+                    <Button Background="Transparent" BorderBrush="Transparent" Width="200">
+                        <ListBoxItem>Medieval Town - Ambience - All the sounds of a bustling and hectic Renaissance period town.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>River Town - Music + Ambience - A small tidy town on the bank of a river.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Mill Town - Ambience + Music - A busy mill town on the banks of a river.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Docks District - Ambience - Find a ship and set sail!</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Blacksmith Shoppe - Ambience + Music - A blacksmith's shop at the heart of a village.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Alchemists Lab - Ambience - Bubbling flasks, scrolls of parchment, and chattering animals surround an ancient man.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Halfling Festival - Music + Ambience - A medieval festival in a bustling town.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Carriage Journey - Ambience + Music - A long rainy journey in a horse-drawn carriage.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>The Bog Standard - Ambience - A busy medieval tavern.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Mountain Tavern - Ambience - A warm tavern with a crackling fire in the snowy mountains.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Woodland Campsite - Ambience - Relax and let the horses rest by the campfire.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Middle Earth: Dawn - Music + Ambience - A sunny hillside, carriages passing, birds chirping. Peaceful.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Windswept Plains - Ambience - A band of horsemen under an endless sky.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Secret Garden - Ambience + Music - A quiet, magical clearing in the forest.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Elven Glade - Music + Ambience - A mystical wooden dell, hidden from human sight.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Forest Night - Ambience - Tree branches creek and crows call out, the forest is alive at night.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Xingu Nights - Ambience - A rich jungle after dark.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Winter Woods - Ambience + Music - Cold wind, dry branches, a desolate and trying setting.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Mountain Pass - Ambience + Music - A treacherous path through jagged mountain peaks.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Frozen Wastes - Ambience - An abysmal frozen plain, nothing can survive here.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Cave of Time - Ambience + Music - A vast cavern, cool temperatures accompany winding paths venturing deep into the earth.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Goblin's Cave - Ambience - Light your torches and proceed cautiously, the inhabitants of this cavern are far from welcoming.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Lost Mine - Music + Ambience - Hidden away for years and only recently uncovered, the contents of this forgotten mine may be dark.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Lakeside Camp - Ambience + Music - A quiet spot on the shore of a lake.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Swamplandia - Ambience + Music - Hot, humid, and swarming with bugs, keep your eyes peeled for gators.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Down by the Sea - Ambience + Muisc - Waves crash on a sandy beach, seagulls cry, all is at peace.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Open Ocean - Ambience + Music - No land in sight, water crashes around you. Tranquil and terrifying all at once.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>The Desert Awaits - Ambience + Music - You can see the heat in the dry air before you, the sun bears down unforgivingly. Nothing survives out here.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Desert Bazaar - Ambience + Music - The air is dry and filled with sand, a sense of mystery surrounds the place.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Desert Winds - Ambience + Music - A maelstrom of biting sands and vicious winds, visibility is close to zero.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Barovian Castle - Music + Ambience - This castle has towered over the land for hundreds of years, uneasiness and mystery surround it.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Graveyard - Ambience + Music - Crooked headstones overgrown with vines lay before you, shrouded by an eery mist.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Weirder Things - Music - Perfect for the Underdark environment.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Sleeping Dragon - Ambience + Music - Atop a mound of treasure, an ancient beast is in slumber. Careful not to wake it.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>There be Dragons - Ambience - The monsters before you show their strength, prepare for a challenging fight.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Dungeon - Ambience + Music - Twisting torch lit hallways lay before you, and an uneasy feeling settles in. Proceed with caution.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Before the Storm - Music + Ambience - Sharpen your swords and get some rest, tomorrow is going to be a big day.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>March of Faith - Ambience + Music - They continue onward, nothing diminishing their belief. No one can stop them.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Skirmish - Music + Ambience - Good ol' battle music.</ListBoxItem>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent">
+                        <ListBoxItem>Medieval Battle - Ambience - Two armies meet at the battle field. Steel, horses, and bones clash in the fight for supremacy.</ListBoxItem>
+                    </Button>
                 </ListBox>
             </GroupBox>
-
         </Grid>
-
     </Border>
 </UserControl>

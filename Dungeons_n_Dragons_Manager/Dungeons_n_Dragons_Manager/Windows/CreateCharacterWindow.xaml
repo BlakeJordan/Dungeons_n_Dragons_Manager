@@ -4,13 +4,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:sys="clr-namespace:System;assembly=mscorlib"
-    Title="CreateCharacterWindow"
-    Width="800"
+    Title="Character Creator"
+    Width="825"
     Height="450"
+    ResizeMode="NoResize"
     mc:Ignorable="d">
-    <Border Margin="0,0,0,-184.4" Padding="5">
-        <Grid Margin="0.2,0.2,0.2,175.8">
+
+    <Border Padding="5">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -18,11 +19,12 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <StackPanel
@@ -34,11 +36,14 @@
                 HorizontalAlignment="Center">
                 <TextBlock
                     Width="140"
-                    HorizontalAlignment="Center"
                     FontSize="14"
                     FontWeight="DemiBold"
-                    Text="Character Name" />
-                <TextBox Width="140" Text="{Binding newCharacter.Name}" />
+                    Text="Name"
+                    TextAlignment="Center" />
+                <TextBox
+                    Width="140"
+                    Text="{Binding NewCharacter.Name}"
+                    TextChanged="TextBox_CheckCanSave" />
             </StackPanel>
 
             <StackPanel
@@ -53,10 +58,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Level" />
-                <TextBox
+                <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
-                    Text="{Binding newCharacter.Level}" />
+                    ItemsSource="{Binding Levels}"
+                    SelectedItem="{Binding NewCharacter.Level}"
+                    SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
             <StackPanel
@@ -70,9 +76,9 @@
                     Text="Race" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Races}"
-                    SelectedItem="{Binding newCharacter.Race}" />
+                    SelectedItem="{Binding NewCharacter.Race}"
+                    SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
             <StackPanel
@@ -83,12 +89,28 @@
                     HorizontalAlignment="Center"
                     FontSize="14"
                     FontWeight="DemiBold"
-                    Text="Class" />
+                    Text="Armor Type" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
-                    ItemsSource="{Binding Classes}"
-                    SelectedItem="{Binding newCharacter.Class}" />
+                    ItemsSource="{Binding ArmorTypes}"
+                    SelectedItem="{Binding NewCharacter.ArmorType}"
+                    SelectionChanged="ComboBox_CheckCanSave" />
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="2"
+                Grid.Column="1"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Armor Class" />
+                <ComboBox
+                    Width="140"
+                    ItemsSource="{Binding ArmorClasses}"
+                    SelectedItem="{Binding NewCharacter.AC}"
+                    SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
             <StackPanel
@@ -99,12 +121,12 @@
                     HorizontalAlignment="Center"
                     FontSize="14"
                     FontWeight="DemiBold"
-                    Text="Armor Type" />
+                    Text="Class" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
-                    ItemsSource="{Binding ArmorTypes}"
-                    SelectedItem="{Binding newCharacter.ArmorType}" />
+                    ItemsSource="{Binding Classes}"
+                    SelectedItem="{Binding NewCharacter.Class}"
+                    SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
             <StackPanel
@@ -118,13 +140,13 @@
                     Text="Strength" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding newCharacter.Strength}" />
+                    SelectedItem="{Binding NewCharacter.Strength}"
+                    SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
             <StackPanel
-                Grid.Row="2"
+                Grid.Row="3"
                 Grid.Column="1"
                 HorizontalAlignment="Center">
                 <TextBlock
@@ -134,9 +156,9 @@
                     Text="Dexterity" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding newCharacter.Dexterity}" />
+                    SelectedItem="{Binding NewCharacter.Dexterity}"
+                    SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
             <StackPanel
@@ -150,9 +172,9 @@
                     Text="Constitution" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding newCharacter.Constitution}" />
+                    SelectedItem="{Binding NewCharacter.Constitution}"
+                    SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
             <StackPanel
@@ -166,13 +188,13 @@
                     Text="Intelligence" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding newCharacter.Intelligence}" />
+                    SelectedItem="{Binding NewCharacter.Intelligence}"
+                    SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
             <StackPanel
-                Grid.Row="3"
+                Grid.Row="4"
                 Grid.Column="1"
                 HorizontalAlignment="Center">
                 <TextBlock
@@ -182,9 +204,9 @@
                     Text="Wisdom" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding newCharacter.Wisdom}" />
+                    SelectedItem="{Binding NewCharacter.Wisdom}"
+                    SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
             <StackPanel
@@ -198,17 +220,15 @@
                     Text="Charisma" />
                 <ComboBox
                     Width="140"
-                    Margin="2.5,0,0,0"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding newCharacter.Charisma}" />
+                    SelectedItem="{Binding NewCharacter.Charisma}"
+                    SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
             <StackPanel
-                Grid.Row="4"
+                Grid.Row="5"
                 Grid.Column="0"
-                Grid.ColumnSpan="2"
                 Width="271"
-                Margin="-9,0.4,261.2,-147"
                 HorizontalAlignment="Center">
                 <TextBlock
                     HorizontalAlignment="Center"
@@ -237,143 +257,162 @@
                         Grid.Row="0"
                         Grid.Column="0"
                         Margin="24,2,0,0"
+                        Command="{Binding CheckCanSave}"
                         Content="Athletics"
-                        IsChecked="{Binding Path=newCharacter.Athletics}" />
+                        IsChecked="{Binding NewCharacter.Athletics}" />
                     <CheckBox
                         x:Name="Acrobatics"
                         Grid.Row="1"
                         Grid.Column="0"
                         Margin="24,2,0,0"
+                        Command="{Binding CheckCanSave}"
                         Content="Acrobatics"
-                        IsChecked="{Binding Path=newCharacter.Acrobatics}" />
+                        IsChecked="{Binding NewCharacter.Acrobatics}" />
                     <CheckBox
                         x:Name="SleightOfHand"
                         Grid.Row="2"
                         Grid.Column="0"
                         Margin="24,2,0,0"
+                        Command="{Binding CheckCanSave}"
                         Content="Sleight of Hand"
-                        IsChecked="{Binding Path=newCharacter.SleightOfHand}" />
+                        IsChecked="{Binding NewCharacter.SleightOfHand}" />
                     <CheckBox
                         x:Name="Stealth"
                         Grid.Row="3"
                         Grid.Column="0"
                         Margin="24,2,0,0"
+                        Command="{Binding CheckCanSave}"
                         Content="Stealth"
-                        IsChecked="{Binding Path=newCharacter.Stealth}" />
+                        IsChecked="{Binding NewCharacter.Stealth}" />
                     <CheckBox
                         x:Name="Arcana"
                         Grid.Row="4"
                         Grid.Column="0"
                         Margin="24,2,0,0"
+                        Command="{Binding CheckCanSave}"
                         Content="Arcana"
-                        IsChecked="{Binding Path=newCharacter.Arcana}" />
+                        IsChecked="{Binding NewCharacter.Arcana}" />
                     <CheckBox
                         x:Name="History"
                         Grid.Row="5"
                         Grid.Column="0"
                         Margin="24,2,0,0"
+                        Command="{Binding CheckCanSave}"
                         Content="History"
-                        IsChecked="{Binding Path=newCharacter.History}" />
+                        IsChecked="{Binding NewCharacter.History}" />
                     <CheckBox
                         x:Name="Investigation"
                         Grid.Row="6"
                         Grid.Column="0"
                         Margin="24,2,0,0"
+                        Command="{Binding CheckCanSave}"
                         Content="Investigation"
-                        IsChecked="{Binding Path=newCharacter.Investigation}" />
+                        IsChecked="{Binding NewCharacter.Investigation}" />
                     <CheckBox
                         x:Name="Nature"
                         Grid.Row="7"
                         Grid.Column="0"
                         Margin="24,2,0,0"
+                        Command="{Binding CheckCanSave}"
                         Content="Nature"
-                        IsChecked="{Binding Path=newCharacter.Nature}" />
+                        IsChecked="{Binding NewCharacter.Nature}" />
                     <CheckBox
                         x:Name="Religion"
                         Grid.Row="8"
                         Grid.Column="0"
                         Margin="24,2,0,0"
+                        Command="{Binding CheckCanSave}"
                         Content="Religion"
-                        IsChecked="{Binding Path=newCharacter.Religion}" />
+                        IsChecked="{Binding NewCharacter.Religion}" />
                     <CheckBox
                         x:Name="AnimalHandling"
                         Grid.Row="0"
                         Grid.Column="1"
                         Margin="24,2,0,0"
+                        Command="{Binding CheckCanSave}"
                         Content="Animal Handling"
-                        IsChecked="{Binding Path=newCharacter.AnimalHandling}" />
+                        IsChecked="{Binding NewCharacter.AnimalHandling}" />
                     <CheckBox
                         x:Name="Insight"
                         Grid.Row="1"
                         Grid.Column="1"
                         Margin="24,2,0,0"
+                        Command="{Binding CheckCanSave}"
                         Content="Insight"
-                        IsChecked="{Binding Path=newCharacter.Insight}" />
+                        IsChecked="{Binding NewCharacter.Insight}" />
                     <CheckBox
                         x:Name="Medicine"
                         Grid.Row="2"
                         Grid.Column="1"
                         Margin="24,2,0,0"
+                        Command="{Binding CheckCanSave}"
                         Content="Medicine"
-                        IsChecked="{Binding Path=newCharacter.Medicine}" />
+                        IsChecked="{Binding NewCharacter.Medicine}" />
                     <CheckBox
                         x:Name="Perception"
                         Grid.Row="3"
                         Grid.Column="1"
                         Margin="24,2,0,0"
+                        Command="{Binding CheckCanSave}"
                         Content="Perception"
-                        IsChecked="{Binding Path=newCharacter.Perception}" />
+                        IsChecked="{Binding NewCharacter.Perception}" />
                     <CheckBox
                         x:Name="Survival"
                         Grid.Row="4"
                         Grid.Column="1"
                         Margin="24,2,0,0"
+                        Command="{Binding CheckCanSave}"
                         Content="Survival"
-                        IsChecked="{Binding Path=newCharacter.Survival}" />
+                        IsChecked="{Binding NewCharacter.Survival}" />
                     <CheckBox
                         x:Name="Deception"
                         Grid.Row="5"
                         Grid.Column="1"
                         Margin="24,2,0,0"
+                        Command="{Binding CheckCanSave}"
                         Content="Deception"
-                        IsChecked="{Binding Path=newCharacter.Deception}" />
+                        IsChecked="{Binding NewCharacter.Deception}" />
                     <CheckBox
                         x:Name="Intimidation"
                         Grid.Row="6"
                         Grid.Column="1"
                         Margin="24,2,0,0"
+                        Command="{Binding CheckCanSave}"
                         Content="Intimidation"
-                        IsChecked="{Binding Path=newCharacter.Intimidation}" />
+                        IsChecked="{Binding NewCharacter.Intimidation}" />
                     <CheckBox
                         x:Name="Performance"
                         Grid.Row="7"
                         Grid.Column="1"
                         Margin="24,2,0,0"
+                        Command="{Binding CheckCanSave}"
                         Content="Performance"
-                        IsChecked="{Binding Path=newCharacter.Performance}" />
+                        IsChecked="{Binding NewCharacter.Performance}" />
                     <CheckBox
                         x:Name="Persuasion"
                         Grid.Row="8"
                         Grid.Column="1"
                         Margin="24,2,0,0"
+                        Command="{Binding CheckCanSave}"
                         Content="Persuasion"
-                        IsChecked="{Binding Path=newCharacter.Persuasion}" />
+                        IsChecked="{Binding NewCharacter.Persuasion}" />
                 </Grid>
             </StackPanel>
 
             <Button
-                Grid.Row="4"
+                Grid.Row="5"
                 Grid.Column="1"
-                Margin="60.8,76.4,61.2,-90"
+                Width="150"
+                Height="50"
                 Click="Button_Click"
-                Content="Save Character" />
+                Command="{Binding CheckCanSave}"
+                Content="Create Character"
+                IsEnabled="{Binding CanSave, UpdateSourceTrigger=PropertyChanged}" />
 
             <StackPanel
-                Grid.Row="4"
-                Grid.Column="1"
-                Grid.ColumnSpan="2"
+                Grid.Row="5"
+                Grid.Column="2"
                 Width="262"
-                Margin="260.4,0.4,0,-157"
                 HorizontalAlignment="Center">
                 <TextBlock
                     HorizontalAlignment="Center"
@@ -383,7 +422,7 @@
                 <TextBox
                     Height="180"
                     Margin="10,0,10.4,0"
-                    Text="{Binding newCharacter.Notes}" />
+                    Text="{Binding NewCharacter.Notes}" />
             </StackPanel>
         </Grid>
     </Border>
