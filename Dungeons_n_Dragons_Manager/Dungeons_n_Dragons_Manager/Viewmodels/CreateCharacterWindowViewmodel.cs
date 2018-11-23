@@ -185,7 +185,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             Classes = Properties.Resources.Classes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             ArmorClasses = Enumerable.Range(0, 31).ToList();
-            Skills = Enumerable.Range(0, 21).ToList();
+            Skills = Enumerable.Range(1, 21).ToList();
             Levels = Enumerable.Range(1, 30).ToList();
         }
 
