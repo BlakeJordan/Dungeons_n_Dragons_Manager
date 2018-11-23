@@ -144,16 +144,13 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         private void parseCharactersResource()
         {
-            List<Character> listOfCharacters = new List<Character>();
-            List<string> customCharacters = Properties.Settings.Default.CustomCharacters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            if (customCharacters.Count != 0)
+            List<Character> listOfCharacters = new List<Character>(); //Temp list to store Characters
+
+            if (Properties.Settings.Default.CustomCharactersList != null)
             {
-                foreach (string entry in customCharacters)
-                {
-                    string[] values = entry.Split(';');
-                    listOfCharacters.Add(new Character(values));
-                }
+                listOfCharacters.AddRange(Properties.Settings.Default.CustomCharactersList);
             }
+
             Characters = new ObservableCollection<Character>(listOfCharacters.OrderBy(o => o.Name).ToList()); //Sort list by name and create observable collection
         }
 

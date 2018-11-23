@@ -23,6 +23,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         public CreateCharacterWindowViewmodel()
         {
             NewCharacter = new Character();
+            m_characters = new List<Character>();
+            EditableCharacter = new Character();
             populateDropdowns();
         }
 
@@ -73,9 +75,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 {
                     if (character.Name == EditableCharacter.Name) hasUniqueName = false;
                 }
-                bool hasName = (EditableCharacter.Name != null);
-                bool hasClass = (EditableCharacter.Class != null);
-                bool hasRace = (EditableCharacter.Race != null);
+                bool hasName = !(string.IsNullOrWhiteSpace(EditableCharacter.Name));
+                bool hasClass = !(string.IsNullOrWhiteSpace(EditableCharacter.Class));
+                bool hasRace = !(string.IsNullOrWhiteSpace(EditableCharacter.Race));
                 bool hasLevel = (EditableCharacter.Level != 0);
                 bool hasAllStats = EditableCharacter.Strength.score != 0 || EditableCharacter.Dexterity.score != 0 || EditableCharacter.Constitution.score != 0 ||
                                       EditableCharacter.Intelligence.score != 0 || EditableCharacter.Wisdom.score != 0 || EditableCharacter.Charisma.score != 0;
@@ -84,7 +86,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 {
                     return true;
                 }
-
                 else
                 {
                     return false;
@@ -180,14 +181,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             Skills = Enumerable.Range(0, 21).ToList();
             Levels = Enumerable.Range(1, 30).ToList();
-
-            List<string> customCharacterStrings = Properties.Settings.Default.CustomCharacters.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
-
-            foreach (string entry in customCharacterStrings)
-            {
-                string[] values = entry.Split(';');
-                m_characters.Add(new Character(values));
-            }
         }
 
         #endregion
