@@ -30,9 +30,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             EncountersTabViewmodel = new EncountersTabViewmodel();
             MusicPlayerTabViewmodel = new MusicPlayerTabViewmodel();
 
-            TestSuite test = new TestSuite();                                                   //Test Suite testing.
-            List<string> test2 = test.RunAllTests();
-
             //Properties.Settings.Default.Reset();                                              //Uncomment to delete current settings!
         }
 

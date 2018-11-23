@@ -198,12 +198,12 @@ namespace Dungeons_n_Dragons_Manager.Test_Suite.Tests
 
             m_testingOutput.Add("\nEquals:");
 
-            string test1 = "Returns true with equal monsters -->";
+            string test1 = "Returns true with equal monsters --> ";
             if (equalsWorks) test1 += "PASSED";
             else test1 += "FAILED";
             m_testingOutput.Add(test1);
 
-            string test2 = "Returns false with unequal monsters -->";
+            string test2 = "Returns false with unequal monsters --> ";
             if (!unequalWorks) test2 += "PASSED";
             else test2 += "FAILED";
             m_testingOutput.Add(test2);
