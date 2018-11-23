@@ -24,10 +24,19 @@ namespace Dungeons_n_Dragons_Manager.Windows
 
         #region Properties
 
+        /// <summary>
+        ///  Create monster viewmodel for the create monster window.
+        /// </summary>
         private CreateMonsterWindowViewmodel m_viewModel = new CreateMonsterWindowViewmodel();
 
+        /// <summary>
+        /// regex for numeric input only.
+        /// </summary>
         private static readonly Regex numericCheck_regex = new Regex("[^0-9]+");
 
+        /// <summary>
+        ///  regex for rollcheck. Makes sure we get correct input for dice roll input. 
+        /// </summary>
         private static readonly Regex rollCheck_regex = new Regex("[^0-9d]+");
 
         #endregion Properties

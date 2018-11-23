@@ -10,16 +10,16 @@ using System.Windows.Input;
 namespace Dungeons_n_Dragons_Manager.Viewmodels
 {
     /// <summary>
-    /// The viewmodel for creating monsters
+    /// The viewmodel for editing monsters
     /// </summary>
     public class EditMonsterWindowViewmodel : INotifyPropertyChanged
     {
         /// <summary>
-        /// Constructor for the create monster viewmodel
+        /// Constructor for the edit monster viewmodel
         ///
-        /// Pre: Create monster window has been opened
+        /// Pre: edit monster window has been opened
         ///
-        /// Post: A new monster is created with a reference to an existing, blank monster
+        /// Post: dropdowns are populated.
         /// </summary>
         public EditMonsterWindowViewmodel()
         {
@@ -163,12 +163,12 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         public List<string> ArmorTypes { get; set; }
 
         /// <summary>
-        /// The character's options for each skill's level
+        /// The monster's options for each skill's level
         /// </summary>
         public List<int> SkillValues { get; set; }
 
         /// <summary>
-        /// The character's options for each Modifier
+        /// The monster's options for each Modifier
         /// </summary>
         public List<int> ModifierValues { get; set; }
 
@@ -242,7 +242,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         #region Functions
 
         /// <summary>
-        /// Populates the list of environments for the new monster
+        /// Populates the list of environments for the monster being edited. 
         ///
         /// Pre: monster has been created
         ///
@@ -290,7 +290,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         /// <summary>
-        /// Populates the lists that are bound to  UI comboBoxes.
+        /// Populates the lists that are bound to UI comboBoxes.
         ///
         /// Pre: None
         ///
