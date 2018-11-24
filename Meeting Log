@@ -79,3 +79,33 @@ Blake - Started redesigning UI for character's tab
 Bunty - Merged changes for new dice roll tab & made cosmetic changes
 Austin - Merged changes for custom monsters tab & hooked up bindings for stats
 Seth - Setup "about" window and made progress on displaying monster images
+
+11/9/18
+In class - All members present
+Synced up changes and planned a meeting for Tuesday, 11/13
+
+11/13/18
+At Blake and Bunty's House - All members present
+Worked on saving monsters & characters, as well as the music tab
+
+11/14/18
+In class - All members present
+Synced up changes and planned meeting for Monday, 11/19
+
+11/19/18
+Leep 2nd floor - All members present
+Spent class time working on wrapping up our own components
+Made goals for project completion over winter break
+Planned meeting for Friday, 11/23
+
+11/23/18
+Over Discord - All members present
+Planned meeting for Sunday, 11/25
+Decided on what we have left to do
+Todo:
+Fix ok button on about window
+Tests for all components
+In-line documentation for all code
+Finish music tab or scrap it
+(optional) Labels for different type dicerolls
+(optional) Fix title on first music file
