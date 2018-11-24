@@ -397,7 +397,7 @@
                 Grid.Column="1"
                 Margin="60.8,76.4,61.2,-90"
                 Click="Button_Click"
-                Command="{Binding saveCharacter}"
+                Command="{Binding SaveCharacter}"
                 Content="Save Character"
                 IsEnabled="{Binding CanSave, UpdateSourceTrigger=PropertyChanged}" />
 

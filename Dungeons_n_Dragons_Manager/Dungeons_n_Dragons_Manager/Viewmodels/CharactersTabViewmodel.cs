@@ -13,7 +13,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
     /// <summary>
     /// Viewmodel for the Characters Tab in the Main Window.
     /// </summary>
-    public class CharactersTabViewmodel
+    public class CharactersTabViewmodel : INotifyPropertyChanged
     {
         /// <summary>
         /// This constructor initializes a collection of characters
@@ -22,46 +22,14 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         ///
         /// Post: An observable collection of Characters is intialized.
         /// </summary>
-        public CharactersTabViewmodel()
-        {
-            parseCharactersResource();
-        }
+        public CharactersTabViewmodel() { }
 
-        #region Members
-
-        /// <summary>
-        /// An observable collection of Characters which is bound to the combobox.
-        /// </summary>
-        public static ObservableCollection<Character> m_Characters;
-
-        public ObservableCollection<Character> Characters
-        {
-            get
-            {
-                if (m_Characters == null)
-                {
-                    m_Characters = new ObservableCollection<Character>();
-                }
-                return m_Characters;
-            }
-            set
-            {
-                if (m_Characters != value)
-                {
-                    m_Characters = value;
-                    if (m_Characters.Count != 0)
-                    {
-                        SelectedCharacter = Characters[0];
-                    }
-                    OnPropertyRaised(nameof(Characters));
-                }
-            }
-        }
+        #region Properties
 
         /// <summary>
         /// Private backing to store the currently selected character in the combobox.
         /// </summary>
-        private static Character m_SelectedCharacter;
+        private Character m_SelectedCharacter;
 
         /// <summary>
         /// Public facing accessor to m_selectedCharacter.
@@ -86,17 +54,57 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-        #endregion Members
+        /// <summary>
+        /// Boolean which determines if EditCharacter can be executed.
+        /// </summary>
+        public bool CanEdit
+        {
+            get
+            {
+                if (Properties.Settings.Default.CustomCharactersList == null || Properties.Settings.Default.CustomCharactersList.Count == 0) return false;
+                else return true;
+            }
+        }
 
-        #region Commands
+        #endregion Properties
+
+        #region ComboBox Sources
 
         /// <summary>
-        /// Boolean which determines if CreateCharacter can be executed.
+        /// An observable collection of Characters which is bound to the combobox.
         /// </summary>
-        private bool m_canCreateCharacter
+        private ObservableCollection<Character> m_Characters;
+
+        /// <summary>
+        /// Public accessor for m_Characters
+        /// </summary>
+        public ObservableCollection<Character> Characters
         {
-            get { return true; } //Potentially add check to see if maximum number of characters has been reached later.
+            get
+            {
+                if (m_Characters == null)
+                {
+                    m_Characters = new ObservableCollection<Character>();
+                    parseCharactersResource();
+                }
+                return m_Characters;
+            }
+            set
+            {
+                if (m_Characters != value)
+                {
+                    m_Characters = value;
+                    if (m_Characters.Count != 0)
+                    {
+                        SelectedCharacter = Characters[0];
+                    }
+                    OnPropertyRaised(nameof(Characters));
+                }
+            }
         }
+        #endregion ComboBox Sources
+
+        #region Commands
 
         /// <summary>
         /// Command binded to the "create character" button which calls createCharacter if m_canCreateCharacter is true.
@@ -110,16 +118,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get
             {
-                return m_createCharacter ?? (m_createCharacter = new CommandHandler(() => createNewCharacter(), m_canCreateCharacter));
+                return m_createCharacter ?? (m_createCharacter = new CommandHandler(() => createNewCharacter(), true));
             }
-        }
-
-        /// <summary>
-        /// Boolean which determines if EditCharacter can be executed.
-        /// </summary>
-        public bool CanEditCharacter
-        {
-            get { return true; }
         }
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get
             {
-                return m_editCharacter ?? (m_editCharacter = new CommandHandler(() => CharacterRevision(), CanEditCharacter));
+                return m_editCharacter ?? (m_editCharacter = new CommandHandler(() => CharacterRevision(), true));
             }
         }
 
@@ -165,6 +165,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             CreateCharacterWindow createCharacterWindow = new CreateCharacterWindow();
             createCharacterWindow.ShowDialog(); //Open window instance until closed.
+            OnPropertyRaised(nameof(CanEdit));
             parseCharactersResource();
         }
 

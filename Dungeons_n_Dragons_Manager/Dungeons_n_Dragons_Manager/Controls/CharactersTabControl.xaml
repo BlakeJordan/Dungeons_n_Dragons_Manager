@@ -47,7 +47,7 @@
                     Margin="2.5,0,0,0"
                     DisplayMemberPath="Name"
                     ItemsSource="{Binding Characters}"
-                    SelectedItem="{Binding SelectedCharacter}" />
+                    SelectedItem="{Binding SelectedCharacter, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
 
             <StackPanel
