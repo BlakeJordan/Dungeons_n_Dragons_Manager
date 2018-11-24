@@ -252,7 +252,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Athletics"
-                        IsChecked="{Binding EditableCharacter.Athletics}" />
+                        IsChecked="{Binding EditableCharacter.Athletics.isProficient}" />
                     <CheckBox
                         x:Name="Acrobatics"
                         Grid.Row="1"
@@ -260,7 +260,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Acrobatics"
-                        IsChecked="{Binding EditableCharacter.Acrobatics}" />
+                        IsChecked="{Binding EditableCharacter.Acrobatics.isProficient}" />
                     <CheckBox
                         x:Name="SleightOfHand"
                         Grid.Row="2"
@@ -268,7 +268,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Sleight of Hand"
-                        IsChecked="{Binding EditableCharacter.SleightOfHand}" />
+                        IsChecked="{Binding EditableCharacter.SleightOfHand.isProficient}" />
                     <CheckBox
                         x:Name="Stealth"
                         Grid.Row="3"
@@ -276,7 +276,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Stealth"
-                        IsChecked="{Binding EditableCharacter.Stealth}" />
+                        IsChecked="{Binding EditableCharacter.Stealth.isProficient}" />
                     <CheckBox
                         x:Name="Arcana"
                         Grid.Row="4"
@@ -284,7 +284,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Arcana"
-                        IsChecked="{Binding EditableCharacter.Arcana}" />
+                        IsChecked="{Binding EditableCharacter.Arcana.isProficient}" />
                     <CheckBox
                         x:Name="History"
                         Grid.Row="5"
@@ -292,7 +292,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="History"
-                        IsChecked="{Binding EditableCharacter.History}" />
+                        IsChecked="{Binding EditableCharacter.History.isProficient}" />
                     <CheckBox
                         x:Name="Investigation"
                         Grid.Row="6"
@@ -300,7 +300,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Investigation"
-                        IsChecked="{Binding EditableCharacter.Investigation}" />
+                        IsChecked="{Binding EditableCharacter.Investigation.isProficient}" />
                     <CheckBox
                         x:Name="Nature"
                         Grid.Row="7"
@@ -308,7 +308,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Nature"
-                        IsChecked="{Binding EditableCharacter.Nature}" />
+                        IsChecked="{Binding EditableCharacter.Nature.isProficient}" />
                     <CheckBox
                         x:Name="Religion"
                         Grid.Row="8"
@@ -316,7 +316,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Religion"
-                        IsChecked="{Binding EditableCharacter.Religion}" />
+                        IsChecked="{Binding EditableCharacter.Religion.isProficient}" />
                     <CheckBox
                         x:Name="AnimalHandling"
                         Grid.Row="0"
@@ -324,7 +324,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Animal Handling"
-                        IsChecked="{Binding EditableCharacter.AnimalHandling}" />
+                        IsChecked="{Binding EditableCharacter.AnimalHandling.isProficient}" />
                     <CheckBox
                         x:Name="Insight"
                         Grid.Row="1"
@@ -332,7 +332,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Insight"
-                        IsChecked="{Binding EditableCharacter.Insight}" />
+                        IsChecked="{Binding EditableCharacter.Insight.isProficient}" />
                     <CheckBox
                         x:Name="Medicine"
                         Grid.Row="2"
@@ -340,7 +340,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Medicine"
-                        IsChecked="{Binding EditableCharacter.Medicine}" />
+                        IsChecked="{Binding EditableCharacter.Medicine.isProficient}" />
                     <CheckBox
                         x:Name="Perception"
                         Grid.Row="3"
@@ -348,7 +348,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Perception"
-                        IsChecked="{Binding EditableCharacter.Perception}" />
+                        IsChecked="{Binding EditableCharacter.Perception.isProficient}" />
                     <CheckBox
                         x:Name="Survival"
                         Grid.Row="4"
@@ -356,7 +356,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Survival"
-                        IsChecked="{Binding EditableCharacter.Survival}" />
+                        IsChecked="{Binding EditableCharacter.Survival.isProficient}" />
                     <CheckBox
                         x:Name="Deception"
                         Grid.Row="5"
@@ -364,7 +364,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Deception"
-                        IsChecked="{Binding EditableCharacter.Deception}" />
+                        IsChecked="{Binding EditableCharacter.Deception.isProficient}" />
                     <CheckBox
                         x:Name="Intimidation"
                         Grid.Row="6"
@@ -372,7 +372,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Intimidation"
-                        IsChecked="{Binding EditableCharacter.Intimidation}" />
+                        IsChecked="{Binding EditableCharacter.Intimidation.isProficient}" />
                     <CheckBox
                         x:Name="Performance"
                         Grid.Row="7"
@@ -380,7 +380,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Performance"
-                        IsChecked="{Binding EditableCharacter.Performance}" />
+                        IsChecked="{Binding EditableCharacter.Performance.isProficient}" />
                     <CheckBox
                         x:Name="Persuasion"
                         Grid.Row="8"
@@ -388,7 +388,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Persuasion"
-                        IsChecked="{Binding EditableCharacter.Persuasion}" />
+                        IsChecked="{Binding EditableCharacter.Persuasion.isProficient}" />
                 </Grid>
             </StackPanel>
 

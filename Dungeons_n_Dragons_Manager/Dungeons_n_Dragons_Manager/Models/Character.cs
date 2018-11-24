@@ -386,6 +386,11 @@ namespace Dungeons_n_Dragons_Manager.Models
             /// The chance a character will succeed in performing tasks related to the attribute
             /// </summary>
             public int modifier { get; set; }
+
+            /// <summary>
+            /// Default constructor.
+            /// </summary>
+            public Attribute() { }
         }
 
         /// <summary>
@@ -421,6 +426,11 @@ namespace Dungeons_n_Dragons_Manager.Models
             {
                 SkillAttribute = attribute;
             }
+
+            /// <summary>
+            /// Default constructor.
+            /// </summary>
+            public Skill() { }
         }
     }
 }

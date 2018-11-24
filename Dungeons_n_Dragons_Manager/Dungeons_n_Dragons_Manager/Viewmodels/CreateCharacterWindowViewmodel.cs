@@ -42,11 +42,12 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 bool hasName = !(string.IsNullOrWhiteSpace(EditableCharacter.Name));
                 bool hasClass = !(string.IsNullOrWhiteSpace(EditableCharacter.Class));
                 bool hasRace = !(string.IsNullOrWhiteSpace(EditableCharacter.Race));
+                bool hasArmorType = !(string.IsNullOrWhiteSpace(EditableCharacter.ArmorType));
                 bool hasLevel = (EditableCharacter.Level != 0);
-                bool hasAllStats = EditableCharacter.Strength.score != 0 || EditableCharacter.Dexterity.score != 0 || EditableCharacter.Constitution.score != 0 ||
-                                      EditableCharacter.Intelligence.score != 0 || EditableCharacter.Wisdom.score != 0 || EditableCharacter.Charisma.score != 0;
+                bool hasAllStats = EditableCharacter.Strength.score != 0 && EditableCharacter.Dexterity.score != 0 && EditableCharacter.Constitution.score != 0 &&
+                                      EditableCharacter.Intelligence.score != 0 && EditableCharacter.Wisdom.score != 0 && EditableCharacter.Charisma.score != 0;
 
-                if (hasUniqueName && hasName && hasClass && hasRace && hasLevel && hasAllStats)
+                if (hasUniqueName && hasName && hasClass && hasRace && hasArmorType && hasLevel && hasAllStats)
                 {
                     return true;
                 }

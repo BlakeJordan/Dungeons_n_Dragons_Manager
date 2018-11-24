@@ -92,11 +92,16 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get
             {
+                if (SelectedMonster.Equals(EditableMonster)) return false; //Check if changes have been made.
+
                 //Duplicate name logic.
                 bool hasDuplicateName = false;
                 foreach (Monster monster in CustomMonsters)
                 {
-                    //if (monster.Name == EditableMonster.Name) hasDuplicateName = true;
+                    if (!SelectedMonster.Equals(monster))
+                    {
+                        if (monster.Name == EditableMonster.Name) hasDuplicateName = true;
+                    }
                 }
 
                 //Atleast one environment logic.

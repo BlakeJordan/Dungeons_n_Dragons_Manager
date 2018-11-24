@@ -40,7 +40,8 @@
                 <Button
                     Margin="0,0,2.5,0"
                     Command="{Binding EditCharacter}"
-                    Content=" Edit Character " />
+                    Content=" Edit Character "
+                    IsEnabled="{Binding CanEdit}" />
 
                 <ComboBox
                     Width="140"
@@ -207,15 +208,13 @@
                         </Grid.ColumnDefinitions>
 
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
-                        <StackPanel
-                            Grid.Row="0"
-                            Grid.Column="0">
+                        <StackPanel Grid.Row="0" Grid.Column="0">
                             <StackPanel.Resources>
                                 <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="Margin" Value="0,10,0,0"/>
+                                    <Setter Property="Margin" Value="0,10,0,0" />
                                 </Style>
                             </StackPanel.Resources>
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.AnimalHandling.score, StringFormat='AnimalHandling: {0}'}" />
@@ -230,12 +229,10 @@
                         </StackPanel>
 
 
-                        <StackPanel 
-                            Grid.Column="1"
-                                Grid.Row="0">
+                        <StackPanel Grid.Row="0" Grid.Column="1">
                             <StackPanel.Resources>
                                 <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="Margin" Value="0,10,0,0"/>
+                                    <Setter Property="Margin" Value="0,10,0,0" />
                                 </Style>
                             </StackPanel.Resources>
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Athletics.score, StringFormat='Athletics: {0}'}" />
