@@ -1,8 +1,11 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
+using Dungeons_n_Dragons_Manager.Tools;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows;
+using System.Windows.Input;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
 {
@@ -32,6 +35,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// Character object that references the selected character before openning the edit window.
         /// </summary>
         private Character m_selectedCharacter { get; set; }
+
 
         /// <summary>
         /// Character binded to UI.
