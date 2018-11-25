@@ -31,14 +31,14 @@ namespace Dungeons_n_Dragons_Manager.Models
         public enum Dice : uint { D4 = 4, D6 = 6, D8 = 8, D10 = 10, D12 = 12, D20 = 20, D100 = 100 };
 
         /// <summary>
-        /// rolls a single dice the number of times specified by the user
+        /// rolls a single dice specified by the value passed in
         ///
-        /// Pre: Roll has been clicked and a number exists in the textbox next to the specified dice
+        /// Pre: any of the dice icons are clicked
         ///
-        /// Post: returns a list of strings containing the rolls for the specified dice
+        /// Post: returns a strings containing the rolls for the specified dice
         /// </summary>
         /// <param name="dice"></param>
-        /// <param name="times"></param>
+        /// 
         /// <returns></returns>
         public string Roll(int dice)
         {
@@ -47,15 +47,6 @@ namespace Dungeons_n_Dragons_Manager.Models
             return rolls;
         }
 
-        /// <summary>
-        /// uses the Roll function to roll all the dice if the number of times is not zero
-        ///
-        /// Pre: Roll has been clicked, none of the text boxes are empty, and an array of ints has been passed in
-        ///
-        /// Post: returns a list of lists of strings to the viewmodel containing all the rolls
-        /// </summary>
-        /// <param name="times"></param>
-        /// <returns></returns>
 
         #region Interfaces
 

@@ -84,6 +84,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Test Suite\TestSuite.cs" />
+    <Compile Include="Test Suite\Tests\DiceRolls_Tests.cs" />
     <Compile Include="Test Suite\Tests\EncountersTabViewmodel_Tests.cs" />
     <Compile Include="Test Suite\Tests\MainWindowViewmodel_Tests.cs" />
     <Compile Include="Test Suite\Tests\Monster_Tests.cs" />

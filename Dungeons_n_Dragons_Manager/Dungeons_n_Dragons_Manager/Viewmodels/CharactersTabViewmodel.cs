@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Dungeons_n_Dragons_Manager.Viewmodels
@@ -16,11 +17,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
     public class CharactersTabViewmodel : INotifyPropertyChanged
     {
         /// <summary>
-        /// This constructor initializes a collection of characters
-        ///
-        /// Pre: None.
-        ///
-        /// Post: An observable collection of Characters is intialized.
+        /// Constructor for the characters tab viewmodel
         /// </summary>
         public CharactersTabViewmodel() { }
 
@@ -138,10 +135,35 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+
+        /// <summary>
+        /// Command binded to the "Save Character" button which calls saveCharacter.
+        /// </summary>
+        private ICommand m_deleteCharacter;
+
+        /// <summary>
+        /// Public facing accessor to m_saveCharacter.
+        /// </summary>
+        public ICommand DeleteCharacter
+        {
+            get
+            {
+                return m_deleteCharacter ?? (m_deleteCharacter = new CommandHandler(() => deleteCharacter(), true));
+            }
+        }
+
         #endregion Commands
 
         #region Functions
 
+
+        /// <summary>
+        /// Private function that parses through the string that represents the character data in the app resources.
+        ///
+        /// Pre: None.
+        ///
+        /// Post: Characters has been filled.
+        /// </summary>
         private void parseCharactersResource()
         {
             List<Character> listOfCharacters = new List<Character>(); //Temp list to store Characters
@@ -181,7 +203,25 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             Character EditedCharacter = new Character(SelectedCharacter); //Copy existing character.
             EditCharacterWindow editCharacterWindow = new EditCharacterWindow(ref EditedCharacter); //Pass character to window by reference to be modified.
             editCharacterWindow.ShowDialog(); //Open window instance until closed.
+            OnPropertyRaised(nameof(CanEdit));
             parseCharactersResource();
+        }
+
+        private void deleteCharacter()
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this character?",
+            "Confirmation", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                Properties.Settings.Default.CustomCharactersList.Remove(SelectedCharacter);
+                Properties.Settings.Default.Save();
+                OnPropertyRaised(nameof(CanEdit));
+                parseCharactersResource();
+            }
+            else
+            {
+
+            }
         }
 
         #endregion Functions
