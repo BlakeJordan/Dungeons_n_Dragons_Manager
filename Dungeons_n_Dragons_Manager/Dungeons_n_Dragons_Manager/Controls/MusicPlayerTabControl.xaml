@@ -51,7 +51,7 @@
                 Margin="0,77,0,0.667"
                 Header="Song Selection" Grid.RowSpan="2">
                 <ListBox>
-                    <Button Background="Transparent" BorderBrush="Transparent" Width="200">
+                    <Button Background="Transparent" BorderBrush="Transparent">
                         <ListBoxItem>Medieval Town - Ambience - All the sounds of a bustling and hectic Renaissance period town.</ListBoxItem>
                     </Button>
                     <Button Background="Transparent" BorderBrush="Transparent">

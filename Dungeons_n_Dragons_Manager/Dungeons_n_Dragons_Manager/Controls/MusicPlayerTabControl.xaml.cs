@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Dungeons_n_Dragons_Manager.Controls
 {
@@ -11,5 +13,6 @@ namespace Dungeons_n_Dragons_Manager.Controls
         {
             InitializeComponent();
         }
+        
     }
 }
