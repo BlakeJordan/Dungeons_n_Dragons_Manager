@@ -24,8 +24,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// /// <param name="character">A reference to the character being edited</param>
         public EditCharacterWindowViewModel(ref Character character)
         {
-            m_selectedCharacter = character;
-            //EditableCharacter = new Character(m_selectedCharacter);     //Need to make copy constructor to make a deep copy to reference between the edited version and old version.
+            EditableCharacter = character;    //Need to make copy constructor to make a deep copy to reference between the edited version and old version.
             populateDropdowns();
         }
 
@@ -35,6 +34,35 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// Character object that references the selected character before openning the edit window.
         /// </summary>
         private Character m_selectedCharacter { get; set; }
+
+        /// <summary>
+        /// Public accessor to m_selectedCharacter.
+        /// </summary>
+        public Character SelectedCharacter
+        {
+            get
+            {
+                if (m_selectedCharacter == null && CustomCharacters.Count != 0)
+                {
+                    m_selectedCharacter = CustomCharacters[0];
+                }
+                return m_selectedCharacter;
+            }
+            set
+            {
+                if (m_selectedCharacter != value)
+                {
+                    m_selectedCharacter = value;
+                    OnPropertyRaised(nameof(SelectedCharacter));
+                    EditableCharacter = new Character(SelectedCharacter); //Create deep copy of SelectedCharacter to edit without actually editing SelectedCharacter.
+                }
+            }
+        }
+
+        /// <summary>
+        /// A collection of the currently saved Characters.
+        /// </summary>
+        public List<Character> CustomCharacters { get; set; }
 
 
         /// <summary>
@@ -54,6 +82,34 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 {
                     m_editableCharacter = value;
                     OnPropertyRaised(nameof(EditableCharacter));
+                }
+            }
+        }
+
+        public bool CanSave
+        {
+            get
+            {
+                bool hasUniqueName = true;
+                foreach (Character character in CustomCharacters)
+                {
+                    if (character.Name == EditableCharacter.Name) hasUniqueName = false;
+                }
+                bool hasName = !(string.IsNullOrWhiteSpace(EditableCharacter.Name));
+                bool hasClass = !(string.IsNullOrWhiteSpace(EditableCharacter.Class));
+                bool hasRace = !(string.IsNullOrWhiteSpace(EditableCharacter.Race));
+                bool hasArmorType = !(string.IsNullOrWhiteSpace(EditableCharacter.ArmorType));
+                bool hasLevel = (EditableCharacter.Level != 0);
+                bool hasAllStats = EditableCharacter.Strength.score != 0 && EditableCharacter.Dexterity.score != 0 && EditableCharacter.Constitution.score != 0 &&
+                                      EditableCharacter.Intelligence.score != 0 && EditableCharacter.Wisdom.score != 0 && EditableCharacter.Charisma.score != 0;
+
+                if (hasUniqueName && hasName && hasClass && hasRace && hasArmorType && hasLevel && hasAllStats)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
         }
@@ -94,6 +150,42 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         #endregion Properties
 
+        #region Commands
+        /// <summary>
+        /// Command binded to Save button.
+        /// </summary>
+        private ICommand m_saveCharacter;
+
+        /// <summary>
+        /// Public facing accessor to m_saveCharacter.
+        /// </summary>
+        public ICommand SaveCharacter
+        {
+            get
+            {
+                return m_saveCharacter ?? (m_saveCharacter = new CommandHandler(() => saveCharacter(), true));
+            }
+        }
+
+
+        /// <summary>
+        /// Command binded to UI that updates CanSave.
+        /// </summary>
+        private ICommand m_checkCanSave;
+
+        /// <summary>
+        /// Public facing accessor for m_CheckCanSave
+        /// </summary>
+        public ICommand CheckCanSave
+        {
+            get
+            {
+                return m_checkCanSave ?? (m_checkCanSave = new CommandHandler(() => checkCanSave(), true));
+            }
+        }
+
+        #endregion Commands
+
         #region Functions
 
         /// <summary>
@@ -111,6 +203,24 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             ArmorClasses = Enumerable.Range(0, 31).ToList();
             Skills = Enumerable.Range(0, 21).ToList();
             Levels = Enumerable.Range(1, 30).ToList();
+            CustomCharacters = Properties.Settings.Default.CustomCharactersList;
+        }
+
+        private void saveCharacter()
+        {
+            if (!CanSave) return;
+            Properties.Settings.Default.CustomCharactersList.Remove(SelectedCharacter);
+            Properties.Settings.Default.CustomCharactersList.Add(EditableCharacter);
+            Properties.Settings.Default.Save();
+        }
+
+
+        /// <summary>
+        /// Reevaluates CanSave.
+        /// </summary>
+        private void checkCanSave()
+        {
+            OnPropertyRaised(nameof(CanSave));
         }
 
         #endregion Functions
