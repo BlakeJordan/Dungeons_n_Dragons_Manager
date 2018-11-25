@@ -1,4 +1,4 @@
-﻿using Dungeons_n_Dragons_Manager.Models;
+﻿ using Dungeons_n_Dragons_Manager.Models;
 using Dungeons_n_Dragons_Manager.Test_Suite;
 using Dungeons_n_Dragons_Manager.Tools;
 using Dungeons_n_Dragons_Manager.Windows;
@@ -23,17 +23,14 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public MainWindowViewmodel()
         {
+            //Properties.Settings.Default.Reset();                                              //Uncomment to delete current settings!
+
             initalizeMonstersList();
 
             DiceRollTabViewmodel = new DiceRollTabViewmodel();
             CharactersTabViewmodel = new CharactersTabViewmodel();
             EncountersTabViewmodel = new EncountersTabViewmodel();
             MusicPlayerTabViewmodel = new MusicPlayerTabViewmodel();
-
-            TestSuite test = new TestSuite();                                                   //Test Suite testing.
-            List<string> test2 = test.RunAllTests();
-
-            //Properties.Settings.Default.Reset();                                              //Uncomment to delete current settings!
         }
 
         #region Sub-Viewmodels
@@ -63,7 +60,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         #region Commands
 
         /// <summary>
-        /// Command binded to the "Help" button.
+        /// Command binded to the "Test Suite" menu item.
         /// </summary>
         private ICommand m_openTestSuite;
 
@@ -79,7 +76,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         /// <summary>
-        /// Command binded to the "Help" button.
+        /// Command binded to the "User Manual" menu item.
         /// </summary>
         private ICommand m_openUserManual;
 
@@ -94,10 +91,13 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        /// <summary>
+        /// Command binded to the "About" menu item.
+        /// </summary>
         private ICommand m_openAboutBox;
 
         /// <summary>
-        /// Public facing accessor to m_openUserManual.
+        /// Public facing accessor to m_openAboutBox.
         /// </summary>
         public ICommand OpenAboutBox
         {

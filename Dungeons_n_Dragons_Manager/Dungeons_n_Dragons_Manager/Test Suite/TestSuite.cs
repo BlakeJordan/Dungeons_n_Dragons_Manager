@@ -12,6 +12,7 @@ namespace Dungeons_n_Dragons_Manager.Test_Suite
 
         public List<string> RunAllTests()
         {
+            m_testingOutput.AddRange(new MainWindowViewmodel_Tests().RunAllTests()); //Add MainWindowViewmodel tests.
             m_testingOutput.AddRange(new EncountersTabViewmodel_Tests().RunAllTests()); //Add EncountersTabViewmodel tests.
             m_testingOutput.AddRange(new Monster_Tests().RunAllTests()); //Add Monster tests.
 

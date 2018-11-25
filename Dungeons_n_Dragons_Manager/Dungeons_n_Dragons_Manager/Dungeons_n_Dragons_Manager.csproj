@@ -85,6 +85,7 @@
     </Compile>
     <Compile Include="Test Suite\TestSuite.cs" />
     <Compile Include="Test Suite\Tests\EncountersTabViewmodel_Tests.cs" />
+    <Compile Include="Test Suite\Tests\MainWindowViewmodel_Tests.cs" />
     <Compile Include="Test Suite\Tests\Monster_Tests.cs" />
     <Compile Include="Tools\BrowserBehavior.cs" />
     <Compile Include="Viewmodels\EditMonsterWindowViewmodel.cs" />
@@ -238,9 +239,6 @@
     <Resource Include="Assets\Dice Images\d100.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Test Suite\TestingOutput.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Assets\Dice Images\d4alt.png" />
     <Resource Include="Assets\Dice Images\d6alt.png" />
     <Resource Include="Assets\Dice Images\d8alt.png" />
