@@ -14,7 +14,7 @@ namespace Dungeons_n_Dragons_Manager.Test_Suite
         {
             m_testingOutput.AddRange(new EncountersTabViewmodel_Tests().RunAllTests()); //Add EncountersTabViewmodel tests.
             m_testingOutput.AddRange(new Monster_Tests().RunAllTests()); //Add Monster tests.
-
+            m_testingOutput.AddRange(new DiceRolls_Tests().RunAllTests()); //Add dice roll tests.
             return m_testingOutput;
         }
     }

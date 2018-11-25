@@ -56,47 +56,89 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         /// <summary>
-        /// parses through the resulting list of lits of strings from the RollMultiple fucntion and populates roll with the values
+        /// calls the d4 roll function and appends the result to the rolls string
         ///
-        /// Pre: RollMultiple has been called and all of thr roll quantity textboxes have values
+        /// Pre: D4 button has been clicked
         ///
-        /// Post: rolls string is populated by all of the rolls for the die
+        /// Post: rolls string is appended with d4 roll
         /// </summary>
         private void roll_D4()
         {
             rolls = rolls + " " + bag.Roll(4);
         }
-
+        /// <summary>
+        /// calls the d6 roll function and appends the result to the rolls string
+        ///
+        /// Pre: D6 button has been clicked
+        ///
+        /// Post: rolls string is appended with d6 roll
+        /// </summary>
         private void roll_D6()
         {
             rolls = rolls + " " + bag.Roll(6);
         }
-
+        /// <summary>
+        /// calls the d8 roll function and appends the result to the rolls string
+        ///
+        /// Pre: D8 button has been clicked
+        ///
+        /// Post: rolls string is appended with d8 roll
+        /// </summary>
         private void roll_D8()
         {
             rolls = rolls + " " + bag.Roll(8);
         }
-
+        /// <summary>
+        /// calls the d10 roll function and appends the result to the rolls string
+        ///
+        /// Pre: D10 button has been clicked
+        ///
+        /// Post: rolls string is appended with d10 roll
+        /// </summary>
         private void roll_D10()
         {
             rolls = rolls + " " + bag.Roll(10);
         }
-
+        /// <summary>
+        /// calls the d12 roll function and appends the result to the rolls string
+        ///
+        /// Pre: D12 button has been clicked
+        ///
+        /// Post: rolls string is appended with d12 roll
+        /// </summary>
         private void roll_D12()
         {
             rolls = rolls + " " + bag.Roll(12);
         }
-
+        /// <summary>
+        /// calls the d20 roll function and appends the result to the rolls string
+        ///
+        /// Pre: D20 button has been clicked
+        ///
+        /// Post: rolls string is appended with d20 roll
+        /// </summary>
         private void roll_D20()
         {
             rolls = rolls + " " + bag.Roll(20);
         }
-
+        /// <summary>
+        /// calls the d100 roll function and appends the result to the rolls string
+        ///
+        /// Pre: D100 button has been clicked
+        ///
+        /// Post: rolls string is appended with d100 roll
+        /// </summary>
         private void roll_D100()
         {
             rolls = rolls + " " + bag.Roll(100);
         }
-
+        /// <summary>
+        /// clears the rolls string by setting it to null
+        ///
+        /// Pre: clear rolls button has been clicked
+        ///
+        /// Post: rolls string is set to null
+        /// </summary>
         private void clear_Rolls()
         {
             rolls = "";
@@ -113,12 +155,12 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         /// <summary>
-        ///
+        /// private facing command handler for clear button
         /// </summary>
         private ICommand m_Clear;
 
         /// <summary>
-        ///
+        /// public facing accessor for clear button
         /// </summary>
         public ICommand Clear
         {
@@ -129,12 +171,12 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         /// <summary>
-        /// commnd binded to Roll button which calls roll_button_click if canClick is true
+        /// commnd binded to D4 button which calls roll_D4 if canClick is true
         /// </summary>
         private ICommand m_ClickD4;
 
         /// <summary>
-        /// public facing accessor for m_Click
+        /// public facing accessor for m_Clickd4
         /// </summary>
         public ICommand ClickD4
         {
@@ -145,12 +187,12 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         /// <summary>
-        /// commnd binded to Roll button which calls roll_button_click if canClick is true
+        /// commnd binded to D6 button which calls roll_D6 if canClick is true
         /// </summary>
         private ICommand m_ClickD6;
 
         /// <summary>
-        /// public facing accessor for m_Click
+        /// public facing accessor for m_ClickD6
         /// </summary>
         public ICommand ClickD6
         {
@@ -159,11 +201,13 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 return m_ClickD6 ?? (m_ClickD6 = new CommandHandler(() => roll_D6(), m_canClick));
             }
         }
-
+        /// <summary>
+        /// commnd binded to D8 button which calls roll_D8 if canClick is true
+        /// </summary>
         private ICommand m_ClickD8;
 
         /// <summary>
-        /// public facing accessor for m_Click
+        /// public facing accessor for m_ClickD8
         /// </summary>
         public ICommand ClickD8
         {
@@ -172,11 +216,13 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 return m_ClickD8 ?? (m_ClickD8 = new CommandHandler(() => roll_D8(), m_canClick));
             }
         }
-
+        /// <summary>
+        /// commnd binded to D10 button which calls roll_D10 if canClick is true
+        /// </summary>
         private ICommand m_ClickD10;
 
         /// <summary>
-        /// public facing accessor for m_Click
+        /// public facing accessor for m_ClickD10
         /// </summary>
         public ICommand ClickD10
         {
@@ -185,11 +231,13 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 return m_ClickD10 ?? (m_ClickD10 = new CommandHandler(() => roll_D10(), m_canClick));
             }
         }
-
+        /// <summary>
+        /// commnd binded to D12 button which calls roll_D12 if canClick is true
+        /// </summary>
         private ICommand m_ClickD12;
 
         /// <summary>
-        /// public facing accessor for m_Click
+        /// public facing accessor for m_ClickD12
         /// </summary>
         public ICommand ClickD12
         {
@@ -198,11 +246,13 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 return m_ClickD12 ?? (m_ClickD12 = new CommandHandler(() => roll_D12(), m_canClick));
             }
         }
-
+        /// <summary>
+        /// commnd binded to D20 button which calls roll_D20 if canClick is true
+        /// </summary>
         private ICommand m_ClickD20;
 
         /// <summary>
-        /// public facing accessor for m_Click
+        /// public facing accessor for m_ClickD20
         /// </summary>
         public ICommand ClickD20
         {
@@ -211,11 +261,13 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 return m_ClickD20 ?? (m_ClickD20 = new CommandHandler(() => roll_D20(), m_canClick));
             }
         }
-
+        /// <summary>
+        /// commnd binded to D100 button which calls roll_D100 if canClick is true
+        /// </summary>
         private ICommand m_ClickD100;
 
         /// <summary>
-        /// public facing accessor for m_Click
+        /// public facing accessor for m_ClickD100
         /// </summary>
         public ICommand ClickD100
         {
