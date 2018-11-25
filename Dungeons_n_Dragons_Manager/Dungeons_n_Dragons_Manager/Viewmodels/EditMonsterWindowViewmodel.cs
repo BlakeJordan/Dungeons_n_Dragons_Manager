@@ -153,6 +153,9 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        /// <summary>
+        /// Action to close window.
+        /// </summary>
         public Action CloseAction { get; set; }
 
         #region ComboBox Sources
