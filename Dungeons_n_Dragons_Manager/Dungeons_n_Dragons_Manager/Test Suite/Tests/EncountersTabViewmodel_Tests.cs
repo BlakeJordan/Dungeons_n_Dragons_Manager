@@ -11,7 +11,7 @@ namespace Dungeons_n_Dragons_Manager.Test_Suite.Tests
     internal class EncountersTabViewmodel_Tests
     {
         /// <summary>
-        /// Empty constructor.
+        /// Defualt constructor.
         /// </summary>
         public EncountersTabViewmodel_Tests() { }
 
@@ -28,7 +28,7 @@ namespace Dungeons_n_Dragons_Manager.Test_Suite.Tests
         /// <returns>Returns m_testingOutput.</returns>
         public List<string> RunAllTests()
         {
-            m_testingOutput.Add("\n\nEcountersTabViewmodel Tests"); //Add header.
+            m_testingOutput.Add("\n\nEncountersTabViewmodel Tests"); //Add header.
 
             defaultConstructorTest();
             chooseRandomEncounterTest();

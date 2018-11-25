@@ -96,23 +96,23 @@ namespace Dungeons_n_Dragons_Manager.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Collections.Generic.List<Dungeons_n_Dragons_Manager.Models.Character> CustomCharactersList {
-            get {
-                return ((global::System.Collections.Generic.List<Dungeons_n_Dragons_Manager.Models.Character>)(this["CustomCharactersList"]));
-            }
-            set {
-                this["CustomCharactersList"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public global::System.Collections.Generic.List<Dungeons_n_Dragons_Manager.Models.Monster> DefaultMonstersList {
             get {
                 return ((global::System.Collections.Generic.List<Dungeons_n_Dragons_Manager.Models.Monster>)(this["DefaultMonstersList"]));
             }
             set {
                 this["DefaultMonstersList"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Generic.List<Dungeons_n_Dragons_Manager.Models.Character> CustomCharactersList {
+            get {
+                return ((global::System.Collections.Generic.List<Dungeons_n_Dragons_Manager.Models.Character>)(this["CustomCharactersList"]));
+            }
+            set {
+                this["CustomCharactersList"] = value;
             }
         }
     }

@@ -22,16 +22,10 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public CreateCharacterWindowViewmodel()
         {
-            NewCharacter = new Character();
             populateDropdowns();
         }
 
         #region Properties
-
-        /// <summary>
-        /// The new character being created
-        /// </summary>
-        public Character NewCharacter { get; set; }
 
         /// <summary>
         /// Bool binded to the IsEnabled property of the Save button.
@@ -40,14 +34,62 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get
             {
-                return true; //Add logic for saving.
+                bool hasUniqueName = true;
+                foreach (Character character in m_customCharacters)
+                {
+                    if (character.Name == EditableCharacter.Name) hasUniqueName = false;
+                }
+                bool hasName = !(string.IsNullOrWhiteSpace(EditableCharacter.Name));
+                bool hasClass = !(string.IsNullOrWhiteSpace(EditableCharacter.Class));
+                bool hasRace = !(string.IsNullOrWhiteSpace(EditableCharacter.Race));
+                bool hasArmorType = !(string.IsNullOrWhiteSpace(EditableCharacter.ArmorType));
+                bool hasLevel = (EditableCharacter.Level != 0);
+                bool hasAllStats = EditableCharacter.Strength.score != 0 && EditableCharacter.Dexterity.score != 0 && EditableCharacter.Constitution.score != 0 &&
+                                      EditableCharacter.Intelligence.score != 0 && EditableCharacter.Wisdom.score != 0 && EditableCharacter.Charisma.score != 0;
+
+                if (hasUniqueName && hasName && hasClass && hasRace && hasArmorType && hasLevel && hasAllStats)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Character that is bound to the UI.
+        /// </summary>
+        private Character m_editableCharacter;
+
+        /// <summary>
+        /// Public accessor for m_editableCharacter.
+        /// </summary>
+        public Character EditableCharacter
+        {
+            get
+            {
+                if (m_editableCharacter == null)
+                {
+                    m_editableCharacter = new Character();
+                }
+                return m_editableCharacter;
+            }
+            set
+            {
+                if (m_editableCharacter != value)
+                {
+                    m_editableCharacter = value;
+                    OnPropertyRaised(nameof(EditableCharacter));
+                }
             }
         }
 
         /// <summary>
         /// List of current characters for reference.
         /// </summary>
-        private List<Character> m_characters;
+        private List<Character> m_customCharacters;
 
         #region ComboBox Sources
 
@@ -81,11 +123,28 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public List<int> Levels { get; set; }
 
-        #endregion ComboBox Sources
+        #endregion
 
         #endregion Properties
 
         #region Commands
+
+        /// <summary>
+        /// Command binded to Save button.
+        /// </summary>
+        private ICommand m_saveCharacter;
+
+        /// <summary>
+        /// Public facing accessor to m_saveCharacter.
+        /// </summary>
+        public ICommand SaveCharacter
+        {
+            get
+            {
+                return m_saveCharacter ?? (m_saveCharacter = new CommandHandler(() => saveCharacter(), true));
+            }
+        }
+
 
         /// <summary>
         /// Command binded to UI that updates CanSave.
@@ -103,9 +162,27 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
-        #endregion Commands
+        #endregion
 
         #region Functions
+
+        /// <summary>
+        /// Calculates the proficiency, skills, and stats based on user input, then saves the character
+        /// 
+        /// Pre: CanSave method must return true and save button must be clicked
+        /// 
+        /// Post: Stats for the character are set, and the details are written to the system settings
+        /// </summary>
+        private void saveCharacter()
+        {
+            EditableCharacter.CalculateStats();
+            EditableCharacter.SetProficiency();
+            EditableCharacter.CalculateSkills();
+            if (Properties.Settings.Default.CustomCharactersList == null) Properties.Settings.Default.CustomCharactersList = new List<Character>();
+            Properties.Settings.Default.CustomCharactersList.Add(EditableCharacter);
+            Properties.Settings.Default.Save();
+        }
+
 
         /// <summary>
         /// Reevaluates CanSave.
@@ -128,11 +205,17 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             Classes = Properties.Resources.Classes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             ArmorTypes = Properties.Resources.ArmorTypes.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             ArmorClasses = Enumerable.Range(0, 31).ToList();
-            Skills = Enumerable.Range(0, 21).ToList();
+            Skills = Enumerable.Range(1, 21).ToList();
             Levels = Enumerable.Range(1, 30).ToList();
+            m_customCharacters = new List<Character>();
+
+            if (Properties.Settings.Default.CustomCharactersList != null)
+            {
+                m_customCharacters = Properties.Settings.Default.CustomCharactersList;
+            }
         }
 
-        #endregion Functions
+        #endregion
 
         #region Interfaces
 

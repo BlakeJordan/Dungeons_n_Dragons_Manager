@@ -6,7 +6,7 @@ using System.Windows;
 namespace Dungeons_n_Dragons_Manager.Windows
 {
     /// <summary>
-    /// Interaction logic for CreateMonsterWindow.xaml
+    /// Interaction logic for EditMonsterWindow.xaml
     /// </summary>
     public partial class EditMonstersWindow : Window
     {
@@ -15,7 +15,7 @@ namespace Dungeons_n_Dragons_Manager.Windows
         ///
         /// Pre: None
         ///
-        /// Post: Data context is set with m_newMonster as monster passed by reference.
+        /// Post: viewmodel is given close window action and window is initialized.
         /// </summary>
         public EditMonstersWindow()
         {
@@ -25,10 +25,19 @@ namespace Dungeons_n_Dragons_Manager.Windows
                 m_viewModel.CloseAction = new Action(this.Close);
         }
 
+        /// <summary>
+        ///  EditMonster viewmodel for the editmonster window.
+        /// </summary>
         private EditMonsterWindowViewmodel m_viewModel = new EditMonsterWindowViewmodel();
 
+        /// <summary>
+        /// regex for numeric input only.
+        /// </summary>
         private static readonly Regex numericCheck_regex = new Regex("[^0-9]+");
 
+        /// <summary>
+        ///  regex for rollcheck. Makes sure we get correct input for dice roll input. 
+        /// </summary>
         private static readonly Regex rollCheck_regex = new Regex("[^0-9d]+");
 
         /// <summary>
@@ -56,7 +65,7 @@ namespace Dungeons_n_Dragons_Manager.Windows
         ///
         /// Pre: Save button is clicked
         ///
-        /// Post: The Save Monster boolean is set to true and the window is closed
+        /// Post: The monster is saved and the window is closed after the button is clicked.
         /// </summary>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -64,11 +73,11 @@ namespace Dungeons_n_Dragons_Manager.Windows
         }
 
         /// <summary>
-        /// Handles the clicking of the save button
+        /// Handles the clicking of the delete button
         ///
-        /// Pre: Save button is clicked
+        /// Pre: delete button has been clicked.
         ///
-        /// Post: The Save Monster boolean is set to true and the window is closed
+        /// Post: Closing of the window is handled in viewmodel, so this is just a button action to hold the button.
         /// </summary>
         private void Delete_Button_Click(object sender, RoutedEventArgs e)
         {      

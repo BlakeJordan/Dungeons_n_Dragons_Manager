@@ -29,22 +29,29 @@ namespace Dungeons_n_Dragons_Manager.Windows
         private EditCharacterWindowViewModel m_viewmodel { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether the save button has been clicked or not
-        /// </summary>
-        public bool SaveCharacter { get; set; }
-
-        /// <summary>
         /// Handles the clicking of the save button
         ///
         /// Pre: Save button is clicked
         ///
         /// Post: The Save Character boolean is set to true and the window is closed
         /// </summary>
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Save_Character(object sender, RoutedEventArgs e)
         {
-            SaveCharacter = true;
             this.Close();
         }
+
+        /// <summary>
+        /// Handles the clicking of the delete button
+        ///
+        /// Pre: Delete button is clicked
+        ///
+        /// Post: The Delete Character boolean is set to true and the window is closed
+        /// </summary>
+        private void Delete_Character(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
 
         private void TextBox_CheckCanSave(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {

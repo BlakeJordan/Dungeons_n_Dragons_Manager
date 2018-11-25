@@ -21,6 +21,9 @@ namespace Dungeons_n_Dragons_Manager.Windows
     /// </summary>
     public partial class TestSuiteWindow : Window
     {
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public TestSuiteWindow()
         {
             InitializeComponent();

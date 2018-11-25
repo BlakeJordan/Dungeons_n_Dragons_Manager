@@ -191,7 +191,7 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// </summary>
         public Character()
         {
-            //Initalize AC to -1 so not it is not auto populated in create character window.
+            //Initalize AC to -1 so it is not auto populated in create character window.
             AC = -1;
 
             Attributes = new ObservableCollection<Attribute>();
@@ -213,20 +213,20 @@ namespace Dungeons_n_Dragons_Manager.Models
             Acrobatics = new Skill("Dexterity");
             AnimalHandling = new Skill("Dexterity");
             SleightOfHand = new Skill("Dexterity");
-            Insight = new Skill("Wisdom");
-            History = new Skill("Intelligence");
-            Arcana = new Skill("Intelligence");
+            Stealth = new Skill("Dexterity");
             Persuasion = new Skill("Charisma");
             Intimidation = new Skill("Charisma");
-            Stealth = new Skill("Dexterity");
+            Performance = new Skill("Charisma");
             Deception = new Skill("Charisma");
+            Insight = new Skill("Wisdom");
             Medicine = new Skill("Wisdom");
             Survival = new Skill("Wisdom");
+            Perception = new Skill("Wisdom");
+            History = new Skill("Intelligence");
+            Arcana = new Skill("Intelligence");
             Investigation = new Skill("Intelligence");
             Nature = new Skill("Intelligence");
             Religion = new Skill("Intelligence");
-            Performance = new Skill("Charisma");
-            Perception = new Skill("Wisdom");
             Skills.Add(Athletics);
             Skills.Add(Acrobatics);
             Skills.Add(AnimalHandling);
@@ -247,6 +247,80 @@ namespace Dungeons_n_Dragons_Manager.Models
             Skills.Add(Perception);
         }
 
+        /// <summary>
+        /// Copy constructor for characters
+        /// </summary>
+        /// <param name="copyCharacter">Character to be copied</param>
+        public Character(Character copyCharacter)
+        {
+            Name = copyCharacter.Name;
+            Level = copyCharacter.Level;
+            Class = copyCharacter.Class;
+            Race = copyCharacter.Race;
+            MaxHP = copyCharacter.MaxHP;
+            HP = copyCharacter.HP;
+            XP = copyCharacter.XP;
+            ArmorType = copyCharacter.ArmorType;
+            AC = copyCharacter.AC;
+            ProficiencyBonus = copyCharacter.ProficiencyBonus;
+            Notes = copyCharacter.Notes;
+
+            Attributes = new ObservableCollection<Attribute>();
+            Strength = new Attribute(copyCharacter.Strength);
+            Constitution = new Attribute(copyCharacter.Constitution);
+            Dexterity = new Attribute(copyCharacter.Dexterity);
+            Intelligence = new Attribute(copyCharacter.Intelligence);
+            Wisdom = new Attribute(copyCharacter.Wisdom);
+            Charisma = new Attribute(copyCharacter.Charisma);
+            Attributes.Add(Charisma);
+            Attributes.Add(Wisdom);
+            Attributes.Add(Strength);
+            Attributes.Add(Dexterity);
+            Attributes.Add(Constitution);
+            Attributes.Add(Intelligence);
+
+            Skills = new ObservableCollection<Skill>();
+            Athletics = new Skill(copyCharacter.Athletics);
+            Acrobatics = new Skill(copyCharacter.Acrobatics);
+            AnimalHandling = new Skill(copyCharacter.AnimalHandling);
+            SleightOfHand = new Skill(copyCharacter.SleightOfHand);
+            Stealth = new Skill(copyCharacter.Stealth);
+            Persuasion = new Skill(copyCharacter.Persuasion);
+            Intimidation = new Skill(copyCharacter.Intimidation);
+            Performance = new Skill(copyCharacter.Performance);
+            Deception = new Skill(copyCharacter.Deception);
+            Insight = new Skill(copyCharacter.Insight);
+            Medicine = new Skill(copyCharacter.Medicine);
+            Survival = new Skill(copyCharacter.Survival);
+            Perception = new Skill(copyCharacter.Perception);
+            History = new Skill(copyCharacter.History);
+            Arcana = new Skill(copyCharacter.Arcana);
+            Investigation = new Skill(copyCharacter.Investigation);
+            Nature = new Skill(copyCharacter.Nature);
+            Religion = new Skill(copyCharacter.Religion);
+            Skills.Add(Athletics);
+            Skills.Add(Acrobatics);
+            Skills.Add(AnimalHandling);
+            Skills.Add(SleightOfHand);
+            Skills.Add(Insight);
+            Skills.Add(History);
+            Skills.Add(Arcana);
+            Skills.Add(Persuasion);
+            Skills.Add(Intimidation);
+            Skills.Add(Stealth);
+            Skills.Add(Deception);
+            Skills.Add(Medicine);
+            Skills.Add(Survival);
+            Skills.Add(Investigation);
+            Skills.Add(Nature);
+            Skills.Add(Religion);
+            Skills.Add(Performance);
+            Skills.Add(Perception);
+        }
+
+        /// <summary>
+        /// Calculates the modifier and save bonuses for each attribute based on the attribute score
+        /// </summary>
         public void CalculateStats()
         {
             foreach (Attribute stat in Attributes)
@@ -309,12 +383,18 @@ namespace Dungeons_n_Dragons_Manager.Models
             }
         }
 
+        /// <summary>
+        /// Sets the proficiency bonus for the character based on the character's level
+        /// </summary>
         public void SetProficiency()
         {
             double bonus = Level / 4;
             ProficiencyBonus = Convert.ToInt32((Math.Ceiling(bonus) + 1));
         }
 
+        /// <summary>
+        /// Calculates the skill bonuses for the character based on proficiency bonuses and attribute modifiers
+        /// </summary>
         public void CalculateSkills()
         {
             foreach (Skill stat in Skills)
@@ -323,23 +403,23 @@ namespace Dungeons_n_Dragons_Manager.Models
                 {
                     stat.score += ProficiencyBonus;
                 }
-                if (stat.SkillAttribute == "Strength")
+                if (stat.skillAttribute == "Strength")
                 {
                     stat.skillMod = Strength.modifier;
                 }
-                else if (stat.SkillAttribute == "Dexterity")
+                else if (stat.skillAttribute == "Dexterity")
                 {
                     stat.skillMod = Dexterity.modifier;
                 }
-                else if (stat.SkillAttribute == "Intelligence")
+                else if (stat.skillAttribute == "Intelligence")
                 {
                     stat.skillMod = Intelligence.modifier;
                 }
-                else if (stat.SkillAttribute == "Charisma")
+                else if (stat.skillAttribute == "Charisma")
                 {
                     stat.skillMod = Charisma.modifier;
                 }
-                else if (stat.SkillAttribute == "Wisdom")
+                else if (stat.skillAttribute == "Wisdom")
                 {
                     stat.skillMod = Wisdom.modifier;
                 }
@@ -366,6 +446,22 @@ namespace Dungeons_n_Dragons_Manager.Models
             /// The chance a character will succeed in performing tasks related to the attribute
             /// </summary>
             public int modifier { get; set; }
+
+            /// <summary>
+            /// Copy Constructor for the Attribute Class
+            /// </summary>
+            /// <param name="CopyAttribute"></param>
+            public Attribute(Attribute CopyAttribute)
+            {
+                score = CopyAttribute.score;
+                save = CopyAttribute.save;
+                modifier = CopyAttribute.modifier;
+            }
+
+            /// <summary>
+            /// Default constructor.
+            /// </summary>
+            public Attribute() { }
         }
 
         /// <summary>
@@ -386,7 +482,7 @@ namespace Dungeons_n_Dragons_Manager.Models
             /// <summary>
             /// Represents the attribute this skill pertains to
             /// </summary>
-            public string SkillAttribute { get; set; }
+            public string skillAttribute { get; set; }
 
             /// <summary>
             /// The total score for the skill
@@ -399,8 +495,25 @@ namespace Dungeons_n_Dragons_Manager.Models
             /// <param name="attribute"></param>
             public Skill(string attribute)
             {
-                SkillAttribute = attribute;
+                skillAttribute = attribute;
             }
+
+            /// <summary>
+            /// Copy Constructor for the skill class
+            /// </summary>
+            /// <param name="CopySkill">The skill to be copied</param>
+            public Skill(Skill CopySkill)
+            {
+                isProficient = CopySkill.isProficient;
+                skillMod = CopySkill.skillMod;
+                skillAttribute = CopySkill.skillAttribute;
+                score = CopySkill.score;
+            }
+
+            /// <summary>
+            /// Default constructor.
+            /// </summary>
+            public Skill() { }
         }
     }
 }
