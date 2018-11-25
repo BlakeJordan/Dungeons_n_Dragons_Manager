@@ -166,8 +166,18 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         #region Functions
 
+        /// <summary>
+        /// Calculates the proficiency, skills, and stats based on user input, then saves the character
+        /// 
+        /// Pre: CanSave method must return true and save button must be clicked
+        /// 
+        /// Post: Stats for the character are set, and the details are written to the system settings
+        /// </summary>
         private void saveCharacter()
         {
+            EditableCharacter.CalculateStats();
+            EditableCharacter.SetProficiency();
+            EditableCharacter.CalculateSkills();
             if (Properties.Settings.Default.CustomCharactersList == null) Properties.Settings.Default.CustomCharactersList = new List<Character>();
             Properties.Settings.Default.CustomCharactersList.Add(EditableCharacter);
             Properties.Settings.Default.Save();
