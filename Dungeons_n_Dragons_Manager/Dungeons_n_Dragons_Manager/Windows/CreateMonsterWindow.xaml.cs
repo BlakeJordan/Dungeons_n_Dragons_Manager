@@ -37,7 +37,7 @@ namespace Dungeons_n_Dragons_Manager.Windows
         /// <summary>
         ///  regex for rollcheck. Makes sure we get correct input for dice roll input. 
         /// </summary>
-        private static readonly Regex rollCheck_regex = new Regex("[^0-9d]+");
+        private static readonly Regex rollCheck_regex = new Regex("[^0-9d+]+");
 
         #endregion Properties
 
