@@ -6,20 +6,17 @@ namespace Dungeons_n_Dragons_Manager.Test_Suite
 {
     internal class TestSuite
     {
-        public TestSuite()
-        {
-            m_testingOutput = new List<string>();
-        }
+        public TestSuite() { }
 
-        private List<String> m_testingOutput { get; set; }
+        private List<String> m_testingOutput = new List<string>();
 
         public List<string> RunAllTests()
         {
-            m_testingOutput.AddRange(m_encountersTabTests.RunAllTests()); //Add EncountersTab tests.
-
+            m_testingOutput.AddRange(new MainWindowViewmodel_Tests().RunAllTests()); //Add MainWindowViewmodel tests.
+            m_testingOutput.AddRange(new EncountersTabViewmodel_Tests().RunAllTests()); //Add EncountersTabViewmodel tests.
+            m_testingOutput.AddRange(new Monster_Tests().RunAllTests()); //Add Monster tests.
+            m_testingOutput.AddRange(new DiceRolls_Tests().RunAllTests()); //Add dice roll tests.
             return m_testingOutput;
         }
-
-        private EncountersTabTests m_encountersTabTests = new EncountersTabTests();
     }
 }

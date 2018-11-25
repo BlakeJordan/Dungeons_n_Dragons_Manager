@@ -82,10 +82,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Armor Class" />
-                <TextBox
+                <ComboBox
                     Width="140"
-                    Text="{Binding EditableMonster.ArmorClass, UpdateSourceTrigger=PropertyChanged}"
-                    TextChanged="TextBox_CheckCanSave" />
+                    ItemsSource="{Binding ArmorClassValues}"
+                    SelectedItem="{Binding EditableMonster.ArmorClass, UpdateSourceTrigger=PropertyChanged}"
+                    SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
             <StackPanel
@@ -97,10 +98,11 @@
                     FontSize="14"
                     FontWeight="DemiBold"
                     Text="Challenge Rating" />
-                <TextBox
+                <ComboBox
                     Width="140"
-                    Text="{Binding EditableMonster.ChallengeRating, UpdateSourceTrigger=PropertyChanged}"
-                    TextChanged="TextBox_CheckCanSave" />
+                    ItemsSource="{Binding ChallengeRatingValues}"
+                    SelectedItem="{Binding EditableMonster.ChallengeRating, UpdateSourceTrigger=PropertyChanged}"
+                    SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
             <StackPanel
@@ -114,6 +116,7 @@
                     Text="Challenge XP" />
                 <TextBox
                     Width="140"
+                    PreviewTextInput="TextBox_NumericCheck"
                     Text="{Binding EditableMonster.ChallengeXP, UpdateSourceTrigger=PropertyChanged}"
                     TextChanged="TextBox_CheckCanSave" />
             </StackPanel>
@@ -129,6 +132,7 @@
                     Text="Hit Points" />
                 <TextBox
                     Width="140"
+                    PreviewTextInput="TextBox_NumericCheck"
                     Text="{Binding EditableMonster.HitPoints, UpdateSourceTrigger=PropertyChanged}"
                     TextChanged="TextBox_CheckCanSave" />
             </StackPanel>
@@ -144,6 +148,7 @@
                     Text="Hit Points Dice" />
                 <TextBox
                     Width="140"
+                    PreviewTextInput="TextBox_RollCheck"
                     Text="{Binding EditableMonster.HitPointsDice, UpdateSourceTrigger=PropertyChanged}"
                     TextChanged="TextBox_CheckCanSave" />
             </StackPanel>
@@ -477,8 +482,8 @@
                 Command="{Binding SaveMonster}"
                 Content="Save Monster"
                 IsEnabled="{Binding CanSave, UpdateSourceTrigger=PropertyChanged}" />
-            
-          
+
+
             <Button
                 Grid.Row="10"
                 Grid.Column="1"
@@ -487,7 +492,6 @@
                 Margin="0,0,0,10"
                 Click="Delete_Button_Click"
                 Command="{Binding DeleteMonster}"
-                CommandParameter="{Binding ElementName=EditMonstersWindow}"
                 Content="Delete Monster" />
         </Grid>
     </Border>

@@ -5,36 +5,47 @@ using System.Linq;
 
 namespace Dungeons_n_Dragons_Manager.Test_Suite.Tests
 {
-    internal class EncountersTabTests
+    /// <summary>
+    /// Test class for the EncountersTabViewmodel class.
+    /// </summary>
+    internal class EncountersTabViewmodel_Tests
     {
-        public EncountersTabTests()
-        {
-            m_testingOutput = new List<string>();
-            m_testingOutput.Add("\n\nEcountersTabViewmodel Tests"); //Add header.
-        }
+        /// <summary>
+        /// Defualt constructor.
+        /// </summary>
+        public EncountersTabViewmodel_Tests() { }
 
-        #region Properties
-
-        private List<string> m_testingOutput { get; set; }
-
-        #endregion Properties
+        /// <summary>
+        /// Stores all testing results.
+        /// </summary>
+        private List<string> m_testingOutput = new List<string>();
 
         #region Functions
 
+        /// <summary>
+        /// Executes all tests.
+        /// </summary>
+        /// <returns>Returns m_testingOutput.</returns>
         public List<string> RunAllTests()
         {
-            constructorTest();
+            m_testingOutput.Add("\n\nEncountersTabViewmodel Tests"); //Add header.
+
+            defaultConstructorTest();
             chooseRandomEncounterTest();
+
             return m_testingOutput;
         }
 
         #region Tests
 
-        private void constructorTest()
+        /// <summary>
+        /// Default constructor testing.
+        /// </summary>
+        private void defaultConstructorTest()
         {
             EncountersTabViewmodel encountersTabViewmodel = new EncountersTabViewmodel();
 
-            m_testingOutput.Add("Constructor (function):");
+            m_testingOutput.Add("Default Constructor:");
 
             string test1 = "Monsters observable collection is filled --> ";
             if (encountersTabViewmodel.Monsters.Count != 0) test1 += "PASSED";
@@ -42,6 +53,9 @@ namespace Dungeons_n_Dragons_Manager.Test_Suite.Tests
             m_testingOutput.Add(test1);
         }
 
+        /// <summary>
+        /// ChooseRandomEncounter command testing.
+        /// </summary>
         private void chooseRandomEncounterTest()
         {
             EncountersTabViewmodel encountersTabViewmodel = new EncountersTabViewmodel();
@@ -49,7 +63,7 @@ namespace Dungeons_n_Dragons_Manager.Test_Suite.Tests
             encountersTabViewmodel.ChooseRandomEncounter.Execute(null);
             Monster newMonster = encountersTabViewmodel.SelectedMonster;
 
-            m_testingOutput.Add("\nChooseRandomEncounter (command):");
+            m_testingOutput.Add("\nChooseRandomEncounter:");
 
             string test1 = "New monster has been selected --> ";
             if (previousMonster != newMonster) test1 += "PASSED";

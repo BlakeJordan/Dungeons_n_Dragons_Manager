@@ -15,9 +15,9 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -40,14 +40,21 @@
                 <Button
                     Margin="0,0,2.5,0"
                     Command="{Binding EditCharacter}"
-                    Content=" Edit Character " />
+                    Content=" Edit Character "
+                    IsEnabled="{Binding CanEdit, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <ComboBox
                     Width="140"
                     Margin="2.5,0,0,0"
                     DisplayMemberPath="Name"
                     ItemsSource="{Binding Characters}"
-                    SelectedItem="{Binding SelectedCharacter}" />
+                    SelectedItem="{Binding SelectedCharacter, UpdateSourceTrigger=PropertyChanged}" />
+
+                <Button
+                    Margin="2.5,0,0,0"
+                    Command="{Binding DeleteCharacter}"
+                    Content=" Delete Character "
+                    IsEnabled="{Binding CanEdit, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
             <StackPanel
@@ -114,7 +121,7 @@
                 Grid.RowSpan="3"
                 Grid.Column="0"
                 Margin="0,10,10,0"
-                Header="Character Stats">
+                Header="Stats">
                 <Border Padding="5">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -193,23 +200,29 @@
             </GroupBox>
 
             <GroupBox
-                Grid.Row="4"
-                Grid.RowSpan="2"
+                Grid.Row="3"
+                Grid.RowSpan="3"
                 Grid.Column="1"
-                Margin="0,10,0,0"
-                Header="Character Skills">
+                Margin="0,10,10,0"
+                Header="Skills">
                 <Border Padding="5">
                     <Grid>
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <StackPanel
-                            Grid.Column="0"
-                            HorizontalAlignment="Center"
-                            Orientation="Vertical">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Row="0" Grid.Column="0">
+                            <StackPanel.Resources>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Margin" Value="0,10,0,0" />
+                                </Style>
+                            </StackPanel.Resources>
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.AnimalHandling.score, StringFormat='AnimalHandling: {0}'}" />
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Insight.score, StringFormat='Insight: {0}'}" />
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Medicine.score, StringFormat='Medicine: {0}'}" />
@@ -219,43 +232,37 @@
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.History.score, StringFormat='History: {0}'}" />
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Investigation.score, StringFormat='Investigation: {0}'}" />
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Nature.score, StringFormat='Nature: {0}'}" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Religion.score, StringFormat='Religion: {0}'}" />
                         </StackPanel>
 
-                        <StackPanel
-                            Grid.Column="1"
-                            HorizontalAlignment="Center"
-                            Orientation="Vertical">
+
+                        <StackPanel Grid.Row="0" Grid.Column="1">
+                            <StackPanel.Resources>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Margin" Value="0,10,0,0" />
+                                </Style>
+                            </StackPanel.Resources>
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Athletics.score, StringFormat='Athletics: {0}'}" />
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Acrobatics.score, StringFormat='Acrobatics: {0}'}" />
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.SleightOfHand.score, StringFormat='SleightOfhand: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.SleightOfHand.score, StringFormat='SleightOfHand: {0}'}" />
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Stealth.score, StringFormat='Stealth: {0}'}" />
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Deception.score, StringFormat='Deception: {0}'}" />
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Intimidation.score, StringFormat='Intimidation: {0}'}" />
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Performance.score, StringFormat='Performance: {0}'}" />
                             <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Persuasion.score, StringFormat='Persuasion: {0}'}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding SelectedCharacter.Religion.score, StringFormat='Religion: {0}'}" />
                         </StackPanel>
                     </Grid>
                 </Border>
             </GroupBox>
 
             <GroupBox
-                Grid.Row="4"
+                Grid.Row="3"
+                Grid.RowSpan="3"
                 Grid.Column="2"
                 Margin="0,10,0,0"
-                Header="Inventory">
+                Header="Notes">
                 <Border Padding="5">
-                    <Grid />
-                </Border>
-            </GroupBox>
-
-            <GroupBox
-                Grid.Row="5"
-                Grid.Column="2"
-                Margin="0,10,0,0"
-                Header="Character Notes">
-                <Border Padding="5">
-                    <TextBlock Text="{Binding SelectedCharacter.Notes, StringFormat=':{0}'}" />
+                    <TextBlock Text="{Binding SelectedCharacter.Notes}" />
                 </Border>
             </GroupBox>
         </Grid>

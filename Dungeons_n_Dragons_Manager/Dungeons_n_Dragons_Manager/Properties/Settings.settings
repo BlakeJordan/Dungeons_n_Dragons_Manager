@@ -20,10 +20,10 @@
     <Setting Name="CustomMonstersList" Type="System.Collections.Generic.List&lt;Dungeons_n_Dragons_Manager.Models.Monster&gt;" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="CustomCharactersList" Type="System.Collections.Generic.List&lt;Dungeons_n_Dragons_Manager.Models.Character&gt;" Scope="User">
+    <Setting Name="DefaultMonstersList" Type="System.Collections.Generic.List&lt;Dungeons_n_Dragons_Manager.Models.Monster&gt;" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="DefaultMonstersList" Type="System.Collections.Generic.List&lt;Dungeons_n_Dragons_Manager.Models.Monster&gt;" Scope="User">
+    <Setting Name="CustomCharactersList" Type="System.Collections.Generic.List&lt;Dungeons_n_Dragons_Manager.Models.Character&gt;" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

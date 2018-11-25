@@ -41,7 +41,7 @@
                     TextAlignment="Center" />
                 <TextBox
                     Width="140"
-                    Text="{Binding EditableCharacter.Name}"
+                    Text="{Binding EditableCharacter.Name, UpdateSourceTrigger=PropertyChanged}"
                     TextChanged="TextBox_CheckCanSave" />
             </StackPanel>
 
@@ -60,7 +60,7 @@
                 <ComboBox
                     Width="140"
                     ItemsSource="{Binding Levels}"
-                    SelectedItem="{Binding EditableCharacter.Level}"
+                    SelectedItem="{Binding EditableCharacter.Level, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
@@ -76,9 +76,10 @@
                 <ComboBox
                     Width="140"
                     ItemsSource="{Binding Races}"
-                    SelectedItem="{Binding EditableCharacter.Race}"
+                    SelectedItem="{Binding EditableCharacter.Race, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
+
 
             <StackPanel
                 Grid.Row="1"
@@ -88,27 +89,11 @@
                     HorizontalAlignment="Center"
                     FontSize="14"
                     FontWeight="DemiBold"
-                    Text="Armor Type" />
+                    Text="Class" />
                 <ComboBox
                     Width="140"
-                    ItemsSource="{Binding ArmorTypes}"
-                    SelectedItem="{Binding EditableCharacter.ArmorType}"
-                    SelectionChanged="ComboBox_CheckCanSave" />
-            </StackPanel>
-
-            <StackPanel
-                Grid.Row="2"
-                Grid.Column="1"
-                HorizontalAlignment="Center">
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    FontSize="14"
-                    FontWeight="DemiBold"
-                    Text="Armor Class" />
-                <ComboBox
-                    Width="140"
-                    ItemsSource="{Binding ArmorClasses}"
-                    SelectedItem="{Binding EditableCharacter.AC}"
+                    ItemsSource="{Binding Classes}"
+                    SelectedItem="{Binding EditableCharacter.Class, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
@@ -120,11 +105,11 @@
                     HorizontalAlignment="Center"
                     FontSize="14"
                     FontWeight="DemiBold"
-                    Text="Class" />
+                    Text="Armor Type" />
                 <ComboBox
                     Width="140"
-                    ItemsSource="{Binding Classes}"
-                    SelectedItem="{Binding EditableCharacter.Class}"
+                    ItemsSource="{Binding ArmorTypes}"
+                    SelectedItem="{Binding EditableCharacter.ArmorType, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
@@ -140,7 +125,7 @@
                 <ComboBox
                     Width="140"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding EditableCharacter.Strength}"
+                    SelectedItem="{Binding EditableCharacter.Strength.score, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
@@ -156,7 +141,7 @@
                 <ComboBox
                     Width="140"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding EditableCharacter.Dexterity}"
+                    SelectedItem="{Binding EditableCharacter.Dexterity.score, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
@@ -172,7 +157,7 @@
                 <ComboBox
                     Width="140"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding EditableCharacter.Constitution}"
+                    SelectedItem="{Binding EditableCharacter.Constitution.score, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
@@ -188,23 +173,7 @@
                 <ComboBox
                     Width="140"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding EditableCharacter.Intelligence}"
-                    SelectionChanged="ComboBox_CheckCanSave" />
-            </StackPanel>
-
-            <StackPanel
-                Grid.Row="4"
-                Grid.Column="1"
-                HorizontalAlignment="Center">
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    FontSize="14"
-                    FontWeight="DemiBold"
-                    Text="Wisdom" />
-                <ComboBox
-                    Width="140"
-                    ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding EditableCharacter.Wisdom}"
+                    SelectedItem="{Binding EditableCharacter.Intelligence.score, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
@@ -216,11 +185,43 @@
                     HorizontalAlignment="Center"
                     FontSize="14"
                     FontWeight="DemiBold"
+                    Text="Wisdom" />
+                <ComboBox
+                    Width="140"
+                    ItemsSource="{Binding Skills}"
+                    SelectedItem="{Binding EditableCharacter.Wisdom.score, UpdateSourceTrigger=PropertyChanged}"
+                    SelectionChanged="ComboBox_CheckCanSave" />
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="2"
+                Grid.Column="1"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
                     Text="Charisma" />
                 <ComboBox
                     Width="140"
                     ItemsSource="{Binding Skills}"
-                    SelectedItem="{Binding EditableCharacter.Charisma}"
+                    SelectedItem="{Binding EditableCharacter.Charisma.score, UpdateSourceTrigger=PropertyChanged}"
+                    SelectionChanged="ComboBox_CheckCanSave" />
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="4"
+                Grid.Column="1"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Text="Armor Class" />
+                <ComboBox
+                    Width="140"
+                    ItemsSource="{Binding ArmorClasses}"
+                    SelectedItem="{Binding EditableCharacter.AC, UpdateSourceTrigger=PropertyChanged}"
                     SelectionChanged="ComboBox_CheckCanSave" />
             </StackPanel>
 
@@ -258,7 +259,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Athletics"
-                        IsChecked="{Binding EditableCharacter.Athletics}" />
+                        IsChecked="{Binding EditableCharacter.Athletics.isProficient, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox
                         x:Name="Acrobatics"
                         Grid.Row="1"
@@ -266,7 +267,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Acrobatics"
-                        IsChecked="{Binding EditableCharacter.Acrobatics}" />
+                        IsChecked="{Binding EditableCharacter.Acrobatics.isProficient, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox
                         x:Name="SleightOfHand"
                         Grid.Row="2"
@@ -274,7 +275,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Sleight of Hand"
-                        IsChecked="{Binding EditableCharacter.SleightOfHand}" />
+                        IsChecked="{Binding EditableCharacter.SleightOfHand.isProficient, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox
                         x:Name="Stealth"
                         Grid.Row="3"
@@ -282,7 +283,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Stealth"
-                        IsChecked="{Binding EditableCharacter.Stealth}" />
+                        IsChecked="{Binding EditableCharacter.Stealth.isProficient, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox
                         x:Name="Arcana"
                         Grid.Row="4"
@@ -290,7 +291,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Arcana"
-                        IsChecked="{Binding EditableCharacter.Arcana}" />
+                        IsChecked="{Binding EditableCharacter.Arcana.isProficient, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox
                         x:Name="History"
                         Grid.Row="5"
@@ -298,7 +299,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="History"
-                        IsChecked="{Binding EditableCharacter.History}" />
+                        IsChecked="{Binding EditableCharacter.History.isProficient, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox
                         x:Name="Investigation"
                         Grid.Row="6"
@@ -306,7 +307,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Investigation"
-                        IsChecked="{Binding EditableCharacter.Investigation}" />
+                        IsChecked="{Binding EditableCharacter.Investigation.isProficient, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox
                         x:Name="Nature"
                         Grid.Row="7"
@@ -314,7 +315,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Nature"
-                        IsChecked="{Binding EditableCharacter.Nature}" />
+                        IsChecked="{Binding EditableCharacter.Nature.isProficient, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox
                         x:Name="Religion"
                         Grid.Row="8"
@@ -322,7 +323,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Religion"
-                        IsChecked="{Binding EditableCharacter.Religion}" />
+                        IsChecked="{Binding EditableCharacter.Religion.isProficient, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox
                         x:Name="AnimalHandling"
                         Grid.Row="0"
@@ -330,7 +331,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Animal Handling"
-                        IsChecked="{Binding EditableCharacter.AnimalHandling}" />
+                        IsChecked="{Binding EditableCharacter.AnimalHandling.isProficient, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox
                         x:Name="Insight"
                         Grid.Row="1"
@@ -338,7 +339,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Insight"
-                        IsChecked="{Binding EditableCharacter.Insight}" />
+                        IsChecked="{Binding EditableCharacter.Insight.isProficient, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox
                         x:Name="Medicine"
                         Grid.Row="2"
@@ -346,7 +347,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Medicine"
-                        IsChecked="{Binding EditableCharacter.Medicine}" />
+                        IsChecked="{Binding EditableCharacter.Medicine.isProficient, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox
                         x:Name="Perception"
                         Grid.Row="3"
@@ -354,7 +355,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Perception"
-                        IsChecked="{Binding EditableCharacter.Perception}" />
+                        IsChecked="{Binding EditableCharacter.Perception.isProficient, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox
                         x:Name="Survival"
                         Grid.Row="4"
@@ -362,7 +363,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Survival"
-                        IsChecked="{Binding EditableCharacter.Survival}" />
+                        IsChecked="{Binding EditableCharacter.Survival.isProficient, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox
                         x:Name="Deception"
                         Grid.Row="5"
@@ -370,7 +371,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Deception"
-                        IsChecked="{Binding EditableCharacter.Deception}" />
+                        IsChecked="{Binding EditableCharacter.Deception.isProficient, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox
                         x:Name="Intimidation"
                         Grid.Row="6"
@@ -378,7 +379,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Intimidation"
-                        IsChecked="{Binding EditableCharacter.Intimidation}" />
+                        IsChecked="{Binding EditableCharacter.Intimidation.isProficient, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox
                         x:Name="Performance"
                         Grid.Row="7"
@@ -386,7 +387,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Performance"
-                        IsChecked="{Binding EditableCharacter.Performance}" />
+                        IsChecked="{Binding EditableCharacter.Performance.isProficient, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox
                         x:Name="Persuasion"
                         Grid.Row="8"
@@ -394,7 +395,7 @@
                         Margin="24,2,0,0"
                         Command="{Binding CheckCanSave}"
                         Content="Persuasion"
-                        IsChecked="{Binding EditableCharacter.Persuasion}" />
+                        IsChecked="{Binding EditableCharacter.Skills.Persuasion.isProficient, UpdateSourceTrigger=PropertyChanged}" />
                 </Grid>
             </StackPanel>
 
@@ -403,8 +404,9 @@
                 Grid.Column="1"
                 Width="150"
                 Height="50"
-                Click="Button_Click"
-                Command="{Binding CheckCanSave}"
+                VerticalAlignment="Center"
+                Click="Save_Character"
+                Command="{Binding SaveCharacter}"
                 Content="Save Character"
                 IsEnabled="{Binding CanSave, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -421,7 +423,7 @@
                 <TextBox
                     Height="180"
                     Margin="10,0,10.4,0"
-                    Text="{Binding EditableCharacter.Notes}" />
+                    Text="{Binding EditableCharacter.Notes, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
         </Grid>
     </Border>
