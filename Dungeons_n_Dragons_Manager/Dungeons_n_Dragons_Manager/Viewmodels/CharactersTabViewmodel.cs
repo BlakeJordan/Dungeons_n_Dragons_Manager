@@ -17,11 +17,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
     public class CharactersTabViewmodel : INotifyPropertyChanged
     {
         /// <summary>
-        /// This constructor initializes a collection of characters
-        ///
-        /// Pre: None.
-        ///
-        /// Post: An observable collection of Characters is intialized.
+        /// Constructor for the characters tab viewmodel
         /// </summary>
         public CharactersTabViewmodel() { }
 
@@ -160,6 +156,14 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         #region Functions
 
+
+        /// <summary>
+        /// Private function that parses through the string that represents the character data in the app resources.
+        ///
+        /// Pre: None.
+        ///
+        /// Post: Characters has been filled.
+        /// </summary>
         private void parseCharactersResource()
         {
             List<Character> listOfCharacters = new List<Character>(); //Temp list to store Characters
