@@ -24,14 +24,14 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// /// <param name="character">A reference to the character being edited</param>
         public EditCharacterWindowViewModel(ref Character character)
         {
-            EditableCharacter = character;    //Need to make copy constructor to make a deep copy to reference between the edited version and old version.
+            EditableCharacter = character;
             populateDropdowns();
         }
 
         #region Properties
 
         /// <summary>
-        /// Character object that references the selected character before openning the edit window.
+        /// Character object that references the selected character before opening the edit window.
         /// </summary>
         private Character m_selectedCharacter { get; set; }
 
@@ -64,7 +64,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public List<Character> CustomCharacters { get; set; }
 
-
         /// <summary>
         /// Character binded to UI.
         /// </summary>
@@ -86,10 +85,14 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             }
         }
 
+        /// <summary>
+        /// Bool that determines if the user can save.
+        /// </summary>
         public bool CanSave
         {
             get
             {
+                if (SelectedCharacter.Equals(EditableCharacter)) return false;
                 bool hasUniqueName = true;
                 foreach (Character character in CustomCharacters)
                 {
@@ -193,7 +196,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         ///
         /// Pre: None
         ///
-        /// Post: The dropdown menus contain selectable race and class names
+        /// Post: The dropdown menus contain selectable classses, skills, armor types, etc.
         /// </summary>
         private void populateDropdowns()
         {
@@ -205,10 +208,20 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             Levels = Enumerable.Range(1, 30).ToList();
             CustomCharacters = Properties.Settings.Default.CustomCharactersList;
         }
-
+        
+        /// <summary>
+        /// Calculates the proficiency, skills, and stats based on user input, then saves the character
+        /// 
+        /// Pre: CanSave method must return true and save button must be clicked
+        /// 
+        /// Post: Stats for the character are set, and the details are written to the system settings
+        /// </summary>
         private void saveCharacter()
         {
             if (!CanSave) return;
+            EditableCharacter.CalculateStats();
+            EditableCharacter.SetProficiency();
+            EditableCharacter.CalculateSkills();
             Properties.Settings.Default.CustomCharactersList.Remove(SelectedCharacter);
             Properties.Settings.Default.CustomCharactersList.Add(EditableCharacter);
             Properties.Settings.Default.Save();

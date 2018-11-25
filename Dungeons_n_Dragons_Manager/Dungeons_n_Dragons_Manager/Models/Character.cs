@@ -318,6 +318,9 @@ namespace Dungeons_n_Dragons_Manager.Models
             Skills.Add(Perception);
         }
 
+        /// <summary>
+        /// Calculates the modifier and save bonuses for each attribute based on the attribute score
+        /// </summary>
         public void CalculateStats()
         {
             foreach (Attribute stat in Attributes)
@@ -380,12 +383,18 @@ namespace Dungeons_n_Dragons_Manager.Models
             }
         }
 
+        /// <summary>
+        /// Sets the proficiency bonus for the character based on the character's level
+        /// </summary>
         public void SetProficiency()
         {
             double bonus = Level / 4;
             ProficiencyBonus = Convert.ToInt32((Math.Ceiling(bonus) + 1));
         }
 
+        /// <summary>
+        /// Calculates the skill bonuses for the character based on proficiency bonuses and attribute modifiers
+        /// </summary>
         public void CalculateSkills()
         {
             foreach (Skill stat in Skills)
