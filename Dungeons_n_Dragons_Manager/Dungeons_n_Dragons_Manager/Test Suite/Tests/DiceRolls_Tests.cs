@@ -40,6 +40,7 @@ namespace Dungeons_n_Dragons_Manager.Test_Suite.Tests
 
             return m_testingOutput;
         }
+
         #region Tests
         /// <summary>
         /// D4 button test

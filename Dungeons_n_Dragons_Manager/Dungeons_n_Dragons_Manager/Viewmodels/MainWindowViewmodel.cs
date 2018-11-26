@@ -113,6 +113,10 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         /// <summary>
         /// Creates and opens a TestSuiteWindow.
+        /// 
+        /// Pre: "Test Suite" menu item has been clicked.
+        /// 
+        /// Post: The test suite window is open.
         /// </summary>
         private void openTestSuite()
         {
@@ -122,16 +126,24 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
 
         /// <summary>
         /// Opens user manual in preferred web browser.
+        /// 
+        /// Pre: None.
+        /// 
+        /// Post: The user manual PDF has been opened in the preferred web browser.
         /// </summary>
         private void openUserManual()
         {
-            //string currentDirectory = Directory.GetCurrentDirectory();
-            //string userManualFilePath = currentDirectory + "\\Assets\\UserManual\\UserManual.html";
-            //System.Diagnostics.Process.Start(userManualFilePath);
+            string currentDirectory = Directory.GetCurrentDirectory();
+            string userManualFilePath = currentDirectory + "\\Assets\\UserManual\\UserManual.pdf";
+            System.Diagnostics.Process.Start(userManualFilePath);
         }
 
         /// <summary>
-        /// Creates and opens an about box.
+        /// Creates and opens the about box.
+        /// 
+        /// Pre: "About" menu item has been clicked.
+        /// 
+        /// Post: About box has been opened.
         /// </summary>
         private void openAboutBox()
         {
@@ -140,7 +152,11 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         }
 
         /// <summary>
-        /// If DefaultMonstersList has not been parsed, parse it.
+        /// Parses the Monsters string in resources and assigns the DefualtMonstersList the parsed monsters.
+        /// 
+        /// Pre: None.
+        /// 
+        /// Post: DefaultMonstersList is not null or empty.
         /// </summary>
         private void initalizeMonstersList()
         {

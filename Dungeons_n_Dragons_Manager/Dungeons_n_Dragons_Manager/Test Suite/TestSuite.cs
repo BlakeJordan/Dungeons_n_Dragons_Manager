@@ -4,12 +4,25 @@ using System.Collections.Generic;
 
 namespace Dungeons_n_Dragons_Manager.Test_Suite
 {
+    /// <summary>
+    /// Executive class for all test classes.
+    /// </summary>
     internal class TestSuite
     {
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public TestSuite() { }
 
+        /// <summary>
+        /// Stores all tests outputs.
+        /// </summary>
         private List<String> m_testingOutput = new List<string>();
 
+        /// <summary>
+        /// Executes all test classes.
+        /// </summary>
+        /// <returns>Output of all test classes.</returns>
         public List<string> RunAllTests()
         {
             m_testingOutput.AddRange(new MainWindowViewmodel_Tests().RunAllTests()); //Add MainWindowViewmodel tests.
