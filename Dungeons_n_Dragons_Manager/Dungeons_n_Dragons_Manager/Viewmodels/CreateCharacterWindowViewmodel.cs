@@ -39,7 +39,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 {
                     if (character.Name == EditableCharacter.Name) hasUniqueName = false;
                 }
-                // bool hasHitPoints = (EditableCharacter.HP > 0); 
                 bool hasName = !(string.IsNullOrWhiteSpace(EditableCharacter.Name));
                 bool hasClass = !(string.IsNullOrWhiteSpace(EditableCharacter.Class));
                 bool hasRace = !(string.IsNullOrWhiteSpace(EditableCharacter.Race));

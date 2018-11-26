@@ -211,22 +211,6 @@
 
             <StackPanel
                 Grid.Row="4"
-                Grid.Column="0"
-                HorizontalAlignment="Center">
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    FontSize="14"
-                    FontWeight="DemiBold"
-                    Text="Hit Points" />
-                <TextBox
-                    Width="140"
-                    Margin="2.5,0,0,0"
-                    PreviewTextInput="NumberValidationTextBox"
-                    Text="{Binding EditableCharacter.HP}"/>
-            </StackPanel>
-
-            <StackPanel
-                Grid.Row="4"
                 Grid.Column="1"
                 HorizontalAlignment="Center">
                 <TextBlock
