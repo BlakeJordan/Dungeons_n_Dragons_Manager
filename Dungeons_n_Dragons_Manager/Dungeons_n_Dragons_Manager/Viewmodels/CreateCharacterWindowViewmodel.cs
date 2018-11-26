@@ -40,7 +40,8 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 {
                     if (character.Name == EditableCharacter.Name) hasUniqueName = false;
                 }
-                bool hasHitPoints = (EditableCharacter.HP > 0); 
+                bool hasAC = EditableCharacter.AC >= 0;
+                bool hasHP = EditableCharacter.HP >= 0;
                 bool hasName = !(string.IsNullOrWhiteSpace(EditableCharacter.Name));
                 bool hasClass = !(string.IsNullOrWhiteSpace(EditableCharacter.Class));
                 bool hasRace = !(string.IsNullOrWhiteSpace(EditableCharacter.Race));
@@ -49,7 +50,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 bool hasAllStats = EditableCharacter.Strength.score != 0 && EditableCharacter.Dexterity.score != 0 && EditableCharacter.Constitution.score != 0 &&
                                       EditableCharacter.Intelligence.score != 0 && EditableCharacter.Wisdom.score != 0 && EditableCharacter.Charisma.score != 0;
 
-                if (hasUniqueName && hasName && hasClass && hasRace && hasArmorType && hasLevel && hasAllStats && hasHitPoints)
+                if (hasUniqueName && hasName && hasClass && hasRace && hasArmorType && hasLevel && hasAllStats && hasHP && hasAC)
                 {
                     return true;
                 }

@@ -222,7 +222,7 @@
                     Width="140"
                     Margin="2.5,0,0,0"
                     PreviewTextInput="NumberValidationTextBox"
-                    Text="{Binding EditableCharacter.HP}"/>
+                    Text="{Binding EditableCharacter.HP}" />
             </StackPanel>
 
             <StackPanel
