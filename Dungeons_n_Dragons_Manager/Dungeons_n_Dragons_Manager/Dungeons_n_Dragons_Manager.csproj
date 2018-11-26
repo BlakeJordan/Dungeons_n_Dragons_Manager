@@ -85,7 +85,8 @@
     </Compile>
     <Compile Include="Test Suite\TestSuite.cs" />
     <Compile Include="Test Suite\Tests\DiceRolls_Tests.cs" />
-    <Compile Include="Test Suite\Tests\EncountersTabViewmodel_Tests.cs" />
+    <Compile Include="Test Suite\Tests\EncountersTabViewmodel_Tests .cs" />
+    <Compile Include="Test Suite\Tests\EditMonsterViewmodel_Tests.cs" />
     <Compile Include="Test Suite\Tests\MainWindowViewmodel_Tests.cs" />
     <Compile Include="Test Suite\Tests\Monster_Tests.cs" />
     <Compile Include="Tools\BrowserBehavior.cs" />

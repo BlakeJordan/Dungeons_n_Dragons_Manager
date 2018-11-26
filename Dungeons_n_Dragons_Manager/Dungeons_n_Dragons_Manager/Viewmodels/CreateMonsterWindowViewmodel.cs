@@ -122,7 +122,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// <summary>
         /// A list of the currently saved monsters for reference.
         /// </summary>
-        private List<Monster> m_customMonsters;
+        public List<Monster> m_customMonsters;
 
         /// <summary>
         /// Buffer binding for Monster.HitPoints.
