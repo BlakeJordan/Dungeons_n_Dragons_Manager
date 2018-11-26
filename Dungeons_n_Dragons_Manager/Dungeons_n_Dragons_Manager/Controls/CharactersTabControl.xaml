@@ -76,7 +76,8 @@
 
             <StackPanel
                 Grid.Row="2"
-                Grid.Column="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
                 Margin="0,20,0,0"
                 HorizontalAlignment="Center"
                 Orientation="Horizontal">
@@ -225,93 +226,93 @@
                             Grid.Row="0"
                             Grid.Column="0"
                             HorizontalAlignment="Center"
-                            Text="{Binding SelectedCharacter.AnimalHandling.score, StringFormat='Animal Handling: +{0}'}" />
+                            Text="{Binding SelectedCharacter.AnimalHandling.score, StringFormat='Animal Handling: {0}'}" />
                         <TextBlock
                             Grid.Row="1"
                             Grid.Column="0"
                             HorizontalAlignment="Center"
-                            Text="{Binding SelectedCharacter.Insight.score, StringFormat='Insight: +{0}'}" />
+                            Text="{Binding SelectedCharacter.Insight.score, StringFormat='Insight: {0}'}" />
                         <TextBlock
                             Grid.Row="2"
                             Grid.Column="0"
                             HorizontalAlignment="Center"
-                            Text="{Binding SelectedCharacter.Medicine.score, StringFormat='Medicine: +{0}'}" />
+                            Text="{Binding SelectedCharacter.Medicine.score, StringFormat='Medicine: {0}'}" />
                         <TextBlock
                             Grid.Row="3"
                             Grid.Column="0"
                             HorizontalAlignment="Center"
-                            Text="{Binding SelectedCharacter.Perception.score, StringFormat='Perception: +{0}'}" />
+                            Text="{Binding SelectedCharacter.Perception.score, StringFormat='Perception: {0}'}" />
                         <TextBlock
                             Grid.Row="4"
                             Grid.Column="0"
                             HorizontalAlignment="Center"
-                            Text="{Binding SelectedCharacter.Survival.score, StringFormat='Survival: +{0}'}" />
+                            Text="{Binding SelectedCharacter.Survival.score, StringFormat='Survival: {0}'}" />
                         <TextBlock
                             Grid.Row="5"
                             Grid.Column="0"
                             HorizontalAlignment="Center"
-                            Text="{Binding SelectedCharacter.Nature.score, StringFormat='Nature: +{0}'}" />
+                            Text="{Binding SelectedCharacter.Nature.score, StringFormat='Nature: {0}'}" />
                         <TextBlock
                             Grid.Row="6"
                             Grid.Column="0"
                             HorizontalAlignment="Center"
-                            Text="{Binding SelectedCharacter.Arcana.score, StringFormat='Arcana: +{0}'}" />
+                            Text="{Binding SelectedCharacter.Arcana.score, StringFormat='Arcana: {0}'}" />
                         <TextBlock
                             Grid.Row="7"
                             Grid.Column="0"
                             HorizontalAlignment="Center"
-                            Text="{Binding SelectedCharacter.History.score, StringFormat='History: +{0}'}" />
+                            Text="{Binding SelectedCharacter.History.score, StringFormat='History: {0}'}" />
                         <TextBlock
                             Grid.Row="8"
                             Grid.Column="0"
                             HorizontalAlignment="Center"
-                            Text="{Binding SelectedCharacter.Investigation.score, StringFormat='Investigation: +{0}'}" />
+                            Text="{Binding SelectedCharacter.Investigation.score, StringFormat='Investigation: {0}'}" />
 
                         <TextBlock
                             Grid.Row="0"
                             Grid.Column="1"
                             HorizontalAlignment="Center"
-                            Text="{Binding SelectedCharacter.Athletics.score, StringFormat='Athletics: +{0}'}" />
+                            Text="{Binding SelectedCharacter.Athletics.score, StringFormat='Athletics: {0}'}" />
                         <TextBlock
                             Grid.Row="1"
                             Grid.Column="1"
                             HorizontalAlignment="Center"
-                            Text="{Binding SelectedCharacter.Acrobatics.score, StringFormat='Acrobatics: +{0}'}" />
+                            Text="{Binding SelectedCharacter.Acrobatics.score, StringFormat='Acrobatics: {0}'}" />
                         <TextBlock
                             Grid.Row="2"
                             Grid.Column="1"
                             HorizontalAlignment="Center"
-                            Text="{Binding SelectedCharacter.SleightOfHand.score, StringFormat='Sleight Of Hand: +{0}'}" />
+                            Text="{Binding SelectedCharacter.SleightOfHand.score, StringFormat='Sleight Of Hand: {0}'}" />
                         <TextBlock
                             Grid.Row="3"
                             Grid.Column="1"
                             HorizontalAlignment="Center"
-                            Text="{Binding SelectedCharacter.Stealth.score, StringFormat='Stealth: +{0}'}" />
+                            Text="{Binding SelectedCharacter.Stealth.score, StringFormat='Stealth: {0}'}" />
                         <TextBlock
                             Grid.Row="4"
                             Grid.Column="1"
                             HorizontalAlignment="Center"
-                            Text="{Binding SelectedCharacter.Deception.score, StringFormat='Deception: +{0}'}" />
+                            Text="{Binding SelectedCharacter.Deception.score, StringFormat='Deception: {0}'}" />
                         <TextBlock
                             Grid.Row="5"
                             Grid.Column="1"
                             HorizontalAlignment="Center"
-                            Text="{Binding SelectedCharacter.Intimidation.score, StringFormat='Intimidation: +{0}'}" />
+                            Text="{Binding SelectedCharacter.Intimidation.score, StringFormat='Intimidation: {0}'}" />
                         <TextBlock
                             Grid.Row="6"
                             Grid.Column="1"
                             HorizontalAlignment="Center"
-                            Text="{Binding SelectedCharacter.Performance.score, StringFormat='Performance: +{0}'}" />
+                            Text="{Binding SelectedCharacter.Performance.score, StringFormat='Performance: {0}'}" />
                         <TextBlock
                             Grid.Row="7"
                             Grid.Column="1"
                             HorizontalAlignment="Center"
-                            Text="{Binding SelectedCharacter.Persuasion.score, StringFormat='Persuasion: +{0}'}" />
+                            Text="{Binding SelectedCharacter.Persuasion.score, StringFormat='Persuasion: {0}'}" />
                         <TextBlock
                             Grid.Row="8"
                             Grid.Column="1"
                             HorizontalAlignment="Center"
-                            Text="{Binding SelectedCharacter.Religion.score, StringFormat='Religion: +{0}'}" />
+                            Text="{Binding SelectedCharacter.Religion.score, StringFormat='Religion: {0}'}" />
                     </Grid>
                 </Border>
             </GroupBox>
