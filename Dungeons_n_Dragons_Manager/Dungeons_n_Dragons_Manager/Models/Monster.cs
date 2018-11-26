@@ -90,8 +90,8 @@ namespace Dungeons_n_Dragons_Manager.Models
                     else if (environment == "Hill") IsHill = true;
                     else if (environment == "Mountain") IsMountain = true;
                     else if (environment == "Swamp") IsSwamp = true;
-                    else if (environment == "UnderDark") IsUnderdark = true;
-                    else if (environment == "UnderWater") IsUnderwater = true;
+                    else if (environment == "Underdark") IsUnderdark = true;
+                    else if (environment == "Underwater") IsUnderwater = true;
                     else if (environment == "Urban") IsUrban = true;
                 }
             }

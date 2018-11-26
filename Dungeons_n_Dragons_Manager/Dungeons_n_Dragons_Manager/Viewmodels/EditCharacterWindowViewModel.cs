@@ -92,12 +92,17 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         {
             get
             {
-                if (SelectedCharacter.Equals(EditableCharacter)) return false;
+
+
                 bool hasUniqueName = true;
                 foreach (Character character in CustomCharacters)
                 {
-                    if (character.Name == EditableCharacter.Name) hasUniqueName = false;
+                    if (!SelectedCharacter.Equals(character))
+                    {
+                        if (character.Name == EditableCharacter.Name) hasUniqueName = false;
+                    }
                 }
+
                 bool hasName = !(string.IsNullOrWhiteSpace(EditableCharacter.Name));
                 bool hasClass = !(string.IsNullOrWhiteSpace(EditableCharacter.Class));
                 bool hasRace = !(string.IsNullOrWhiteSpace(EditableCharacter.Race));

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Dungeons_n_Dragons_Manager.Test_Suite.Tests
 {
+    /// <summary>
+    /// Test class for the MainWindowViewmodel class.
+    /// </summary>
     class MainWindowViewmodel_Tests
     {
         /// <summary>

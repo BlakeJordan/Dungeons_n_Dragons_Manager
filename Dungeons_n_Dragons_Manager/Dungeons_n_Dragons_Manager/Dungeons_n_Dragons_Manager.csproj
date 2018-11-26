@@ -84,6 +84,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Test Suite\TestSuite.cs" />
+    <Compile Include="Test Suite\Tests\CharactersTabViewmodel_Tests.cs" />
+    <Compile Include="Test Suite\Tests\Character_Tests.cs" />
     <Compile Include="Test Suite\Tests\DiceRolls_Tests.cs" />
     <Compile Include="Test Suite\Tests\EncountersTabViewmodel_Tests .cs" />
     <Compile Include="Test Suite\Tests\EditMonsterViewmodel_Tests.cs" />
@@ -201,6 +203,9 @@
     <EmbeddedResource Include="Windows\AboutBoxWindow.resx">
       <DependentUpon>AboutBoxWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Assets\UserManual\UserManual.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -266,9 +271,7 @@
     <Content Include="Assets\Music\7_The_Desert_Awaits.mp3" />
     <Content Include="Assets\Music\96_Windswept_Plains_b.mp3" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\UserManual\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Assets\Music\104_River_Town.mp3" />
     <Content Include="Assets\Music\131_The_Bog_Standard.mp3" />

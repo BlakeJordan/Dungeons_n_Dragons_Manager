@@ -16,12 +16,39 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// </summary>
         public ObservableCollection<Attribute> Attributes { get; set; }
 
+        /// <summary>
+        /// A collection of the character's skills
+        /// </summary>
         public ObservableCollection<Skill> Skills { get; set; }
+
+        /// <summary>
+        /// Represents the character's Strength attribute
+        /// </summary>
         public Attribute Strength { get; set; }
+
+        /// <summary>
+        /// Represents the character's Constitution attribute
+        /// </summary>
         public Attribute Constitution { get; set; }
+
+        /// <summary>
+        /// Represents the character's Dexterity attribute
+        /// </summary>
         public Attribute Dexterity { get; set; }
+
+        /// <summary>
+        /// Represents the character's Intelligence attribute
+        /// </summary>
         public Attribute Intelligence { get; set; }
+
+        /// <summary>
+        /// Represents the character's Wisdom attribute
+        /// </summary>
         public Attribute Wisdom { get; set; }
+
+        /// <summary>
+        /// Represents the character's Charisma attribute
+        /// </summary>
         public Attribute Charisma { get; set; }
 
         /// <summary>
@@ -140,19 +167,9 @@ namespace Dungeons_n_Dragons_Manager.Models
         public int Level { get; set; }
 
         /// <summary>
-        /// Represents the maximum hit points
-        /// </summary>
-        public int MaxHP { get; set; }
-
-        /// <summary>
         /// Represents the current hit points
         /// </summary>
         public int HP { get; set; }
-
-        /// <summary>
-        /// Represents experience points
-        /// </summary>
-        public int XP { get; set; }
 
         /// <summary>
         /// Represents armor class
@@ -163,21 +180,6 @@ namespace Dungeons_n_Dragons_Manager.Models
         /// Represents the specific notes for a character
         /// </summary>
         public string Notes { get; set; }
-
-        /// <summary>
-        /// Represents the character's class-specific specialization
-        /// </summary>
-        public string Specialization { get; set; }
-
-        /// <summary>
-        /// Represents the character's weapons
-        /// </summary>
-        public List<string> Weapons { get; set; }
-
-        /// <summary>
-        /// Represents the character's abilities and spells
-        /// </summary>
-        public List<string> Abilities { get; set; }
 
         /// <summary>
         /// The added bonus a character gets on skill-related rolls
@@ -257,9 +259,7 @@ namespace Dungeons_n_Dragons_Manager.Models
             Level = copyCharacter.Level;
             Class = copyCharacter.Class;
             Race = copyCharacter.Race;
-            MaxHP = copyCharacter.MaxHP;
             HP = copyCharacter.HP;
-            XP = copyCharacter.XP;
             ArmorType = copyCharacter.ArmorType;
             AC = copyCharacter.AC;
             ProficiencyBonus = copyCharacter.ProficiencyBonus;
