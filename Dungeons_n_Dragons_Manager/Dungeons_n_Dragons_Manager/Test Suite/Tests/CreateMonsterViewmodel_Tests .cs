@@ -8,12 +8,12 @@ namespace Dungeons_n_Dragons_Manager.Test_Suite.Tests
     /// <summary>
     /// Test class for the EncountersTabViewmodel class.
     /// </summary>
-    internal class EditMonsterViewmodel_Tests
+    internal class CreateMonsterViewmodel_Tests
     {
         /// <summary>
         /// Defualt constructor.
         /// </summary>
-        public EditMonsterViewmodel_Tests() { }
+        public CreateMonsterViewmodel_Tests() { }
 
         /// <summary>
         /// Stores all testing results.
@@ -28,7 +28,7 @@ namespace Dungeons_n_Dragons_Manager.Test_Suite.Tests
         /// <returns>Returns m_testingOutput.</returns>
         public List<string> RunAllTests()
         {
-            m_testingOutput.Add("\n\nEditMonsterTabViewmodel Tests"); //Add header.
+            m_testingOutput.Add("\n\nCreateMonsterTabViewmodel Tests"); //Add header.
 
             defaultConstructorTest();
 
@@ -42,12 +42,12 @@ namespace Dungeons_n_Dragons_Manager.Test_Suite.Tests
         /// </summary>
         private void defaultConstructorTest()
         {
-            EditMonsterWindowViewmodel EditMonsterWindowViewmodel = new EditMonsterWindowViewmodel();
+            CreateMonsterWindowViewmodel CreateMonsterWindowViewmodel = new CreateMonsterWindowViewmodel();
 
             m_testingOutput.Add("Default Constructor:");
 
             string test1 = "The custom monsters dropdown is filled with current custom monsters.--> ";
-            if(EditMonsterWindowViewmodel.CustomMonsters == null) test1 += "PASSED";
+            if(CreateMonsterWindowViewmodel.m_customMonsters == null) test1 += "PASSED";
             else test1 += "FAILED";
             m_testingOutput.Add(test1);
         }

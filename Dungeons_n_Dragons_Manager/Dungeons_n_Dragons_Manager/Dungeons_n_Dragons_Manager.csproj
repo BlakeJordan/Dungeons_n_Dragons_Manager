@@ -87,6 +87,7 @@
     <Compile Include="Test Suite\Tests\CharactersTabViewmodel_Tests.cs" />
     <Compile Include="Test Suite\Tests\Character_Tests.cs" />
     <Compile Include="Test Suite\Tests\DiceRolls_Tests.cs" />
+    <Compile Include="Test Suite\Tests\CreateMonsterViewmodel_Tests .cs" />
     <Compile Include="Test Suite\Tests\EncountersTabViewmodel_Tests .cs" />
     <Compile Include="Test Suite\Tests\EditMonsterViewmodel_Tests.cs" />
     <Compile Include="Test Suite\Tests\MainWindowViewmodel_Tests.cs" />
