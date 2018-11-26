@@ -23,7 +23,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
         /// </summary>
         public MainWindowViewmodel()
         {
-            //Properties.Settings.Default.Reset();                                              //Uncomment to delete current settings!
+            Properties.Settings.Default.Reset();                                              //Uncomment to delete current settings!
 
             initalizeMonstersList();
 
