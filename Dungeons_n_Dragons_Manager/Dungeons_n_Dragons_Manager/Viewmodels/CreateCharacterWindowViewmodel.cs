@@ -60,20 +60,7 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
                 }
             }
         }
-        
-
-        /// <summary>
-        /// Count of the characters that have been created.
-        /// </summary>
-        private static int m_characterCount;
-
-        /// <summary>
-        /// Public accessor for m_characterCount.
-        /// </summary>
-        internal static int CharacterCount()
-        {
-            return (m_characterCount);
-        }
+       
 
         /// <summary>
         /// Character that is bound to the UI.
@@ -198,7 +185,6 @@ namespace Dungeons_n_Dragons_Manager.Viewmodels
             if (Properties.Settings.Default.CustomCharactersList == null) Properties.Settings.Default.CustomCharactersList = new List<Character>();
             Properties.Settings.Default.CustomCharactersList.Add(EditableCharacter);
             Properties.Settings.Default.Save();
-            m_characterCount++;
 
         }
 

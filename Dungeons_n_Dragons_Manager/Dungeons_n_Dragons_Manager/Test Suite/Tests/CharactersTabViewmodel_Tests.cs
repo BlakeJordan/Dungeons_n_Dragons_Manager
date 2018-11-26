@@ -47,7 +47,7 @@ namespace Dungeons_n_Dragons_Manager.Test_Suite.Tests
             m_testingOutput.Add("Default Constructor:");
 
             string test1 = "Characters observable collection is filled --> ";
-            if (CharactersTabViewmodel.Characters.Count == CreateCharacterWindowViewmodel.CharacterCount()) test1 += "PASSED";
+            if (CharactersTabViewmodel.Characters.Count != 0) test1 += "PASSED";
             else test1 += "FAILED";
             m_testingOutput.Add(test1);
         }
