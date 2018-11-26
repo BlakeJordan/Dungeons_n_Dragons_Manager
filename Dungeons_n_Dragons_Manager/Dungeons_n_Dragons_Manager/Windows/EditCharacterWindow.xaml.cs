@@ -1,6 +1,8 @@
 ﻿using Dungeons_n_Dragons_Manager.Models;
 using Dungeons_n_Dragons_Manager.Viewmodels;
+using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Dungeons_n_Dragons_Manager.Windows
 {
@@ -61,6 +63,12 @@ namespace Dungeons_n_Dragons_Manager.Windows
         private void ComboBox_CheckCanSave(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             //m_viewmodel.CheckCanSave.Execute(null);
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }
